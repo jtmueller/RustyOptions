@@ -125,6 +125,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             : string.Create(CultureInfo.InvariantCulture, $"Err({_err})");
     }
 
+    /// <inheritdoc />
     public string ToString(string? format, IFormatProvider? formatProvider)
     {
         if (string.IsNullOrEmpty(format))
@@ -139,6 +140,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             : string.Format(formatProvider, "Err({0:" + format + "})", _err);
     }
 
+    /// <inheritdoc />
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
     {
         if (_isOk)
@@ -221,6 +223,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     public override int GetHashCode()
         => _isOk ? _value.GetHashCode() : _err.GetHashCode();
 
+    /// <inheritdoc />
     public int CompareTo(Result<T, TErr> other)
     {
         // Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in T or E respectively.
