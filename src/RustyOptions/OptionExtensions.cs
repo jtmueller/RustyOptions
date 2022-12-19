@@ -3,6 +3,9 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
+/// <summary>
+/// Extension methods for the <see cref="Option{T}"/> type.
+/// </summary>
 public static class OptionExtensions
 {
     /// <summary>

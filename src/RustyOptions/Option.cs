@@ -115,8 +115,8 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// <inheritdoc />
     public override string ToString()
     {
-        return _isSome 
-            ? string.Create(CultureInfo.InvariantCulture, $"Some({_value})") 
+        return _isSome
+            ? string.Create(CultureInfo.InvariantCulture, $"Some({_value})")
             : "None";
     }
 

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
+/// <summary>
+/// Extension methods for using <c>System.Text.Json</c> types with <see cref="Option{T}"/>.
+/// </summary>
 public static class OptionJsonExtensions
 {
     /// <summary>

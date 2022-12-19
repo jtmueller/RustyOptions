@@ -1,5 +1,4 @@
-﻿using Xunit;
-using static RustyOptions.Result;
+﻿using static RustyOptions.Result;
 
 namespace RustyOptions.Tests;
 

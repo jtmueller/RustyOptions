@@ -4,6 +4,9 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
+/// <summary>
+/// Extension methods for using collections with <see cref="Option{T}"/>.
+/// </summary>
 public static class OptionCollectionExtensions
 {
     /// <summary>
