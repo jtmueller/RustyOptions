@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AnalysisMode>Recommended</AnalysisMode>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>11</LangVersion>
 
     <IsPackable>false</IsPackable>
     <AssemblyName>RustyOptions.Tests</AssemblyName>

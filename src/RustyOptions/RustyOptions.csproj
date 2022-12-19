@@ -5,7 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AnalysisMode>Recommended</AnalysisMode>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>11</LangVersion>
     <AssemblyName>RustyOptions</AssemblyName>
+    <DocumentationFile>bin\Debug\net6.0\RustyOptions.xml</DocumentationFile>
   </PropertyGroup>
+
 </Project>

@@ -17,7 +17,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// <summary>
     /// Returns the <c>None</c> option for the specified <typeparamref name="T"/>.
     /// </summary>
-    [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "Disagree in this case.")]
+    [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "The syntax `Option<T>.None` is too nice to give up.")]
     public static Option<T> None
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
