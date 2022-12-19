@@ -27,15 +27,13 @@ public class OptionCollectionTests
         Assert.Equal(Some("three"), numsToNames.GetOrNone(3));
         Assert.True(numsToNames.GetOrNone(7).IsNone);
 
-        var chainResult = numsToNames
-            .GetOrNone(4)
+        var chainResult = numsToNames.GetOrNone(4)
             .AndThen(namesToNums.GetOrNone)
             .AndThen(ParseInt);
 
         Assert.Equal(Some(4), chainResult);
 
-        chainResult = numsToNames
-            .GetOrNone(96)
+        chainResult = numsToNames.GetOrNone(96)
             .AndThen(namesToNums.GetOrNone)
             .AndThen(ParseInt);
 
