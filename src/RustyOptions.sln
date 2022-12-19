@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions", "RustyOptions\RustyOptions.csproj", "{3E62E77B-58E6-497A-8202-072D69B20B7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Tests", "RustyOptions.Tests\RustyOptions.Tests.csproj", "{B261E3E2-0462-4F28-9C4D-5D9809D55B83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E62E77B-58E6-497A-8202-072D69B20B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E62E77B-58E6-497A-8202-072D69B20B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E62E77B-58E6-497A-8202-072D69B20B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E62E77B-58E6-497A-8202-072D69B20B7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B261E3E2-0462-4F28-9C4D-5D9809D55B83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B261E3E2-0462-4F28-9C4D-5D9809D55B83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B261E3E2-0462-4F28-9C4D-5D9809D55B83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B261E3E2-0462-4F28-9C4D-5D9809D55B83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = Option and Result types for C#, inspired by Rust
+	EndGlobalSection
+EndGlobal
