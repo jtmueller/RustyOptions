@@ -49,34 +49,6 @@ public static class ResultExtensions
         return self.IsOk(out var value) ? mapper(value) : defaultFactory();
     }
 
-    public static T Expect<T, TErr>(this Result<T, TErr> self, string message)
-        where T : notnull where TErr : notnull
-    {
-        var (isOk, value, err) = self;
-
-        if (isOk)
-            return value!;
-
-        if (err is Exception ex)
-            throw new InvalidOperationException(message, ex);
-
-        throw new InvalidOperationException($"{message}: {err}");
-    }
-
-    public static T Unwrap<T, TErr>(this Result<T, TErr> self)
-        where T : notnull where TErr : notnull
-    {
-        var (isOk, value, err) = self;
-
-        if (isOk)
-            return value!;
-
-        if (err is Exception ex)
-            throw new InvalidOperationException("Could not unwrap a Result in the Err state.", ex);
-
-        throw new InvalidOperationException($"Could not unwrap a Result in the Err state: {err}");
-    }
-
     public static T UnwrapOr<T, TErr>(this Result<T, TErr> self, T defaultValue)
         where T : notnull where TErr : notnull
     {
@@ -127,18 +99,10 @@ public static class ResultExtensions
     public static Option<Result<T, TErr>> Transpose<T, TErr>(this Result<Option<T>, TErr> self)
         where T : notnull where TErr : notnull
     {
-        // Ok(None) will be mapped to None. Ok(Some(_)) and Err(_) will be mapped to Some(Ok(_)) and Some(Err(_)).
-
-        var (isOk, opt, err) = self;
-
-        if (isOk)
-        {
-            return opt.IsSome(out var value)
-                ? Option.Some(Result.Ok<T, TErr>(value))
-                : default;
-        }
-
-        return Option.Some(Result.Err<T, TErr>(err!));
+        return self.Match(
+            onOk: x => x.IsSome(out var value) ? Option.Some(Result.Ok<T, TErr>(value)) : default,
+            onErr: e => Option.Some(Result.Err<T, TErr>(e))
+        );
     }
 
     public static Result<T2, TErr> And<T1, T2, TErr>(this Result<T1, TErr> self, Result<T2, TErr> other)

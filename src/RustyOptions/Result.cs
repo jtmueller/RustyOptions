@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
@@ -14,7 +14,7 @@ namespace RustyOptions;
 /// </summary>
 /// <typeparam name="T">The type of the return value.</typeparam>
 /// <typeparam name="TErr">The type of the error value.</typeparam>
-public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, ISpanFormattable
+public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IEnumerable<T>, ISpanFormattable
     where T : notnull where TErr : notnull
 {
     /// <summary>
@@ -77,6 +77,28 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         return _isOk ? onOk(_value) : onErr(_err);
     }
 
+    public T Expect(string message)
+    {
+        if (_isOk)
+            return _value;
+
+        if (_err is Exception ex)
+            throw new InvalidOperationException(message, ex);
+
+        throw new InvalidOperationException($"{message}: {_err}");
+    }
+
+    public T Unwrap()
+    {
+        if (_isOk)
+            return _value;
+
+        if (_err is Exception ex)
+            throw new InvalidOperationException("Could not unwrap a Result in the Err state.", ex);
+
+        throw new InvalidOperationException($"Could not unwrap a Result in the Err state: {_err}");
+    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public ReadOnlySpan<T> AsSpan()
     {
@@ -85,11 +107,15 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             : ReadOnlySpan<T>.Empty;
     }
 
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public ReadOnlySpan<T>.Enumerator GetEnumerator()
+    IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
-        return AsSpan().GetEnumerator();
+        if (_isOk)
+        {
+            yield return _value;
+        }
     }
+
+    IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)this).GetEnumerator();
 
     /// <inheritdoc />
     public override string ToString()
@@ -174,14 +200,6 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
 
         charsWritten = 0;
         return false;
-    }
-
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public void Deconstruct(out bool isOk, out T? value, out TErr? err)
-    {
-        isOk = _isOk;
-        value = _value;
-        err = _err;
     }
 
     /// <inheritdoc />

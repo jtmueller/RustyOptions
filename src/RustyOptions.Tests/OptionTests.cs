@@ -386,16 +386,4 @@ public sealed class OptionTests
         Array.Sort(items);
         Assert.Equal(new[] { n, a, b, c, d }, items);
     }
-
-    [Fact]
-    public void CanDeconstruct()
-    {
-        var (isSome, value) = Some(42);
-        Assert.True(isSome);
-        Assert.Equal(42, value);
-
-        (isSome, value) = None<int>();
-        Assert.False(isSome);
-        Assert.Equal(default, value);
-    }
 }

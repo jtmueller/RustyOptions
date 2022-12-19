@@ -1,17 +1,17 @@
-﻿namespace RustyOptions;
-
-using System.ComponentModel;
+﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+
+namespace RustyOptions;
 
 /// <summary>
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
 /// <typeparam name="T">The type the opton might contain.</typeparam>
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic.")]
-public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, ISpanFormattable
+public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IEnumerable<T>, ISpanFormattable
     where T : notnull
 {
     /// <summary>
@@ -69,29 +69,15 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
             : ReadOnlySpan<T>.Empty;
     }
 
-    /// <summary>
-    /// Returns an enumerator that allows the option to be iterated with a <c>foreach</c> loop.
-    /// </summary>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public ReadOnlySpan<T>.Enumerator GetEnumerator()
-        => AsSpan().GetEnumerator();
-
-    /// <summary>
-    /// The Deconstruct method is used by the C# destructuring syntax to get the component
-    /// parts from this Option.
-    /// <code>
-    ///   var (isSome, value) = Option.Some(42);
-    ///   // isSome is true, value is 42
-    /// </code>
-    /// </summary>
-    /// <param name="isSome">Whether or not this option represents a <c>Some</c> value.</param>
-    /// <param name="value">The value contained in this option, if any.</param>
-    [EditorBrowsable(EditorBrowsableState.Never)]
-    public void Deconstruct(out bool isSome, out T? value)
+    IEnumerator<T> IEnumerable<T>.GetEnumerator()
     {
-        isSome = _isSome;
-        value = _value;
+        if (_isSome)
+        {
+            yield return _value;
+        }
     }
+
+    IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)this).GetEnumerator();
 
     /// <inheritdoc />
     public bool Equals(Option<T> other)
@@ -222,8 +208,7 @@ public static class Option
     /// <param name="value">The value to wrap in a <c>Some</c> option.</param>
     /// <returns>The given value, wrapped in a <c>Some</c> option.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> Some<T>(T value) where T : notnull
-        => new(value);
+    public static Option<T> Some<T>(T value) where T : notnull => new(value);
 
     /// <summary>
     /// Returns a <c>Some</c> option for the specified <paramref name="value"/> if it is not null, otherwise <c>None</c>.
@@ -231,8 +216,7 @@ public static class Option
     /// <param name="value">The value to wrap in a <c>Some</c> option.</param>
     /// <returns>The given value, wrapped in a <c>Some</c> option.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> Create<T>(T? value) where T : class
-        => new(value!);
+    public static Option<T> Create<T>(T? value) where T : class => new(value!);
 
     /// <summary>
     /// Returns a <c>Some</c> option for the specified <paramref name="value"/> is it is not null, otherwise <c>None</c>.
