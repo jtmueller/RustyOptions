@@ -6,43 +6,43 @@ namespace RustyOptions;
 public static class ResultExtensions
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<U, UErr> Bind<T, TErr, U, UErr>(this Result<T, TErr> self,
-                                                         Func<T, Result<U, UErr>> okBinder,
-                                                         Func<TErr, Result<U, UErr>> errBinder)
-        where T : notnull where TErr : notnull where U : notnull where UErr : notnull
+    public static Result<T2, T2Err> Bind<T1, T1Err, T2, T2Err>(this Result<T1, T1Err> self,
+                                                               Func<T1, Result<T2, T2Err>> okBinder,
+                                                               Func<T1Err, Result<T2, T2Err>> errBinder)
+        where T1 : notnull where T1Err : notnull where T2 : notnull where T2Err : notnull
     {
         return self.Match(okBinder, errBinder);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<U, TErr> Map<T, TErr, U>(this Result<T, TErr> self, Func<T, U> mapper)
-        where T : notnull where TErr : notnull where U : notnull
+    public static Result<T2, TErr> Map<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper)
+        where T1 : notnull where TErr : notnull where T2 : notnull
     {
         return self.Match(
-            onOk: x => Result<U, TErr>.Ok(mapper(x)),
-            onErr: Result<U, TErr>.Err
+            onOk: x => new(mapper(x)),
+            onErr: Result.Err<T2, TErr>
         );
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<T, UErr> MapErr<T, TErr, UErr>(this Result<T, TErr> self, Func<TErr, UErr> errMapper)
-        where T : notnull where TErr : notnull where UErr : notnull
+    public static Result<T, T2Err> MapErr<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, T2Err> errMapper)
+        where T : notnull where T1Err : notnull where T2Err : notnull
     {
         return self.Match(
-            onOk: Result<T, UErr>.Ok,
-            onErr: e => Result<T, UErr>.Err(errMapper(e))
+            onOk: Result.Ok<T, T2Err>,
+            onErr: e => new(errMapper(e))
         );
     }
 
-    public static U MapOr<T, TErr, U>(this Result<T, TErr> self, Func<T, U> mapper, U defaultValue)
-        where T : notnull where TErr : notnull where U : notnull
+    public static T2 MapOr<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, T2 defaultValue)
+        where T1 : notnull where TErr : notnull where T2 : notnull
     {
         ThrowIfNull(mapper);
         return self.IsOk(out var value) ? mapper(value) : defaultValue;
     }
 
-    public static U MapOrElse<T, TErr, U>(this Result<T, TErr> self, Func<T, U> mapper, Func<U> defaultFactory)
-        where T : notnull where TErr : notnull where U : notnull
+    public static T2 MapOrElse<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
+        where T1 : notnull where TErr : notnull where T2 : notnull
     {
         ThrowIfNull(mapper);
         ThrowIfNull(defaultFactory);
@@ -112,16 +112,16 @@ public static class ResultExtensions
         where T : notnull where TErr : notnull
     {
         return self.IsErr(out var err)
-            ? Option<TErr>.Some(err)
-            : Option<TErr>.None;
+            ? Option.Some(err)
+            : default;
     }
 
     public static Option<T> Ok<T, TErr>(this Result<T, TErr> self)
         where T : notnull where TErr : notnull
     {
         return self.IsOk(out var value)
-            ? Option<T>.Some(value)
-            : Option<T>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     public static Option<Result<T, TErr>> Transpose<T, TErr>(this Result<Option<T>, TErr> self)
@@ -134,15 +134,15 @@ public static class ResultExtensions
         if (isOk)
         {
             return opt.IsSome(out var value)
-                ? Option.Some(Result<T, TErr>.Ok(value))
-                : Option<Result<T, TErr>>.None;
+                ? Option.Some(Result.Ok<T, TErr>(value))
+                : default;
         }
 
-        return Option.Some(Result<T, TErr>.Err(err!));
+        return Option.Some(Result.Err<T, TErr>(err!));
     }
 
-    public static Result<U, TErr> And<T, TErr, U>(this Result<T, TErr> self, Result<U, TErr> other)
-        where T : notnull where TErr : notnull where U : notnull
+    public static Result<T2, TErr> And<T1, T2, TErr>(this Result<T1, TErr> self, Result<T2, TErr> other)
+        where T1 : notnull where TErr : notnull where T2 : notnull
     {
         var selfOk = !self.IsErr(out var selfErr);
         var otherOk = other.IsOk(out _);
@@ -150,30 +150,33 @@ public static class ResultExtensions
         if (selfOk == otherOk || selfOk)
             return other;
 
-        return Result<U, TErr>.Err(selfErr!);
+        return Result.Err<T2, TErr>(selfErr!);
     }
 
-    public static Result<U, TErr> AndThen<T, TErr, U>(this Result<T, TErr> self, Func<T, Result<U, TErr>> thenFunc)
-        where T : notnull where TErr : notnull where U : notnull
+    public static Result<T2, TErr> AndThen<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Result<T2, TErr>> thenFunc)
+        where T1 : notnull where TErr : notnull where T2 : notnull
     {
-        ThrowIfNull(thenFunc);
-        var (isOk, val, err) = self;
-        return isOk ? thenFunc(val!) : Result<U, TErr>.Err(err!);
+        return self.Match(
+            onOk: thenFunc,
+            onErr: Result.Err<T2, TErr>
+        );
     }
 
-    public static Result<T, UErr> Or<T, TErr, UErr>(this Result<T, TErr> self, Result<T, UErr> other)
-        where T : notnull where TErr : notnull where UErr : notnull
+    public static Result<T, T2Err> Or<T, T1Err, T2Err>(this Result<T, T1Err> self, Result<T, T2Err> other)
+        where T : notnull where T1Err : notnull where T2Err : notnull
     {
         if (self.IsOk(out var value))
-            return Result<T, UErr>.Ok(value);
+            return Result.Ok<T, T2Err>(value);
 
         return other;
     }
 
-    public static Result<T, UErr> OrElse<T, TErr, UErr>(this Result<T, TErr> self, Func<TErr, Result<T, UErr>> elseFunc)
-        where T : notnull where TErr : notnull where UErr : notnull
+    public static Result<T, T2Err> OrElse<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, Result<T, T2Err>> elseFunc)
+        where T : notnull where T1Err : notnull where T2Err : notnull
     {
-        var (isOk, val, err) = self;
-        return isOk ? Result<T, UErr>.Ok(val!) : elseFunc(err!);
+        return self.Match(
+            onOk: Result.Ok<T, T2Err>,
+            onErr: elseFunc
+        );
     }
 }

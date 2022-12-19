@@ -42,8 +42,8 @@ public sealed class OptionTests
     {
         var someInt = Some(42);
         var noneInt = None<int>();
-        var someResult = someInt.Map(x => x.ToString());
-        var noneResult = noneInt.Map(x => x.ToString());
+        var someResult = someInt.Map(x => x.ToString(CultureInfo.InvariantCulture));
+        var noneResult = noneInt.Map(x => x.ToString(CultureInfo.InvariantCulture));
 
         Assert.True(someResult.IsSome(out var str));
         Assert.Equal("42", str);
@@ -55,8 +55,8 @@ public sealed class OptionTests
     {
         var someInt = Some(42);
         var noneInt = None<int>();
-        var someResult = someInt.MapOr(x => x.ToString(), "empty");
-        var noneResult = noneInt.MapOr(x => x.ToString(), "empty");
+        var someResult = someInt.MapOr(x => x.ToString(CultureInfo.InvariantCulture), "empty");
+        var noneResult = noneInt.MapOr(x => x.ToString(CultureInfo.InvariantCulture), "empty");
 
         Assert.Equal("42", someResult);
         Assert.Equal("empty", noneResult);
@@ -67,8 +67,8 @@ public sealed class OptionTests
     {
         var someInt = Some(42);
         var noneInt = None<int>();
-        var someResult = someInt.MapOrElse(x => x.ToString(), () => "empty");
-        var noneResult = noneInt.MapOrElse(x => x.ToString(), () => "empty");
+        var someResult = someInt.MapOrElse(x => x.ToString(CultureInfo.InvariantCulture), () => "empty");
+        var noneResult = noneInt.MapOrElse(x => x.ToString(CultureInfo.InvariantCulture), () => "empty");
 
         Assert.Equal("42", someResult);
         Assert.Equal("empty", noneResult);
@@ -209,13 +209,13 @@ public sealed class OptionTests
     [Fact]
     public void CanTranspose()
     {
-        var someOkTest = Some(Result<int, string>.Ok(42));
-        var someErrTest = Some(Result<int, string>.Err("Bad things happened"));
+        var someOkTest = Some(Result.Ok<int, string>(42));
+        var someErrTest = Some(Result.Err<int, string>("Bad things happened"));
         var noneTest = None<Result<int, string>>();
 
-        var someOkExpected = Result<Option<int>, string>.Ok(Some(42));
-        var someErrExpected = Result<Option<int>, string>.Err("Bad things happened");
-        var noneExpected = Result<Option<int>, string>.Ok(None<int>());
+        var someOkExpected = Result.Ok<Option<int>, string>(Some(42));
+        var someErrExpected = Result.Err<Option<int>, string>("Bad things happened");
+        var noneExpected = Result.Ok<Option<int>, string>(None<int>());
 
         Assert.Equal(someOkExpected, someOkTest.Transpose());
         Assert.Equal(someErrExpected, someErrTest.Transpose());
@@ -404,7 +404,7 @@ public sealed class OptionTests
             { 5, "five" }
         };
 
-        var namesToNums = numsToNames.ToDictionary(kvp => kvp.Value, kvp => kvp.Key.ToString());
+        var namesToNums = numsToNames.ToDictionary(kvp => kvp.Value, kvp => kvp.Key.ToString(CultureInfo.InvariantCulture));
 
         Assert.Equal(Some("three"), numsToNames.GetOption(3));
         Assert.True(numsToNames.GetOption(7).IsNone);
@@ -449,7 +449,7 @@ public sealed class OptionTests
             { 5, "five" }
         };
 
-        var namesToNums = numsToNames.ToDictionary(kvp => kvp.Value, kvp => kvp.Key.ToString());
+        var namesToNums = numsToNames.ToDictionary(kvp => kvp.Value, kvp => kvp.Key.ToString(CultureInfo.InvariantCulture));
 
         var result = numsToNames.GetOption(2)
             .AndThen(Bind<string, string>(namesToNums.TryGetValue))
@@ -472,7 +472,7 @@ public sealed class OptionTests
     [Fact]
     public void CanGetJsonNodeValue()
     {
-        var obj = (JsonObject)JsonNode.Parse(s_testJson);
+        var obj = (JsonObject)JsonNode.Parse(s_testJson)!;
         
         var numVal = obj.GetPropValue<int>("number");
         var stringVal = obj.GetPropValue<string>("string");

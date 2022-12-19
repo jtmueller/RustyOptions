@@ -8,8 +8,8 @@ public sealed class ResultTests
     [Fact]
     public void CanPerformBasicOperationsStructClass()
     {
-        var okInt = Result<int, string>.Ok(42);
-        var errStr = Result<int, string>.Err("Whoops!");
+        var okInt = Result.Ok<int, string>(42);
+        var errStr = Result.Err<int, string>("Whoops!");
 
         var okInt2 = Ok<int, string>(42);
         var errStr2 = Err<int, string>("Whoops!");
@@ -27,8 +27,8 @@ public sealed class ResultTests
     [Fact]
     public void CanPerformBasicOperationsClassStruct()
     {
-        var okStr = Result<string, int>.Ok("Foo");
-        var errInt = Result<string, int>.Err(-1);
+        var okStr = Result.Ok<string, int>("Foo");
+        var errInt = Result.Err<string, int>(-1);
 
         var okInt2 = Ok<string, int>("Foo");
         var errStr2 = Err<string, int>(-1);

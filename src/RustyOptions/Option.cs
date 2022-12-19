@@ -17,25 +17,22 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// <summary>
     /// Returns the <c>None</c> option for the specified <typeparamref name="T"/>.
     /// </summary>
+    [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "Disagree in this case.")]
     public static Option<T> None
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => default;
     }
 
-    /// <summary>
-    /// Returns a <c>Some</c> option for the specified <paramref name="value"/>.
-    /// <para>NOTE: Nulls are not allowed; a null value will result in a <c>None</c> option even when calling <see cref="Some"/>.</para>
-    /// </summary>
-    /// <param name="value">The value to wrap in a <c>Some</c> option.</param>
-    /// <returns>The given value, wrapped in a <c>Some</c> option.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> Some(T value) => new(value);
-
     private readonly bool _isSome;
     private readonly T _value;
 
-    private Option(T value)
+    /// <summary>
+    /// Creates an <see cref="Option{T}"/> containing the given value.
+    /// <para>NOTE: Nulls are not allowed; a null value will result in a <c>None</c> option.</para>
+    /// </summary>
+    /// <param name="value">The value to wrap in an <see cref="Option{T}"/>.</param>
+    public Option(T value)
     {
         _value = value;
         _isSome = value is not null;
@@ -216,6 +213,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 /// <see cref="Option"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
 /// <typeparam name="T">The type the opton might contain.</typeparam>
+[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic.")]
 public static class Option
 {
     /// <summary>
@@ -225,7 +223,7 @@ public static class Option
     /// <returns>The given value, wrapped in a <c>Some</c> option.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<T> Some<T>(T value) where T : notnull
-        => Option<T>.Some(value);
+        => new(value);
 
     /// <summary>
     /// Returns a <c>Some</c> option for the specified <paramref name="value"/> if it is not null, otherwise <c>None</c>.
@@ -234,7 +232,7 @@ public static class Option
     /// <returns>The given value, wrapped in a <c>Some</c> option.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<T> Create<T>(T? value) where T : class
-        => Option<T>.Some(value!);
+        => new(value!);
 
     /// <summary>
     /// Returns a <c>Some</c> option for the specified <paramref name="value"/> is it is not null, otherwise <c>None</c>.
@@ -246,7 +244,7 @@ public static class Option
         where T : struct
     {
         return value.HasValue
-            ? Option<T>.Some(value.GetValueOrDefault())
+            ? new(value.GetValueOrDefault())
             : Option<T>.None;
     }
 
@@ -276,14 +274,14 @@ public static class Option
     {
         try
         {
-            return tryGet(out var value) ? Option<T>.Some(value!) : Option<T>.None;
+            return tryGet(out var value) ? new(value!) : default;
         }
         catch (Exception)
         {
             // JsonElement's TryGetXXX methods will throw an exception instead of
             // returning false if the underlying node type does not match the requested
             // data type (calling TryGetInt32 on a string node).
-            return Option<T>.None;
+            return default;
         }
     }
 
@@ -307,7 +305,7 @@ public static class Option
     public static Func<TKey, Option<TValue>> Bind<TKey, TValue>(TryGetValue<TKey, TValue> tryGetValue)
         where TValue : notnull where TKey : notnull
     {
-        return (TKey key) => tryGetValue(key, out var value) ? Option<TValue>.Some(value!) : Option<TValue>.None;
+        return (TKey key) => tryGetValue(key, out var value) ? new(value!) : default;
     }
 
 #if NET7_0_OR_GREATER
@@ -324,8 +322,7 @@ public static class Option
         where T : IParsable<T>
     {
         return T.TryParse(s, provider, out var value)
-            ? Option<T>.Some(value)
-            : Option<T>.None;
+            ? new(value) : default;
     }
 
     /// <summary>
@@ -350,8 +347,7 @@ public static class Option
         where T : ISpanParsable<T>
     {
         return T.TryParse(s, provider, out var value)
-            ? Option<T>.Some(value)
-            : Option<T>.None;
+            ? new(value) : default;
     }
 
     /// <summary>

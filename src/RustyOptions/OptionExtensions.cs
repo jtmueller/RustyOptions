@@ -11,20 +11,20 @@ public static class OptionExtensions
     /// If the option has a value, passes that option to the mapper function and returns that value
     /// as a <c>Some</c>.
     /// </summary>
-    /// <typeparam name="T">The type of the option.</typeparam>
-    /// <typeparam name="U">The type returned by the binder functions.</typeparam>
+    /// <typeparam name="T1">The type of the option.</typeparam>
+    /// <typeparam name="T2">The type returned by the mapper functions.</typeparam>
     /// <param name="self">The option to map.</param>
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <returns>The mapped value as <c>Some</c>, or <c>None</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
-    public static Option<U> Map<T, U>(this Option<T> self, Func<T, U> mapper)
-        where T : notnull where U : notnull
+    public static Option<T2> Map<T1, T2>(this Option<T1> self, Func<T1, T2> mapper)
+        where T1 : notnull where T2 : notnull
     {
         ThrowIfNull(mapper);
 
         return self.IsSome(out var value)
-            ? Option<U>.Some(mapper(value))
-            : Option<U>.None;
+            ? Option.Some(mapper(value))
+            : default;
     }
 
     /// <summary>
@@ -33,15 +33,15 @@ public static class OptionExtensions
     ///   Arguments passed to <see cref="MapOr"/> are eagerly evaluated; if you are passing the result of a function call,
     ///   it is recommended to use <see cref="MapOrElse"/>, which is lazily evaluated.</para>
     /// </summary>
-    /// <typeparam name="T">The type of the option's value.</typeparam>
-    /// <typeparam name="U">The return type after mapping.</typeparam>
+    /// <typeparam name="T1">The type of the option's value.</typeparam>
+    /// <typeparam name="T2">The return type after mapping.</typeparam>
     /// <param name="self">The option to map.</param>
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <param name="defaultValue">The default value to return if the option is <c>None</c>.</param>
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
-    public static U MapOr<T, U>(this Option<T> self, Func<T, U> mapper, U defaultValue)
-        where T : notnull where U : notnull
+    public static T2 MapOr<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, T2 defaultValue)
+        where T1 : notnull where T2 : notnull
     {
         ThrowIfNull(mapper);
         return self.IsSome(out var value) ? mapper(value) : defaultValue;
@@ -50,16 +50,16 @@ public static class OptionExtensions
     /// <summary>
     /// Computes a default function result (if <c>None</c>), or applies a different function to the contained value (if <c>Some</c>).
     /// </summary>
-    /// <typeparam name="T">The type of the option's value.</typeparam>
-    /// <typeparam name="U">The return type after mapping.</typeparam>
+    /// <typeparam name="T1">The type of the option's value.</typeparam>
+    /// <typeparam name="T2">The return type after mapping.</typeparam>
     /// <param name="self">The option to map.</param>
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <param name="defaultFactory">The function that lazily generates a default value, if required.</param>
     /// <param name="defaultValue">The default value to return if the option is <c>None</c>.</param>
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
-    public static U MapOrElse<T, U>(this Option<T> self, Func<T, U> mapper, Func<U> defaultFactory)
-        where T : notnull where U : notnull
+    public static T2 MapOrElse<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
+        where T1 : notnull where T2 : notnull
     {
         ThrowIfNull(mapper);
         ThrowIfNull(defaultFactory);
@@ -139,8 +139,7 @@ public static class OptionExtensions
         where T : notnull where TErr : notnull
     {
         return self.IsSome(out var value)
-            ? Result<T, TErr>.Ok(value)
-            : Result<T, TErr>.Err(error);
+            ? new(value) : new(error);
     }
 
     /// <summary>
@@ -159,8 +158,7 @@ public static class OptionExtensions
     {
         ThrowIfNull(errorFactory);
         return self.IsSome(out var value)
-            ? Result<T, TErr>.Ok(value)
-            : Result<T, TErr>.Err(errorFactory());
+            ? new(value) : new(errorFactory());
     }
 
     /// <summary>
@@ -180,12 +178,12 @@ public static class OptionExtensions
         if (self.IsSome(out var result))
         {
             return result.Match(
-                onOk: val => Result<Option<T>, TErr>.Ok(Option<T>.Some(val)),
-                onErr: Result<Option<T>, TErr>.Err
+                onOk: val => Result.Ok<Option<T>, TErr>(Option.Some(val)),
+                onErr: Result.Err<Option<T>, TErr>
             );
         }
 
-        return Result<Option<T>, TErr>.Ok(Option<T>.None);
+        return Result.Ok<Option<T>, TErr>(default);
     }
 
     /// <summary>
@@ -197,7 +195,7 @@ public static class OptionExtensions
     public static Option<T> Flatten<T>(this Option<Option<T>> self)
         where T : notnull
     {
-        return self.IsSome(out var nested) ? nested : Option<T>.None;
+        return self.IsSome(out var nested) ? nested : default;
     }
 
     /// <summary>
@@ -219,80 +217,80 @@ public static class OptionExtensions
             return self;
         }
 
-        return Option<T>.None;
+        return default;
     }
 
     /// <summary>
     /// Zips this <c>Option</c> with another <c>Option</c>.
     /// <para>If this option is <c>Some(s)</c> and other is <c>Some(o)</c>, this method returns <c>Some((s, o))</c>. Otherwise, <c>None</c> is returned.</para>
     /// </summary>
-    /// <typeparam name="T">The type contained by the first option.</typeparam>
-    /// <typeparam name="U">The type contained by the second option.</typeparam>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="other">The second option.</param>
     /// <returns>An option containing the values from both input options, if both have values. Otherwise, <c>None</c>.</returns>
-    public static Option<(T, U)> Zip<T, U>(this Option<T> self, Option<U> other)
-        where T : notnull where U : notnull
+    public static Option<(T1, T2)> Zip<T1, T2>(this Option<T1> self, Option<T2> other)
+        where T1 : notnull where T2 : notnull
     {
         if (self.IsSome(out var x) && other.IsSome(out var y))
         {
-            return Option<(T, U)>.Some((x, y));
+            return Option.Some((x, y));
         }
 
-        return Option<(T, U)>.None;
+        return default;
     }
 
     /// <summary>
     /// Zips this <c>Option</c> and another <c>Option</c> with function <paramref name="zipper"/>.
     /// <para>If this option is <c>Some(s)</c> and other is <c>Some(o)</c>, this method returns <c>Some(zipper(s, o))</c>. Otherwise, <c>None</c> is returned.</para>
     /// </summary>
-    /// <typeparam name="T">The type contained by the first option.</typeparam>
-    /// <typeparam name="U">The type contained by the second option.</typeparam>
-    /// <typeparam name="V">The type returned by the <paramref name="zipper"/> function.</typeparam>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <typeparam name="T3">The type returned by the <paramref name="zipper"/> function.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="other">The second option.</param>
     /// <param name="zipper">A functon that combines values from the two options into a new type.</param>
     /// <returns>An option contianing the result of passing both values to the <paramref name="zipper"/> function, or <c>None</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="zipper"/> is null.</exception>
-    public static Option<V> ZipWith<T, U, V>(this Option<T> self, Option<U> other, Func<T, U, V> zipper)
-        where T : notnull where U : notnull where V : notnull
+    public static Option<T3> ZipWith<T1, T2, T3>(this Option<T1> self, Option<T2> other, Func<T1, T2, T3> zipper)
+        where T1 : notnull where T2 : notnull where T3 : notnull
     {
         ThrowIfNull(zipper);
 
         if (self.IsSome(out var x) && other.IsSome(out var y))
         {
-            return Option<V>.Some(zipper(x, y));
+            return Option.Some(zipper(x, y));
         }
 
-        return Option<V>.None;
+        return default;
     }
 
     /// <summary>
     /// Returns <c>None</c> if <paramref name="self"/> is <c>None</c>, otherwise returns <paramref name="other"/>.
     /// </summary>
-    /// <typeparam name="T">The type contained by the first option.</typeparam>
-    /// <typeparam name="U">The type contained by the second option.</typeparam>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="other">The second option.</param>
-    public static Option<U> And<T, U>(this Option<T> self, Option<U> other)
-        where T : notnull where U : notnull
+    public static Option<T2> And<T1, T2>(this Option<T1> self, Option<T2> other)
+        where T1 : notnull where T2 : notnull
     {
-        return self.IsNone ? Option<U>.None : other;
+        return self.IsNone ? default : other;
     }
 
     /// <summary>
     /// Returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
     /// </summary>
-    /// <typeparam name="T">The type contained by the first option.</typeparam>
-    /// <typeparam name="U">The type contained by the second option.</typeparam>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="other">The second option.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
-    public static Option<U> AndThen<T, U>(this Option<T> self, Func<T, Option<U>> thenFn)
-        where T : notnull where U : notnull
+    public static Option<T2> AndThen<T1, T2>(this Option<T1> self, Func<T1, Option<T2>> thenFn)
+        where T1 : notnull where T2 : notnull
     {
         ThrowIfNull(thenFn);
-        return self.IsSome(out var value) ? thenFn(value) : Option<U>.None;
+        return self.IsSome(out var value) ? thenFn(value) : default;
     }
 
     /// <summary>
@@ -340,7 +338,7 @@ public static class OptionExtensions
         if (other.IsNone)
             return self;
 
-        return Option<T>.None;
+        return default;
     }
 
     /// <summary>
@@ -385,8 +383,8 @@ public static class OptionExtensions
     {
         ThrowIfNull(self);
         return self.TryGetValue(key, out var value)
-            ? Option<TValue>.Some(value)
-            : Option<TValue>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     /// <summary>
@@ -403,8 +401,8 @@ public static class OptionExtensions
     {
         ThrowIfNull(self);
         return self.TryGetValue(key, out var value)
-            ? Option<TValue>.Some(value)
-            : Option<TValue>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     /// <summary>
@@ -424,8 +422,8 @@ public static class OptionExtensions
         ThrowIfNull(self);
 
         return self.TryGetValue(key, out var value)
-            ? Option<TValue>.Some(value)
-            : Option<TValue>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     /// <summary>
@@ -440,8 +438,8 @@ public static class OptionExtensions
     {
         ThrowIfNull(self);
         return self.TryGetValue<T>(out var value)
-            ? Option<T>.Some(value)
-            : Option<T>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     /// <summary>
@@ -460,14 +458,14 @@ public static class OptionExtensions
             return node switch
             {
                 JsonValue val => val.GetOption<T>(),
-                JsonArray => Option<T>.None, // JsonArray isn't supported for this use
+                JsonArray => default, // JsonArray isn't supported for this use
                 JsonObject obj => obj.AsValue().GetOption<T>(),
                 JsonNode n => n.AsValue().GetOption<T>(),
-                _ => Option<T>.None
+                _ => default
             };
         }
 
-        return Option<T>.None;
+        return default;
     }
 
     /// <summary>
@@ -484,7 +482,7 @@ public static class OptionExtensions
             return Option.Some(node!);
         }
 
-        return Option<JsonNode>.None;
+        return default;
     }
 
     /// <summary>
@@ -497,8 +495,8 @@ public static class OptionExtensions
     {
         ThrowIfNull(self);
         return self.TryGetProperty(propertyName, out var value)
-            ? Option<JsonElement>.Some(value)
-            : Option<JsonElement>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     /// <summary>
@@ -511,8 +509,8 @@ public static class OptionExtensions
     {
         ThrowIfNull(self);
         return self.TryGetProperty(propertyName, out var value)
-            ? Option<JsonElement>.Some(value)
-            : Option<JsonElement>.None;
+            ? Option.Some(value)
+            : default;
     }
 
     /// <summary>
@@ -525,7 +523,7 @@ public static class OptionExtensions
     {
         ThrowIfNull(self);
         return self.TryGetProperty(propertyName, out var value)
-            ? Option<JsonElement>.Some(value)
-            : Option<JsonElement>.None;
+            ? Option.Some(value)
+            : default;
     }
 }

@@ -18,20 +18,11 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     where T : notnull where TErr : notnull
 {
     /// <summary>
-    /// Returns a <see cref="Result{T, TErr}"/> in the Ok state, containing the given value.
+    /// Initializes a <see cref="Result{T, TErr}"/> in the <c>Ok</c> state containing the given value.
     /// </summary>
-    /// <param name="value">The value the result should contain.</param>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<T, TErr> Ok(T value) => new(value);
-
-    /// <summary>
-    /// Returns a <see cref="Result{T, TErr}"/> in the Err state, containg the given error value.
-    /// </summary>
-    /// <param name="error">The error the result should contain.</param>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<T, TErr> Err(TErr error) => new(error);
-
-    private Result(T value)
+    /// <param name="value">The value to contain.</param>
+    /// <exception cref="ArgumentNullException">Thrown if the given value is null.</exception>
+    public Result(T value)
     {
         ThrowIfNull(value);
         _value = value;
@@ -39,7 +30,12 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         _isOk = true;
     }
 
-    private Result(TErr error)
+    /// <summary>
+    /// Initializes a <see cref="Result{T, TErr}"/> in the <c>Err</c> state containing the given error value.
+    /// </summary>
+    /// <param name="error">The error value to store.</param>
+    /// <exception cref="ArgumentNullException">Thrown if the given error is null.</exception>
+    public Result(TErr error)
     {
         ThrowIfNull(error);
         _err = error;
@@ -52,7 +48,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     private readonly TErr _err;
 
     /// <summary>
-    /// Returns <c>true</c> if the result is in the Ok state, and <paramref name="value"/> will contain the return value.
+    /// Returns <c>true</c> if the result is in the <c>Ok</c> state, and <paramref name="value"/> will contain the return value.
     /// </summary>
     /// <param name="value">The returned value, if any.</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -63,7 +59,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     }
 
     /// <summary>
-    /// Returnd <c>true</c> if the result is in the error state, and <paramref name="error"/> will contain the error value.
+    /// Returnd <c>true</c> if the result is in the <c>Err</c> state, and <paramref name="error"/> will contain the error value.
     /// </summary>
     /// <param name="error">The returned error value, if any.</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -74,7 +70,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public U Match<U>(Func<T, U> onOk, Func<TErr, U> onErr)
+    public T2 Match<T2>(Func<T, T2> onOk, Func<TErr, T2> onErr)
     {
         ThrowIfNull(onOk);
         ThrowIfNull(onErr);
@@ -250,13 +246,13 @@ public static class Result
     public static Result<T, TErr> Ok<T, TErr>(T value)
         where T : notnull where TErr : notnull
     {
-        return Result<T, TErr>.Ok(value);
+        return new(value);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, TErr> Err<T, TErr>(TErr error)
         where T : notnull where TErr : notnull
     {
-        return Result<T, TErr>.Err(error);
+        return new(error);
     }
 }
