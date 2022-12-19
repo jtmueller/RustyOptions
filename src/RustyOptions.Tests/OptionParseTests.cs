@@ -16,11 +16,11 @@ namespace RustyOptions.Tests
             var guid = Option.Parse<Guid>("ac439fd6-9b64-42f3-bc74-38017c97b965");
             var nothing = Option.Parse<int>("foo");
 
-            Assert.True(integer.IsSome(out var i) && i == 12345);
-            Assert.True(date.IsSome(out var d) && d == new DateTime(2023, 06, 17));
-            Assert.True(timespan.IsSome(out var t) && t == new TimeSpan(5, 11, 4));
-            Assert.True(fraction.IsSome(out var x) && x == 3.14);
-            Assert.True(guid.IsSome(out var g) && g == new Guid("ac439fd6-9b64-42f3-bc74-38017c97b965"));
+            Assert.Equal(Some(12345), integer);
+            Assert.Equal(Some(new DateTime(2023, 06, 17)), date);
+            Assert.Equal(Some(new TimeSpan(5, 11, 4)), timespan);
+            Assert.Equal(Some(3.14), fraction);
+            Assert.Equal(Some(new Guid("ac439fd6-9b64-42f3-bc74-38017c97b965")), guid);
             Assert.True(nothing.IsNone);
         }
 
@@ -34,11 +34,11 @@ namespace RustyOptions.Tests
             var guid = Option.Parse<Guid>("ac439fd6-9b64-42f3-bc74-38017c97b965".AsSpan());
             var nothing = Option.Parse<int>("foo".AsSpan());
 
-            Assert.True(integer.IsSome(out var i) && i == 12345);
-            Assert.True(date.IsSome(out var d) && d == new DateTime(2023, 06, 17));
-            Assert.True(timespan.IsSome(out var t) && t == new TimeSpan(5, 11, 4));
-            Assert.True(fraction.IsSome(out var x) && x == 3.14);
-            Assert.True(guid.IsSome(out var g) && g == new Guid("ac439fd6-9b64-42f3-bc74-38017c97b965"));
+            Assert.Equal(Some(12345), integer);
+            Assert.Equal(Some(new DateTime(2023, 06, 17)), date);
+            Assert.Equal(Some(new TimeSpan(5, 11, 4)), timespan);
+            Assert.Equal(Some(3.14), fraction);
+            Assert.Equal(Some(new Guid("ac439fd6-9b64-42f3-bc74-38017c97b965")), guid);
             Assert.True(nothing.IsNone);
         }
     }

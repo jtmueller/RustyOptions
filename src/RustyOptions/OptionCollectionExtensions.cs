@@ -15,7 +15,7 @@ public static class OptionCollectionExtensions
     /// <param name="key">The key.</param>
     /// <returns>If the key is found, returns <c>Some(value)</c>. Otherwise, <c>None</c>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<TValue> GetOption<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key)
+    public static Option<TValue> GetOrNone<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key)
         where TValue : notnull where TKey : notnull
     {
         ThrowIfNull(self);
@@ -33,7 +33,7 @@ public static class OptionCollectionExtensions
     /// <param name="key">The key.</param>
     /// <returns>If the key is found, returns <c>Some(value)</c>. Otherwise, <c>None</c>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<TValue> GetOption<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> self, TKey key)
+    public static Option<TValue> GetOrNone<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> self, TKey key)
         where TValue : notnull where TKey : notnull
     {
         ThrowIfNull(self);
@@ -51,7 +51,7 @@ public static class OptionCollectionExtensions
     /// <param name="key">The key.</param>
     /// <returns>If the key is found, returns <c>Some(value)</c>. Otherwise, <c>None</c>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<TValue> GetOption<TKey, TValue>(this Dictionary<TKey, TValue> self, TKey key)
+    public static Option<TValue> GetOrNone<TKey, TValue>(this Dictionary<TKey, TValue> self, TKey key)
         where TValue : notnull where TKey : notnull
     {
         // This overload is needed to disambiguate between IDictionary and IReadOnlyDictionary,
@@ -62,5 +62,7 @@ public static class OptionCollectionExtensions
             ? Option.Some(value)
             : default;
     }
+
+    // TODO: FirstOrNone, LastOrNone, ElementAtOrNone, SingleOrNone
 }
 

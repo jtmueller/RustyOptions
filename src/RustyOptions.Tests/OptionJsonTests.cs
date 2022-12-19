@@ -46,7 +46,7 @@ namespace RustyOptions.Tests
 
             var numVal = doc.RootElement
                 .GetPropOption("number")
-                .AndThen(x => Option.Bind<int>(x.TryGetInt32));
+                .AndThen(x => Option.Try<int>(x.TryGetInt32));
 
             var stringVal = doc.RootElement
                 .GetPropOption("string".AsSpan())
@@ -54,15 +54,15 @@ namespace RustyOptions.Tests
 
             var dateVal = doc.RootElement
                 .GetPropOption("date"u8)
-                .AndThen(x => Option.Bind<DateTime>(x.TryGetDateTime));
+                .AndThen(x => Option.Try<DateTime>(x.TryGetDateTime));
 
             var noVal = doc.RootElement
                 .GetPropOption("bogus"u8)
-                .AndThen(x => Option.Bind<decimal>(x.TryGetDecimal));
+                .AndThen(x => Option.Try<decimal>(x.TryGetDecimal));
 
             var wrongVal = doc.RootElement
                 .GetPropOption("string"u8)
-                .AndThen(x => Option.Bind<int>(x.TryGetInt32));
+                .AndThen(x => Option.Try<int>(x.TryGetInt32));
 
             Assert.Equal(Some(3), numVal);
             Assert.Equal(Some("test"), stringVal);

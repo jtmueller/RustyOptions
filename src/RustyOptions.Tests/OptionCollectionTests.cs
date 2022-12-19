@@ -24,19 +24,19 @@ public class OptionCollectionTests
             kvp => kvp.Value,
             kvp => kvp.Key.ToString(CultureInfo.InvariantCulture));
 
-        Assert.Equal(Some("three"), numsToNames.GetOption(3));
-        Assert.True(numsToNames.GetOption(7).IsNone);
+        Assert.Equal(Some("three"), numsToNames.GetOrNone(3));
+        Assert.True(numsToNames.GetOrNone(7).IsNone);
 
         var chainResult = numsToNames
-            .GetOption(4)
-            .AndThen(namesToNums.GetOption)
+            .GetOrNone(4)
+            .AndThen(namesToNums.GetOrNone)
             .AndThen(ParseInt);
 
         Assert.Equal(Some(4), chainResult);
 
         chainResult = numsToNames
-            .GetOption(96)
-            .AndThen(namesToNums.GetOption)
+            .GetOrNone(96)
+            .AndThen(namesToNums.GetOrNone)
             .AndThen(ParseInt);
 
         Assert.True(chainResult.IsNone);
@@ -57,7 +57,7 @@ public class OptionCollectionTests
 
         var namesToNums = numsToNames.ToDictionary(kvp => kvp.Value, kvp => kvp.Key.ToString(CultureInfo.InvariantCulture));
 
-        var result = numsToNames.GetOption(2)
+        var result = numsToNames.GetOrNone(2)
             .AndThen(Bind<string, string>(namesToNums.TryGetValue))
             .AndThen(Bind<string, int>(int.TryParse));
 

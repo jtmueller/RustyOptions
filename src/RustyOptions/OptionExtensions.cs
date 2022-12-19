@@ -21,8 +21,7 @@ public static class OptionExtensions
         ThrowIfNull(mapper);
 
         return self.IsSome(out var value)
-            ? Option.Some(mapper(value))
-            : default;
+            ? Option.Some(mapper(value)) : default;
     }
 
     /// <summary>
@@ -79,21 +78,6 @@ public static class OptionExtensions
     {
         return self.IsSome(out var value)
             ? value : throw new InvalidOperationException(message);
-    }
-
-    /// <summary>
-    /// Returns the contained <c>Some</c> value, or throws an <see cref="InvalidOperationException"/>
-    /// with a generic message if the value is <c>None</c>.
-    /// </summary>
-    /// <typeparam name="T">The type of the option.</typeparam>
-    /// <param name="self">The option to unwrap.</param>
-    /// <returns>The value contained in the option.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if the option does not contain a value.</exception>
-    public static T Unwrap<T>(this Option<T> self)
-        where T : notnull
-    {
-        return self.IsSome(out var value)
-            ? value : throw new InvalidOperationException("The option was expected to contain a value, but did not.");
     }
 
     /// <summary>
@@ -282,7 +266,7 @@ public static class OptionExtensions
     /// <typeparam name="T1">The type contained by the first option.</typeparam>
     /// <typeparam name="T2">The type contained by the second option.</typeparam>
     /// <param name="self">The first option.</param>
-    /// <param name="other">The second option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
     public static Option<T2> AndThen<T1, T2>(this Option<T1> self, Func<T1, Option<T2>> thenFn)
         where T1 : notnull where T2 : notnull

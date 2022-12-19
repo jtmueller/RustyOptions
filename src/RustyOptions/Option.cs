@@ -10,7 +10,7 @@ namespace RustyOptions;
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
 /// <typeparam name="T">The type the opton might contain.</typeparam>
-[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic.")]
+[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic or F#.")]
 public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IEnumerable<T>, ISpanFormattable
     where T : notnull
 {
@@ -54,6 +54,19 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     {
         value = _value;
         return _isSome;
+    }
+
+    /// <summary>
+    /// Returns the contained <c>Some</c> value, or throws an <see cref="InvalidOperationException"/>
+    /// with a generic message if the value is <c>None</c>.
+    /// </summary>
+    /// <returns>The value contained in the option.</returns>
+    /// <exception cref="InvalidOperationException">Thrown if the option does not contain a value.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public T Unwrap()
+    {
+        return _isSome ? _value
+            : throw new InvalidOperationException("The option was expected to contain a value, but did not.");
     }
 
     /// <summary>
@@ -198,7 +211,6 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 /// <summary>
 /// <see cref="Option"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
-/// <typeparam name="T">The type the opton might contain.</typeparam>
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic.")]
 public static class Option
 {
@@ -247,22 +259,22 @@ public static class Option
     public delegate bool TryGet<T>([MaybeNullWhen(false)] out T? value);
 
     /// <summary>
-    /// Generates a function that calls the provided <see cref="TryGet{T}"/> delegate
+    /// Calls the provided <see cref="TryGet{T}"/> delegate
     /// and wraps the result as an <see cref="Option{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type to get.</typeparam>
     /// <param name="tryGet">The <see cref="TryGet{T}"/> function to call.</param>
     /// <returns>A function that will call the <paramref name="tryGet"/> function and wrap the results as an <see cref="Option{T}"/>.</returns>
-    public static Option<T> Bind<T>(TryGet<T> tryGet)
+    public static Option<T> Try<T>(TryGet<T> tryGet)
         where T : notnull
     {
         try
         {
             return tryGet(out var value) ? new(value!) : default;
         }
-        catch (Exception)
+        catch (InvalidOperationException)
         {
-            // JsonElement's TryGetXXX methods will throw an exception instead of
+            // JsonElement's TryGetXXX methods will throw an InvalidOperationException instead of
             // returning false if the underlying node type does not match the requested
             // data type (calling TryGetInt32 on a string node).
             return default;
@@ -274,6 +286,7 @@ public static class Option
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>
     /// <typeparam name="TValue">The type of value to get.</typeparam>
+    /// <param name="key">The to retrieve the corresponding value for.</param>
     /// <param name="value">The value retrieved, if any.</param>
     /// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
     public delegate bool TryGetValue<TKey, TValue>(TKey key, [MaybeNullWhen(false)] out TValue? value);
