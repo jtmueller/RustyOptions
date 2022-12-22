@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 
 namespace RustyOptions;
 
+// TODO: <inheritdoc/> doesn't work with docfx, need to actually write/copy documentation.
+
 /// <summary>
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
@@ -251,14 +253,6 @@ public static class Option
     public static Option<T> None<T>() where T : notnull => default;
 
     /// <summary>
-    /// Delegate that represents a fallible attempt to get a value of a given type.
-    /// </summary>
-    /// <typeparam name="T">The type of value to get.</typeparam>
-    /// <param name="value">The value retrieved, if any.</param>
-    /// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
-    public delegate bool TryGet<T>([MaybeNullWhen(false)] out T? value);
-
-    /// <summary>
     /// Calls the provided <see cref="TryGet{T}"/> delegate
     /// and wraps the result as an <see cref="Option{T}"/>.
     /// </summary>
@@ -280,16 +274,6 @@ public static class Option
             return default;
         }
     }
-
-    /// <summary>
-    /// Delegate that represents a fallible attempt to get a value associated with a given key.
-    /// </summary>
-    /// <typeparam name="TKey">The type of the key.</typeparam>
-    /// <typeparam name="TValue">The type of value to get.</typeparam>
-    /// <param name="key">The to retrieve the corresponding value for.</param>
-    /// <param name="value">The value retrieved, if any.</param>
-    /// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
-    public delegate bool TryGetValue<TKey, TValue>(TKey key, [MaybeNullWhen(false)] out TValue? value);
 
     /// <summary>
     /// Generates a function that calls the provided <see cref="TryGetValue{TKey,TValue}"/> delegate
@@ -360,3 +344,21 @@ public static class Option
 
 #endif
 }
+
+/// <summary>
+/// Delegate that represents a fallible attempt to get a value of a given type.
+/// </summary>
+/// <typeparam name="T">The type of value to get.</typeparam>
+/// <param name="value">The value retrieved, if any.</param>
+/// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
+public delegate bool TryGet<T>([MaybeNullWhen(false)] out T? value);
+
+/// <summary>
+/// Delegate that represents a fallible attempt to get a value associated with a given key.
+/// </summary>
+/// <typeparam name="TKey">The type of the key.</typeparam>
+/// <typeparam name="TValue">The type of value to get.</typeparam>
+/// <param name="key">The key to retrieve the corresponding value for.</param>
+/// <param name="value">The value retrieved, if any.</param>
+/// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
+public delegate bool TryGetValue<TKey, TValue>(TKey key, [MaybeNullWhen(false)] out TValue? value);

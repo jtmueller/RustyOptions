@@ -7,10 +7,12 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
+// TODO: <inheritdoc/> doesn't work with docfx, need to actually write/copy documentation.
+
 /// <summary>
 /// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without
 /// throwing an exception. Either <see cref="IsOk"/> will return <c>true</c> and the contained result value,
-/// or else <see cref="IsErr"/> will return <c>true</c> and the contained error object.
+/// or else <see cref="IsErr"/> will return <c>true</c> and the contained error value.
 /// </summary>
 /// <typeparam name="T">The type of the return value.</typeparam>
 /// <typeparam name="TErr">The type of the error value.</typeparam>
