@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -118,7 +116,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// <summary>
     /// Indicates whether the current object is equal to another object.
     /// </summary>
-    /// <param name="other">An object to compare with this object.</param>
+    /// <param name="obj">An object to compare with this object.</param>
     /// <returns>
     /// <c>true</c> if the current object is equal to the <paramref name="obj"/> parameter;
     /// otherwise, <c>false</c>.
@@ -372,7 +370,7 @@ public static class Option
 #if NET7_0_OR_GREATER
 
     /// <summary>
-    /// Parses a string into any type that supports <see cref="IParseable{T}"/>.
+    /// Parses a string into any type that supports <see cref="IParsable{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type to parse the string into.</typeparam>
     /// <param name="s">The string to parse.</param>
@@ -387,7 +385,7 @@ public static class Option
     }
 
     /// <summary>
-    /// Parses a string into any type that supports <see cref="IParseable{T}"/>.
+    /// Parses a string into any type that supports <see cref="IParsable{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type to parse the string into.</typeparam>
     /// <param name="s">The string to parse.</param>
@@ -397,7 +395,7 @@ public static class Option
         => Parse<T>(s, provider: null);
 
     /// <summary>
-    /// Parses a char span into any type that supports <see cref="ISpanParseable{T}"/>.
+    /// Parses a char span into any type that supports <see cref="ISpanParsable{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type to parse the char span into.</typeparam>
     /// <param name="s">The char span to parse.</param>
@@ -412,11 +410,10 @@ public static class Option
     }
 
     /// <summary>
-    /// Parses a char span into any type that supports <see cref="ISpanParseable{T}"/>.
+    /// Parses a char span into any type that supports <see cref="ISpanParsable{T}"/>.
     /// </summary>
     /// <typeparam name="T">The type to parse the char span into.</typeparam>
     /// <param name="s">The char span to parse.</param>
-    /// <param name="provider">An optional format provider.</param>
     /// <returns>The parsed value wrapped in a <c>Some</c> option, or else <c>None</c>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<T> Parse<T>(ReadOnlySpan<char> s) where T : ISpanParsable<T>

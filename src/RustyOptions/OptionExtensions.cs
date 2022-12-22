@@ -57,7 +57,6 @@ public static class OptionExtensions
     /// <param name="self">The option to map.</param>
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <param name="defaultFactory">The function that lazily generates a default value, if required.</param>
-    /// <param name="defaultValue">The default value to return if the option is <c>None</c>.</param>
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
     public static T2 MapOrElse<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
@@ -139,12 +138,7 @@ public static class OptionExtensions
     {
         ThrowIfNull(predicate);
 
-        if (self.IsSome(out var value) && predicate(value))
-        {
-            return self;
-        }
-
-        return default;
+        return self.IsSome(out var value) && predicate(value) ? self : default;
     }
 
     /// <summary>
@@ -160,12 +154,8 @@ public static class OptionExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        if (self.IsSome(out var x) && other.IsSome(out var y))
-        {
-            return Option.Some((x, y));
-        }
-
-        return default;
+        return self.IsSome(out var x) && other.IsSome(out var y)
+            ? Option.Some((x, y)) : default;
     }
 
     /// <summary>
@@ -187,12 +177,8 @@ public static class OptionExtensions
     {
         ThrowIfNull(zipper);
 
-        if (self.IsSome(out var x) && other.IsSome(out var y))
-        {
-            return Option.Some(zipper(x, y));
-        }
-
-        return default;
+        return self.IsSome(out var x) && other.IsSome(out var y)
+            ? Option.Some(zipper(x, y)) : default;
     }
 
     /// <summary>

@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.CompilerServices;
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
@@ -151,19 +149,17 @@ public static class OptionCollectionExtensions
         }
         else
         {
-            using (var enumerator = self.GetEnumerator())
+            using var enumerator = self.GetEnumerator();
+            if (enumerator.MoveNext())
             {
-                if (enumerator.MoveNext())
+                T result;
+                do
                 {
-                    T result;
-                    do
-                    {
-                        result = enumerator.Current;
-                    }
-                    while (enumerator.MoveNext());
-
-                    return Option.Some(result);
+                    result = enumerator.Current;
                 }
+                while (enumerator.MoveNext());
+
+                return Option.Some(result);
             }
         }
 
@@ -207,24 +203,22 @@ public static class OptionCollectionExtensions
         }
         else
         {
-            using (var enumerator = self.GetEnumerator())
+            using var enumerator = self.GetEnumerator();
+            while (enumerator.MoveNext())
             {
-                while (enumerator.MoveNext())
+                var result = enumerator.Current;
+                if (predicate(result))
                 {
-                    var result = enumerator.Current;
-                    if (predicate(result))
+                    while (enumerator.MoveNext())
                     {
-                        while (enumerator.MoveNext())
+                        var element = enumerator.Current;
+                        if (predicate(element))
                         {
-                            var element = enumerator.Current;
-                            if (predicate(element))
-                            {
-                                result = element;
-                            }
+                            result = element;
                         }
-
-                        return Option.Some(result);
                     }
+
+                    return Option.Some(result);
                 }
             }
         }
@@ -261,18 +255,16 @@ public static class OptionCollectionExtensions
         }
         else
         {
-            using (var enumerator = self.GetEnumerator())
+            using var enumerator = self.GetEnumerator();
+            if (!enumerator.MoveNext())
             {
-                if (!enumerator.MoveNext())
-                {
-                    return default;
-                }
+                return default;
+            }
 
-                var result = enumerator.Current;
-                if (!enumerator.MoveNext())
-                {
-                    return Option.Some(result);
-                }
+            var result = enumerator.Current;
+            if (!enumerator.MoveNext())
+            {
+                return Option.Some(result);
             }
         }
 
@@ -344,17 +336,15 @@ public static class OptionCollectionExtensions
             }
             else
             {
-                using (var enumerator = self.GetEnumerator())
+                using var enumerator = self.GetEnumerator();
+                while (enumerator.MoveNext())
                 {
-                    while (enumerator.MoveNext())
+                    if (index == 0)
                     {
-                        if (index == 0)
-                        {
-                            return Option.Some(enumerator.Current);
-                        }
-
-                        index--;
+                        return Option.Some(enumerator.Current);
                     }
+
+                    index--;
                 }
             }
         }
