@@ -16,6 +16,7 @@ namespace RustyOptions;
 /// </summary>
 /// <typeparam name="T">The type of the return value.</typeparam>
 /// <typeparam name="TErr">The type of the error value.</typeparam>
+[Serializable]
 public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IEnumerable<T>, ISpanFormattable
     where T : notnull where TErr : notnull
 {

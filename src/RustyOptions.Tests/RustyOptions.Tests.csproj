@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
     <AnalysisMode>Recommended</AnalysisMode>
     <LangVersion>11</LangVersion>
-
     <IsPackable>false</IsPackable>
     <AssemblyName>RustyOptions.Tests</AssemblyName>
   </PropertyGroup>

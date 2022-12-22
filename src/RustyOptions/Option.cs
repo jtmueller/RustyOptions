@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
@@ -6,14 +8,14 @@ using System.Runtime.InteropServices;
 
 namespace RustyOptions;
 
-// TODO: <inheritdoc/> doesn't work with docfx, need to actually write/copy documentation.
-
 /// <summary>
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
 /// <typeparam name="T">The type the opton might contain.</typeparam>
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic or F#.")]
-public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IEnumerable<T>, ISpanFormattable
+[DebuggerDisplay("{DebuggerDisplay,nq}")]
+[Serializable]
+public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IEnumerable<T>, IFormattable, ISpanFormattable
     where T : notnull
 {
     /// <summary>
@@ -60,7 +62,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 
     /// <summary>
     /// Returns the contained <c>Some</c> value, or throws an <see cref="InvalidOperationException"/>
-    /// with a generic message if the value is <c>None</c>.
+    /// if the value is <c>None</c>.
     /// </summary>
     /// <returns>The value contained in the option.</returns>
     /// <exception cref="InvalidOperationException">Thrown if the option does not contain a value.</exception>
@@ -73,7 +75,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 
     /// <summary>
     /// Converts the option into a <see cref="ReadOnlySpan{T}"/> that contains either zero or one
-    /// items depending on whether the option is <c>Some</c> or <c>None</c>.
+    /// items depending on whether the option is <c>None</c> or <c>Some</c>.
     /// </summary>
     /// <returns>A span containing the option's value, or an empty span.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -94,7 +96,14 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 
     IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)this).GetEnumerator();
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Indicates whether the current object is equal to another object of the same type.
+    /// </summary>
+    /// <param name="other">An object to compare with this object.</param>
+    /// <returns>
+    /// <c>true</c> if the current object is equal to the <paramref name="other"/> parameter;
+    /// otherwise, <c>false</c>.
+    /// </returns>
     public bool Equals(Option<T> other)
     {
         if (_isSome != other._isSome)
@@ -106,55 +115,83 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
         return EqualityComparer<T>.Default.Equals(_value, other._value);
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Indicates whether the current object is equal to another object.
+    /// </summary>
+    /// <param name="other">An object to compare with this object.</param>
+    /// <returns>
+    /// <c>true</c> if the current object is equal to the <paramref name="obj"/> parameter;
+    /// otherwise, <c>false</c>.
+    /// </returns>
     public override bool Equals([NotNullWhen(true)] object? obj)
         => obj is Option<T> opt && Equals(opt);
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Retrieves the hash code of the object contained by the <see cref="Option{T}"/>, if any.
+    /// </summary>
+    /// <returns>
+    /// The hash code of the object returned by the <see cref="IsSome(out T)"/> method, if that
+    /// method returns <c>true</c>, or zero if it returns <c>false</c>.
+    /// </returns>
     public override int GetHashCode()
         => _isSome ? _value.GetHashCode() : 0;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Returns the text representation of the value of the current <see cref="Option{T}"/> object.
+    /// </summary>
+    /// <returns>
+    /// The text representation of the value of the current <see cref="Option{T}"/> object
+    /// if the option is <c>Some</c>, otherwise an empty string.
+    /// </returns>
     public override string ToString()
     {
         return _isSome
-            ? string.Create(CultureInfo.InvariantCulture, $"Some({_value})")
-            : "None";
+            ? _value.ToString() ?? string.Empty
+            : string.Empty;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Formats the value of the current <see cref="Option{T}"/> using the specified format.
+    /// </summary>
+    /// <param name="format">
+    /// The format to use, or a null reference to use the default format defined for
+    /// the type of the contained value.
+    /// </param>
+    /// <param name="formatProvider">
+    /// The provider to use to format the value, or a null reference to obtain the
+    /// format information from the current locale setting of the operating system.
+    /// </param>
+    /// <returns>The value of the current instance in the specified format.</returns>
     public string ToString(string? format, IFormatProvider? formatProvider)
     {
         return _isSome
-            ? string.IsNullOrEmpty(format)
-                ? string.Create(formatProvider, $"Some({_value})")
-                : string.Format(formatProvider, "Some({0:" + format + "})", _value)
-            : "None";
+            ? _value is IFormattable formattable
+                ? formattable.ToString(format, formatProvider)
+                : _value.ToString() ?? string.Empty
+            : string.Empty;
     }
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Tries to format the value of the current instance into the provided span of characters.
+    /// </summary>
+    /// <param name="destination">The span in which to write this instance's value formatted as a span of characters.</param>
+    /// <param name="charsWritten">When this method returns, contains the number of characters that were written in destination.</param>
+    /// <param name="format">
+    /// A span containing the characters that represent a standard or custom format string that defines the acceptable format for destination.
+    /// </param>
+    /// <param name="provider">An optional object that supplies culture-specific formatting information for destination.</param>
+    /// <returns><c>true</c> if the formatting was successful; otherwise, <c>false</c>.</returns>
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
     {
         if (_isSome)
         {
-            if (_value is ISpanFormattable formatVal)
+            if (_value is ISpanFormattable spanFormattable)
             {
-                if ("Some(".TryCopyTo(destination) && formatVal.TryFormat(destination[5..], out var innerWritten, format, provider))
-                {
-                    destination = destination[(5 + innerWritten)..];
-                    if (destination.Length >= 1)
-                    {
-                        destination[0] = ')';
-                        charsWritten = innerWritten + 6;
-                        return true;
-                    }
-                }
+                return spanFormattable.TryFormat(destination, out charsWritten, format, provider);
             }
-            else
+            else if (_value is IFormattable formattable)
             {
-                var output = format.IsEmpty
-                    ? string.Create(provider, $"Some({_value})")
-                    : string.Format(provider, $"Some({{0:{format}}})", _value);
+                var output = formattable.ToString(format.ToString(), provider);
 
                 if (output.TryCopyTo(destination))
                 {
@@ -162,18 +199,29 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
                     return true;
                 }
             }
-        }
-        else if ("None".TryCopyTo(destination))
-        {
-            charsWritten = 4;
-            return true;
+            else
+            {
+                var output = _value.ToString();
+
+                if (output is not null && output.TryCopyTo(destination))
+                {
+                    charsWritten = output.Length;
+                    return true;
+                }
+            }
         }
 
         charsWritten = 0;
         return false;
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Compares the current instance with another object of the same type and returns an integer
+    /// that indicates whether the current instance precedes, follows, or occurs in the same
+    /// position in the sort order as the other object.
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
     public int CompareTo(Option<T> other)
     {
         return (_isSome, other._isSome) switch
@@ -185,27 +233,59 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
         };
     }
 
-    /// <inheritdoc />
+    private string DebuggerDisplay => _isSome ? $"Some({_value})" : "None";
+
+    /// <summary>
+    /// Determines whether one <c>Option</c> is equal to another <c>Option</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Option</c> to compare.</param>
+    /// <param name="right">The second <c>Option</c> to compare.</param>
+    /// <returns><c>true</c> if the two values are equal.</returns>
     public static bool operator ==(Option<T> left, Option<T> right)
         => left.Equals(right);
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Determines whether one <c>Option</c> is not equal to another <c>Option</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Option</c> to compare.</param>
+    /// <param name="right">The second <c>Option</c> to compare.</param>
+    /// <returns><c>true</c> if the two values are not equal.</returns>
     public static bool operator !=(Option<T> left, Option<T> right)
         => !left.Equals(right);
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Determines whether one <c>Option</c> is greater than another <c>Option</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Option</c> to compare.</param>
+    /// <param name="right">The second <c>Option</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is greater than the <paramref name="right"/> parameter.</returns>
     public static bool operator >(Option<T> left, Option<T> right)
         => left.CompareTo(right) > 0;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Determines whether one <c>Option</c> is less than another <c>Option</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Option</c> to compare.</param>
+    /// <param name="right">The second <c>Option</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is less than the <paramref name="right"/> parameter.</returns>
     public static bool operator <(Option<T> left, Option<T> right)
         => left.CompareTo(right) < 0;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Determines whether one <c>Option</c> is greater than or equal to another <c>Option</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Option</c> to compare.</param>
+    /// <param name="right">The second <c>Option</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is greater than or equal to the <paramref name="right"/> parameter.</returns>
     public static bool operator >=(Option<T> left, Option<T> right)
         => left.CompareTo(right) >= 0;
 
-    /// <inheritdoc />
+    /// <summary>
+    /// Determines whether one <c>Option</c> is less than or equal to another <c>Option</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Option</c> to compare.</param>
+    /// <param name="right">The second <c>Option</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is less than or equal to the <paramref name="right"/> parameter.</returns>
     public static bool operator <=(Option<T> left, Option<T> right)
         => left.CompareTo(right) <= 0;
 }
