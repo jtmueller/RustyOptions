@@ -10,8 +10,8 @@ public sealed class OptionTests
     {
         var none = None<int>();
         var someStruct = Some(42);
-        var someNullableStruct = ((int?)42).Some();
-        var someClass = "test".Some();
+        var someNullableStruct = ((int?)42).AsOption();
+        var someClass = "test".AsOption();
         var nullOptClass = Option.Create((string?)null);
         var nullOptStruct = Option.Create((int?)null);
 

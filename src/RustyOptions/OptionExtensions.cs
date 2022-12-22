@@ -19,7 +19,8 @@ public static class OptionExtensions
     /// <returns>The mapped value as <c>Some</c>, or <c>None</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static Option<T2> Map<T1, T2>(this Option<T1> self, Func<T1, T2> mapper)
-        where T1 : notnull where T2 : notnull
+        where T1 : notnull
+        where T2 : notnull
     {
         ThrowIfNull(mapper);
 
@@ -41,7 +42,8 @@ public static class OptionExtensions
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static T2 MapOr<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, T2 defaultValue)
-        where T1 : notnull where T2 : notnull
+        where T1 : notnull
+        where T2 : notnull
     {
         ThrowIfNull(mapper);
         return self.IsSome(out var value) ? mapper(value) : defaultValue;
@@ -59,7 +61,8 @@ public static class OptionExtensions
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
     public static T2 MapOrElse<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
-        where T1 : notnull where T2 : notnull
+        where T1 : notnull
+        where T2 : notnull
     {
         ThrowIfNull(mapper);
         ThrowIfNull(defaultFactory);
@@ -111,67 +114,6 @@ public static class OptionExtensions
     }
 
     /// <summary>
-    /// Transforms the <see cref="Option{T}"/> into a <see cref="Result{T,TErr}"/>,
-    /// mapping <c>Some</c> to <c>Ok</c> and <c>None</c> to <c>Err</c> using the provided
-    /// <paramref name="error"/>.
-    /// </summary>
-    /// <typeparam name="T">The type of the option's value.</typeparam>
-    /// <typeparam name="TErr">The type of the error.</typeparam>
-    /// <param name="self">The option to transform.</param>
-    /// <param name="error">The error to use if the option is <c>None</c>.</param>
-    /// <returns>A <see cref="Result{T,TErr}"/> that contains either the option's value, or the provided error.</returns>
-    public static Result<T, TErr> OkOr<T, TErr>(this Option<T> self, TErr error)
-        where T : notnull where TErr : notnull
-    {
-        return self.IsSome(out var value)
-            ? new(value) : new(error);
-    }
-
-    /// <summary>
-    /// Transforms the <see cref="Option{T}"/> into a <see cref="Result{T,TErr}"/>,
-    /// mapping <c>Some</c> to <c>Ok</c> and <c>None</c> to <c>Err</c> using the provided
-    /// <paramref name="errorFactory"/>.
-    /// </summary>
-    /// <typeparam name="T">The type of the option's value.</typeparam>
-    /// <typeparam name="TErr">The type of the error.</typeparam>
-    /// <param name="self">The option to transform.</param>
-    /// <param name="errorFactory">A function that creates an error object to be used if the option is <c>None</c>.</param>
-    /// <returns>A <see cref="Result{T,TErr}"/> that contains either the option's value, or the provided error.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="errorFactory"/> is null.</exception>
-    public static Result<T, TErr> OkOrElse<T, TErr>(this Option<T> self, Func<TErr> errorFactory)
-        where T : notnull where TErr : notnull
-    {
-        ThrowIfNull(errorFactory);
-        return self.IsSome(out var value)
-            ? new(value) : new(errorFactory());
-    }
-
-    /// <summary>
-    /// Transposes an <c>Option</c> of a <c>Result</c> into a <c>Result</c> of an <c>Option</c>.
-    /// <para>
-    ///     <c>None</c> will be mapped to <c>Ok(None)</c>. 
-    ///     <c>Some(Ok(_))</c> and <c>Some(Err(_))</c> will be mapped to <c>Ok(Some(_))</c> and <c>Err(_)</c>.
-    /// </para>
-    /// </summary>
-    /// <typeparam name="T">The type of the value.</typeparam>
-    /// <typeparam name="TErr">The type of the error.</typeparam>
-    /// <param name="self">An option containing a result.</param>
-    /// <returns>An equivalent result containing an option.</returns>
-    public static Result<Option<T>, TErr> Transpose<T, TErr>(this Option<Result<T, TErr>> self)
-        where T : notnull where TErr : notnull
-    {
-        if (self.IsSome(out var result))
-        {
-            return result.Match(
-                onOk: val => Result.Ok<Option<T>, TErr>(Option.Some(val)),
-                onErr: Result.Err<Option<T>, TErr>
-            );
-        }
-
-        return Result.Ok<Option<T>, TErr>(default);
-    }
-
-    /// <summary>
     /// Removes one level of nesting from nested options.
     /// </summary>
     /// <typeparam name="T">The type of the value.</typeparam>
@@ -215,7 +157,8 @@ public static class OptionExtensions
     /// <param name="other">The second option.</param>
     /// <returns>An option containing the values from both input options, if both have values. Otherwise, <c>None</c>.</returns>
     public static Option<(T1, T2)> Zip<T1, T2>(this Option<T1> self, Option<T2> other)
-        where T1 : notnull where T2 : notnull
+        where T1 : notnull
+        where T2 : notnull
     {
         if (self.IsSome(out var x) && other.IsSome(out var y))
         {
@@ -238,7 +181,9 @@ public static class OptionExtensions
     /// <returns>An option contianing the result of passing both values to the <paramref name="zipper"/> function, or <c>None</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="zipper"/> is null.</exception>
     public static Option<T3> ZipWith<T1, T2, T3>(this Option<T1> self, Option<T2> other, Func<T1, T2, T3> zipper)
-        where T1 : notnull where T2 : notnull where T3 : notnull
+        where T1 : notnull
+        where T2 : notnull
+        where T3 : notnull
     {
         ThrowIfNull(zipper);
 
@@ -258,7 +203,8 @@ public static class OptionExtensions
     /// <param name="self">The first option.</param>
     /// <param name="other">The second option.</param>
     public static Option<T2> And<T1, T2>(this Option<T1> self, Option<T2> other)
-        where T1 : notnull where T2 : notnull
+        where T1 : notnull
+        where T2 : notnull
     {
         return self.IsNone ? default : other;
     }
@@ -272,7 +218,8 @@ public static class OptionExtensions
     /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
     public static Option<T2> AndThen<T1, T2>(this Option<T1> self, Func<T1, Option<T2>> thenFn)
-        where T1 : notnull where T2 : notnull
+        where T1 : notnull
+        where T2 : notnull
     {
         ThrowIfNull(thenFn);
         return self.IsSome(out var value) ? thenFn(value) : default;
@@ -334,7 +281,7 @@ public static class OptionExtensions
     /// <param name="value"></param>
     /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> Some<T>(this T? value)
+    public static Option<T> AsOption<T>(this T? value)
         where T : class
     {
         return Option.Create(value);
@@ -348,9 +295,24 @@ public static class OptionExtensions
     /// <param name="value"></param>
     /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> Some<T>(this T? value)
+    public static Option<T> AsOption<T>(this T? value)
         where T : struct
     {
         return Option.Create(value);
+    }
+
+
+    /// <summary>
+    /// Wraps the given value in an <see cref="Option{T}"/>.
+    /// <para>NOTE: Null values will be returned as <c>None</c>, while non-null values will be returned as <c>Some</c>.</para>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="value"></param>
+    /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> Some<T>(this T value)
+        where T : notnull
+    {
+        return Option.Some(value);
     }
 }

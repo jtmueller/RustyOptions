@@ -24,17 +24,17 @@ public class OptionCollectionTests
             kvp => kvp.Value,
             kvp => kvp.Key.ToString(CultureInfo.InvariantCulture));
 
-        Assert.Equal(Some("three"), numsToNames.GetOrNone(3));
-        Assert.True(numsToNames.GetOrNone(7).IsNone);
+        Assert.Equal(Some("three"), numsToNames.GetValueOrNone(3));
+        Assert.True(numsToNames.GetValueOrNone(7).IsNone);
 
-        var chainResult = numsToNames.GetOrNone(4)
-            .AndThen(namesToNums.GetOrNone)
+        var chainResult = numsToNames.GetValueOrNone(4)
+            .AndThen(namesToNums.GetValueOrNone)
             .AndThen(ParseInt);
 
         Assert.Equal(Some(4), chainResult);
 
-        chainResult = numsToNames.GetOrNone(96)
-            .AndThen(namesToNums.GetOrNone)
+        chainResult = numsToNames.GetValueOrNone(96)
+            .AndThen(namesToNums.GetValueOrNone)
             .AndThen(ParseInt);
 
         Assert.True(chainResult.IsNone);
@@ -45,17 +45,17 @@ public class OptionCollectionTests
     public void CanBindTryGetValue()
     {
         Dictionary<int, string> numsToNames = new()
-    {
-        { 1, "one" },
-        { 2, "two" },
-        { 3, "three" },
-        { 4, "four" },
-        { 5, "five" }
-    };
+        {
+            { 1, "one" },
+            { 2, "two" },
+            { 3, "three" },
+            { 4, "four" },
+            { 5, "five" }
+        };
 
         var namesToNums = numsToNames.ToDictionary(kvp => kvp.Value, kvp => kvp.Key.ToString(CultureInfo.InvariantCulture));
 
-        var result = numsToNames.GetOrNone(2)
+        var result = numsToNames.GetValueOrNone(2)
             .AndThen(Bind<string, string>(namesToNums.TryGetValue))
             .AndThen(Bind<string, int>(int.TryParse));
 
