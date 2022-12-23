@@ -85,9 +85,9 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 
     /// <summary>
     /// Returns an <see cref="IEnumerable{T}"/> containing either zero or one value,
-    /// depending on whether the option is <c>Some</c> or <c>None</c>.
+    /// depending on whether the option is <c>None</c> or <c>Some</c>.
     /// </summary>
-    /// <returns>An enumerable.</returns>
+    /// <returns>An enumerable containing the option's value, or an empty enumerable.</returns>
     public IEnumerable<T> AsEnumerable()
     {
         if (_isSome)
