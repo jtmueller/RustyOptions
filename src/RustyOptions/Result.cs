@@ -17,7 +17,7 @@ namespace RustyOptions;
 /// <typeparam name="T">The type of the return value.</typeparam>
 /// <typeparam name="TErr">The type of the error value.</typeparam>
 [Serializable]
-public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IEnumerable<T>, ISpanFormattable
+public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, ISpanFormattable
     where T : notnull where TErr : notnull
 {
     /// <summary>
@@ -110,15 +110,13 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             : ReadOnlySpan<T>.Empty;
     }
 
-    IEnumerator<T> IEnumerable<T>.GetEnumerator()
+    public IEnumerable<T> AsEnumerable()
     {
         if (_isOk)
         {
             yield return _value;
         }
     }
-
-    IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)this).GetEnumerator();
 
     /// <inheritdoc />
     public override string ToString()

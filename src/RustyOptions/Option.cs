@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -13,7 +12,7 @@ namespace RustyOptions;
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic or F#.")]
 [DebuggerDisplay("{DebuggerDisplay,nq}")]
 [Serializable]
-public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IEnumerable<T>, IFormattable, ISpanFormattable
+public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IFormattable, ISpanFormattable
     where T : notnull
 {
     /// <summary>
@@ -84,15 +83,18 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
             : ReadOnlySpan<T>.Empty;
     }
 
-    IEnumerator<T> IEnumerable<T>.GetEnumerator()
+    /// <summary>
+    /// Returns an <see cref="IEnumerable{T}"/> containing either zero or one value,
+    /// depending on whether the option is <c>Some</c> or <c>None</c>.
+    /// </summary>
+    /// <returns>An enumerable.</returns>
+    public IEnumerable<T> AsEnumerable()
     {
         if (_isSome)
         {
             yield return _value;
         }
     }
-
-    IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<T>)this).GetEnumerator();
 
     /// <summary>
     /// Indicates whether the current object is equal to another object of the same type.

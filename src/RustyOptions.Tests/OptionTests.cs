@@ -96,19 +96,22 @@ public sealed class OptionTests
         var noneInt = None<int>();
 
         int value = 0;
-        foreach (var x in noneInt)
+        foreach (var x in noneInt.AsEnumerable())
         {
             value += x;
         }
 
         Assert.Equal(0, value);
 
-        foreach (var x in someInt)
+        foreach (var x in someInt.AsEnumerable())
         {
             value += x;
         }
 
         Assert.Equal(42, value);
+
+        Assert.Equal(42, someInt.AsEnumerable().FirstOrDefault());
+        Assert.Equal(0, noneInt.AsEnumerable().FirstOrDefault());
     }
 
     [Fact]
