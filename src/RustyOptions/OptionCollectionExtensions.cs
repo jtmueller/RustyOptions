@@ -36,7 +36,6 @@ public static class OptionCollectionExtensions
     /// <param name="self">The dictionary.</param>
     /// <param name="key">The key.</param>
     /// <returns>If the key is found, returns <c>Some(value)</c>. Otherwise, <c>None</c>.</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<TValue> GetValueOrNone<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> self, TKey key)
         where TValue : notnull
         where TKey : notnull
