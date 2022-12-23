@@ -135,7 +135,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Converts the result into a <see cref="ReadOnlySpan{T}"/> that contains either zero or one
     /// items depending on whether the result is <c>Err</c> or <c>Ok</c>.
     /// </summary>
-    /// <returns>A span containing the results's value, or an empty span. Error values are omitted.</returns>
+    /// <returns>A span containing the result's value, or an empty span. Error values are omitted.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public ReadOnlySpan<T> AsSpan()
     {
@@ -148,7 +148,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Returns an <see cref="IEnumerable{T}"/> containing either zero or one value,
     /// depending on whether the result is <c>Err</c> or <c>Ok</c>.
     /// </summary>
-    /// <returns>An enumerable containing the results's value, or an empty enumerable. Error values are omitted.</returns>
+    /// <returns>An enumerable containing the result's value, or an empty enumerable. Error values are omitted.</returns>
     public IEnumerable<T> AsEnumerable()
     {
         if (_isOk)

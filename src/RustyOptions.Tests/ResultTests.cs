@@ -170,8 +170,32 @@ public sealed class ResultTests
         int Throws() => Array.Empty<int>()[0];
         int DoesNotThrow() => new[] { 42 }[0];
 
-        Assert.True(Result.Try(Throws).IsErr(out var ex)
-            && ex is IndexOutOfRangeException);
+        Assert.True(Result.Try(Throws).IsErr(out var ex) && ex is IndexOutOfRangeException);
         Assert.True(Result.Try(DoesNotThrow).IsOk(out var val) && val == 42);
+    }
+
+    [Fact]
+    public void CanEquate()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+        var sameOk = Result.Ok(42);
+        var otherOk = Result.Ok(-1);
+
+        Assert.Equal(ok, sameOk);
+        Assert.NotEqual(ok, err);
+        Assert.NotEqual(ok, otherOk);
+
+        Assert.True(ok == sameOk);
+        Assert.True(ok != err);
+        Assert.True(ok != otherOk);
+
+        Assert.True(ok.Equals((object)sameOk));
+        Assert.False(ok.Equals((object)err));
+        Assert.False(ok.Equals((object)otherOk));
+
+        Assert.Equal(ok.GetHashCode(), sameOk.GetHashCode());
+        Assert.NotEqual(ok.GetHashCode(), err.GetHashCode());
+        Assert.NotEqual(ok.GetHashCode(), otherOk.GetHashCode());
     }
 }
