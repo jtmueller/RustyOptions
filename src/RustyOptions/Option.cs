@@ -208,6 +208,11 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
                 }
             }
         }
+        else
+        {
+            charsWritten = 0;
+            return true;
+        }
 
         charsWritten = 0;
         return false;

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using static RustyOptions.Option;
 
@@ -6,7 +7,6 @@ namespace RustyOptions.Tests;
 
 public class OptionCollectionTests
 {
-
     [Fact]
     public void CanGetOptionFromDictionary()
     {
@@ -40,6 +40,13 @@ public class OptionCollectionTests
 
         Assert.True(chainResult.IsNone);
 
+        var readOnlyDict = new ReadOnlyDictionary<int, string>(numsToNames);
+
+        Assert.Equal(Some("three"), readOnlyDict.GetValueOrNone(3));
+
+        var dictEnum = Enumerate(numsToNames);
+
+        Assert.Equal(Some("three"), dictEnum.GetValueOrNone(3));
     }
 
     [Fact]
@@ -236,9 +243,12 @@ public class OptionCollectionTests
         Assert.Equal(Some(5), notEmptyEnumerable.ElementAtOrNone(5));
     }
 
-    private static IEnumerable<T> Enumerate<T>(IList<T> list)
+    /// <summary>
+    /// Ensures an IEnumerable can't be downcast.
+    /// </summary>
+    private static IEnumerable<T> Enumerate<T>(IEnumerable<T> items)
     {
-        foreach (var item in list)
+        foreach (var item in items)
         {
             yield return item;
         }
@@ -261,6 +271,30 @@ public class OptionCollectionTests
         public IEnumerator<T> GetEnumerator() => _inner.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => _inner.GetEnumerator();
+    }
+
+    /// <summary>
+    /// Most dictionaries that implement IReadOnlyDictionary also implement IDictionary.
+    /// This only implements IReadOnlyDictionary, for code coverage.
+    /// </summary>
+    private sealed class ReadOnlyDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, TValue>
+    {
+        private readonly IDictionary<TKey, TValue> _dict;
+
+        public ReadOnlyDictionary(IDictionary<TKey, TValue> dict) => _dict = dict;
+
+        public TValue this[TKey key] => _dict[key];
+
+        public IEnumerable<TKey> Keys => _dict.Keys;
+        public IEnumerable<TValue> Values => _dict.Values;
+        public int Count => _dict.Count;
+
+        public bool ContainsKey(TKey key) => _dict.ContainsKey(key);
+
+        public bool TryGetValue(TKey key, [MaybeNullWhen(false)] out TValue value) => _dict.TryGetValue(key, out value);
+
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => _dict.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => _dict.GetEnumerator();
     }
 }
 

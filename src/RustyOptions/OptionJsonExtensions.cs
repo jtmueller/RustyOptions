@@ -42,9 +42,6 @@ public static class OptionJsonExtensions
             return node switch
             {
                 JsonValue val => val.GetOption<T>(),
-                JsonArray => default, // JsonArray isn't supported for this use
-                JsonObject obj => obj.AsValue().GetOption<T>(),
-                JsonNode n => n.AsValue().GetOption<T>(),
                 _ => default
             };
         }
