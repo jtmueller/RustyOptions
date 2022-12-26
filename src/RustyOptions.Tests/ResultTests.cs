@@ -1,4 +1,6 @@
-﻿namespace RustyOptions.Tests;
+﻿using System.Globalization;
+
+namespace RustyOptions.Tests;
 
 public sealed class ResultTests
 {
@@ -197,5 +199,67 @@ public sealed class ResultTests
         Assert.Equal(ok.GetHashCode(), sameOk.GetHashCode());
         Assert.NotEqual(ok.GetHashCode(), err.GetHashCode());
         Assert.NotEqual(ok.GetHashCode(), otherOk.GetHashCode());
+    }
+
+    [Fact]
+    public void CanGetString()
+    {
+        var ok = Result.Ok(4200);
+        var err = Result.Err<int>("oops");
+
+        Assert.Equal("Ok(4200)", ok.ToString());
+        Assert.Equal("Err(oops)", err.ToString());
+        Assert.Equal("Ok(4,200.00)", ok.ToString("n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Err(oops)", err.ToString("n2", CultureInfo.InvariantCulture));
+    }
+
+    [Fact]
+    public void CanFormatToSpan()
+    {
+        var ok = Result.Ok(4200);
+        var err = Result.Err<int>("oops");
+        var okNotSpanFormattable = Result.Ok(new NotSpanFormattable { Value = 4200 });
+        var okNotFormattable = Result.Ok(new NotFormattable { Value = 4200 });
+        var errNotSpanFormattable = Result.Err<int, NotSpanFormattable>(new NotSpanFormattable { Value = -1 });
+        var errNotFormattable = Result.Err<int, NotFormattable>(new NotFormattable { Value = -1 });
+
+        Span<char> buffer = stackalloc char[255];
+
+        Assert.True(ok.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Ok(4200)"));
+
+        Assert.True(err.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Err(oops)"));
+
+        Assert.True(ok.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Ok(4,200.00)"));
+
+        Assert.True(okNotSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Ok(4,200.00)"));
+
+        Assert.True(okNotFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Ok(4200)"));
+
+        Assert.True(errNotSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Err(-1.00)"));
+
+        Assert.True(errNotFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Err(-1)"));
+    }
+
+    private sealed class NotSpanFormattable : IFormattable
+    {
+        public int Value { get; set; }
+
+        public string ToString(string? format, IFormatProvider? formatProvider) => Value.ToString(format, formatProvider);
+    }
+
+    private sealed class NotFormattable
+    {
+        public int Value { get; set; }
+
+#pragma warning disable CA1305 // Specify IFormatProvider
+        public override string ToString() => Value.ToString();
+#pragma warning restore CA1305 // Specify IFormatProvider
     }
 }

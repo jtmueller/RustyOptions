@@ -197,11 +197,29 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     public override int GetHashCode()
         => _isOk ? _value.GetHashCode() : _err.GetHashCode();
 
+    /// <summary>
+    /// Returns the text representation of the value of the current <see cref="Result{T, TErr}"/> object.
+    /// </summary>
+    /// <returns>
+    /// The text representation of the value of the current <see cref="Result{T, TErr}"/> object.
+    /// </returns>
     public override string ToString()
     {
         return _isOk ? $"Ok({_value})" : $"Err({_err})";
     }
 
+    /// <summary>
+    /// Formats the value of the current <see cref="Result{T, TErr}"/> using the specified format.
+    /// </summary>
+    /// <param name="format">
+    /// The format to use, or a null reference to use the default format defined for
+    /// the type of the contained value.
+    /// </param>
+    /// <param name="formatProvider">
+    /// The provider to use to format the value, or a null reference to obtain the
+    /// format information from the current locale setting of the operating system.
+    /// </param>
+    /// <returns>The value of the current instance in the specified format.</returns>
     public string ToString(string? format, IFormatProvider? formatProvider)
     {
         if (string.IsNullOrEmpty(format))
@@ -216,14 +234,24 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             : string.Format(formatProvider, "Err({0:" + format + "})", _err);
     }
 
+    /// <summary>
+    /// Tries to format the value of the current instance into the provided span of characters.
+    /// </summary>
+    /// <param name="destination">The span in which to write this instance's value formatted as a span of characters.</param>
+    /// <param name="charsWritten">When this method returns, contains the number of characters that were written in destination.</param>
+    /// <param name="format">
+    /// A span containing the characters that represent a standard or custom format string that defines the acceptable format for destination.
+    /// </param>
+    /// <param name="provider">An optional object that supplies culture-specific formatting information for destination.</param>
+    /// <returns><c>true</c> if the formatting was successful; otherwise, <c>false</c>.</returns>
     public bool TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
     {
         if (_isOk)
         {
-            if (_value is ISpanFormattable spanFormattable)
+            if (_value is ISpanFormattable formatVal)
             {
                 if ("Ok(".TryCopyTo(destination) &&
-                    spanFormattable.TryFormat(destination[3..], out int valWritten, format, provider))
+                    formatVal.TryFormat(destination[3..], out int valWritten, format, provider))
                 {
                     destination = destination[(3 + valWritten)..];
                     if (destination.Length >= 1)
@@ -233,16 +261,9 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                         return true;
                     }
                 }
-            }
-            else
-            {
-                string output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
 
-                if (output.TryCopyTo(destination))
-                {
-                    charsWritten = output.Length;
-                    return true;
-                }
+                charsWritten = 0;
+                return false;
             }
         }
         else
@@ -250,7 +271,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             if (_err is ISpanFormattable formatErr)
             {
                 if ("Err(".TryCopyTo(destination) &&
-                    formatErr.TryFormat(destination[4..], out int errWritten, ReadOnlySpan<char>.Empty, provider))
+                    formatErr.TryFormat(destination[4..], out int errWritten, format, provider))
                 {
                     destination = destination[(4 + errWritten)..];
                     if (destination.Length >= 1)
@@ -260,17 +281,18 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                         return true;
                     }
                 }
-            }
-            else
-            {
-                string output = string.Create(provider, $"Err({_err})");
 
-                if (output.TryCopyTo(destination))
-                {
-                    charsWritten = output.Length;
-                    return true;
-                }
+                charsWritten = 0;
+                return false;
             }
+        }
+
+        string output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
+
+        if (output.TryCopyTo(destination))
+        {
+            charsWritten = output.Length;
+            return true;
         }
 
         charsWritten = 0;

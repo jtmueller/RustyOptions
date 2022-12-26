@@ -142,8 +142,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// Returns the text representation of the value of the current <see cref="Option{T}"/> object.
     /// </summary>
     /// <returns>
-    /// The text representation of the value of the current <see cref="Option{T}"/> object
-    /// if the option is <c>Some</c>, otherwise an empty string.
+    /// The text representation of the value of the current <see cref="Option{T}"/> object.
     /// </returns>
     public override string ToString()
     {

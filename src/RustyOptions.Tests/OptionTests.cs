@@ -231,6 +231,7 @@ public sealed class OptionTests
         Assert.Equal("Some(4200)", someInt.ToString());
         Assert.Equal("None", noneInt.ToString());
         Assert.Equal("Some(4,200.00)", someInt.ToString("n2", CultureInfo.InvariantCulture));
+        Assert.Equal("None", noneInt.ToString("n2", CultureInfo.InvariantCulture));
     }
 
     [Fact]
