@@ -157,6 +157,14 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         }
     }
 
+    /// <summary>
+    /// Indicates whether the current object is equal to another object.
+    /// </summary>
+    /// <param name="other">An object to compare with this object.</param>
+    /// <returns>
+    /// <c>true</c> if the current object is equal to the <paramref name="other"/> parameter;
+    /// otherwise, <c>false</c>.
+    /// </returns>
     public bool Equals(Result<T, TErr> other)
     {
         return (_isOk, other._isOk) switch
@@ -167,9 +175,24 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         };
     }
 
+    /// <summary>
+    /// Indicates whether the current object is equal to another object.
+    /// </summary>
+    /// <param name="obj">An object to compare with this object.</param>
+    /// <returns>
+    /// <c>true</c> if the current object is equal to the <paramref name="obj"/> parameter;
+    /// otherwise, <c>false</c>.
+    /// </returns>
     public override bool Equals([NotNullWhen(true)] object? obj)
         => obj is Result<T, TErr> other && Equals(other);
 
+    /// <summary>
+    /// Retrieves the hash code of the object contained by the <see cref="Result{T, TErr}"/>, if any.
+    /// </summary>
+    /// <returns>
+    /// The hash code of the object returned by the <see cref="IsOk(out T)"/> method, or <see cref="IsErr(out TErr)"/>,
+    /// whichever method returns <c>true</c>.
+    /// </returns>
     public override int GetHashCode()
         => _isOk ? _value.GetHashCode() : _err.GetHashCode();
 
