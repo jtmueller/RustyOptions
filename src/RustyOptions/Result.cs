@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -6,7 +7,7 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: <inheritdoc/> doesn't work with docfx, need to actually write/copy documentation.
+// TODO: A Contains(T) method? Match that returns void?
 
 /// <summary>
 /// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without
@@ -196,14 +197,9 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     public override int GetHashCode()
         => _isOk ? _value.GetHashCode() : _err.GetHashCode();
 
-    // TODO: decide if we should format output like this, or omit the Ok/Err wrapper
-    // and just write the values.
-
     public override string ToString()
     {
-        return _isOk
-            ? string.Create(CultureInfo.InvariantCulture, $"Ok({_value})")
-            : string.Create(CultureInfo.InvariantCulture, $"Err({_err})");
+        return _isOk ? $"Ok({_value})" : $"Err({_err})";
     }
 
     public string ToString(string? format, IFormatProvider? formatProvider)
@@ -224,10 +220,10 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     {
         if (_isOk)
         {
-            if (_value is ISpanFormattable formatVal)
+            if (_value is ISpanFormattable spanFormattable)
             {
                 if ("Ok(".TryCopyTo(destination) &&
-                    formatVal.TryFormat(destination[3..], out int valWritten, format, provider))
+                    spanFormattable.TryFormat(destination[3..], out int valWritten, format, provider))
                 {
                     destination = destination[(3 + valWritten)..];
                     if (destination.Length >= 1)
@@ -240,9 +236,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             }
             else
             {
-                string output = format.IsEmpty
-                    ? string.Create(provider, $"Ok({_value})")
-                    : string.Format(provider, $"Ok({{0:{format}}})", _value);
+                string output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
 
                 if (output.TryCopyTo(destination))
                 {

@@ -1,16 +1,18 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace RustyOptions;
+
+// TODO: A Contains(T) method? Match that returns void?
 
 /// <summary>
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
 /// <typeparam name="T">The type the opton might contain.</typeparam>
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic or F#.")]
-[DebuggerDisplay("{DebuggerDisplay,nq}")]
 [Serializable]
 public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IFormattable, ISpanFormattable
     where T : notnull
@@ -145,9 +147,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// </returns>
     public override string ToString()
     {
-        return _isSome
-            ? _value.ToString() ?? string.Empty
-            : string.Empty;
+        return _isSome ? $"Some({_value})" : "None";
     }
 
     /// <summary>
@@ -164,11 +164,16 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// <returns>The value of the current instance in the specified format.</returns>
     public string ToString(string? format, IFormatProvider? formatProvider)
     {
+        if (string.IsNullOrEmpty(format))
+        {
+            return _isSome
+                ? string.Create(formatProvider, $"Some({_value})")
+                : "None";
+        }
+
         return _isSome
-            ? _value is IFormattable formattable
-                ? formattable.ToString(format, formatProvider)
-                : _value.ToString() ?? string.Empty
-            : string.Empty;
+            ? string.Format(formatProvider, "Some({0:" + format + "})", _value)
+            : "None";
     }
 
     /// <summary>
@@ -187,21 +192,23 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
         {
             if (_value is ISpanFormattable spanFormattable)
             {
-                return spanFormattable.TryFormat(destination, out charsWritten, format, provider);
-            }
-            else if (_value is IFormattable formattable)
-            {
-                var output = formattable.ToString(format.ToString(), provider);
-
-                if (output.TryCopyTo(destination))
+                if ("Some(".TryCopyTo(destination) && spanFormattable.TryFormat(destination[5..], out var innerWritten, format, provider))
                 {
-                    charsWritten = output.Length;
-                    return true;
+                    destination = destination[(5 + innerWritten)..];
+                    if (destination.Length >= 1)
+                    {
+                        destination[0] = ')';
+                        charsWritten = innerWritten + 6;
+                        return true;
+                    }
                 }
+
+                charsWritten = 0;
+                return false;
             }
             else
             {
-                var output = _value.ToString();
+                var output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
 
                 if (output is not null && output.TryCopyTo(destination))
                 {
@@ -212,8 +219,11 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
         }
         else
         {
-            charsWritten = 0;
-            return true;
+            if ("None".TryCopyTo(destination))
+            {
+                charsWritten = 4;
+                return true;
+            }
         }
 
         charsWritten = 0;

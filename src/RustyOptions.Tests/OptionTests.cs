@@ -228,9 +228,9 @@ public sealed class OptionTests
         var someInt = Some(4200);
         var noneInt = None<int>();
 
-        Assert.Equal("4200", someInt.ToString());
-        Assert.Equal(string.Empty, noneInt.ToString());
-        Assert.Equal("4,200.00", someInt.ToString("n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4200)", someInt.ToString());
+        Assert.Equal("None", noneInt.ToString());
+        Assert.Equal("Some(4,200.00)", someInt.ToString("n2", CultureInfo.InvariantCulture));
     }
 
     [Fact]
@@ -242,21 +242,21 @@ public sealed class OptionTests
         Span<char> buffer = stackalloc char[255];
 
         Assert.True(someInt.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("4200"));
+        Assert.True(buffer[..written].SequenceEqual("Some(4200)"));
 
         Assert.True(noneInt.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual(string.Empty));
+        Assert.True(buffer[..written].SequenceEqual("None"));
 
         Assert.True(someInt.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("4,200.00"));
+        Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
 
         var notSpanFormattable = Some(new NotSpanFormattable { Value = 4200 });
         Assert.True(notSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("4,200.00"));
+        Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
 
         var notFormattable = Some(new NotFormattable { Value = 4200 });
         Assert.True(notFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("4200"));
+        Assert.True(buffer[..written].SequenceEqual("Some(4200)"));
 
         Assert.False(someInt.TryFormat(Span<char>.Empty, out written, "", null));
         Assert.False(notFormattable.TryFormat(Span<char>.Empty, out written, "", null));
