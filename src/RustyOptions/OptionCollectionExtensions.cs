@@ -72,17 +72,11 @@ public static class OptionCollectionExtensions
 
         if (self is IList<T> list)
         {
-            if (list.Count > 0)
-            {
-                return Option.Some(list[0]);
-            }
+            return list.Count > 0 ? Option.Some(list[0]) : default;
         }
         else if (self is IReadOnlyList<T> readOnlyList)
         {
-            if (readOnlyList.Count > 0)
-            {
-                return Option.Some(readOnlyList[0]);
-            }
+            return readOnlyList.Count > 0 ? Option.Some(readOnlyList[0]) : default;
         }
         else
         {
@@ -134,17 +128,11 @@ public static class OptionCollectionExtensions
 
         if (self is IList<T> list)
         {
-            if (list.Count > 0)
-            {
-                return Option.Some(list[^1]);
-            }
+            return list.Count > 0 ? Option.Some(list[^1]) : default;
         }
         else if (self is IReadOnlyList<T> readOnlyList)
         {
-            if (readOnlyList.Count > 0)
-            {
-                return Option.Some(readOnlyList[^1]);
-            }
+            return readOnlyList.Count > 0 ? Option.Some(readOnlyList[^1]) : default;
         }
         else
         {
@@ -188,6 +176,8 @@ public static class OptionCollectionExtensions
                     return Option.Some(result);
                 }
             }
+
+            return default;
         }
         else if (self is IReadOnlyList<T> readOnlyList)
         {
@@ -199,6 +189,8 @@ public static class OptionCollectionExtensions
                     return Option.Some(result);
                 }
             }
+
+            return default;
         }
         else
         {
@@ -321,17 +313,15 @@ public static class OptionCollectionExtensions
         {
             if (self is IList<T> list)
             {
-                if (index < list.Count)
-                {
-                    return Option.Some(list[index]);
-                }
+                return index < list.Count
+                    ? Option.Some(list[index])
+                    : default;
             }
             else if (self is IReadOnlyList<T> readOnlyList)
             {
-                if (index < readOnlyList.Count)
-                {
-                    return Option.Some(readOnlyList[index]);
-                }
+                return index < readOnlyList.Count
+                    ? Option.Some(readOnlyList[index])
+                    : default;
             }
             else
             {
