@@ -7,7 +7,7 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: A Contains(T) method? Match that returns void?
+// TODO: Match overload that returns void (for side effects)?
 
 /// <summary>
 /// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without
@@ -299,9 +299,21 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         return false;
     }
 
+    /// <summary>
+    /// Compares the current instance with another object of the same type and returns an integer
+    /// that indicates whether the current instance precedes, follows, or occurs in the same
+    /// position in the sort order as the other object.
+    /// <para>
+    /// Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in
+    /// <typeparamref name="T"/> or <typeparamref name="TErr"/>, respectively.
+    /// </para>
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns>
+    /// <c>-1</c> if this instance precendes <paramref name="other"/>, <c>0</c> if they are equal, and <c>1</c> if this instance follows <paramref name="other"/>.
+    /// </returns>
     public int CompareTo(Result<T, TErr> other)
     {
-        // Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in T or E respectively.
         return (_isOk, other._isOk) switch
         {
             (true, true) => Comparer<T>.Default.Compare(_value, other._value),
@@ -311,21 +323,73 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         };
     }
 
+    /// <summary>
+    /// Determines whether one <c>Result</c> is equal to another <c>Result</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Result</c> to compare.</param>
+    /// <param name="right">The second <c>Result</c> to compare.</param>
+    /// <returns><c>true</c> if the two values are equal.</returns>
     public static bool operator ==(Result<T, TErr> left, Result<T, TErr> right)
         => left.Equals(right);
 
+    /// <summary>
+    /// Determines whether one <c>Result</c> is not equal to another <c>Result</c>.
+    /// </summary>
+    /// <param name="left">The first <c>Result</c> to compare.</param>
+    /// <param name="right">The second <c>Result</c> to compare.</param>
+    /// <returns><c>true</c> if the two values are not equal.</returns>
     public static bool operator !=(Result<T, TErr> left, Result<T, TErr> right)
         => !left.Equals(right);
 
+    /// <summary>
+    /// Determines whether one <c>Result</c> is greater than another <c>Result</c>.
+    /// <para>
+    /// Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in
+    /// <typeparamref name="T"/> or <typeparamref name="TErr"/>, respectively.
+    /// </para>
+    /// </summary>
+    /// <param name="left">The first <c>Result</c> to compare.</param>
+    /// <param name="right">The second <c>Result</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is greater than the <paramref name="right"/> parameter.</returns>
     public static bool operator >(Result<T, TErr> left, Result<T, TErr> right)
         => left.CompareTo(right) > 0;
 
+    /// <summary>
+    /// Determines whether one <c>Result</c> is less than another <c>Result</c>.
+    /// <para>
+    /// Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in
+    /// <typeparamref name="T"/> or <typeparamref name="TErr"/>, respectively.
+    /// </para>
+    /// </summary>
+    /// <param name="left">The first <c>Result</c> to compare.</param>
+    /// <param name="right">The second <c>Result</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is less than the <paramref name="right"/> parameter.</returns>
     public static bool operator <(Result<T, TErr> left, Result<T, TErr> right)
         => left.CompareTo(right) < 0;
 
+    /// <summary>
+    /// Determines whether one <c>Result</c> is greater than or equal to another <c>Result</c>.
+    /// <para>
+    /// Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in
+    /// <typeparamref name="T"/> or <typeparamref name="TErr"/>, respectively.
+    /// </para>
+    /// </summary>
+    /// <param name="left">The first <c>Result</c> to compare.</param>
+    /// <param name="right">The second <c>Result</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is greater than or equal to the <paramref name="right"/> parameter.</returns>
     public static bool operator >=(Result<T, TErr> left, Result<T, TErr> right)
         => left.CompareTo(right) >= 0;
 
+    /// <summary>
+    /// Determines whether one <c>Result</c> is less than or equal to another <c>Result</c>.
+    /// <para>
+    /// Ok compares as less than any Err, while two Ok or two Err compare as their contained values would in
+    /// <typeparamref name="T"/> or <typeparamref name="TErr"/>, respectively.
+    /// </para>
+    /// </summary>
+    /// <param name="left">The first <c>Result</c> to compare.</param>
+    /// <param name="right">The second <c>Result</c> to compare.</param>
+    /// <returns><c>true</c> if the <paramref name="left"/> parameter is less than or equal to the <paramref name="right"/> parameter.</returns>
     public static bool operator <=(Result<T, TErr> left, Result<T, TErr> right)
         => left.CompareTo(right) <= 0;
 }

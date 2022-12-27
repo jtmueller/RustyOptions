@@ -394,12 +394,12 @@ public sealed class OptionTests
         Assert.True(b >= b);
         Assert.True(c < d);
         Assert.True(c <= c);
-        Assert.True(n < a);
+        Assert.True(n > a);
 #pragma warning restore CS1718 // Comparison made to same variable
 
         var items = new[] { d, b, n, c, a };
         Array.Sort(items);
-        Assert.Equal(new[] { n, a, b, c, d }, items);
+        Assert.Equal(new[] { a, b, c, d, n }, items);
     }
 
     private sealed class NotSpanFormattable : IFormattable

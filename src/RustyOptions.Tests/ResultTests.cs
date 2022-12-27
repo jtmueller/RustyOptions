@@ -247,6 +247,42 @@ public sealed class ResultTests
         Assert.True(buffer[..written].SequenceEqual("Err(-1)"));
     }
 
+    [Fact]
+    public void CanCompare()
+    {
+        var a = Result.Ok(1);
+        var b = Result.Ok(2);
+        var c = Result.Ok(3);
+        var d = Result.Ok(4);
+
+        var e1 = Result.Err<int>("a");
+        var e2 = Result.Err<int>("b");
+        var e3 = Result.Err<int>("c");
+        var e4 = Result.Err<int>("d");
+
+        Assert.True(d > b);
+        Assert.True(a < c);
+        Assert.True(a <= b);
+#pragma warning disable CS1718 // Comparison made to same variable
+        Assert.True(a <= a);
+        Assert.True(d >= d);
+#pragma warning restore CS1718 // Comparison made to same variable
+        Assert.True(d >= c);
+
+        Assert.True(a < e1);
+        Assert.True(e2 > e1);
+        Assert.True(e1 >= d);
+#pragma warning disable CS1718 // Comparison made to same variable
+        Assert.True(e1 >= e1);
+        Assert.True(e4 <= e4);
+#pragma warning restore CS1718 // Comparison made to same variable
+        Assert.True(e3 < e4);
+
+        var items = new[] { d, e1, b, e3, e2, a, c, e4 };
+        Array.Sort(items);
+        Assert.Equal(new[] { a, b, c, d, e1, e2, e3, e4 }, items);
+    }
+
     private sealed class NotSpanFormattable : IFormattable
     {
         public int Value { get; set; }

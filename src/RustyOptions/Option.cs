@@ -233,16 +233,19 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// Compares the current instance with another object of the same type and returns an integer
     /// that indicates whether the current instance precedes, follows, or occurs in the same
     /// position in the sort order as the other object.
+    /// <para><c>Some</c> compares as less than any <c>None</c>, while two <c>Some</c> compare as their contained values would in <typeparamref name="T"/>.</para>
     /// </summary>
     /// <param name="other"></param>
-    /// <returns></returns>
+    /// <returns>
+    /// <c>-1</c> if this instance precendes <paramref name="other"/>, <c>0</c> if they are equal, and <c>1</c> if this instance follows <paramref name="other"/>.
+    /// </returns>
     public int CompareTo(Option<T> other)
     {
         return (_isSome, other._isSome) switch
         {
             (true, true) => Comparer<T>.Default.Compare(_value, other._value),
-            (true, false) => 1,
-            (false, true) => -1,
+            (true, false) => -1,
+            (false, true) => 1,
             (false, false) => 0
         };
     }
