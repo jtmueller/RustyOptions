@@ -411,4 +411,26 @@ public sealed class ResultTests
         Assert.Equal(42, okResult);
         Assert.Equal(-1, errResult);
     }
+
+    [Fact]
+    public void CanExpectErr()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var ex = Assert.Throws<InvalidOperationException>(() => ok.ExpectErr("Error"));
+        Assert.Equal("Error - 42", ex.Message);
+        Assert.Equal("oops", err.ExpectErr("Error"));
+    }
+
+    [Fact]
+    public void CanUnwrapErr()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var ex = Assert.Throws<InvalidOperationException>(() => ok.UnwrapErr());
+        Assert.Equal("Expected the result to be in the Err state, but it was Ok: 42", ex.Message);
+        Assert.Equal("oops", err.UnwrapErr());
+    }
 }

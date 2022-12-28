@@ -101,7 +101,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Because this function may throw an exception, its use is generally discouraged.
     /// Instead, prefer to use <see cref="Match{T2}(Func{T, T2}, Func{TErr, T2})"/> and handle the Err case explicitly,
     /// or call <see cref="ResultExtensions.UnwrapOr{T, TErr}(Result{T, TErr}, T)"/> or
-    /// <see cref="ResultExtensions.UnwrapOrElse{T, TErr}(Result{T, TErr}, Func{T})"/>.
+    /// <see cref="UnwrapOrElse(Func{TErr, T})"/>.
     /// </para>
     /// </summary>
     /// <returns>The value inside the result, if the result is <c>Ok</c>.</returns>
@@ -115,6 +115,19 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             throw new InvalidOperationException("Could not unwrap a Result in the Err state.", ex);
 
         throw new InvalidOperationException($"Could not unwrap a Result in the Err state: {_err}");
+    }
+
+    /// <summary>
+    /// Returns the contained <c>Err</c> value, or throws an <see cref="System.InvalidOperationException"/>.
+    /// </summary>
+    /// <returns>The contained <c>Err</c> value.</returns>
+    /// <exception cref="System.InvalidOperationException">Thrown when the result is in the <c>Ok</c> state.</exception>
+    public TErr UnwrapErr()
+    {
+        if (!_isOk)
+            return _err;
+
+        throw new InvalidOperationException($"Expected the result to be in the Err state, but it was Ok: {_value}");
     }
 
     /// <summary>
@@ -141,9 +154,9 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// </para>
     /// <para>
     /// Because this function may throw an exception, its use is generally discouraged.
-    /// Instead, prefer to use <see cref="Match{T2}(Func{T, T2}, Func{TErr, T2})"/>  and handle the Err case explicitly,
+    /// Instead, prefer to use <see cref="Match{T2}(Func{T, T2}, Func{TErr, T2})"/> and handle the Err case explicitly,
     /// or call <see cref="ResultExtensions.UnwrapOr{T, TErr}(Result{T, TErr}, T)"/> or
-    /// <see cref="ResultExtensions.UnwrapOrElse{T, TErr}(Result{T, TErr}, Func{T})"/>.
+    /// <see cref="UnwrapOrElse(Func{TErr, T})"/>.
     /// </para>
     /// </summary>
     /// <returns>The value inside the result, if the result is <c>Ok</c>.</returns>
@@ -157,6 +170,20 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
             throw new InvalidOperationException(message, ex);
 
         throw new InvalidOperationException($"{message} - {_err}");
+    }
+
+    /// <summary>
+    /// Returns the contained <c>Err</c> value, or throws an <see cref="System.InvalidOperationException"/>.
+    /// </summary>
+    /// <param name="message">The message for the thrown exception, if any.</param>
+    /// <returns>The contained <c>Err</c> value.</returns>
+    /// <exception cref="System.InvalidOperationException">Thrown when the result is in the <c>Ok</c> state.</exception>
+    public TErr ExpectErr(string message)
+    {
+        if (!_isOk)
+            return _err;
+
+        throw new InvalidOperationException($"{message} - {_value}");
     }
 
     /// <summary>

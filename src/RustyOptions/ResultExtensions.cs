@@ -102,7 +102,7 @@ public static class ResultExtensions
     /// <para>
     /// Arguments passed to <see cref="UnwrapOr{T, TErr}(Result{T, TErr}, T)"/> are eagerly evaluated;
     /// if you are passing the result of a function call, it is recommended to use
-    /// <see cref="UnwrapOrElse{T, TErr}(Result{T, TErr}, Func{T})"/>, which is lazily evaluated.
+    /// <see cref="Result{T, TErr}.UnwrapOrElse(Func{TErr, T})"/>, which is lazily evaluated.
     /// </para>
     /// </summary>
     /// <typeparam name="T">The <c>Ok</c> type.</typeparam>
@@ -115,27 +115,6 @@ public static class ResultExtensions
         where TErr : notnull
     {
         return self.IsOk(out var value) ? value : defaultValue;
-    }
-
-    public static TErr ExpectErr<T, TErr>(this Result<T, TErr> self, string message)
-        where T : notnull
-        where TErr : notnull
-    {
-        if (self.IsErr(out var err))
-            return err;
-
-        throw new InvalidOperationException(message);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static TErr UnwrapErr<T, TErr>(this Result<T, TErr> self)
-        where T : notnull
-        where TErr : notnull
-    {
-        if (self.IsErr(out var err))
-            return err;
-
-        throw new InvalidOperationException("Expected the result to be in the Err state, but it was Ok!");
     }
 
     public static Result<T2, TErr> And<T1, T2, TErr>(this Result<T1, TErr> self, Result<T2, TErr> other)
