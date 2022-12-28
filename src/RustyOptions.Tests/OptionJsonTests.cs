@@ -50,7 +50,7 @@ namespace RustyOptions.Tests
 
             var stringVal = doc.RootElement
                 .GetPropOption("string".AsSpan())
-                .AndThen(x => x.GetString().Some());
+                .AndThen(x => Option.Create(x.GetString()));
 
             var dateVal = doc.RootElement
                 .GetPropOption("date"u8)

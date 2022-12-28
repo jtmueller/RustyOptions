@@ -133,9 +133,6 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// <summary>
     /// Returns the contained <c>Ok</c> value or computes it from the provided <paramref name="elseFunction"/>.
     /// </summary>
-    /// <typeparam name="T">The <c>Ok</c> type.</typeparam>
-    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
-    /// <param name="self">The result to unwrap.</param>
     /// <param name="elseFunction">The function that computes the returned value from the <c>Err</c> value.</param>
     /// <returns>The contained <c>Ok</c> value or the value returned by <paramref name="elseFunction"/>.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="elseFunction"/> is null.</exception>
