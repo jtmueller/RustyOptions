@@ -541,7 +541,7 @@ public static class Result
     /// <returns>A result object containing the given exception.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if the exception is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<T, Exception> ErrExn<T>(Exception ex)
+    public static Result<T, Exception> Err<T>(Exception ex)
         where T : notnull
     {
         return new(ex);
@@ -564,7 +564,7 @@ public static class Result
         }
         catch (Exception ex)
         {
-            return ErrExn<T>(ex);
+            return Err<T>(ex);
         }
     }
 }

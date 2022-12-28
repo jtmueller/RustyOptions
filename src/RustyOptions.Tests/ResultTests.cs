@@ -64,7 +64,7 @@ public sealed class ResultTests
     public void CanCreateWithExceptionErr()
     {
         var ok = Result.OkExn(42);
-        var err = Result.ErrExn<int>(new InvalidOperationException("oops"));
+        var err = Result.Err<int>(new InvalidOperationException("oops"));
 
         Assert.True(ok.IsOk(out var okVal) && okVal == 42);
         Assert.True(err.IsErr(out var ex) && ex.Message == "oops");
@@ -95,7 +95,7 @@ public sealed class ResultTests
     {
         var ok = Result.Ok(42);
         var errStr = Result.Err<int>("oops");
-        var errExn = Result.ErrExn<int>(new AggregateException("oops"));
+        var errExn = Result.Err<int>(new AggregateException("oops"));
 
         Assert.Equal(42, ok.Unwrap());
 
@@ -111,7 +111,7 @@ public sealed class ResultTests
     {
         var ok = Result.Ok(42);
         var errStr = Result.Err<int>("oops");
-        var errExn = Result.ErrExn<int>(new AggregateException("oops"));
+        var errExn = Result.Err<int>(new AggregateException("oops"));
 
         Assert.Equal(42, ok.Expect("No value found"));
 
