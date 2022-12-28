@@ -69,7 +69,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// <param name="onSome">The function to pass the value to, if the result is <c>Ok</c>.</param>
     /// <param name="onNone">The function to pass the error value to, if the result is <c>Err</c>.</param>
     /// <returns>The value returned by the called function.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if either <paramref name="onSome"/> or <paramref name="onNone"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if either <paramref name="onSome"/> or <paramref name="onNone"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public T2 Match<T2>(Func<T, T2> onSome, Func<T2> onNone)
     {

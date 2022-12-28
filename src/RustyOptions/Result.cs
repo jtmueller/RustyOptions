@@ -24,7 +24,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Initializes a <see cref="Result{T, TErr}"/> in the <c>Ok</c> state containing the given value.
     /// </summary>
     /// <param name="value">The value to contain.</param>
-    /// <exception cref="ArgumentNullException">Thrown if the given value is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the given value is null.</exception>
     public Result(T value)
     {
         ThrowIfNull(value);
@@ -37,7 +37,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Initializes a <see cref="Result{T, TErr}"/> in the <c>Err</c> state containing the given error value.
     /// </summary>
     /// <param name="error">The error value to store.</param>
-    /// <exception cref="ArgumentNullException">Thrown if the given error is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the given error is null.</exception>
     public Result(TErr error)
     {
         ThrowIfNull(error);
@@ -81,7 +81,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// <param name="onOk">The function to pass the value to, if the result is <c>Ok</c>.</param>
     /// <param name="onErr">The function to pass the error value to, if the result is <c>Err</c>.</param>
     /// <returns>The value returned by the called function.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if either <paramref name="onOk"/> or <paramref name="onErr"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if either <paramref name="onOk"/> or <paramref name="onErr"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public T2 Match<T2>(Func<T, T2> onOk, Func<TErr, T2> onErr)
     {
@@ -92,7 +92,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
 
     /// <summary>
     /// Returns the contained value if the result is <c>Ok</c>. Otherwise,
-    /// throws an <see cref="InvalidOperationException"/>.
+    /// throws an <see cref="System.InvalidOperationException"/>.
     /// <para>
     /// Note: if the <c>Err</c> is <see cref="Exception"/> it will be contained as an inner exception.
     /// Otherwise, the <c>Err</c> value will be converted to a string and included in the exception message.
@@ -105,7 +105,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// </para>
     /// </summary>
     /// <returns>The value inside the result, if the result is <c>Ok</c>.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if the result is in the error state.</exception>
+    /// <exception cref="System.InvalidOperationException">Thrown if the result is in the error state.</exception>
     public T Unwrap()
     {
         if (_isOk)
@@ -118,8 +118,23 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     }
 
     /// <summary>
+    /// Returns the contained <c>Ok</c> value or computes it from the provided <paramref name="elseFunction"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result to unwrap.</param>
+    /// <param name="elseFunction">The function that computes the returned value from the <c>Err</c> value.</param>
+    /// <returns>The contained <c>Ok</c> value or the value returned by <paramref name="elseFunction"/>.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="elseFunction"/> is null.</exception>
+    public T UnwrapOrElse(Func<TErr, T> elseFunction)
+    {
+        ThrowIfNull(elseFunction);
+        return _isOk ? _value : elseFunction(_err);
+    }
+
+    /// <summary>
     /// Returns the contained value if the result is <c>Ok</c>. Otherwise,
-    /// throws an <see cref="InvalidOperationException"/> with the given message.
+    /// throws an <see cref="System.InvalidOperationException"/> with the given message.
     /// <para>
     /// Note: if the <c>Err</c> is <see cref="Exception"/> it will be contained as an inner exception.
     /// Otherwise, the <c>Err</c> value will be converted to a string and included in the exception message.
@@ -132,7 +147,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// </para>
     /// </summary>
     /// <returns>The value inside the result, if the result is <c>Ok</c>.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if the result is in the error state.</exception>
+    /// <exception cref="System.InvalidOperationException">Thrown if the result is in the error state.</exception>
     public T Expect(string message)
     {
         if (_isOk)
@@ -420,7 +435,7 @@ public static class Result
     /// <typeparam name="TErr">The type of error the result may contain.</typeparam>
     /// <param name="value">The value to store in the result.</param>
     /// <returns>A result object containing the given value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if the value is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the value is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, TErr> Ok<T, TErr>(T value)
         where T : notnull
@@ -437,7 +452,7 @@ public static class Result
     /// <typeparam name="T">The type of the value the result contains.</typeparam>
     /// <param name="value">The value to store in the result.</param>
     /// <returns>A result object containing the given value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if the value is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the value is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, string> Ok<T>(T value)
         where T : notnull
@@ -453,7 +468,7 @@ public static class Result
     /// <typeparam name="T">The type of the value the result contains.</typeparam>
     /// <param name="value">The value to store in the result.</param>
     /// <returns>A result object containing the given value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if the value is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the value is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, Exception> OkExn<T>(T value)
         where T : notnull
@@ -469,7 +484,7 @@ public static class Result
     /// <typeparam name="TErr">The type of the error the result contains.</typeparam>
     /// <param name="error">The error value to store in the result.</param>
     /// <returns>A result object containing the given error value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if the error value is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the error value is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, TErr> Err<T, TErr>(TErr error)
         where T : notnull
@@ -485,7 +500,7 @@ public static class Result
     /// <typeparam name="T">The type of the value the result would contain if it were not in the <c>Err</c> state.</typeparam>
     /// <param name="errMsg">The error message to store in the result.</param>
     /// <returns>A result object containing the given error message.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if the error message is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the error message is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, string> Err<T>(string errMsg)
         where T : notnull
@@ -500,7 +515,7 @@ public static class Result
     /// <typeparam name="T">The type of the value the result would contain if it were not in the <c>Err</c> state.</typeparam>
     /// <param name="ex">The exception to store in the result.</param>
     /// <returns>A result object containing the given exception.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if the exception is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if the exception is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, Exception> ErrExn<T>(Exception ex)
         where T : notnull

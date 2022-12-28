@@ -17,7 +17,7 @@ public static class OptionExtensions
     /// <param name="self">The option to map.</param>
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <returns>The mapped value as <c>Some</c>, or <c>None</c>.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<T2> Map<T1, T2>(this Option<T1> self, Func<T1, T2> mapper)
         where T1 : notnull
@@ -40,7 +40,7 @@ public static class OptionExtensions
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <param name="defaultValue">The default value to return if the option is <c>None</c>.</param>
     /// <returns>The mapped value, or the default value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static T2 MapOr<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, T2 defaultValue)
         where T1 : notnull
         where T2 : notnull
@@ -58,7 +58,7 @@ public static class OptionExtensions
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <param name="defaultFactory">The function that lazily generates a default value, if required.</param>
     /// <returns>The mapped value, or the default value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOrElse<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
         where T1 : notnull
@@ -102,7 +102,7 @@ public static class OptionExtensions
     /// <typeparam name="T">The type of the option.</typeparam>
     /// <param name="self">The option to unwrap.</param>
     /// <param name="defaultFactory">A function that returns a default value to use if the option is <c>None</c>.</param>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="defaultFactory"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="defaultFactory"/> is null.</exception>
     public static T UnwrapOrElse<T>(this Option<T> self, Func<T> defaultFactory)
         where T : notnull
     {
@@ -130,7 +130,7 @@ public static class OptionExtensions
     /// <param name="self">The option to check.</param>
     /// <param name="predicate">The function that determines if the value in the option is valid to return.</param>
     /// <returns><c>Some</c> if the option is <c>Some</c> and the predicate returns <c>true</c>, otherwise <c>None</c>.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="predicate"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="predicate"/> is null.</exception>
     public static Option<T> Filter<T>(this Option<T> self, Func<T, bool> predicate)
         where T : notnull
     {
@@ -167,7 +167,7 @@ public static class OptionExtensions
     /// <param name="other">The second option.</param>
     /// <param name="zipper">A functon that combines values from the two options into a new type.</param>
     /// <returns>An option contianing the result of passing both values to the <paramref name="zipper"/> function, or <c>None</c>.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="zipper"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="zipper"/> is null.</exception>
     public static Option<T3> ZipWith<T1, T2, T3>(this Option<T1> self, Option<T2> other, Func<T1, T2, T3> zipper)
         where T1 : notnull
         where T2 : notnull
@@ -200,7 +200,7 @@ public static class OptionExtensions
     /// <typeparam name="T2">The type contained by the second option.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
     public static Option<T2> AndThen<T1, T2>(this Option<T1> self, Func<T1, Option<T2>> thenFn)
         where T1 : notnull
         where T2 : notnull
@@ -231,7 +231,7 @@ public static class OptionExtensions
     /// <typeparam name="T">The type contained by the option.</typeparam>
     /// <param name="self">The option.</param>
     /// <param name="elseFn">The function that creates the alternate value if the option is <c>None</c>.</param>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="elseFn"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="elseFn"/> is null.</exception>
     public static Option<T> OrElse<T>(this Option<T> self, Func<Option<T>> elseFn)
         where T : notnull
     {

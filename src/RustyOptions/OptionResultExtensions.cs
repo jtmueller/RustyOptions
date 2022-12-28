@@ -35,7 +35,7 @@ public static class OptionResultExtensions
     /// <param name="self">The option to transform.</param>
     /// <param name="errorFactory">A function that creates an error object to be used if the option is <c>None</c>.</param>
     /// <returns>A <see cref="Result{T,TErr}"/> that contains either the option's value, or the provided error.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="errorFactory"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="errorFactory"/> is null.</exception>
     public static Result<T, TErr> OkOrElse<T, TErr>(this Option<T> self, Func<TErr> errorFactory)
         where T : notnull
         where TErr : notnull

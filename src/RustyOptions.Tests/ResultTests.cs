@@ -380,10 +380,35 @@ public sealed class ResultTests
         var err = Result.Err<int>("oops");
 
         var okResult = ok.MapOrElse(x => x * 2, _ => -1);
-
         var errResult = err.MapOrElse(x => x * 2, _ => -1);
 
         Assert.Equal(84, okResult);
+        Assert.Equal(-1, errResult);
+    }
+
+    [Fact]
+    public void CanUnwrapOr()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var okResult = ok.UnwrapOr(-1);
+        var errResult = err.UnwrapOr(-1);
+
+        Assert.Equal(42, okResult);
+        Assert.Equal(-1, errResult);
+    }
+
+    [Fact]
+    public void CanUnwrapOrElse()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var okResult = ok.UnwrapOrElse(_ => -1);
+        var errResult = err.UnwrapOrElse(_ => -1);
+
+        Assert.Equal(42, okResult);
         Assert.Equal(-1, errResult);
     }
 }

@@ -14,7 +14,7 @@ public static class ResultExtensions
     /// <param name="self">The result to map.</param>
     /// <param name="mapper">The function that converts a contained <c>Ok</c> value to <typeparamref name="T2"/>.</param>
     /// <returns>A result containing the mapped value, or <c>Err</c>.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T2, TErr> Map<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper)
         where T1 : notnull
@@ -36,7 +36,7 @@ public static class ResultExtensions
     /// <param name="self">The result to map.</param>
     /// <param name="errMapper">The function that converts a contained <typeparamref name="T1Err"/> value to <typeparamref name="T2Err"/>.</param>
     /// <returns>A result containing the mapped error, or <c>Ok</c>.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="errMapper"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="errMapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, T2Err> MapErr<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, T2Err> errMapper)
         where T : notnull
@@ -64,7 +64,7 @@ public static class ResultExtensions
     /// <param name="mapper">The function that converts a contained <c>Ok</c> value to <typeparamref name="T2"/>.</param>
     /// <param name="defaultValue">The default value to return if the result is <c>Err</c>.</param>
     /// <returns>The mapped value, or the default value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOr<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, T2 defaultValue)
         where T1 : notnull
@@ -87,7 +87,7 @@ public static class ResultExtensions
     /// <param name="mapper">The function that converts a contained <c>Ok</c> value to <typeparamref name="T2"/>.</param>
     /// <param name="defaultFactory">The function that converts a contained <c>Err</c> value to <typeparamref name="T2"/>.</param>
     /// <returns>The mapped value.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOrElse<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, Func<TErr, T2> defaultFactory)
         where T1 : notnull
@@ -97,19 +97,24 @@ public static class ResultExtensions
         return self.Match(mapper, defaultFactory);
     }
 
+    /// <summary>
+    /// Returns the contained <c>Ok</c> value, or a provided default.
+    /// <para>
+    /// Arguments passed to <see cref="UnwrapOr{T, TErr}(Result{T, TErr}, T)"/> are eagerly evaluated;
+    /// if you are passing the result of a function call, it is recommended to use
+    /// <see cref="UnwrapOrElse{T, TErr}(Result{T, TErr}, Func{T})"/>, which is lazily evaluated.
+    /// </para>
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result to unwrap.</param>
+    /// <param name="defaultValue">The default value to return if the result is <c>Err</c>.</param>
+    /// <returns>The contained <c>Ok</c> value, or the provided default.</returns>
     public static T UnwrapOr<T, TErr>(this Result<T, TErr> self, T defaultValue)
         where T : notnull
         where TErr : notnull
     {
         return self.IsOk(out var value) ? value : defaultValue;
-    }
-
-    public static T UnwrapOrElse<T, TErr>(this Result<T, TErr> self, Func<T> elseFunction)
-        where T : notnull
-        where TErr : notnull
-    {
-        ThrowIfNull(elseFunction);
-        return self.IsOk(out var value) ? value : elseFunction();
     }
 
     public static TErr ExpectErr<T, TErr>(this Result<T, TErr> self, string message)
@@ -122,6 +127,7 @@ public static class ResultExtensions
         throw new InvalidOperationException(message);
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static TErr UnwrapErr<T, TErr>(this Result<T, TErr> self)
         where T : notnull
         where TErr : notnull
