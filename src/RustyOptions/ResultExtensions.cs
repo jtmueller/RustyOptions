@@ -6,18 +6,6 @@ namespace RustyOptions;
 public static class ResultExtensions
 {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Result<T2, T2Err> Bind<T1, T1Err, T2, T2Err>(this Result<T1, T1Err> self,
-                                                               Func<T1, Result<T2, T2Err>> okBinder,
-                                                               Func<T1Err, Result<T2, T2Err>> errBinder)
-        where T1 : notnull
-        where T1Err : notnull
-        where T2 : notnull
-        where T2Err : notnull
-    {
-        return self.Match(okBinder, errBinder);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T2, TErr> Map<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper)
         where T1 : notnull
         where TErr : notnull

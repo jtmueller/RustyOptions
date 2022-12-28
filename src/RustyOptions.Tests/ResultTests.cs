@@ -298,4 +298,37 @@ public sealed class ResultTests
         public override string ToString() => Value.ToString();
 #pragma warning restore CA1305 // Specify IFormatProvider
     }
+
+    [Fact]
+    public void CanConvertToOption()
+    {
+        var ok = Result.Ok(4200);
+        var err = Result.Err<int>("oops");
+
+        var okOptSome = ok.Ok();
+        var okOptNone = ok.Err();
+        var errOptNone = err.Ok();
+        var errOptSome = err.Err();
+
+        Assert.Equal(Option.Some(4200), okOptSome);
+        Assert.Equal(Option<string>.None, okOptNone);
+        Assert.Equal(Option<int>.None, errOptNone);
+        Assert.Equal(Option.Some("oops"), errOptSome);
+    }
+
+    [Fact]
+    public void CanTranspose()
+    {
+        var okSomeTest = Result.Ok(Option.Some(42));
+        var okNoneTest = Result.Ok(Option<int>.None);
+        var errTest = Result.Err<Option<int>>("oops");
+
+        var okSomeExpected = Option.Some(Result.Ok(42));
+        var okNoneExpected = Option<Result<int, string>>.None;
+        var errExpected = Option.Some(Result.Err<int>("oops"));
+
+        Assert.Equal(okSomeExpected, okSomeTest.Transpose());
+        Assert.Equal(okNoneExpected, okNoneTest.Transpose());
+        Assert.Equal(errExpected, errTest.Transpose());
+    }
 }

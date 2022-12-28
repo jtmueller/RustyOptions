@@ -417,5 +417,4 @@ public sealed class OptionTests
         public override string ToString() => Value.ToString();
 #pragma warning restore CA1305 // Specify IFormatProvider
     }
-
 }

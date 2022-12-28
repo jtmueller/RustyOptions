@@ -97,6 +97,12 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Note: if the <c>Err</c> is <see cref="Exception"/> it will be contained as an inner exception.
     /// Otherwise, the <c>Err</c> value will be converted to a string and included in the exception message.
     /// </para>
+    /// <para>
+    /// Because this function may throw an exception, its use is generally discouraged.
+    /// Instead, prefer to use <see cref="Match{T2}(Func{T, T2}, Func{TErr, T2})"/> and handle the Err case explicitly,
+    /// or call <see cref="ResultExtensions.UnwrapOr{T, TErr}(Result{T, TErr}, T)"/> or
+    /// <see cref="ResultExtensions.UnwrapOrElse{T, TErr}(Result{T, TErr}, Func{T})"/>.
+    /// </para>
     /// </summary>
     /// <returns>The value inside the result, if the result is <c>Ok</c>.</returns>
     /// <exception cref="InvalidOperationException">Thrown if the result is in the error state.</exception>
@@ -117,6 +123,12 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// <para>
     /// Note: if the <c>Err</c> is <see cref="Exception"/> it will be contained as an inner exception.
     /// Otherwise, the <c>Err</c> value will be converted to a string and included in the exception message.
+    /// </para>
+    /// <para>
+    /// Because this function may throw an exception, its use is generally discouraged.
+    /// Instead, prefer to use <see cref="Match{T2}(Func{T, T2}, Func{TErr, T2})"/>  and handle the Err case explicitly,
+    /// or call <see cref="ResultExtensions.UnwrapOr{T, TErr}(Result{T, TErr}, T)"/> or
+    /// <see cref="ResultExtensions.UnwrapOrElse{T, TErr}(Result{T, TErr}, Func{T})"/>.
     /// </para>
     /// </summary>
     /// <returns>The value inside the result, if the result is <c>Ok</c>.</returns>
