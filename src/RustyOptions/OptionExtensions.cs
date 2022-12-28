@@ -18,12 +18,12 @@ public static class OptionExtensions
     /// <param name="mapper">The function that maps the value contained in the option.</param>
     /// <returns>The mapped value as <c>Some</c>, or <c>None</c>.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<T2> Map<T1, T2>(this Option<T1> self, Func<T1, T2> mapper)
         where T1 : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
-
         return self.IsSome(out var value)
             ? Option.Some(mapper(value)) : default;
     }
@@ -59,14 +59,12 @@ public static class OptionExtensions
     /// <param name="defaultFactory">The function that lazily generates a default value, if required.</param>
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOrElse<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
         where T1 : notnull
         where T2 : notnull
     {
-        ThrowIfNull(mapper);
-        ThrowIfNull(defaultFactory);
-
-        return self.IsSome(out var value) ? mapper(value) : defaultFactory();
+        return self.Match(mapper, defaultFactory);
     }
 
     /// <summary>

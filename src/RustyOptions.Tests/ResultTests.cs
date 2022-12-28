@@ -331,4 +331,59 @@ public sealed class ResultTests
         Assert.Equal(okNoneExpected, okNoneTest.Transpose());
         Assert.Equal(errExpected, errTest.Transpose());
     }
+
+    [Fact]
+    public void CanMap()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var mappedOk = ok.Map(x => (decimal)(x * 2));
+        var mappedErr = err.Map(x => (decimal)(x * 2));
+
+        Assert.Equal(Result.Ok<decimal>(84), mappedOk);
+        Assert.Equal(Result.Err<decimal>("oops"), mappedErr);
+    }
+
+    [Fact]
+    public void CanMapErr()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+#pragma warning disable CA2201 // Do not raise reserved exception types
+        var mappedOk = ok.MapErr(e => new Exception(e));
+        var mappedErr = err.MapErr(e => new Exception(e));
+#pragma warning restore CA2201 // Do not raise reserved exception types
+
+        Assert.Equal(Result.OkExn(42), mappedOk);
+        Assert.True(mappedErr.IsErr(out var e) && e.Message == "oops");
+    }
+
+    [Fact]
+    public void CanMapOr()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var okResult = ok.MapOr(x => x * 2, -1);
+        var errResult = err.MapOr(x => x * 2, -1);
+
+        Assert.Equal(84, okResult);
+        Assert.Equal(-1, errResult);
+    }
+
+    [Fact]
+    public void CanMapOrElse()
+    {
+        var ok = Result.Ok(42);
+        var err = Result.Err<int>("oops");
+
+        var okResult = ok.MapOrElse(x => x * 2, _ => -1);
+
+        var errResult = err.MapOrElse(x => x * 2, _ => -1);
+
+        Assert.Equal(84, okResult);
+        Assert.Equal(-1, errResult);
+    }
 }

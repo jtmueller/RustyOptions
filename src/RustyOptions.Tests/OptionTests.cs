@@ -72,6 +72,18 @@ public sealed class OptionTests
     }
 
     [Fact]
+    public void CanMatch()
+    {
+        var someInt = Some(42);
+        var noneInt = None<int>();
+        var someResult = someInt.Match(x => x.ToString(CultureInfo.InvariantCulture), () => "empty");
+        var noneResult = noneInt.Match(x => x.ToString(CultureInfo.InvariantCulture), () => "empty");
+
+        Assert.Equal("42", someResult);
+        Assert.Equal("empty", noneResult);
+    }
+
+    [Fact]
     public void CanGetSpan()
     {
         var someInt = Some(42);

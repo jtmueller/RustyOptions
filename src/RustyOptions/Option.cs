@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
@@ -57,6 +58,24 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     {
         value = _value;
         return _isSome;
+    }
+
+    /// <summary>
+    /// Returns the result of executing the <paramref name="onSome"/>
+    /// or <paramref name="onNone"/> functions, depending on the state 
+    /// of the <see cref="Option{T}"/>.
+    /// </summary>
+    /// <typeparam name="T2">The return type of the given functions.</typeparam>
+    /// <param name="onSome">The function to pass the value to, if the result is <c>Ok</c>.</param>
+    /// <param name="onNone">The function to pass the error value to, if the result is <c>Err</c>.</param>
+    /// <returns>The value returned by the called function.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if either <paramref name="onSome"/> or <paramref name="onNone"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public T2 Match<T2>(Func<T, T2> onSome, Func<T2> onNone)
+    {
+        ThrowIfNull(onSome);
+        ThrowIfNull(onNone);
+        return _isSome ? onSome(_value) : onNone();
     }
 
     /// <summary>

@@ -5,6 +5,16 @@ namespace RustyOptions;
 
 public static class ResultExtensions
 {
+    /// <summary>
+    /// Maps a result by applying a function to a contained <c>Ok</c> value, leaving an <c>Err</c> value untouched.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type contained by <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type contained by the return value.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result to map.</param>
+    /// <param name="mapper">The function that converts a contained <c>Ok</c> value to <typeparamref name="T2"/>.</param>
+    /// <returns>A result containing the mapped value, or <c>Err</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T2, TErr> Map<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper)
         where T1 : notnull
@@ -17,6 +27,16 @@ public static class ResultExtensions
         );
     }
 
+    /// <summary>
+    /// Maps a result by applying a function to a contained <c>Err</c> value, leaving an <c>Ok</c> value untouched.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type contained by <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type contained by the return value.</typeparam>
+    /// <param name="self">The result to map.</param>
+    /// <param name="errMapper">The function that converts a contained <typeparamref name="T1Err"/> value to <typeparamref name="T2Err"/>.</param>
+    /// <returns>A result containing the mapped error, or <c>Ok</c>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="errMapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, T2Err> MapErr<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, T2Err> errMapper)
         where T : notnull
@@ -29,6 +49,23 @@ public static class ResultExtensions
         );
     }
 
+    /// <summary>
+    /// Returns the provided default (if <c>Err</c>), or applies a function to the contained value (if <c>Ok</c>).
+    /// <para>
+    /// Arguments passed to <see cref="MapOr{T1, T2, TErr}(Result{T1, TErr}, Func{T1, T2}, T2)"/> are eagerly evaluated;
+    /// if you are passing the result of a function call, it is recommended to use
+    /// <see cref="MapOrElse{T1, T2, TErr}(Result{T1, TErr}, Func{T1, T2}, Func{TErr, T2})"/>, which is lazily evaluated.
+    /// </para>
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type contained by <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type contained by the return value.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result to map.</param>
+    /// <param name="mapper">The function that converts a contained <c>Ok</c> value to <typeparamref name="T2"/>.</param>
+    /// <param name="defaultValue">The default value to return if the result is <c>Err</c>.</param>
+    /// <returns>The mapped value, or the default value.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOr<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, T2 defaultValue)
         where T1 : notnull
         where TErr : notnull
@@ -38,14 +75,26 @@ public static class ResultExtensions
         return self.IsOk(out var value) ? mapper(value) : defaultValue;
     }
 
-    public static T2 MapOrElse<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
+    /// <summary>
+    /// Maps a <c>Result</c> by applying fallback function <paramref name="defaultFactory"/> to a
+    /// contained <c>Err</c> value, or function <paramref name="mapper"/> to a contained <c>Ok</c> value.
+    /// <para>This function can be used to unpack a successful result while handling an error.</para>
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type contained by <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type contained by the return value.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result to map.</param>
+    /// <param name="mapper">The function that converts a contained <c>Ok</c> value to <typeparamref name="T2"/>.</param>
+    /// <param name="defaultFactory">The function that converts a contained <c>Err</c> value to <typeparamref name="T2"/>.</param>
+    /// <returns>The mapped value.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T2 MapOrElse<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, Func<TErr, T2> defaultFactory)
         where T1 : notnull
         where TErr : notnull
         where T2 : notnull
     {
-        ThrowIfNull(mapper);
-        ThrowIfNull(defaultFactory);
-        return self.IsOk(out var value) ? mapper(value) : defaultFactory();
+        return self.Match(mapper, defaultFactory);
     }
 
     public static T UnwrapOr<T, TErr>(this Result<T, TErr> self, T defaultValue)
@@ -113,10 +162,7 @@ public static class ResultExtensions
         where T1Err : notnull
         where T2Err : notnull
     {
-        if (self.IsOk(out var value))
-            return Result.Ok<T, T2Err>(value);
-
-        return other;
+        return self.IsOk(out var value) ? Result.Ok<T, T2Err>(value) : other;
     }
 
     public static Result<T, T2Err> OrElse<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, Result<T, T2Err>> elseFunc)
@@ -127,6 +173,16 @@ public static class ResultExtensions
         return self.Match(
             onOk: Result.Ok<T, T2Err>,
             onErr: elseFunc
+        );
+    }
+
+    public static Result<T, TErr> Flatten<T, TErr>(this Result<Result<T, TErr>, TErr> self)
+        where T : notnull
+        where TErr : notnull
+    {
+        return self.Match(
+            onOk: x => x,
+            onErr: Result.Err<T, TErr>
         );
     }
 }
