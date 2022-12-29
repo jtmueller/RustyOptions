@@ -433,4 +433,24 @@ public sealed class ResultTests
         Assert.Equal("Expected the result to be in the Err state, but it was Ok: 42", ex.Message);
         Assert.Equal("oops", err.UnwrapErr());
     }
+
+    [Fact]
+    public void CanAnd()
+    {
+        var x = Result.Ok(2);
+        var y = Result.Err<string>("late error");
+        Assert.Equal(Result.Err<string>("late error"), x.And(y));
+
+        x = Result.Err<int>("early error");
+        y = Result.Ok("foo");
+        Assert.Equal(Result.Err<string>("early error"), x.And(y));
+
+        x = Result.Err<int>("not a 2");
+        y = Result.Err<string>("late error");
+        Assert.Equal(Result.Err<string>("not a 2"), x.And(y));
+
+        x = Result.Ok(2);
+        y = Result.Ok("different result type");
+        Assert.Equal(Result.Ok("different result type"), x.And(y));
+    }
 }

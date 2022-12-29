@@ -110,6 +110,7 @@ public static class ResultExtensions
     /// <param name="self">The result to unwrap.</param>
     /// <param name="defaultValue">The default value to return if the result is <c>Err</c>.</param>
     /// <returns>The contained <c>Ok</c> value, or the provided default.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T UnwrapOr<T, TErr>(this Result<T, TErr> self, T defaultValue)
         where T : notnull
         where TErr : notnull
@@ -117,18 +118,28 @@ public static class ResultExtensions
         return self.IsOk(out var value) ? value : defaultValue;
     }
 
+    /// <summary>
+    /// Returns <paramref name="other"/> if <paramref name="self"/> is <c>Ok</c>, otherwise
+    /// returns the <c>Err</c> value of <paramref name="self"/>.
+    /// <para>
+    /// Arguments passed to and are eagerly evaluated; if you are passing the result of a function call,
+    /// it is recommended to use <see cref="AndThen{T1, T2, TErr}(Result{T1, TErr}, Func{T1, Result{T2, TErr}})"/>, which is lazily evaluated.
+    /// </para>
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type of <paramref name="other"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="other">The other result.</param>
+    /// <returns><paramref name="other"/> if <paramref name="self"/> is <c>Ok</c>, otherwise
+    /// returns the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static Result<T2, TErr> And<T1, T2, TErr>(this Result<T1, TErr> self, Result<T2, TErr> other)
         where T1 : notnull
         where TErr : notnull
         where T2 : notnull
     {
         var selfOk = !self.IsErr(out var selfErr);
-        var otherOk = other.IsOk(out _);
-
-        if (selfOk == otherOk || selfOk)
-            return other;
-
-        return Result.Err<T2, TErr>(selfErr!);
+        return selfOk ? other : Result.Err<T2, TErr>(selfErr!);
     }
 
     public static Result<T2, TErr> AndThen<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Result<T2, TErr>> thenFunc)
