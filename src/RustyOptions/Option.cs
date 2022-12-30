@@ -7,7 +7,9 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: A Contains(T) method? Match that returns void?
+// TODO: Match that returns void?
+// TODO: OptionNumber that implements INumber?
+// TODO: Async?
 
 /// <summary>
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
@@ -327,7 +329,7 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
 }
 
 /// <summary>
-/// <see cref="Option"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
+/// This class contains static methods for creation an <see cref="Option{T}"/>.
 /// </summary>
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic.")]
 public static class Option
@@ -465,7 +467,7 @@ public static class Option
 /// </summary>
 /// <typeparam name="T">The type of value to get.</typeparam>
 /// <param name="value">The value retrieved, if any.</param>
-/// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
+/// <returns><c>true</c> if the value was retrieved, otherwise <c>false</c>.</returns>
 public delegate bool TryGet<T>([MaybeNullWhen(false)] out T? value);
 
 /// <summary>
@@ -475,5 +477,5 @@ public delegate bool TryGet<T>([MaybeNullWhen(false)] out T? value);
 /// <typeparam name="TValue">The type of value to get.</typeparam>
 /// <param name="key">The key to retrieve the corresponding value for.</param>
 /// <param name="value">The value retrieved, if any.</param>
-/// <returns><c>true</c> if the value was retrieved, otherwise false.</returns>
+/// <returns><c>true</c> if the value was retrieved, otherwise <c>false</c>.</returns>
 public delegate bool TryGetValue<TKey, TValue>(TKey key, [MaybeNullWhen(false)] out TValue? value);

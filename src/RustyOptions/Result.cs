@@ -8,7 +8,8 @@ using static System.ArgumentNullException;
 namespace RustyOptions;
 
 // TODO: Match overload that returns void (for side effects)?
-// TODO: OptionNumber/ResultNumber that implement INumber?
+// TODO: ResultNumber that implement INumber?
+// TODO: Async?
 
 /// <summary>
 /// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without
@@ -447,8 +448,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
 }
 
 /// <summary>
-/// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without
-/// throwing an exception.
+/// This class contains static methods for creating a <see cref="Result{T, TErr}"/>.
 /// </summary>
 public static class Result
 {

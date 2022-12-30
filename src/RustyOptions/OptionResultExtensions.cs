@@ -3,7 +3,7 @@
 namespace RustyOptions;
 
 /// <summary>
-/// Extension methods that transform Option to Result, or Result to Option.
+/// Extension methods that transform <see cref="Option{T}"/> to <see cref="Result{T, TErr}"/>, or vice-versa.
 /// </summary>
 public static class OptionResultExtensions
 {
