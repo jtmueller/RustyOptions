@@ -209,6 +209,13 @@ public static class ResultExtensions
         );
     }
 
+    /// <summary>
+    /// Removes one level of nesting from a nested <see cref="Result{T, TErr}"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type of the result.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <returns>The inner result.</returns>
     public static Result<T, TErr> Flatten<T, TErr>(this Result<Result<T, TErr>, TErr> self)
         where T : notnull
         where TErr : notnull

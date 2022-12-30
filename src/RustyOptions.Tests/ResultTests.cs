@@ -8,11 +8,11 @@ public sealed class ResultTests
     [Fact]
     public void CanPerformBasicOperationsStructClass()
     {
-        var okInt = Result.Ok<int, string>(42);
-        var errStr = Result.Err<int, string>("Whoops!");
+        var okInt = Ok<int, string>(42);
+        var errStr = Err<int, string>("Whoops!");
 
-        var okInt2 = Result.Ok<int, string>(42);
-        var errStr2 = Result.Err<int, string>("Whoops!");
+        var okInt2 = Ok<int, string>(42);
+        var errStr2 = Err<int, string>("Whoops!");
 
         Assert.True(okInt.IsOk(out var o1) && o1 == 42);
         Assert.True(errStr.IsErr(out var e1) && e1 == "Whoops!");
@@ -31,11 +31,11 @@ public sealed class ResultTests
     [Fact]
     public void CanPerformBasicOperationsClassStruct()
     {
-        var okStr = Result.Ok<string, int>("Foo");
-        var errInt = Result.Err<string, int>(-1);
+        var okStr = Ok<string, int>("Foo");
+        var errInt = Err<string, int>(-1);
 
-        var okStr2 = Result.Ok<string, int>("Foo");
-        var errInt2 = Result.Err<string, int>(-1);
+        var okStr2 = Ok<string, int>("Foo");
+        var errInt2 = Err<string, int>(-1);
 
         Assert.True(okStr.IsOk(out var o1) && o1 == "Foo");
         Assert.True(errInt.IsErr(out var e1) && e1 == -1);
@@ -54,8 +54,8 @@ public sealed class ResultTests
     [Fact]
     public void CanCreateWithStringErr()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         Assert.True(ok.IsOk(out var okVal) && okVal == 42);
         Assert.True(err.IsErr(out var errVal) && errVal == "oops");
@@ -64,8 +64,8 @@ public sealed class ResultTests
     [Fact]
     public void CanCreateWithExceptionErr()
     {
-        var ok = Result.OkExn(42);
-        var err = Result.Err<int>(new InvalidOperationException("oops"));
+        var ok = OkExn(42);
+        var err = Err<int>(new InvalidOperationException("oops"));
 
         Assert.True(ok.IsOk(out var okVal) && okVal == 42);
         Assert.True(err.IsErr(out var ex) && ex.Message == "oops");
@@ -74,8 +74,8 @@ public sealed class ResultTests
     [Fact]
     public void CanMatch()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var okResult = ok.Match(
             onOk: x => x * 2,
@@ -94,9 +94,9 @@ public sealed class ResultTests
     [Fact]
     public void CanUnwrap()
     {
-        var ok = Result.Ok(42);
-        var errStr = Result.Err<int>("oops");
-        var errExn = Result.Err<int>(new AggregateException("oops"));
+        var ok = Ok(42);
+        var errStr = Err<int>("oops");
+        var errExn = Err<int>(new AggregateException("oops"));
 
         Assert.Equal(42, ok.Unwrap());
 
@@ -110,9 +110,9 @@ public sealed class ResultTests
     [Fact]
     public void CanExpect()
     {
-        var ok = Result.Ok(42);
-        var errStr = Result.Err<int>("oops");
-        var errExn = Result.Err<int>(new AggregateException("oops"));
+        var ok = Ok(42);
+        var errStr = Err<int>("oops");
+        var errExn = Err<int>(new AggregateException("oops"));
 
         Assert.Equal(42, ok.Expect("No value found"));
 
@@ -127,8 +127,8 @@ public sealed class ResultTests
     [Fact]
     public void CanGetSpan()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var okSpan = ok.AsSpan();
         var errSpan = err.AsSpan();
@@ -145,8 +145,8 @@ public sealed class ResultTests
     [Fact]
     public void CanEnumerate()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         int value = 0;
         foreach (var x in err.AsEnumerable())
@@ -180,10 +180,10 @@ public sealed class ResultTests
     [Fact]
     public void CanEquate()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
-        var sameOk = Result.Ok(42);
-        var otherOk = Result.Ok(-1);
+        var ok = Ok(42);
+        var err = Err<int>("oops");
+        var sameOk = Ok(42);
+        var otherOk = Ok(-1);
 
         Assert.Equal(ok, sameOk);
         Assert.NotEqual(ok, err);
@@ -205,8 +205,8 @@ public sealed class ResultTests
     [Fact]
     public void CanGetString()
     {
-        var ok = Result.Ok(4200);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(4200);
+        var err = Err<int>("oops");
 
         Assert.Equal("Ok(4200)", ok.ToString());
         Assert.Equal("Err(oops)", err.ToString());
@@ -217,12 +217,12 @@ public sealed class ResultTests
     [Fact]
     public void CanFormatToSpan()
     {
-        var ok = Result.Ok(4200);
-        var err = Result.Err<int>("oops");
-        var okNotSpanFormattable = Result.Ok(new NotSpanFormattable { Value = 4200 });
-        var okNotFormattable = Result.Ok(new NotFormattable { Value = 4200 });
-        var errNotSpanFormattable = Result.Err<int, NotSpanFormattable>(new NotSpanFormattable { Value = -1 });
-        var errNotFormattable = Result.Err<int, NotFormattable>(new NotFormattable { Value = -1 });
+        var ok = Ok(4200);
+        var err = Err<int>("oops");
+        var okNotSpanFormattable = Ok(new NotSpanFormattable { Value = 4200 });
+        var okNotFormattable = Ok(new NotFormattable { Value = 4200 });
+        var errNotSpanFormattable = Err<int, NotSpanFormattable>(new NotSpanFormattable { Value = -1 });
+        var errNotFormattable = Err<int, NotFormattable>(new NotFormattable { Value = -1 });
 
         Span<char> buffer = stackalloc char[255];
 
@@ -251,15 +251,15 @@ public sealed class ResultTests
     [Fact]
     public void CanCompare()
     {
-        var a = Result.Ok(1);
-        var b = Result.Ok(2);
-        var c = Result.Ok(3);
-        var d = Result.Ok(4);
+        var a = Ok(1);
+        var b = Ok(2);
+        var c = Ok(3);
+        var d = Ok(4);
 
-        var e1 = Result.Err<int>("a");
-        var e2 = Result.Err<int>("b");
-        var e3 = Result.Err<int>("c");
-        var e4 = Result.Err<int>("d");
+        var e1 = Err<int>("a");
+        var e2 = Err<int>("b");
+        var e3 = Err<int>("c");
+        var e4 = Err<int>("d");
 
         Assert.True(d > b);
         Assert.True(a < c);
@@ -303,8 +303,8 @@ public sealed class ResultTests
     [Fact]
     public void CanConvertToOption()
     {
-        var ok = Result.Ok(4200);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(4200);
+        var err = Err<int>("oops");
 
         var okOptSome = ok.Ok();
         var okOptNone = ok.Err();
@@ -320,13 +320,13 @@ public sealed class ResultTests
     [Fact]
     public void CanTranspose()
     {
-        var okSomeTest = Result.Ok(Option.Some(42));
-        var okNoneTest = Result.Ok(Option<int>.None);
-        var errTest = Result.Err<Option<int>>("oops");
+        var okSomeTest = Ok(Option.Some(42));
+        var okNoneTest = Ok(Option<int>.None);
+        var errTest = Err<Option<int>>("oops");
 
-        var okSomeExpected = Option.Some(Result.Ok(42));
+        var okSomeExpected = Option.Some(Ok(42));
         var okNoneExpected = Option<Result<int, string>>.None;
-        var errExpected = Option.Some(Result.Err<int>("oops"));
+        var errExpected = Option.Some(Err<int>("oops"));
 
         Assert.Equal(okSomeExpected, okSomeTest.Transpose());
         Assert.Equal(okNoneExpected, okNoneTest.Transpose());
@@ -506,5 +506,19 @@ public sealed class ResultTests
         Assert.Equal(Ok<int, int>(2), Ok<int, int>(2).OrElse(err).OrElse(sq));
         Assert.Equal(Ok<int, int>(9), Err<int, int>(3).OrElse(sq).OrElse(err));
         Assert.Equal(Err<int, int>(3), Err<int, int>(3).OrElse(err).OrElse(err));
+    }
+
+    [Fact]
+    public void CanFlatten()
+    {
+        var okok = Ok(Ok(42));
+        var errInt = Err<Result<int, string>>("oops");
+        var okerr = Ok(Err<int>("oops"));
+        var okokok = Ok(Ok(Ok(42)));
+
+        Assert.Equal(Ok(42), okok.Flatten());
+        Assert.Equal(Err<int>("oops"), errInt.Flatten());
+        Assert.Equal(Err<int>("oops"), okerr.Flatten());
+        Assert.Equal(Ok(Ok(42)), okokok.Flatten());
     }
 }
