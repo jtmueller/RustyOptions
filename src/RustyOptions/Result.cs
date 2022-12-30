@@ -8,6 +8,7 @@ using static System.ArgumentNullException;
 namespace RustyOptions;
 
 // TODO: Match overload that returns void (for side effects)?
+// TODO: OptionNumber/ResultNumber that implement INumber?
 
 /// <summary>
 /// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without

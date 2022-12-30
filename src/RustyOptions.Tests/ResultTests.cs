@@ -453,4 +453,25 @@ public sealed class ResultTests
         y = Result.Ok("different result type");
         Assert.Equal(Result.Ok("different result type"), x.And(y));
     }
+
+    [Fact]
+    public void CanAndThen()
+    {
+        static Result<string, string> SqThenToString(int x)
+        {
+            try
+            {
+                var sq = checked(x * x);
+                return Result.Ok(sq.ToString(CultureInfo.InvariantCulture));
+            }
+            catch (OverflowException)
+            {
+                return Result.Err<string>("overflow");
+            }
+        }
+
+        Assert.Equal(Result.Ok("4"), Result.Ok(2).AndThen(SqThenToString));
+        Assert.Equal(Result.Err<string>("overflow"), Result.Ok(1_000_000).AndThen(SqThenToString));
+        Assert.Equal(Result.Err<string>("not a number"), Result.Err<int>("not a number").AndThen(SqThenToString));
+    }
 }

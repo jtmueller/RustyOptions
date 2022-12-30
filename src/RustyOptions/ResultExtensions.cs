@@ -131,8 +131,10 @@ public static class ResultExtensions
     /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
     /// <param name="self">The result.</param>
     /// <param name="other">The other result.</param>
-    /// <returns><paramref name="other"/> if <paramref name="self"/> is <c>Ok</c>, otherwise
-    /// returns the <c>Err</c> value of <paramref name="self"/>.</returns>
+    /// <returns>
+    /// <paramref name="other"/> if <paramref name="self"/> is <c>Ok</c>, otherwise
+    /// returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </returns>
     public static Result<T2, TErr> And<T1, T2, TErr>(this Result<T1, TErr> self, Result<T2, TErr> other)
         where T1 : notnull
         where TErr : notnull
@@ -142,6 +144,15 @@ public static class ResultExtensions
         return selfOk ? other : Result.Err<T2, TErr>(selfErr!);
     }
 
+    /// <summary>
+    /// Calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type of <paramref name="other"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static Result<T2, TErr> AndThen<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Result<T2, TErr>> thenFunc)
         where T1 : notnull
         where TErr : notnull
