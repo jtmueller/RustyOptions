@@ -167,6 +167,20 @@ public static class ResultExtensions
         );
     }
 
+    /// <summary>
+    /// Returns <paramref name="other"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// <para>
+    /// Arguments passed to <see cref="Or{T, T1Err, T2Err}(Result{T, T1Err}, Result{T, T2Err})"/> are eagerly evaluated;
+    /// if you are passing the result of a function call, it is recommended to use
+    /// <see cref="OrElse{T, T1Err, T2Err}(Result{T, T1Err}, Func{T1Err, Result{T, T2Err}})"/>, which is lazily evaluated.
+    /// </para>
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type of <paramref name="other"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="other">The other result.</param>
+    /// <returns>The <c>Ok</c> value of <paramref name="self"/>, or returns <paramref name="other"/>.</returns>
     public static Result<T, T2Err> Or<T, T1Err, T2Err>(this Result<T, T1Err> self, Result<T, T2Err> other)
         where T : notnull
         where T1Err : notnull

@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using static RustyOptions.Result;
 
 namespace RustyOptions.Tests;
 
@@ -335,8 +336,8 @@ public sealed class ResultTests
     [Fact]
     public void CanMap()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var mappedOk = ok.Map(x => (decimal)(x * 2));
         var mappedErr = err.Map(x => (decimal)(x * 2));
@@ -348,8 +349,8 @@ public sealed class ResultTests
     [Fact]
     public void CanMapErr()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
 #pragma warning disable CA2201 // Do not raise reserved exception types
         var mappedOk = ok.MapErr(e => new Exception(e));
@@ -363,8 +364,8 @@ public sealed class ResultTests
     [Fact]
     public void CanMapOr()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var okResult = ok.MapOr(x => x * 2, -1);
         var errResult = err.MapOr(x => x * 2, -1);
@@ -376,8 +377,8 @@ public sealed class ResultTests
     [Fact]
     public void CanMapOrElse()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var okResult = ok.MapOrElse(x => x * 2, _ => -1);
         var errResult = err.MapOrElse(x => x * 2, _ => -1);
@@ -389,8 +390,8 @@ public sealed class ResultTests
     [Fact]
     public void CanUnwrapOr()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var okResult = ok.UnwrapOr(-1);
         var errResult = err.UnwrapOr(-1);
@@ -402,8 +403,8 @@ public sealed class ResultTests
     [Fact]
     public void CanUnwrapOrElse()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var okResult = ok.UnwrapOrElse(_ => -1);
         var errResult = err.UnwrapOrElse(_ => -1);
@@ -415,8 +416,8 @@ public sealed class ResultTests
     [Fact]
     public void CanExpectErr()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var ex = Assert.Throws<InvalidOperationException>(() => ok.ExpectErr("Error"));
         Assert.Equal("Error - 42", ex.Message);
@@ -426,8 +427,8 @@ public sealed class ResultTests
     [Fact]
     public void CanUnwrapErr()
     {
-        var ok = Result.Ok(42);
-        var err = Result.Err<int>("oops");
+        var ok = Ok(42);
+        var err = Err<int>("oops");
 
         var ex = Assert.Throws<InvalidOperationException>(() => ok.UnwrapErr());
         Assert.Equal("Expected the result to be in the Err state, but it was Ok: 42", ex.Message);
@@ -437,21 +438,21 @@ public sealed class ResultTests
     [Fact]
     public void CanAnd()
     {
-        var x = Result.Ok(2);
-        var y = Result.Err<string>("late error");
-        Assert.Equal(Result.Err<string>("late error"), x.And(y));
+        var x = Ok(2);
+        var y = Err<string>("late error");
+        Assert.Equal(Err<string>("late error"), x.And(y));
 
-        x = Result.Err<int>("early error");
-        y = Result.Ok("foo");
+        x = Err<int>("early error");
+        y = Ok("foo");
         Assert.Equal(Result.Err<string>("early error"), x.And(y));
 
-        x = Result.Err<int>("not a 2");
-        y = Result.Err<string>("late error");
-        Assert.Equal(Result.Err<string>("not a 2"), x.And(y));
+        x = Err<int>("not a 2");
+        y = Err<string>("late error");
+        Assert.Equal(Err<string>("not a 2"), x.And(y));
 
-        x = Result.Ok(2);
-        y = Result.Ok("different result type");
-        Assert.Equal(Result.Ok("different result type"), x.And(y));
+        x = Ok(2);
+        y = Ok("different result type");
+        Assert.Equal(Ok("different result type"), x.And(y));
     }
 
     [Fact]
@@ -462,16 +463,36 @@ public sealed class ResultTests
             try
             {
                 var sq = checked(x * x);
-                return Result.Ok(sq.ToString(CultureInfo.InvariantCulture));
+                return Ok(sq.ToString(CultureInfo.InvariantCulture));
             }
             catch (OverflowException)
             {
-                return Result.Err<string>("overflow");
+                return Err<string>("overflow");
             }
         }
 
-        Assert.Equal(Result.Ok("4"), Result.Ok(2).AndThen(SqThenToString));
-        Assert.Equal(Result.Err<string>("overflow"), Result.Ok(1_000_000).AndThen(SqThenToString));
-        Assert.Equal(Result.Err<string>("not a number"), Result.Err<int>("not a number").AndThen(SqThenToString));
+        Assert.Equal(Ok("4"), Ok(2).AndThen(SqThenToString));
+        Assert.Equal(Err<string>("overflow"), Ok(1_000_000).AndThen(SqThenToString));
+        Assert.Equal(Err<string>("not a number"), Err<int>("not a number").AndThen(SqThenToString));
+    }
+
+    [Fact]
+    public void CanOr()
+    {
+        var x = Ok(2);
+        var y = Err<int>("late error");
+        Assert.Equal(Ok(2), x.Or(y));
+
+        x = Err<int>("early error");
+        y = Ok(2);
+        Assert.Equal(Ok(2), x.Or(y));
+
+        x = Err<int>("not a 2");
+        y = Err<int>("late error");
+        Assert.Equal(Err<int>("late error"), x.Or(y));
+
+        x = Ok(2);
+        y = Ok(100);
+        Assert.Equal(Ok(2), x.Or(y));
     }
 }
