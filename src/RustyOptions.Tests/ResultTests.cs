@@ -495,4 +495,16 @@ public sealed class ResultTests
         y = Ok(100);
         Assert.Equal(Ok(2), x.Or(y));
     }
+
+    [Fact]
+    public void CanOrElse()
+    {
+        static Result<int, int> sq(int x) => Ok<int, int>(x * x);
+        static Result<int, int> err(int x) => Err<int, int>(x);
+
+        Assert.Equal(Ok<int, int>(2), Ok<int, int>(2).OrElse(sq).OrElse(sq));
+        Assert.Equal(Ok<int, int>(2), Ok<int, int>(2).OrElse(err).OrElse(sq));
+        Assert.Equal(Ok<int, int>(9), Err<int, int>(3).OrElse(sq).OrElse(err));
+        Assert.Equal(Err<int, int>(3), Err<int, int>(3).OrElse(err).OrElse(err));
+    }
 }

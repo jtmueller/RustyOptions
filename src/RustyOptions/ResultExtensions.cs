@@ -189,6 +189,15 @@ public static class ResultExtensions
         return self.IsOk(out var value) ? Result.Ok<T, T2Err>(value) : other;
     }
 
+    /// <summary>
+    /// Calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type of <paramref name="other"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
     public static Result<T, T2Err> OrElse<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, Result<T, T2Err>> elseFunc)
         where T : notnull
         where T1Err : notnull
