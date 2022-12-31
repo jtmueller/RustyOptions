@@ -1,0 +1,614 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Result
+ </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Result
+ ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RustyOptions.Result">
+
+
+  <h1 id="RustyOptions_Result" data-uid="RustyOptions.Result" class="text-break">Class Result
+</h1>
+  <div class="markdown level0 summary"><p>This class contains static methods for creating a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">Result</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
+  <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
+  <h5 id="RustyOptions_Result_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Result : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_Err__1_Exception_.md&amp;value=---%0Auid%3A%20RustyOptions.Result.Err%60%601(Exception)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L542">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_Err_" data-uid="RustyOptions.Result.Err*"></a>
+  <h4 id="RustyOptions_Result_Err__1_Exception_" data-uid="RustyOptions.Result.Err``1(Exception)">Err&lt;T&gt;(Exception)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> in the <code>Err</code> state,
+containing the given exception.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, Exception&gt; Err&lt;T&gt;(Exception ex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Exception</span></td>
+        <td><span class="parametername">ex</span></td>
+        <td><p>The exception to store in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <span class="xref">Exception</span>&gt;</td>
+        <td><p>A result object containing the given exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value the result would contain if it were not in the <code>Err</code> state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_Err__1_System_String_.md&amp;value=---%0Auid%3A%20RustyOptions.Result.Err%60%601(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L527">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_Err_" data-uid="RustyOptions.Result.Err*"></a>
+  <h4 id="RustyOptions_Result_Err__1_System_String_" data-uid="RustyOptions.Result.Err``1(System.String)">Err&lt;T&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> in the <code>Err</code> state,
+containing the given error message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, string&gt; Err&lt;T&gt;(string errMsg)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">errMsg</span></td>
+        <td><p>The error message to store in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><p>A result object containing the given error message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value the result would contain if it were not in the <code>Err</code> state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_Err__2___1_.md&amp;value=---%0Auid%3A%20RustyOptions.Result.Err%60%602(%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L511">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_Err_" data-uid="RustyOptions.Result.Err*"></a>
+  <h4 id="RustyOptions_Result_Err__2___1_" data-uid="RustyOptions.Result.Err``2(``1)">Err&lt;T, TErr&gt;(TErr)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> in the <code>Err</code> state,
+containing the given error value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Err&lt;T, TErr&gt;(TErr error)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TErr</span></td>
+        <td><span class="parametername">error</span></td>
+        <td><p>The error value to store in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;</td>
+        <td><p>A result object containing the given error value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value the result would contain if it were not in the <code>Err</code> state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error the result contains.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_Ok__1___0_.md&amp;value=---%0Auid%3A%20RustyOptions.Result.Ok%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L479">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_Ok_" data-uid="RustyOptions.Result.Ok*"></a>
+  <h4 id="RustyOptions_Result_Ok__1___0_" data-uid="RustyOptions.Result.Ok``1(``0)">Ok&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> in the <code>Ok</code> state,
+with <code>string</code> as the error type.</p>
+<p>This overload avoids explicit generic annotations when you want the error to be a simple message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, string&gt; Ok&lt;T&gt;(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><p>A result object containing the given value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value the result contains.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_Ok__2___0_.md&amp;value=---%0Auid%3A%20RustyOptions.Result.Ok%60%602(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L462">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_Ok_" data-uid="RustyOptions.Result.Ok*"></a>
+  <h4 id="RustyOptions_Result_Ok__2___0_" data-uid="RustyOptions.Result.Ok``2(``0)">Ok&lt;T, TErr&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> in the <code>Ok</code> state, containing
+the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Ok&lt;T, TErr&gt;(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;</td>
+        <td><p>A result object containing the given value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of value the result contains.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of error the result may contain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_OkExn__1___0_.md&amp;value=---%0Auid%3A%20RustyOptions.Result.OkExn%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L495">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_OkExn_" data-uid="RustyOptions.Result.OkExn*"></a>
+  <h4 id="RustyOptions_Result_OkExn__1___0_" data-uid="RustyOptions.Result.OkExn``1(``0)">OkExn&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> in the <code>Ok</code> state,
+with <see cref="!:Exception"></see> as the error type.</p>
+<p>This overload avoids explicit generic annotations when converting try/catch code into a <code>Result</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, Exception&gt; OkExn&lt;T&gt;(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to store in the result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <span class="xref">Exception</span>&gt;</td>
+        <td><p>A result object containing the given value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value the result contains.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result_Try__1_Func___0__.md&amp;value=---%0Auid%3A%20RustyOptions.Result.Try%60%601(Func%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L556">View Source</a>
+  </span>
+  <a id="RustyOptions_Result_Try_" data-uid="RustyOptions.Result.Try*"></a>
+  <h4 id="RustyOptions_Result_Try__1_Func___0__" data-uid="RustyOptions.Result.Try``1(Func{``0})">Try&lt;T&gt;(Func&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to call <code data-dev-comment-type="paramref" class="paramref">func</code>, wrapping the returned value in an <code>Ok</code> result.
+Any exceptions will be caught and returned in an <code>Err</code> result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, Exception&gt; Try&lt;T&gt;(Func&lt;T&gt; func)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T&gt;</td>
+        <td><span class="parametername">func</span></td>
+        <td><p>The function to attempt calling.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <span class="xref">Exception</span>&gt;</td>
+        <td><p>The return value of <code data-dev-comment-type="paramref" class="paramref">func</code> wrapped in <code>Ok</code>, or <code>Err</code> containing any exception that was thrown.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value returned by the given function.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Result.md&amp;value=---%0Auid%3A%20RustyOptions.Result%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Result.cs/#L451" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

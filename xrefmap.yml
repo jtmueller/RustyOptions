@@ -1,0 +1,1792 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: RustyOptions
+  name: RustyOptions
+  href: api/RustyOptions.html
+  commentId: N:RustyOptions
+  fullName: RustyOptions
+  nameWithType: RustyOptions
+- uid: RustyOptions.Option
+  name: Option
+  href: api/RustyOptions.Option.html
+  commentId: T:RustyOptions.Option
+  fullName: RustyOptions.Option
+  nameWithType: Option
+- uid: RustyOptions.Option.Bind*
+  name: Bind
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Bind_
+  commentId: Overload:RustyOptions.Option.Bind
+  isSpec: "True"
+  fullName: RustyOptions.Option.Bind
+  nameWithType: Option.Bind
+- uid: RustyOptions.Option.Bind``2(RustyOptions.TryGetValue{``0,``1})
+  name: Bind<TKey, TValue>(TryGetValue<TKey, TValue>)
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Bind__2_RustyOptions_TryGetValue___0___1__
+  commentId: M:RustyOptions.Option.Bind``2(RustyOptions.TryGetValue{``0,``1})
+  name.vb: Bind(Of TKey, TValue)(TryGetValue(Of TKey, TValue))
+  fullName: RustyOptions.Option.Bind<TKey, TValue>(RustyOptions.TryGetValue<TKey, TValue>)
+  fullName.vb: RustyOptions.Option.Bind(Of TKey, TValue)(RustyOptions.TryGetValue(Of TKey, TValue))
+  nameWithType: Option.Bind<TKey, TValue>(TryGetValue<TKey, TValue>)
+  nameWithType.vb: Option.Bind(Of TKey, TValue)(TryGetValue(Of TKey, TValue))
+- uid: RustyOptions.Option.Create*
+  name: Create
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Create_
+  commentId: Overload:RustyOptions.Option.Create
+  isSpec: "True"
+  fullName: RustyOptions.Option.Create
+  nameWithType: Option.Create
+- uid: RustyOptions.Option.Create``1(``0)
+  name: Create<T>(T)
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Create__1___0_
+  commentId: M:RustyOptions.Option.Create``1(``0)
+  name.vb: Create(Of T)(T)
+  fullName: RustyOptions.Option.Create<T>(T)
+  fullName.vb: RustyOptions.Option.Create(Of T)(T)
+  nameWithType: Option.Create<T>(T)
+  nameWithType.vb: Option.Create(Of T)(T)
+- uid: RustyOptions.Option.Create``1(System.Nullable{``0})
+  name: Create<T>(Nullable<T>)
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Create__1_System_Nullable___0__
+  commentId: M:RustyOptions.Option.Create``1(System.Nullable{``0})
+  name.vb: Create(Of T)(Nullable(Of T))
+  fullName: RustyOptions.Option.Create<T>(System.Nullable<T>)
+  fullName.vb: RustyOptions.Option.Create(Of T)(System.Nullable(Of T))
+  nameWithType: Option.Create<T>(Nullable<T>)
+  nameWithType.vb: Option.Create(Of T)(Nullable(Of T))
+- uid: RustyOptions.Option.None*
+  name: None
+  href: api/RustyOptions.Option.html#RustyOptions_Option_None_
+  commentId: Overload:RustyOptions.Option.None
+  isSpec: "True"
+  fullName: RustyOptions.Option.None
+  nameWithType: Option.None
+- uid: RustyOptions.Option.None``1
+  name: None<T>()
+  href: api/RustyOptions.Option.html#RustyOptions_Option_None__1
+  commentId: M:RustyOptions.Option.None``1
+  name.vb: None(Of T)()
+  fullName: RustyOptions.Option.None<T>()
+  fullName.vb: RustyOptions.Option.None(Of T)()
+  nameWithType: Option.None<T>()
+  nameWithType.vb: Option.None(Of T)()
+- uid: RustyOptions.Option.Some*
+  name: Some
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Some_
+  commentId: Overload:RustyOptions.Option.Some
+  isSpec: "True"
+  fullName: RustyOptions.Option.Some
+  nameWithType: Option.Some
+- uid: RustyOptions.Option.Some``1(``0)
+  name: Some<T>(T)
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Some__1___0_
+  commentId: M:RustyOptions.Option.Some``1(``0)
+  name.vb: Some(Of T)(T)
+  fullName: RustyOptions.Option.Some<T>(T)
+  fullName.vb: RustyOptions.Option.Some(Of T)(T)
+  nameWithType: Option.Some<T>(T)
+  nameWithType.vb: Option.Some(Of T)(T)
+- uid: RustyOptions.Option.Try*
+  name: Try
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Try_
+  commentId: Overload:RustyOptions.Option.Try
+  isSpec: "True"
+  fullName: RustyOptions.Option.Try
+  nameWithType: Option.Try
+- uid: RustyOptions.Option.Try``1(RustyOptions.TryGet{``0})
+  name: Try<T>(TryGet<T>)
+  href: api/RustyOptions.Option.html#RustyOptions_Option_Try__1_RustyOptions_TryGet___0__
+  commentId: M:RustyOptions.Option.Try``1(RustyOptions.TryGet{``0})
+  name.vb: Try(Of T)(TryGet(Of T))
+  fullName: RustyOptions.Option.Try<T>(RustyOptions.TryGet<T>)
+  fullName.vb: RustyOptions.Option.Try(Of T)(RustyOptions.TryGet(Of T))
+  nameWithType: Option.Try<T>(TryGet<T>)
+  nameWithType.vb: Option.Try(Of T)(TryGet(Of T))
+- uid: RustyOptions.Option`1
+  name: Option<T>
+  href: api/RustyOptions.Option-1.html
+  commentId: T:RustyOptions.Option`1
+  name.vb: Option(Of T)
+  fullName: RustyOptions.Option<T>
+  fullName.vb: RustyOptions.Option(Of T)
+  nameWithType: Option<T>
+  nameWithType.vb: Option(Of T)
+- uid: RustyOptions.Option`1.#ctor(`0)
+  name: Option(T)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1__ctor__0_
+  commentId: M:RustyOptions.Option`1.#ctor(`0)
+  fullName: RustyOptions.Option<T>.Option(T)
+  fullName.vb: RustyOptions.Option(Of T).Option(T)
+  nameWithType: Option<T>.Option(T)
+  nameWithType.vb: Option(Of T).Option(T)
+- uid: RustyOptions.Option`1.#ctor*
+  name: Option
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1__ctor_
+  commentId: Overload:RustyOptions.Option`1.#ctor
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.Option
+  fullName.vb: RustyOptions.Option(Of T).Option
+  nameWithType: Option<T>.Option
+  nameWithType.vb: Option(Of T).Option
+- uid: RustyOptions.Option`1.AsEnumerable
+  name: AsEnumerable()
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_AsEnumerable
+  commentId: M:RustyOptions.Option`1.AsEnumerable
+  fullName: RustyOptions.Option<T>.AsEnumerable()
+  fullName.vb: RustyOptions.Option(Of T).AsEnumerable()
+  nameWithType: Option<T>.AsEnumerable()
+  nameWithType.vb: Option(Of T).AsEnumerable()
+- uid: RustyOptions.Option`1.AsEnumerable*
+  name: AsEnumerable
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_AsEnumerable_
+  commentId: Overload:RustyOptions.Option`1.AsEnumerable
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.AsEnumerable
+  fullName.vb: RustyOptions.Option(Of T).AsEnumerable
+  nameWithType: Option<T>.AsEnumerable
+  nameWithType.vb: Option(Of T).AsEnumerable
+- uid: RustyOptions.Option`1.AsSpan
+  name: AsSpan()
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_AsSpan
+  commentId: M:RustyOptions.Option`1.AsSpan
+  fullName: RustyOptions.Option<T>.AsSpan()
+  fullName.vb: RustyOptions.Option(Of T).AsSpan()
+  nameWithType: Option<T>.AsSpan()
+  nameWithType.vb: Option(Of T).AsSpan()
+- uid: RustyOptions.Option`1.AsSpan*
+  name: AsSpan
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_AsSpan_
+  commentId: Overload:RustyOptions.Option`1.AsSpan
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.AsSpan
+  fullName.vb: RustyOptions.Option(Of T).AsSpan
+  nameWithType: Option<T>.AsSpan
+  nameWithType.vb: Option(Of T).AsSpan
+- uid: RustyOptions.Option`1.CompareTo(RustyOptions.Option{`0})
+  name: CompareTo(Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_CompareTo_RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.CompareTo(RustyOptions.Option{`0})
+  name.vb: CompareTo(Option(Of T))
+  fullName: RustyOptions.Option<T>.CompareTo(RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).CompareTo(RustyOptions.Option(Of T))
+  nameWithType: Option<T>.CompareTo(Option<T>)
+  nameWithType.vb: Option(Of T).CompareTo(Option(Of T))
+- uid: RustyOptions.Option`1.CompareTo*
+  name: CompareTo
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_CompareTo_
+  commentId: Overload:RustyOptions.Option`1.CompareTo
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.CompareTo
+  fullName.vb: RustyOptions.Option(Of T).CompareTo
+  nameWithType: Option<T>.CompareTo
+  nameWithType.vb: Option(Of T).CompareTo
+- uid: RustyOptions.Option`1.Equals(RustyOptions.Option{`0})
+  name: Equals(Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Equals_RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.Equals(RustyOptions.Option{`0})
+  name.vb: Equals(Option(Of T))
+  fullName: RustyOptions.Option<T>.Equals(RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).Equals(RustyOptions.Option(Of T))
+  nameWithType: Option<T>.Equals(Option<T>)
+  nameWithType.vb: Option(Of T).Equals(Option(Of T))
+- uid: RustyOptions.Option`1.Equals(System.Nullable{System.Object})
+  name: Equals(Nullable<Object>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Equals_System_Nullable_System_Object__
+  commentId: M:RustyOptions.Option`1.Equals(System.Nullable{System.Object})
+  name.vb: Equals(Nullable(Of Object))
+  fullName: RustyOptions.Option<T>.Equals(System.Nullable<System.Object>)
+  fullName.vb: RustyOptions.Option(Of T).Equals(System.Nullable(Of System.Object))
+  nameWithType: Option<T>.Equals(Nullable<Object>)
+  nameWithType.vb: Option(Of T).Equals(Nullable(Of Object))
+- uid: RustyOptions.Option`1.Equals*
+  name: Equals
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Equals_
+  commentId: Overload:RustyOptions.Option`1.Equals
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.Equals
+  fullName.vb: RustyOptions.Option(Of T).Equals
+  nameWithType: Option<T>.Equals
+  nameWithType.vb: Option(Of T).Equals
+- uid: RustyOptions.Option`1.GetHashCode
+  name: GetHashCode()
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_GetHashCode
+  commentId: M:RustyOptions.Option`1.GetHashCode
+  fullName: RustyOptions.Option<T>.GetHashCode()
+  fullName.vb: RustyOptions.Option(Of T).GetHashCode()
+  nameWithType: Option<T>.GetHashCode()
+  nameWithType.vb: Option(Of T).GetHashCode()
+- uid: RustyOptions.Option`1.GetHashCode*
+  name: GetHashCode
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_GetHashCode_
+  commentId: Overload:RustyOptions.Option`1.GetHashCode
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.GetHashCode
+  fullName.vb: RustyOptions.Option(Of T).GetHashCode
+  nameWithType: Option<T>.GetHashCode
+  nameWithType.vb: Option(Of T).GetHashCode
+- uid: RustyOptions.Option`1.IsNone
+  name: IsNone
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_IsNone
+  commentId: P:RustyOptions.Option`1.IsNone
+  fullName: RustyOptions.Option<T>.IsNone
+  fullName.vb: RustyOptions.Option(Of T).IsNone
+  nameWithType: Option<T>.IsNone
+  nameWithType.vb: Option(Of T).IsNone
+- uid: RustyOptions.Option`1.IsNone*
+  name: IsNone
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_IsNone_
+  commentId: Overload:RustyOptions.Option`1.IsNone
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.IsNone
+  fullName.vb: RustyOptions.Option(Of T).IsNone
+  nameWithType: Option<T>.IsNone
+  nameWithType.vb: Option(Of T).IsNone
+- uid: RustyOptions.Option`1.IsSome(`0@)
+  name: IsSome(out T)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_IsSome__0__
+  commentId: M:RustyOptions.Option`1.IsSome(`0@)
+  name.vb: IsSome(ByRef T)
+  fullName: RustyOptions.Option<T>.IsSome(out T)
+  fullName.vb: RustyOptions.Option(Of T).IsSome(ByRef T)
+  nameWithType: Option<T>.IsSome(out T)
+  nameWithType.vb: Option(Of T).IsSome(ByRef T)
+- uid: RustyOptions.Option`1.IsSome*
+  name: IsSome
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_IsSome_
+  commentId: Overload:RustyOptions.Option`1.IsSome
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.IsSome
+  fullName.vb: RustyOptions.Option(Of T).IsSome
+  nameWithType: Option<T>.IsSome
+  nameWithType.vb: Option(Of T).IsSome
+- uid: RustyOptions.Option`1.Match*
+  name: Match
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Match_
+  commentId: Overload:RustyOptions.Option`1.Match
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.Match
+  fullName.vb: RustyOptions.Option(Of T).Match
+  nameWithType: Option<T>.Match
+  nameWithType.vb: Option(Of T).Match
+- uid: RustyOptions.Option`1.Match``1(Func{`0,``0},Func{``0})
+  name: Match<T2>(Func<T, T2>, Func<T2>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Match__1_Func__0___0__Func___0__
+  commentId: M:RustyOptions.Option`1.Match``1(Func{`0,``0},Func{``0})
+  name.vb: Match(Of T2)(Func(Of T, T2), Func(Of T2))
+  fullName: RustyOptions.Option<T>.Match<T2>(Func<T, T2>, Func<T2>)
+  fullName.vb: RustyOptions.Option(Of T).Match(Of T2)(Func(Of T, T2), Func(Of T2))
+  nameWithType: Option<T>.Match<T2>(Func<T, T2>, Func<T2>)
+  nameWithType.vb: Option(Of T).Match(Of T2)(Func(Of T, T2), Func(Of T2))
+- uid: RustyOptions.Option`1.None
+  name: None
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_None
+  commentId: P:RustyOptions.Option`1.None
+  fullName: RustyOptions.Option<T>.None
+  fullName.vb: RustyOptions.Option(Of T).None
+  nameWithType: Option<T>.None
+  nameWithType.vb: Option(Of T).None
+- uid: RustyOptions.Option`1.None*
+  name: None
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_None_
+  commentId: Overload:RustyOptions.Option`1.None
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.None
+  fullName.vb: RustyOptions.Option(Of T).None
+  nameWithType: Option<T>.None
+  nameWithType.vb: Option(Of T).None
+- uid: RustyOptions.Option`1.op_Equality(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name: Equality(Option<T>, Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_Equality_RustyOptions_Option__0__RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.op_Equality(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name.vb: Equality(Option(Of T), Option(Of T))
+  fullName: RustyOptions.Option<T>.Equality(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).Equality(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: Option<T>.Equality(Option<T>, Option<T>)
+  nameWithType.vb: Option(Of T).Equality(Option(Of T), Option(Of T))
+- uid: RustyOptions.Option`1.op_Equality*
+  name: Equality
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_Equality_
+  commentId: Overload:RustyOptions.Option`1.op_Equality
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.Equality
+  fullName.vb: RustyOptions.Option(Of T).Equality
+  nameWithType: Option<T>.Equality
+  nameWithType.vb: Option(Of T).Equality
+- uid: RustyOptions.Option`1.op_GreaterThan(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name: GreaterThan(Option<T>, Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_GreaterThan_RustyOptions_Option__0__RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.op_GreaterThan(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name.vb: GreaterThan(Option(Of T), Option(Of T))
+  fullName: RustyOptions.Option<T>.GreaterThan(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).GreaterThan(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: Option<T>.GreaterThan(Option<T>, Option<T>)
+  nameWithType.vb: Option(Of T).GreaterThan(Option(Of T), Option(Of T))
+- uid: RustyOptions.Option`1.op_GreaterThan*
+  name: GreaterThan
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_GreaterThan_
+  commentId: Overload:RustyOptions.Option`1.op_GreaterThan
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.GreaterThan
+  fullName.vb: RustyOptions.Option(Of T).GreaterThan
+  nameWithType: Option<T>.GreaterThan
+  nameWithType.vb: Option(Of T).GreaterThan
+- uid: RustyOptions.Option`1.op_GreaterThanOrEqual(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name: GreaterThanOrEqual(Option<T>, Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_GreaterThanOrEqual_RustyOptions_Option__0__RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.op_GreaterThanOrEqual(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name.vb: GreaterThanOrEqual(Option(Of T), Option(Of T))
+  fullName: RustyOptions.Option<T>.GreaterThanOrEqual(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).GreaterThanOrEqual(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: Option<T>.GreaterThanOrEqual(Option<T>, Option<T>)
+  nameWithType.vb: Option(Of T).GreaterThanOrEqual(Option(Of T), Option(Of T))
+- uid: RustyOptions.Option`1.op_GreaterThanOrEqual*
+  name: GreaterThanOrEqual
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_GreaterThanOrEqual_
+  commentId: Overload:RustyOptions.Option`1.op_GreaterThanOrEqual
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.GreaterThanOrEqual
+  fullName.vb: RustyOptions.Option(Of T).GreaterThanOrEqual
+  nameWithType: Option<T>.GreaterThanOrEqual
+  nameWithType.vb: Option(Of T).GreaterThanOrEqual
+- uid: RustyOptions.Option`1.op_Inequality(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name: Inequality(Option<T>, Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_Inequality_RustyOptions_Option__0__RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.op_Inequality(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name.vb: Inequality(Option(Of T), Option(Of T))
+  fullName: RustyOptions.Option<T>.Inequality(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).Inequality(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: Option<T>.Inequality(Option<T>, Option<T>)
+  nameWithType.vb: Option(Of T).Inequality(Option(Of T), Option(Of T))
+- uid: RustyOptions.Option`1.op_Inequality*
+  name: Inequality
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_Inequality_
+  commentId: Overload:RustyOptions.Option`1.op_Inequality
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.Inequality
+  fullName.vb: RustyOptions.Option(Of T).Inequality
+  nameWithType: Option<T>.Inequality
+  nameWithType.vb: Option(Of T).Inequality
+- uid: RustyOptions.Option`1.op_LessThan(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name: LessThan(Option<T>, Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_LessThan_RustyOptions_Option__0__RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.op_LessThan(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name.vb: LessThan(Option(Of T), Option(Of T))
+  fullName: RustyOptions.Option<T>.LessThan(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).LessThan(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: Option<T>.LessThan(Option<T>, Option<T>)
+  nameWithType.vb: Option(Of T).LessThan(Option(Of T), Option(Of T))
+- uid: RustyOptions.Option`1.op_LessThan*
+  name: LessThan
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_LessThan_
+  commentId: Overload:RustyOptions.Option`1.op_LessThan
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.LessThan
+  fullName.vb: RustyOptions.Option(Of T).LessThan
+  nameWithType: Option<T>.LessThan
+  nameWithType.vb: Option(Of T).LessThan
+- uid: RustyOptions.Option`1.op_LessThanOrEqual(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name: LessThanOrEqual(Option<T>, Option<T>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_LessThanOrEqual_RustyOptions_Option__0__RustyOptions_Option__0__
+  commentId: M:RustyOptions.Option`1.op_LessThanOrEqual(RustyOptions.Option{`0},RustyOptions.Option{`0})
+  name.vb: LessThanOrEqual(Option(Of T), Option(Of T))
+  fullName: RustyOptions.Option<T>.LessThanOrEqual(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.Option(Of T).LessThanOrEqual(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: Option<T>.LessThanOrEqual(Option<T>, Option<T>)
+  nameWithType.vb: Option(Of T).LessThanOrEqual(Option(Of T), Option(Of T))
+- uid: RustyOptions.Option`1.op_LessThanOrEqual*
+  name: LessThanOrEqual
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_op_LessThanOrEqual_
+  commentId: Overload:RustyOptions.Option`1.op_LessThanOrEqual
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.LessThanOrEqual
+  fullName.vb: RustyOptions.Option(Of T).LessThanOrEqual
+  nameWithType: Option<T>.LessThanOrEqual
+  nameWithType.vb: Option(Of T).LessThanOrEqual
+- uid: RustyOptions.Option`1.ToString
+  name: ToString()
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_ToString
+  commentId: M:RustyOptions.Option`1.ToString
+  fullName: RustyOptions.Option<T>.ToString()
+  fullName.vb: RustyOptions.Option(Of T).ToString()
+  nameWithType: Option<T>.ToString()
+  nameWithType.vb: Option(Of T).ToString()
+- uid: RustyOptions.Option`1.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
+  commentId: M:RustyOptions.Option`1.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  fullName: RustyOptions.Option<T>.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  fullName.vb: RustyOptions.Option(Of T).ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  nameWithType: Option<T>.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType.vb: Option(Of T).ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: RustyOptions.Option`1.ToString*
+  name: ToString
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_ToString_
+  commentId: Overload:RustyOptions.Option`1.ToString
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.ToString
+  fullName.vb: RustyOptions.Option(Of T).ToString
+  nameWithType: Option<T>.ToString
+  nameWithType.vb: Option(Of T).ToString
+- uid: RustyOptions.Option`1.TryFormat(Span{System.Char},System.Int32@,ReadOnlySpan{System.Char},System.Nullable{IFormatProvider})
+  name: TryFormat(Span<Char>, out Int32, ReadOnlySpan<Char>, Nullable<IFormatProvider>)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_TryFormat_Span_System_Char__System_Int32__ReadOnlySpan_System_Char__System_Nullable_IFormatProvider__
+  commentId: M:RustyOptions.Option`1.TryFormat(Span{System.Char},System.Int32@,ReadOnlySpan{System.Char},System.Nullable{IFormatProvider})
+  name.vb: TryFormat(Span(Of Char), ByRef Int32, ReadOnlySpan(Of Char), Nullable(Of IFormatProvider))
+  fullName: RustyOptions.Option<T>.TryFormat(Span<System.Char>, out System.Int32, ReadOnlySpan<System.Char>, System.Nullable<IFormatProvider>)
+  fullName.vb: RustyOptions.Option(Of T).TryFormat(Span(Of System.Char), ByRef System.Int32, ReadOnlySpan(Of System.Char), System.Nullable(Of IFormatProvider))
+  nameWithType: Option<T>.TryFormat(Span<Char>, out Int32, ReadOnlySpan<Char>, Nullable<IFormatProvider>)
+  nameWithType.vb: Option(Of T).TryFormat(Span(Of Char), ByRef Int32, ReadOnlySpan(Of Char), Nullable(Of IFormatProvider))
+- uid: RustyOptions.Option`1.TryFormat*
+  name: TryFormat
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_TryFormat_
+  commentId: Overload:RustyOptions.Option`1.TryFormat
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.TryFormat
+  fullName.vb: RustyOptions.Option(Of T).TryFormat
+  nameWithType: Option<T>.TryFormat
+  nameWithType.vb: Option(Of T).TryFormat
+- uid: RustyOptions.Option`1.Unwrap
+  name: Unwrap()
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Unwrap
+  commentId: M:RustyOptions.Option`1.Unwrap
+  fullName: RustyOptions.Option<T>.Unwrap()
+  fullName.vb: RustyOptions.Option(Of T).Unwrap()
+  nameWithType: Option<T>.Unwrap()
+  nameWithType.vb: Option(Of T).Unwrap()
+- uid: RustyOptions.Option`1.Unwrap*
+  name: Unwrap
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Unwrap_
+  commentId: Overload:RustyOptions.Option`1.Unwrap
+  isSpec: "True"
+  fullName: RustyOptions.Option<T>.Unwrap
+  fullName.vb: RustyOptions.Option(Of T).Unwrap
+  nameWithType: Option<T>.Unwrap
+  nameWithType.vb: Option(Of T).Unwrap
+- uid: RustyOptions.OptionCollectionExtensions
+  name: OptionCollectionExtensions
+  href: api/RustyOptions.OptionCollectionExtensions.html
+  commentId: T:RustyOptions.OptionCollectionExtensions
+  fullName: RustyOptions.OptionCollectionExtensions
+  nameWithType: OptionCollectionExtensions
+- uid: RustyOptions.OptionCollectionExtensions.ElementAtOrNone*
+  name: ElementAtOrNone
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_ElementAtOrNone_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.ElementAtOrNone
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.ElementAtOrNone
+  nameWithType: OptionCollectionExtensions.ElementAtOrNone
+- uid: RustyOptions.OptionCollectionExtensions.ElementAtOrNone``1(IEnumerable{``0},System.Int32)
+  name: ElementAtOrNone<T>(IEnumerable<T>, Int32)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_ElementAtOrNone__1_IEnumerable___0__System_Int32_
+  commentId: M:RustyOptions.OptionCollectionExtensions.ElementAtOrNone``1(IEnumerable{``0},System.Int32)
+  name.vb: ElementAtOrNone(Of T)(IEnumerable(Of T), Int32)
+  fullName: RustyOptions.OptionCollectionExtensions.ElementAtOrNone<T>(IEnumerable<T>, System.Int32)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.ElementAtOrNone(Of T)(IEnumerable(Of T), System.Int32)
+  nameWithType: OptionCollectionExtensions.ElementAtOrNone<T>(IEnumerable<T>, Int32)
+  nameWithType.vb: OptionCollectionExtensions.ElementAtOrNone(Of T)(IEnumerable(Of T), Int32)
+- uid: RustyOptions.OptionCollectionExtensions.FirstOrNone*
+  name: FirstOrNone
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_FirstOrNone_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.FirstOrNone
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.FirstOrNone
+  nameWithType: OptionCollectionExtensions.FirstOrNone
+- uid: RustyOptions.OptionCollectionExtensions.FirstOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})
+  name: FirstOrNone<T>(IEnumerable<T>, Func<T, Boolean>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_FirstOrNone__1_IEnumerable___0__Func___0_System_Boolean__
+  commentId: M:RustyOptions.OptionCollectionExtensions.FirstOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})
+  name.vb: FirstOrNone(Of T)(IEnumerable(Of T), Func(Of T, Boolean))
+  fullName: RustyOptions.OptionCollectionExtensions.FirstOrNone<T>(IEnumerable<T>, Func<T, System.Boolean>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.FirstOrNone(Of T)(IEnumerable(Of T), Func(Of T, System.Boolean))
+  nameWithType: OptionCollectionExtensions.FirstOrNone<T>(IEnumerable<T>, Func<T, Boolean>)
+  nameWithType.vb: OptionCollectionExtensions.FirstOrNone(Of T)(IEnumerable(Of T), Func(Of T, Boolean))
+- uid: RustyOptions.OptionCollectionExtensions.FirstOrNone``1(IEnumerable{``0})
+  name: FirstOrNone<T>(IEnumerable<T>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_FirstOrNone__1_IEnumerable___0__
+  commentId: M:RustyOptions.OptionCollectionExtensions.FirstOrNone``1(IEnumerable{``0})
+  name.vb: FirstOrNone(Of T)(IEnumerable(Of T))
+  fullName: RustyOptions.OptionCollectionExtensions.FirstOrNone<T>(IEnumerable<T>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.FirstOrNone(Of T)(IEnumerable(Of T))
+  nameWithType: OptionCollectionExtensions.FirstOrNone<T>(IEnumerable<T>)
+  nameWithType.vb: OptionCollectionExtensions.FirstOrNone(Of T)(IEnumerable(Of T))
+- uid: RustyOptions.OptionCollectionExtensions.GetValueOrNone*
+  name: GetValueOrNone
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_GetValueOrNone_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.GetValueOrNone
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.GetValueOrNone
+  nameWithType: OptionCollectionExtensions.GetValueOrNone
+- uid: RustyOptions.OptionCollectionExtensions.GetValueOrNone``2(IEnumerable{KeyValuePair{``0,``1}},``0)
+  name: GetValueOrNone<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>>, TKey)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_GetValueOrNone__2_IEnumerable_KeyValuePair___0___1_____0_
+  commentId: M:RustyOptions.OptionCollectionExtensions.GetValueOrNone``2(IEnumerable{KeyValuePair{``0,``1}},``0)
+  name.vb: GetValueOrNone(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)), TKey)
+  fullName: RustyOptions.OptionCollectionExtensions.GetValueOrNone<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>>, TKey)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.GetValueOrNone(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)), TKey)
+  nameWithType: OptionCollectionExtensions.GetValueOrNone<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>>, TKey)
+  nameWithType.vb: OptionCollectionExtensions.GetValueOrNone(Of TKey, TValue)(IEnumerable(Of KeyValuePair(Of TKey, TValue)), TKey)
+- uid: RustyOptions.OptionCollectionExtensions.LastOrNone*
+  name: LastOrNone
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_LastOrNone_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.LastOrNone
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.LastOrNone
+  nameWithType: OptionCollectionExtensions.LastOrNone
+- uid: RustyOptions.OptionCollectionExtensions.LastOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})
+  name: LastOrNone<T>(IEnumerable<T>, Func<T, Boolean>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_LastOrNone__1_IEnumerable___0__Func___0_System_Boolean__
+  commentId: M:RustyOptions.OptionCollectionExtensions.LastOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})
+  name.vb: LastOrNone(Of T)(IEnumerable(Of T), Func(Of T, Boolean))
+  fullName: RustyOptions.OptionCollectionExtensions.LastOrNone<T>(IEnumerable<T>, Func<T, System.Boolean>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.LastOrNone(Of T)(IEnumerable(Of T), Func(Of T, System.Boolean))
+  nameWithType: OptionCollectionExtensions.LastOrNone<T>(IEnumerable<T>, Func<T, Boolean>)
+  nameWithType.vb: OptionCollectionExtensions.LastOrNone(Of T)(IEnumerable(Of T), Func(Of T, Boolean))
+- uid: RustyOptions.OptionCollectionExtensions.LastOrNone``1(IEnumerable{``0})
+  name: LastOrNone<T>(IEnumerable<T>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_LastOrNone__1_IEnumerable___0__
+  commentId: M:RustyOptions.OptionCollectionExtensions.LastOrNone``1(IEnumerable{``0})
+  name.vb: LastOrNone(Of T)(IEnumerable(Of T))
+  fullName: RustyOptions.OptionCollectionExtensions.LastOrNone<T>(IEnumerable<T>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.LastOrNone(Of T)(IEnumerable(Of T))
+  nameWithType: OptionCollectionExtensions.LastOrNone<T>(IEnumerable<T>)
+  nameWithType.vb: OptionCollectionExtensions.LastOrNone(Of T)(IEnumerable(Of T))
+- uid: RustyOptions.OptionCollectionExtensions.SingleOrNone*
+  name: SingleOrNone
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_SingleOrNone_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.SingleOrNone
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.SingleOrNone
+  nameWithType: OptionCollectionExtensions.SingleOrNone
+- uid: RustyOptions.OptionCollectionExtensions.SingleOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})
+  name: SingleOrNone<T>(IEnumerable<T>, Func<T, Boolean>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_SingleOrNone__1_IEnumerable___0__Func___0_System_Boolean__
+  commentId: M:RustyOptions.OptionCollectionExtensions.SingleOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})
+  name.vb: SingleOrNone(Of T)(IEnumerable(Of T), Func(Of T, Boolean))
+  fullName: RustyOptions.OptionCollectionExtensions.SingleOrNone<T>(IEnumerable<T>, Func<T, System.Boolean>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.SingleOrNone(Of T)(IEnumerable(Of T), Func(Of T, System.Boolean))
+  nameWithType: OptionCollectionExtensions.SingleOrNone<T>(IEnumerable<T>, Func<T, Boolean>)
+  nameWithType.vb: OptionCollectionExtensions.SingleOrNone(Of T)(IEnumerable(Of T), Func(Of T, Boolean))
+- uid: RustyOptions.OptionCollectionExtensions.SingleOrNone``1(IEnumerable{``0})
+  name: SingleOrNone<T>(IEnumerable<T>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_SingleOrNone__1_IEnumerable___0__
+  commentId: M:RustyOptions.OptionCollectionExtensions.SingleOrNone``1(IEnumerable{``0})
+  name.vb: SingleOrNone(Of T)(IEnumerable(Of T))
+  fullName: RustyOptions.OptionCollectionExtensions.SingleOrNone<T>(IEnumerable<T>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.SingleOrNone(Of T)(IEnumerable(Of T))
+  nameWithType: OptionCollectionExtensions.SingleOrNone<T>(IEnumerable<T>)
+  nameWithType.vb: OptionCollectionExtensions.SingleOrNone(Of T)(IEnumerable(Of T))
+- uid: RustyOptions.OptionCollectionExtensions.Values*
+  name: Values
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_Values_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.Values
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.Values
+  nameWithType: OptionCollectionExtensions.Values
+- uid: RustyOptions.OptionCollectionExtensions.Values``1(IEnumerable{RustyOptions.Option{``0}})
+  name: Values<T>(IEnumerable<Option<T>>)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_Values__1_IEnumerable_RustyOptions_Option___0___
+  commentId: M:RustyOptions.OptionCollectionExtensions.Values``1(IEnumerable{RustyOptions.Option{``0}})
+  name.vb: Values(Of T)(IEnumerable(Of Option(Of T)))
+  fullName: RustyOptions.OptionCollectionExtensions.Values<T>(IEnumerable<RustyOptions.Option<T>>)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.Values(Of T)(IEnumerable(Of RustyOptions.Option(Of T)))
+  nameWithType: OptionCollectionExtensions.Values<T>(IEnumerable<Option<T>>)
+  nameWithType.vb: OptionCollectionExtensions.Values(Of T)(IEnumerable(Of Option(Of T)))
+- uid: RustyOptions.OptionExtensions
+  name: OptionExtensions
+  href: api/RustyOptions.OptionExtensions.html
+  commentId: T:RustyOptions.OptionExtensions
+  fullName: RustyOptions.OptionExtensions
+  nameWithType: OptionExtensions
+- uid: RustyOptions.OptionExtensions.And*
+  name: And
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_And_
+  commentId: Overload:RustyOptions.OptionExtensions.And
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.And
+  nameWithType: OptionExtensions.And
+- uid: RustyOptions.OptionExtensions.And``2(RustyOptions.Option{``0},RustyOptions.Option{``1})
+  name: And<T1, T2>(Option<T1>, Option<T2>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_And__2_RustyOptions_Option___0__RustyOptions_Option___1__
+  commentId: M:RustyOptions.OptionExtensions.And``2(RustyOptions.Option{``0},RustyOptions.Option{``1})
+  name.vb: And(Of T1, T2)(Option(Of T1), Option(Of T2))
+  fullName: RustyOptions.OptionExtensions.And<T1, T2>(RustyOptions.Option<T1>, RustyOptions.Option<T2>)
+  fullName.vb: RustyOptions.OptionExtensions.And(Of T1, T2)(RustyOptions.Option(Of T1), RustyOptions.Option(Of T2))
+  nameWithType: OptionExtensions.And<T1, T2>(Option<T1>, Option<T2>)
+  nameWithType.vb: OptionExtensions.And(Of T1, T2)(Option(Of T1), Option(Of T2))
+- uid: RustyOptions.OptionExtensions.AndThen*
+  name: AndThen
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AndThen_
+  commentId: Overload:RustyOptions.OptionExtensions.AndThen
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.AndThen
+  nameWithType: OptionExtensions.AndThen
+- uid: RustyOptions.OptionExtensions.AndThen``2(RustyOptions.Option{``0},Func{``0,RustyOptions.Option{``1}})
+  name: AndThen<T1, T2>(Option<T1>, Func<T1, Option<T2>>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AndThen__2_RustyOptions_Option___0__Func___0_RustyOptions_Option___1___
+  commentId: M:RustyOptions.OptionExtensions.AndThen``2(RustyOptions.Option{``0},Func{``0,RustyOptions.Option{``1}})
+  name.vb: AndThen(Of T1, T2)(Option(Of T1), Func(Of T1, Option(Of T2)))
+  fullName: RustyOptions.OptionExtensions.AndThen<T1, T2>(RustyOptions.Option<T1>, Func<T1, RustyOptions.Option<T2>>)
+  fullName.vb: RustyOptions.OptionExtensions.AndThen(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, RustyOptions.Option(Of T2)))
+  nameWithType: OptionExtensions.AndThen<T1, T2>(Option<T1>, Func<T1, Option<T2>>)
+  nameWithType.vb: OptionExtensions.AndThen(Of T1, T2)(Option(Of T1), Func(Of T1, Option(Of T2)))
+- uid: RustyOptions.OptionExtensions.AsOption*
+  name: AsOption
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AsOption_
+  commentId: Overload:RustyOptions.OptionExtensions.AsOption
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.AsOption
+  nameWithType: OptionExtensions.AsOption
+- uid: RustyOptions.OptionExtensions.AsOption``1(``0)
+  name: AsOption<T>(T)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AsOption__1___0_
+  commentId: M:RustyOptions.OptionExtensions.AsOption``1(``0)
+  name.vb: AsOption(Of T)(T)
+  fullName: RustyOptions.OptionExtensions.AsOption<T>(T)
+  fullName.vb: RustyOptions.OptionExtensions.AsOption(Of T)(T)
+  nameWithType: OptionExtensions.AsOption<T>(T)
+  nameWithType.vb: OptionExtensions.AsOption(Of T)(T)
+- uid: RustyOptions.OptionExtensions.AsOption``1(System.Nullable{``0})
+  name: AsOption<T>(Nullable<T>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AsOption__1_System_Nullable___0__
+  commentId: M:RustyOptions.OptionExtensions.AsOption``1(System.Nullable{``0})
+  name.vb: AsOption(Of T)(Nullable(Of T))
+  fullName: RustyOptions.OptionExtensions.AsOption<T>(System.Nullable<T>)
+  fullName.vb: RustyOptions.OptionExtensions.AsOption(Of T)(System.Nullable(Of T))
+  nameWithType: OptionExtensions.AsOption<T>(Nullable<T>)
+  nameWithType.vb: OptionExtensions.AsOption(Of T)(Nullable(Of T))
+- uid: RustyOptions.OptionExtensions.Expect*
+  name: Expect
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Expect_
+  commentId: Overload:RustyOptions.OptionExtensions.Expect
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Expect
+  nameWithType: OptionExtensions.Expect
+- uid: RustyOptions.OptionExtensions.Expect``1(RustyOptions.Option{``0},System.String)
+  name: Expect<T>(Option<T>, String)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Expect__1_RustyOptions_Option___0__System_String_
+  commentId: M:RustyOptions.OptionExtensions.Expect``1(RustyOptions.Option{``0},System.String)
+  name.vb: Expect(Of T)(Option(Of T), String)
+  fullName: RustyOptions.OptionExtensions.Expect<T>(RustyOptions.Option<T>, System.String)
+  fullName.vb: RustyOptions.OptionExtensions.Expect(Of T)(RustyOptions.Option(Of T), System.String)
+  nameWithType: OptionExtensions.Expect<T>(Option<T>, String)
+  nameWithType.vb: OptionExtensions.Expect(Of T)(Option(Of T), String)
+- uid: RustyOptions.OptionExtensions.Filter*
+  name: Filter
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Filter_
+  commentId: Overload:RustyOptions.OptionExtensions.Filter
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Filter
+  nameWithType: OptionExtensions.Filter
+- uid: RustyOptions.OptionExtensions.Filter``1(RustyOptions.Option{``0},Func{``0,System.Boolean})
+  name: Filter<T>(Option<T>, Func<T, Boolean>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Filter__1_RustyOptions_Option___0__Func___0_System_Boolean__
+  commentId: M:RustyOptions.OptionExtensions.Filter``1(RustyOptions.Option{``0},Func{``0,System.Boolean})
+  name.vb: Filter(Of T)(Option(Of T), Func(Of T, Boolean))
+  fullName: RustyOptions.OptionExtensions.Filter<T>(RustyOptions.Option<T>, Func<T, System.Boolean>)
+  fullName.vb: RustyOptions.OptionExtensions.Filter(Of T)(RustyOptions.Option(Of T), Func(Of T, System.Boolean))
+  nameWithType: OptionExtensions.Filter<T>(Option<T>, Func<T, Boolean>)
+  nameWithType.vb: OptionExtensions.Filter(Of T)(Option(Of T), Func(Of T, Boolean))
+- uid: RustyOptions.OptionExtensions.Flatten*
+  name: Flatten
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Flatten_
+  commentId: Overload:RustyOptions.OptionExtensions.Flatten
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Flatten
+  nameWithType: OptionExtensions.Flatten
+- uid: RustyOptions.OptionExtensions.Flatten``1(RustyOptions.Option{RustyOptions.Option{``0}})
+  name: Flatten<T>(Option<Option<T>>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Flatten__1_RustyOptions_Option_RustyOptions_Option___0___
+  commentId: M:RustyOptions.OptionExtensions.Flatten``1(RustyOptions.Option{RustyOptions.Option{``0}})
+  name.vb: Flatten(Of T)(Option(Of Option(Of T)))
+  fullName: RustyOptions.OptionExtensions.Flatten<T>(RustyOptions.Option<RustyOptions.Option<T>>)
+  fullName.vb: RustyOptions.OptionExtensions.Flatten(Of T)(RustyOptions.Option(Of RustyOptions.Option(Of T)))
+  nameWithType: OptionExtensions.Flatten<T>(Option<Option<T>>)
+  nameWithType.vb: OptionExtensions.Flatten(Of T)(Option(Of Option(Of T)))
+- uid: RustyOptions.OptionExtensions.Map*
+  name: Map
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Map_
+  commentId: Overload:RustyOptions.OptionExtensions.Map
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Map
+  nameWithType: OptionExtensions.Map
+- uid: RustyOptions.OptionExtensions.Map``2(RustyOptions.Option{``0},Func{``0,``1})
+  name: Map<T1, T2>(Option<T1>, Func<T1, T2>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Map__2_RustyOptions_Option___0__Func___0___1__
+  commentId: M:RustyOptions.OptionExtensions.Map``2(RustyOptions.Option{``0},Func{``0,``1})
+  name.vb: Map(Of T1, T2)(Option(Of T1), Func(Of T1, T2))
+  fullName: RustyOptions.OptionExtensions.Map<T1, T2>(RustyOptions.Option<T1>, Func<T1, T2>)
+  fullName.vb: RustyOptions.OptionExtensions.Map(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, T2))
+  nameWithType: OptionExtensions.Map<T1, T2>(Option<T1>, Func<T1, T2>)
+  nameWithType.vb: OptionExtensions.Map(Of T1, T2)(Option(Of T1), Func(Of T1, T2))
+- uid: RustyOptions.OptionExtensions.MapOr*
+  name: MapOr
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_MapOr_
+  commentId: Overload:RustyOptions.OptionExtensions.MapOr
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.MapOr
+  nameWithType: OptionExtensions.MapOr
+- uid: RustyOptions.OptionExtensions.MapOr``2(RustyOptions.Option{``0},Func{``0,``1},``1)
+  name: MapOr<T1, T2>(Option<T1>, Func<T1, T2>, T2)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_MapOr__2_RustyOptions_Option___0__Func___0___1____1_
+  commentId: M:RustyOptions.OptionExtensions.MapOr``2(RustyOptions.Option{``0},Func{``0,``1},``1)
+  name.vb: MapOr(Of T1, T2)(Option(Of T1), Func(Of T1, T2), T2)
+  fullName: RustyOptions.OptionExtensions.MapOr<T1, T2>(RustyOptions.Option<T1>, Func<T1, T2>, T2)
+  fullName.vb: RustyOptions.OptionExtensions.MapOr(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, T2), T2)
+  nameWithType: OptionExtensions.MapOr<T1, T2>(Option<T1>, Func<T1, T2>, T2)
+  nameWithType.vb: OptionExtensions.MapOr(Of T1, T2)(Option(Of T1), Func(Of T1, T2), T2)
+- uid: RustyOptions.OptionExtensions.MapOrElse*
+  name: MapOrElse
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_MapOrElse_
+  commentId: Overload:RustyOptions.OptionExtensions.MapOrElse
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.MapOrElse
+  nameWithType: OptionExtensions.MapOrElse
+- uid: RustyOptions.OptionExtensions.MapOrElse``2(RustyOptions.Option{``0},Func{``0,``1},Func{``1})
+  name: MapOrElse<T1, T2>(Option<T1>, Func<T1, T2>, Func<T2>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_MapOrElse__2_RustyOptions_Option___0__Func___0___1__Func___1__
+  commentId: M:RustyOptions.OptionExtensions.MapOrElse``2(RustyOptions.Option{``0},Func{``0,``1},Func{``1})
+  name.vb: MapOrElse(Of T1, T2)(Option(Of T1), Func(Of T1, T2), Func(Of T2))
+  fullName: RustyOptions.OptionExtensions.MapOrElse<T1, T2>(RustyOptions.Option<T1>, Func<T1, T2>, Func<T2>)
+  fullName.vb: RustyOptions.OptionExtensions.MapOrElse(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, T2), Func(Of T2))
+  nameWithType: OptionExtensions.MapOrElse<T1, T2>(Option<T1>, Func<T1, T2>, Func<T2>)
+  nameWithType.vb: OptionExtensions.MapOrElse(Of T1, T2)(Option(Of T1), Func(Of T1, T2), Func(Of T2))
+- uid: RustyOptions.OptionExtensions.Or*
+  name: Or
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Or_
+  commentId: Overload:RustyOptions.OptionExtensions.Or
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Or
+  nameWithType: OptionExtensions.Or
+- uid: RustyOptions.OptionExtensions.Or``1(RustyOptions.Option{``0},RustyOptions.Option{``0})
+  name: Or<T>(Option<T>, Option<T>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Or__1_RustyOptions_Option___0__RustyOptions_Option___0__
+  commentId: M:RustyOptions.OptionExtensions.Or``1(RustyOptions.Option{``0},RustyOptions.Option{``0})
+  name.vb: Or(Of T)(Option(Of T), Option(Of T))
+  fullName: RustyOptions.OptionExtensions.Or<T>(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.OptionExtensions.Or(Of T)(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: OptionExtensions.Or<T>(Option<T>, Option<T>)
+  nameWithType.vb: OptionExtensions.Or(Of T)(Option(Of T), Option(Of T))
+- uid: RustyOptions.OptionExtensions.OrElse*
+  name: OrElse
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_OrElse_
+  commentId: Overload:RustyOptions.OptionExtensions.OrElse
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.OrElse
+  nameWithType: OptionExtensions.OrElse
+- uid: RustyOptions.OptionExtensions.OrElse``1(RustyOptions.Option{``0},Func{RustyOptions.Option{``0}})
+  name: OrElse<T>(Option<T>, Func<Option<T>>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_OrElse__1_RustyOptions_Option___0__Func_RustyOptions_Option___0___
+  commentId: M:RustyOptions.OptionExtensions.OrElse``1(RustyOptions.Option{``0},Func{RustyOptions.Option{``0}})
+  name.vb: OrElse(Of T)(Option(Of T), Func(Of Option(Of T)))
+  fullName: RustyOptions.OptionExtensions.OrElse<T>(RustyOptions.Option<T>, Func<RustyOptions.Option<T>>)
+  fullName.vb: RustyOptions.OptionExtensions.OrElse(Of T)(RustyOptions.Option(Of T), Func(Of RustyOptions.Option(Of T)))
+  nameWithType: OptionExtensions.OrElse<T>(Option<T>, Func<Option<T>>)
+  nameWithType.vb: OptionExtensions.OrElse(Of T)(Option(Of T), Func(Of Option(Of T)))
+- uid: RustyOptions.OptionExtensions.Some*
+  name: Some
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Some_
+  commentId: Overload:RustyOptions.OptionExtensions.Some
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Some
+  nameWithType: OptionExtensions.Some
+- uid: RustyOptions.OptionExtensions.Some``1(``0)
+  name: Some<T>(T)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Some__1___0_
+  commentId: M:RustyOptions.OptionExtensions.Some``1(``0)
+  name.vb: Some(Of T)(T)
+  fullName: RustyOptions.OptionExtensions.Some<T>(T)
+  fullName.vb: RustyOptions.OptionExtensions.Some(Of T)(T)
+  nameWithType: OptionExtensions.Some<T>(T)
+  nameWithType.vb: OptionExtensions.Some(Of T)(T)
+- uid: RustyOptions.OptionExtensions.UnwrapOr*
+  name: UnwrapOr
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_UnwrapOr_
+  commentId: Overload:RustyOptions.OptionExtensions.UnwrapOr
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.UnwrapOr
+  nameWithType: OptionExtensions.UnwrapOr
+- uid: RustyOptions.OptionExtensions.UnwrapOr``1(RustyOptions.Option{``0},``0)
+  name: UnwrapOr<T>(Option<T>, T)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_UnwrapOr__1_RustyOptions_Option___0____0_
+  commentId: M:RustyOptions.OptionExtensions.UnwrapOr``1(RustyOptions.Option{``0},``0)
+  name.vb: UnwrapOr(Of T)(Option(Of T), T)
+  fullName: RustyOptions.OptionExtensions.UnwrapOr<T>(RustyOptions.Option<T>, T)
+  fullName.vb: RustyOptions.OptionExtensions.UnwrapOr(Of T)(RustyOptions.Option(Of T), T)
+  nameWithType: OptionExtensions.UnwrapOr<T>(Option<T>, T)
+  nameWithType.vb: OptionExtensions.UnwrapOr(Of T)(Option(Of T), T)
+- uid: RustyOptions.OptionExtensions.UnwrapOrElse*
+  name: UnwrapOrElse
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_UnwrapOrElse_
+  commentId: Overload:RustyOptions.OptionExtensions.UnwrapOrElse
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.UnwrapOrElse
+  nameWithType: OptionExtensions.UnwrapOrElse
+- uid: RustyOptions.OptionExtensions.UnwrapOrElse``1(RustyOptions.Option{``0},Func{``0})
+  name: UnwrapOrElse<T>(Option<T>, Func<T>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_UnwrapOrElse__1_RustyOptions_Option___0__Func___0__
+  commentId: M:RustyOptions.OptionExtensions.UnwrapOrElse``1(RustyOptions.Option{``0},Func{``0})
+  name.vb: UnwrapOrElse(Of T)(Option(Of T), Func(Of T))
+  fullName: RustyOptions.OptionExtensions.UnwrapOrElse<T>(RustyOptions.Option<T>, Func<T>)
+  fullName.vb: RustyOptions.OptionExtensions.UnwrapOrElse(Of T)(RustyOptions.Option(Of T), Func(Of T))
+  nameWithType: OptionExtensions.UnwrapOrElse<T>(Option<T>, Func<T>)
+  nameWithType.vb: OptionExtensions.UnwrapOrElse(Of T)(Option(Of T), Func(Of T))
+- uid: RustyOptions.OptionExtensions.Xor*
+  name: Xor
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Xor_
+  commentId: Overload:RustyOptions.OptionExtensions.Xor
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Xor
+  nameWithType: OptionExtensions.Xor
+- uid: RustyOptions.OptionExtensions.Xor``1(RustyOptions.Option{``0},RustyOptions.Option{``0})
+  name: Xor<T>(Option<T>, Option<T>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Xor__1_RustyOptions_Option___0__RustyOptions_Option___0__
+  commentId: M:RustyOptions.OptionExtensions.Xor``1(RustyOptions.Option{``0},RustyOptions.Option{``0})
+  name.vb: Xor(Of T)(Option(Of T), Option(Of T))
+  fullName: RustyOptions.OptionExtensions.Xor<T>(RustyOptions.Option<T>, RustyOptions.Option<T>)
+  fullName.vb: RustyOptions.OptionExtensions.Xor(Of T)(RustyOptions.Option(Of T), RustyOptions.Option(Of T))
+  nameWithType: OptionExtensions.Xor<T>(Option<T>, Option<T>)
+  nameWithType.vb: OptionExtensions.Xor(Of T)(Option(Of T), Option(Of T))
+- uid: RustyOptions.OptionExtensions.Zip*
+  name: Zip
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Zip_
+  commentId: Overload:RustyOptions.OptionExtensions.Zip
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.Zip
+  nameWithType: OptionExtensions.Zip
+- uid: RustyOptions.OptionExtensions.Zip``2(RustyOptions.Option{``0},RustyOptions.Option{``1})
+  name: Zip<T1, T2>(Option<T1>, Option<T2>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Zip__2_RustyOptions_Option___0__RustyOptions_Option___1__
+  commentId: M:RustyOptions.OptionExtensions.Zip``2(RustyOptions.Option{``0},RustyOptions.Option{``1})
+  name.vb: Zip(Of T1, T2)(Option(Of T1), Option(Of T2))
+  fullName: RustyOptions.OptionExtensions.Zip<T1, T2>(RustyOptions.Option<T1>, RustyOptions.Option<T2>)
+  fullName.vb: RustyOptions.OptionExtensions.Zip(Of T1, T2)(RustyOptions.Option(Of T1), RustyOptions.Option(Of T2))
+  nameWithType: OptionExtensions.Zip<T1, T2>(Option<T1>, Option<T2>)
+  nameWithType.vb: OptionExtensions.Zip(Of T1, T2)(Option(Of T1), Option(Of T2))
+- uid: RustyOptions.OptionExtensions.ZipWith*
+  name: ZipWith
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_ZipWith_
+  commentId: Overload:RustyOptions.OptionExtensions.ZipWith
+  isSpec: "True"
+  fullName: RustyOptions.OptionExtensions.ZipWith
+  nameWithType: OptionExtensions.ZipWith
+- uid: RustyOptions.OptionExtensions.ZipWith``3(RustyOptions.Option{``0},RustyOptions.Option{``1},Func{``0,``1,``2})
+  name: ZipWith<T1, T2, T3>(Option<T1>, Option<T2>, Func<T1, T2, T3>)
+  href: api/RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_ZipWith__3_RustyOptions_Option___0__RustyOptions_Option___1__Func___0___1___2__
+  commentId: M:RustyOptions.OptionExtensions.ZipWith``3(RustyOptions.Option{``0},RustyOptions.Option{``1},Func{``0,``1,``2})
+  name.vb: ZipWith(Of T1, T2, T3)(Option(Of T1), Option(Of T2), Func(Of T1, T2, T3))
+  fullName: RustyOptions.OptionExtensions.ZipWith<T1, T2, T3>(RustyOptions.Option<T1>, RustyOptions.Option<T2>, Func<T1, T2, T3>)
+  fullName.vb: RustyOptions.OptionExtensions.ZipWith(Of T1, T2, T3)(RustyOptions.Option(Of T1), RustyOptions.Option(Of T2), Func(Of T1, T2, T3))
+  nameWithType: OptionExtensions.ZipWith<T1, T2, T3>(Option<T1>, Option<T2>, Func<T1, T2, T3>)
+  nameWithType.vb: OptionExtensions.ZipWith(Of T1, T2, T3)(Option(Of T1), Option(Of T2), Func(Of T1, T2, T3))
+- uid: RustyOptions.OptionJsonExtensions
+  name: OptionJsonExtensions
+  href: api/RustyOptions.OptionJsonExtensions.html
+  commentId: T:RustyOptions.OptionJsonExtensions
+  fullName: RustyOptions.OptionJsonExtensions
+  nameWithType: OptionJsonExtensions
+- uid: RustyOptions.OptionJsonExtensions.GetOption*
+  name: GetOption
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetOption_
+  commentId: Overload:RustyOptions.OptionJsonExtensions.GetOption
+  isSpec: "True"
+  fullName: RustyOptions.OptionJsonExtensions.GetOption
+  nameWithType: OptionJsonExtensions.GetOption
+- uid: RustyOptions.OptionJsonExtensions.GetOption``1(JsonValue)
+  name: GetOption<T>(JsonValue)
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetOption__1_JsonValue_
+  commentId: M:RustyOptions.OptionJsonExtensions.GetOption``1(JsonValue)
+  name.vb: GetOption(Of T)(JsonValue)
+  fullName: RustyOptions.OptionJsonExtensions.GetOption<T>(JsonValue)
+  fullName.vb: RustyOptions.OptionJsonExtensions.GetOption(Of T)(JsonValue)
+  nameWithType: OptionJsonExtensions.GetOption<T>(JsonValue)
+  nameWithType.vb: OptionJsonExtensions.GetOption(Of T)(JsonValue)
+- uid: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement,ReadOnlySpan{System.Byte})
+  name: GetPropOption(JsonElement, ReadOnlySpan<Byte>)
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropOption_JsonElement_ReadOnlySpan_System_Byte__
+  commentId: M:RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement,ReadOnlySpan{System.Byte})
+  name.vb: GetPropOption(JsonElement, ReadOnlySpan(Of Byte))
+  fullName: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan<System.Byte>)
+  fullName.vb: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan(Of System.Byte))
+  nameWithType: OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan<Byte>)
+  nameWithType.vb: OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan(Of Byte))
+- uid: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement,ReadOnlySpan{System.Char})
+  name: GetPropOption(JsonElement, ReadOnlySpan<Char>)
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropOption_JsonElement_ReadOnlySpan_System_Char__
+  commentId: M:RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement,ReadOnlySpan{System.Char})
+  name.vb: GetPropOption(JsonElement, ReadOnlySpan(Of Char))
+  fullName: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan<System.Char>)
+  fullName.vb: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan(Of System.Char))
+  nameWithType: OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan<Char>)
+  nameWithType.vb: OptionJsonExtensions.GetPropOption(JsonElement, ReadOnlySpan(Of Char))
+- uid: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement,System.String)
+  name: GetPropOption(JsonElement, String)
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropOption_JsonElement_System_String_
+  commentId: M:RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement,System.String)
+  fullName: RustyOptions.OptionJsonExtensions.GetPropOption(JsonElement, System.String)
+  nameWithType: OptionJsonExtensions.GetPropOption(JsonElement, String)
+- uid: RustyOptions.OptionJsonExtensions.GetPropOption(JsonObject,System.String)
+  name: GetPropOption(JsonObject, String)
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropOption_JsonObject_System_String_
+  commentId: M:RustyOptions.OptionJsonExtensions.GetPropOption(JsonObject,System.String)
+  fullName: RustyOptions.OptionJsonExtensions.GetPropOption(JsonObject, System.String)
+  nameWithType: OptionJsonExtensions.GetPropOption(JsonObject, String)
+- uid: RustyOptions.OptionJsonExtensions.GetPropOption*
+  name: GetPropOption
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropOption_
+  commentId: Overload:RustyOptions.OptionJsonExtensions.GetPropOption
+  isSpec: "True"
+  fullName: RustyOptions.OptionJsonExtensions.GetPropOption
+  nameWithType: OptionJsonExtensions.GetPropOption
+- uid: RustyOptions.OptionJsonExtensions.GetPropValue*
+  name: GetPropValue
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropValue_
+  commentId: Overload:RustyOptions.OptionJsonExtensions.GetPropValue
+  isSpec: "True"
+  fullName: RustyOptions.OptionJsonExtensions.GetPropValue
+  nameWithType: OptionJsonExtensions.GetPropValue
+- uid: RustyOptions.OptionJsonExtensions.GetPropValue``1(JsonObject,System.String)
+  name: GetPropValue<T>(JsonObject, String)
+  href: api/RustyOptions.OptionJsonExtensions.html#RustyOptions_OptionJsonExtensions_GetPropValue__1_JsonObject_System_String_
+  commentId: M:RustyOptions.OptionJsonExtensions.GetPropValue``1(JsonObject,System.String)
+  name.vb: GetPropValue(Of T)(JsonObject, String)
+  fullName: RustyOptions.OptionJsonExtensions.GetPropValue<T>(JsonObject, System.String)
+  fullName.vb: RustyOptions.OptionJsonExtensions.GetPropValue(Of T)(JsonObject, System.String)
+  nameWithType: OptionJsonExtensions.GetPropValue<T>(JsonObject, String)
+  nameWithType.vb: OptionJsonExtensions.GetPropValue(Of T)(JsonObject, String)
+- uid: RustyOptions.OptionResultExtensions
+  name: OptionResultExtensions
+  href: api/RustyOptions.OptionResultExtensions.html
+  commentId: T:RustyOptions.OptionResultExtensions
+  fullName: RustyOptions.OptionResultExtensions
+  nameWithType: OptionResultExtensions
+- uid: RustyOptions.OptionResultExtensions.Err*
+  name: Err
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Err_
+  commentId: Overload:RustyOptions.OptionResultExtensions.Err
+  isSpec: "True"
+  fullName: RustyOptions.OptionResultExtensions.Err
+  nameWithType: OptionResultExtensions.Err
+- uid: RustyOptions.OptionResultExtensions.Err``2(RustyOptions.Result{``0,``1})
+  name: Err<T, TErr>(Result<T, TErr>)
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__
+  commentId: M:RustyOptions.OptionResultExtensions.Err``2(RustyOptions.Result{``0,``1})
+  name.vb: Err(Of T, TErr)(Result(Of T, TErr))
+  fullName: RustyOptions.OptionResultExtensions.Err<T, TErr>(RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.OptionResultExtensions.Err(Of T, TErr)(RustyOptions.Result(Of T, TErr))
+  nameWithType: OptionResultExtensions.Err<T, TErr>(Result<T, TErr>)
+  nameWithType.vb: OptionResultExtensions.Err(Of T, TErr)(Result(Of T, TErr))
+- uid: RustyOptions.OptionResultExtensions.Ok*
+  name: Ok
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Ok_
+  commentId: Overload:RustyOptions.OptionResultExtensions.Ok
+  isSpec: "True"
+  fullName: RustyOptions.OptionResultExtensions.Ok
+  nameWithType: OptionResultExtensions.Ok
+- uid: RustyOptions.OptionResultExtensions.Ok``2(RustyOptions.Result{``0,``1})
+  name: Ok<T, TErr>(Result<T, TErr>)
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__
+  commentId: M:RustyOptions.OptionResultExtensions.Ok``2(RustyOptions.Result{``0,``1})
+  name.vb: Ok(Of T, TErr)(Result(Of T, TErr))
+  fullName: RustyOptions.OptionResultExtensions.Ok<T, TErr>(RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.OptionResultExtensions.Ok(Of T, TErr)(RustyOptions.Result(Of T, TErr))
+  nameWithType: OptionResultExtensions.Ok<T, TErr>(Result<T, TErr>)
+  nameWithType.vb: OptionResultExtensions.Ok(Of T, TErr)(Result(Of T, TErr))
+- uid: RustyOptions.OptionResultExtensions.OkOr*
+  name: OkOr
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOr_
+  commentId: Overload:RustyOptions.OptionResultExtensions.OkOr
+  isSpec: "True"
+  fullName: RustyOptions.OptionResultExtensions.OkOr
+  nameWithType: OptionResultExtensions.OkOr
+- uid: RustyOptions.OptionResultExtensions.OkOr``2(RustyOptions.Option{``0},``1)
+  name: OkOr<T, TErr>(Option<T>, TErr)
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_
+  commentId: M:RustyOptions.OptionResultExtensions.OkOr``2(RustyOptions.Option{``0},``1)
+  name.vb: OkOr(Of T, TErr)(Option(Of T), TErr)
+  fullName: RustyOptions.OptionResultExtensions.OkOr<T, TErr>(RustyOptions.Option<T>, TErr)
+  fullName.vb: RustyOptions.OptionResultExtensions.OkOr(Of T, TErr)(RustyOptions.Option(Of T), TErr)
+  nameWithType: OptionResultExtensions.OkOr<T, TErr>(Option<T>, TErr)
+  nameWithType.vb: OptionResultExtensions.OkOr(Of T, TErr)(Option(Of T), TErr)
+- uid: RustyOptions.OptionResultExtensions.OkOrElse*
+  name: OkOrElse
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOrElse_
+  commentId: Overload:RustyOptions.OptionResultExtensions.OkOrElse
+  isSpec: "True"
+  fullName: RustyOptions.OptionResultExtensions.OkOrElse
+  nameWithType: OptionResultExtensions.OkOrElse
+- uid: RustyOptions.OptionResultExtensions.OkOrElse``2(RustyOptions.Option{``0},Func{``1})
+  name: OkOrElse<T, TErr>(Option<T>, Func<TErr>)
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__
+  commentId: M:RustyOptions.OptionResultExtensions.OkOrElse``2(RustyOptions.Option{``0},Func{``1})
+  name.vb: OkOrElse(Of T, TErr)(Option(Of T), Func(Of TErr))
+  fullName: RustyOptions.OptionResultExtensions.OkOrElse<T, TErr>(RustyOptions.Option<T>, Func<TErr>)
+  fullName.vb: RustyOptions.OptionResultExtensions.OkOrElse(Of T, TErr)(RustyOptions.Option(Of T), Func(Of TErr))
+  nameWithType: OptionResultExtensions.OkOrElse<T, TErr>(Option<T>, Func<TErr>)
+  nameWithType.vb: OptionResultExtensions.OkOrElse(Of T, TErr)(Option(Of T), Func(Of TErr))
+- uid: RustyOptions.OptionResultExtensions.Transpose*
+  name: Transpose
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Transpose_
+  commentId: Overload:RustyOptions.OptionResultExtensions.Transpose
+  isSpec: "True"
+  fullName: RustyOptions.OptionResultExtensions.Transpose
+  nameWithType: OptionResultExtensions.Transpose
+- uid: RustyOptions.OptionResultExtensions.Transpose``2(RustyOptions.Option{RustyOptions.Result{``0,``1}})
+  name: Transpose<T, TErr>(Option<Result<T, TErr>>)
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Transpose__2_RustyOptions_Option_RustyOptions_Result___0___1___
+  commentId: M:RustyOptions.OptionResultExtensions.Transpose``2(RustyOptions.Option{RustyOptions.Result{``0,``1}})
+  name.vb: Transpose(Of T, TErr)(Option(Of Result(Of T, TErr)))
+  fullName: RustyOptions.OptionResultExtensions.Transpose<T, TErr>(RustyOptions.Option<RustyOptions.Result<T, TErr>>)
+  fullName.vb: RustyOptions.OptionResultExtensions.Transpose(Of T, TErr)(RustyOptions.Option(Of RustyOptions.Result(Of T, TErr)))
+  nameWithType: OptionResultExtensions.Transpose<T, TErr>(Option<Result<T, TErr>>)
+  nameWithType.vb: OptionResultExtensions.Transpose(Of T, TErr)(Option(Of Result(Of T, TErr)))
+- uid: RustyOptions.OptionResultExtensions.Transpose``2(RustyOptions.Result{RustyOptions.Option{``0},``1})
+  name: Transpose<T, TErr>(Result<Option<T>, TErr>)
+  href: api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Transpose__2_RustyOptions_Result_RustyOptions_Option___0____1__
+  commentId: M:RustyOptions.OptionResultExtensions.Transpose``2(RustyOptions.Result{RustyOptions.Option{``0},``1})
+  name.vb: Transpose(Of T, TErr)(Result(Of Option(Of T), TErr))
+  fullName: RustyOptions.OptionResultExtensions.Transpose<T, TErr>(RustyOptions.Result<RustyOptions.Option<T>, TErr>)
+  fullName.vb: RustyOptions.OptionResultExtensions.Transpose(Of T, TErr)(RustyOptions.Result(Of RustyOptions.Option(Of T), TErr))
+  nameWithType: OptionResultExtensions.Transpose<T, TErr>(Result<Option<T>, TErr>)
+  nameWithType.vb: OptionResultExtensions.Transpose(Of T, TErr)(Result(Of Option(Of T), TErr))
+- uid: RustyOptions.Result
+  name: Result
+  href: api/RustyOptions.Result.html
+  commentId: T:RustyOptions.Result
+  fullName: RustyOptions.Result
+  nameWithType: Result
+- uid: RustyOptions.Result.Err*
+  name: Err
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Err_
+  commentId: Overload:RustyOptions.Result.Err
+  isSpec: "True"
+  fullName: RustyOptions.Result.Err
+  nameWithType: Result.Err
+- uid: RustyOptions.Result.Err``1(Exception)
+  name: Err<T>(Exception)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Err__1_Exception_
+  commentId: M:RustyOptions.Result.Err``1(Exception)
+  name.vb: Err(Of T)(Exception)
+  fullName: RustyOptions.Result.Err<T>(Exception)
+  fullName.vb: RustyOptions.Result.Err(Of T)(Exception)
+  nameWithType: Result.Err<T>(Exception)
+  nameWithType.vb: Result.Err(Of T)(Exception)
+- uid: RustyOptions.Result.Err``1(System.String)
+  name: Err<T>(String)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Err__1_System_String_
+  commentId: M:RustyOptions.Result.Err``1(System.String)
+  name.vb: Err(Of T)(String)
+  fullName: RustyOptions.Result.Err<T>(System.String)
+  fullName.vb: RustyOptions.Result.Err(Of T)(System.String)
+  nameWithType: Result.Err<T>(String)
+  nameWithType.vb: Result.Err(Of T)(String)
+- uid: RustyOptions.Result.Err``2(``1)
+  name: Err<T, TErr>(TErr)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Err__2___1_
+  commentId: M:RustyOptions.Result.Err``2(``1)
+  name.vb: Err(Of T, TErr)(TErr)
+  fullName: RustyOptions.Result.Err<T, TErr>(TErr)
+  fullName.vb: RustyOptions.Result.Err(Of T, TErr)(TErr)
+  nameWithType: Result.Err<T, TErr>(TErr)
+  nameWithType.vb: Result.Err(Of T, TErr)(TErr)
+- uid: RustyOptions.Result.Ok*
+  name: Ok
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Ok_
+  commentId: Overload:RustyOptions.Result.Ok
+  isSpec: "True"
+  fullName: RustyOptions.Result.Ok
+  nameWithType: Result.Ok
+- uid: RustyOptions.Result.Ok``1(``0)
+  name: Ok<T>(T)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Ok__1___0_
+  commentId: M:RustyOptions.Result.Ok``1(``0)
+  name.vb: Ok(Of T)(T)
+  fullName: RustyOptions.Result.Ok<T>(T)
+  fullName.vb: RustyOptions.Result.Ok(Of T)(T)
+  nameWithType: Result.Ok<T>(T)
+  nameWithType.vb: Result.Ok(Of T)(T)
+- uid: RustyOptions.Result.Ok``2(``0)
+  name: Ok<T, TErr>(T)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Ok__2___0_
+  commentId: M:RustyOptions.Result.Ok``2(``0)
+  name.vb: Ok(Of T, TErr)(T)
+  fullName: RustyOptions.Result.Ok<T, TErr>(T)
+  fullName.vb: RustyOptions.Result.Ok(Of T, TErr)(T)
+  nameWithType: Result.Ok<T, TErr>(T)
+  nameWithType.vb: Result.Ok(Of T, TErr)(T)
+- uid: RustyOptions.Result.OkExn*
+  name: OkExn
+  href: api/RustyOptions.Result.html#RustyOptions_Result_OkExn_
+  commentId: Overload:RustyOptions.Result.OkExn
+  isSpec: "True"
+  fullName: RustyOptions.Result.OkExn
+  nameWithType: Result.OkExn
+- uid: RustyOptions.Result.OkExn``1(``0)
+  name: OkExn<T>(T)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_OkExn__1___0_
+  commentId: M:RustyOptions.Result.OkExn``1(``0)
+  name.vb: OkExn(Of T)(T)
+  fullName: RustyOptions.Result.OkExn<T>(T)
+  fullName.vb: RustyOptions.Result.OkExn(Of T)(T)
+  nameWithType: Result.OkExn<T>(T)
+  nameWithType.vb: Result.OkExn(Of T)(T)
+- uid: RustyOptions.Result.Try*
+  name: Try
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Try_
+  commentId: Overload:RustyOptions.Result.Try
+  isSpec: "True"
+  fullName: RustyOptions.Result.Try
+  nameWithType: Result.Try
+- uid: RustyOptions.Result.Try``1(Func{``0})
+  name: Try<T>(Func<T>)
+  href: api/RustyOptions.Result.html#RustyOptions_Result_Try__1_Func___0__
+  commentId: M:RustyOptions.Result.Try``1(Func{``0})
+  name.vb: Try(Of T)(Func(Of T))
+  fullName: RustyOptions.Result.Try<T>(Func<T>)
+  fullName.vb: RustyOptions.Result.Try(Of T)(Func(Of T))
+  nameWithType: Result.Try<T>(Func<T>)
+  nameWithType.vb: Result.Try(Of T)(Func(Of T))
+- uid: RustyOptions.Result`2
+  name: Result<T, TErr>
+  href: api/RustyOptions.Result-2.html
+  commentId: T:RustyOptions.Result`2
+  name.vb: Result(Of T, TErr)
+  fullName: RustyOptions.Result<T, TErr>
+  fullName.vb: RustyOptions.Result(Of T, TErr)
+  nameWithType: Result<T, TErr>
+  nameWithType.vb: Result(Of T, TErr)
+- uid: RustyOptions.Result`2.#ctor(`0)
+  name: Result(T)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2__ctor__0_
+  commentId: M:RustyOptions.Result`2.#ctor(`0)
+  fullName: RustyOptions.Result<T, TErr>.Result(T)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Result(T)
+  nameWithType: Result<T, TErr>.Result(T)
+  nameWithType.vb: Result(Of T, TErr).Result(T)
+- uid: RustyOptions.Result`2.#ctor(`1)
+  name: Result(TErr)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2__ctor__1_
+  commentId: M:RustyOptions.Result`2.#ctor(`1)
+  fullName: RustyOptions.Result<T, TErr>.Result(TErr)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Result(TErr)
+  nameWithType: Result<T, TErr>.Result(TErr)
+  nameWithType.vb: Result(Of T, TErr).Result(TErr)
+- uid: RustyOptions.Result`2.#ctor*
+  name: Result
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2__ctor_
+  commentId: Overload:RustyOptions.Result`2.#ctor
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Result
+  fullName.vb: RustyOptions.Result(Of T, TErr).Result
+  nameWithType: Result<T, TErr>.Result
+  nameWithType.vb: Result(Of T, TErr).Result
+- uid: RustyOptions.Result`2.AsEnumerable
+  name: AsEnumerable()
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsEnumerable
+  commentId: M:RustyOptions.Result`2.AsEnumerable
+  fullName: RustyOptions.Result<T, TErr>.AsEnumerable()
+  fullName.vb: RustyOptions.Result(Of T, TErr).AsEnumerable()
+  nameWithType: Result<T, TErr>.AsEnumerable()
+  nameWithType.vb: Result(Of T, TErr).AsEnumerable()
+- uid: RustyOptions.Result`2.AsEnumerable*
+  name: AsEnumerable
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsEnumerable_
+  commentId: Overload:RustyOptions.Result`2.AsEnumerable
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.AsEnumerable
+  fullName.vb: RustyOptions.Result(Of T, TErr).AsEnumerable
+  nameWithType: Result<T, TErr>.AsEnumerable
+  nameWithType.vb: Result(Of T, TErr).AsEnumerable
+- uid: RustyOptions.Result`2.AsSpan
+  name: AsSpan()
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsSpan
+  commentId: M:RustyOptions.Result`2.AsSpan
+  fullName: RustyOptions.Result<T, TErr>.AsSpan()
+  fullName.vb: RustyOptions.Result(Of T, TErr).AsSpan()
+  nameWithType: Result<T, TErr>.AsSpan()
+  nameWithType.vb: Result(Of T, TErr).AsSpan()
+- uid: RustyOptions.Result`2.AsSpan*
+  name: AsSpan
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsSpan_
+  commentId: Overload:RustyOptions.Result`2.AsSpan
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.AsSpan
+  fullName.vb: RustyOptions.Result(Of T, TErr).AsSpan
+  nameWithType: Result<T, TErr>.AsSpan
+  nameWithType.vb: Result(Of T, TErr).AsSpan
+- uid: RustyOptions.Result`2.CompareTo(RustyOptions.Result{`0,`1})
+  name: CompareTo(Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_CompareTo_RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.CompareTo(RustyOptions.Result{`0,`1})
+  name.vb: CompareTo(Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.CompareTo(RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).CompareTo(RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.CompareTo(Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).CompareTo(Result(Of T, TErr))
+- uid: RustyOptions.Result`2.CompareTo*
+  name: CompareTo
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_CompareTo_
+  commentId: Overload:RustyOptions.Result`2.CompareTo
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.CompareTo
+  fullName.vb: RustyOptions.Result(Of T, TErr).CompareTo
+  nameWithType: Result<T, TErr>.CompareTo
+  nameWithType.vb: Result(Of T, TErr).CompareTo
+- uid: RustyOptions.Result`2.Equals(RustyOptions.Result{`0,`1})
+  name: Equals(Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Equals_RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.Equals(RustyOptions.Result{`0,`1})
+  name.vb: Equals(Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.Equals(RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Equals(RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.Equals(Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).Equals(Result(Of T, TErr))
+- uid: RustyOptions.Result`2.Equals(System.Nullable{System.Object})
+  name: Equals(Nullable<Object>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Equals_System_Nullable_System_Object__
+  commentId: M:RustyOptions.Result`2.Equals(System.Nullable{System.Object})
+  name.vb: Equals(Nullable(Of Object))
+  fullName: RustyOptions.Result<T, TErr>.Equals(System.Nullable<System.Object>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Equals(System.Nullable(Of System.Object))
+  nameWithType: Result<T, TErr>.Equals(Nullable<Object>)
+  nameWithType.vb: Result(Of T, TErr).Equals(Nullable(Of Object))
+- uid: RustyOptions.Result`2.Equals*
+  name: Equals
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Equals_
+  commentId: Overload:RustyOptions.Result`2.Equals
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Equals
+  fullName.vb: RustyOptions.Result(Of T, TErr).Equals
+  nameWithType: Result<T, TErr>.Equals
+  nameWithType.vb: Result(Of T, TErr).Equals
+- uid: RustyOptions.Result`2.Expect(System.String)
+  name: Expect(String)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Expect_System_String_
+  commentId: M:RustyOptions.Result`2.Expect(System.String)
+  fullName: RustyOptions.Result<T, TErr>.Expect(System.String)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Expect(System.String)
+  nameWithType: Result<T, TErr>.Expect(String)
+  nameWithType.vb: Result(Of T, TErr).Expect(String)
+- uid: RustyOptions.Result`2.Expect*
+  name: Expect
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Expect_
+  commentId: Overload:RustyOptions.Result`2.Expect
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Expect
+  fullName.vb: RustyOptions.Result(Of T, TErr).Expect
+  nameWithType: Result<T, TErr>.Expect
+  nameWithType.vb: Result(Of T, TErr).Expect
+- uid: RustyOptions.Result`2.ExpectErr(System.String)
+  name: ExpectErr(String)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_ExpectErr_System_String_
+  commentId: M:RustyOptions.Result`2.ExpectErr(System.String)
+  fullName: RustyOptions.Result<T, TErr>.ExpectErr(System.String)
+  fullName.vb: RustyOptions.Result(Of T, TErr).ExpectErr(System.String)
+  nameWithType: Result<T, TErr>.ExpectErr(String)
+  nameWithType.vb: Result(Of T, TErr).ExpectErr(String)
+- uid: RustyOptions.Result`2.ExpectErr*
+  name: ExpectErr
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_ExpectErr_
+  commentId: Overload:RustyOptions.Result`2.ExpectErr
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.ExpectErr
+  fullName.vb: RustyOptions.Result(Of T, TErr).ExpectErr
+  nameWithType: Result<T, TErr>.ExpectErr
+  nameWithType.vb: Result(Of T, TErr).ExpectErr
+- uid: RustyOptions.Result`2.GetHashCode
+  name: GetHashCode()
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_GetHashCode
+  commentId: M:RustyOptions.Result`2.GetHashCode
+  fullName: RustyOptions.Result<T, TErr>.GetHashCode()
+  fullName.vb: RustyOptions.Result(Of T, TErr).GetHashCode()
+  nameWithType: Result<T, TErr>.GetHashCode()
+  nameWithType.vb: Result(Of T, TErr).GetHashCode()
+- uid: RustyOptions.Result`2.GetHashCode*
+  name: GetHashCode
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_GetHashCode_
+  commentId: Overload:RustyOptions.Result`2.GetHashCode
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.GetHashCode
+  fullName.vb: RustyOptions.Result(Of T, TErr).GetHashCode
+  nameWithType: Result<T, TErr>.GetHashCode
+  nameWithType.vb: Result(Of T, TErr).GetHashCode
+- uid: RustyOptions.Result`2.IsErr(`1@)
+  name: IsErr(out TErr)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_IsErr__1__
+  commentId: M:RustyOptions.Result`2.IsErr(`1@)
+  name.vb: IsErr(ByRef TErr)
+  fullName: RustyOptions.Result<T, TErr>.IsErr(out TErr)
+  fullName.vb: RustyOptions.Result(Of T, TErr).IsErr(ByRef TErr)
+  nameWithType: Result<T, TErr>.IsErr(out TErr)
+  nameWithType.vb: Result(Of T, TErr).IsErr(ByRef TErr)
+- uid: RustyOptions.Result`2.IsErr*
+  name: IsErr
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_IsErr_
+  commentId: Overload:RustyOptions.Result`2.IsErr
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.IsErr
+  fullName.vb: RustyOptions.Result(Of T, TErr).IsErr
+  nameWithType: Result<T, TErr>.IsErr
+  nameWithType.vb: Result(Of T, TErr).IsErr
+- uid: RustyOptions.Result`2.IsOk(`0@)
+  name: IsOk(out T)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_IsOk__0__
+  commentId: M:RustyOptions.Result`2.IsOk(`0@)
+  name.vb: IsOk(ByRef T)
+  fullName: RustyOptions.Result<T, TErr>.IsOk(out T)
+  fullName.vb: RustyOptions.Result(Of T, TErr).IsOk(ByRef T)
+  nameWithType: Result<T, TErr>.IsOk(out T)
+  nameWithType.vb: Result(Of T, TErr).IsOk(ByRef T)
+- uid: RustyOptions.Result`2.IsOk*
+  name: IsOk
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_IsOk_
+  commentId: Overload:RustyOptions.Result`2.IsOk
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.IsOk
+  fullName.vb: RustyOptions.Result(Of T, TErr).IsOk
+  nameWithType: Result<T, TErr>.IsOk
+  nameWithType.vb: Result(Of T, TErr).IsOk
+- uid: RustyOptions.Result`2.Match*
+  name: Match
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Match_
+  commentId: Overload:RustyOptions.Result`2.Match
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Match
+  fullName.vb: RustyOptions.Result(Of T, TErr).Match
+  nameWithType: Result<T, TErr>.Match
+  nameWithType.vb: Result(Of T, TErr).Match
+- uid: RustyOptions.Result`2.Match``1(Func{`0,``0},Func{`1,``0})
+  name: Match<T2>(Func<T, T2>, Func<TErr, T2>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Match__1_Func__0___0__Func__1___0__
+  commentId: M:RustyOptions.Result`2.Match``1(Func{`0,``0},Func{`1,``0})
+  name.vb: Match(Of T2)(Func(Of T, T2), Func(Of TErr, T2))
+  fullName: RustyOptions.Result<T, TErr>.Match<T2>(Func<T, T2>, Func<TErr, T2>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Match(Of T2)(Func(Of T, T2), Func(Of TErr, T2))
+  nameWithType: Result<T, TErr>.Match<T2>(Func<T, T2>, Func<TErr, T2>)
+  nameWithType.vb: Result(Of T, TErr).Match(Of T2)(Func(Of T, T2), Func(Of TErr, T2))
+- uid: RustyOptions.Result`2.op_Equality(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name: Equality(Result<T, TErr>, Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_Equality_RustyOptions_Result__0__1__RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.op_Equality(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name.vb: Equality(Result(Of T, TErr), Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.Equality(RustyOptions.Result<T, TErr>, RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Equality(RustyOptions.Result(Of T, TErr), RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.Equality(Result<T, TErr>, Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).Equality(Result(Of T, TErr), Result(Of T, TErr))
+- uid: RustyOptions.Result`2.op_Equality*
+  name: Equality
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_Equality_
+  commentId: Overload:RustyOptions.Result`2.op_Equality
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Equality
+  fullName.vb: RustyOptions.Result(Of T, TErr).Equality
+  nameWithType: Result<T, TErr>.Equality
+  nameWithType.vb: Result(Of T, TErr).Equality
+- uid: RustyOptions.Result`2.op_GreaterThan(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name: GreaterThan(Result<T, TErr>, Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_GreaterThan_RustyOptions_Result__0__1__RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.op_GreaterThan(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name.vb: GreaterThan(Result(Of T, TErr), Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.GreaterThan(RustyOptions.Result<T, TErr>, RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).GreaterThan(RustyOptions.Result(Of T, TErr), RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.GreaterThan(Result<T, TErr>, Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).GreaterThan(Result(Of T, TErr), Result(Of T, TErr))
+- uid: RustyOptions.Result`2.op_GreaterThan*
+  name: GreaterThan
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_GreaterThan_
+  commentId: Overload:RustyOptions.Result`2.op_GreaterThan
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.GreaterThan
+  fullName.vb: RustyOptions.Result(Of T, TErr).GreaterThan
+  nameWithType: Result<T, TErr>.GreaterThan
+  nameWithType.vb: Result(Of T, TErr).GreaterThan
+- uid: RustyOptions.Result`2.op_GreaterThanOrEqual(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name: GreaterThanOrEqual(Result<T, TErr>, Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_GreaterThanOrEqual_RustyOptions_Result__0__1__RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.op_GreaterThanOrEqual(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name.vb: GreaterThanOrEqual(Result(Of T, TErr), Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.GreaterThanOrEqual(RustyOptions.Result<T, TErr>, RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).GreaterThanOrEqual(RustyOptions.Result(Of T, TErr), RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.GreaterThanOrEqual(Result<T, TErr>, Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).GreaterThanOrEqual(Result(Of T, TErr), Result(Of T, TErr))
+- uid: RustyOptions.Result`2.op_GreaterThanOrEqual*
+  name: GreaterThanOrEqual
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_GreaterThanOrEqual_
+  commentId: Overload:RustyOptions.Result`2.op_GreaterThanOrEqual
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.GreaterThanOrEqual
+  fullName.vb: RustyOptions.Result(Of T, TErr).GreaterThanOrEqual
+  nameWithType: Result<T, TErr>.GreaterThanOrEqual
+  nameWithType.vb: Result(Of T, TErr).GreaterThanOrEqual
+- uid: RustyOptions.Result`2.op_Inequality(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name: Inequality(Result<T, TErr>, Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_Inequality_RustyOptions_Result__0__1__RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.op_Inequality(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name.vb: Inequality(Result(Of T, TErr), Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.Inequality(RustyOptions.Result<T, TErr>, RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Inequality(RustyOptions.Result(Of T, TErr), RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.Inequality(Result<T, TErr>, Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).Inequality(Result(Of T, TErr), Result(Of T, TErr))
+- uid: RustyOptions.Result`2.op_Inequality*
+  name: Inequality
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_Inequality_
+  commentId: Overload:RustyOptions.Result`2.op_Inequality
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Inequality
+  fullName.vb: RustyOptions.Result(Of T, TErr).Inequality
+  nameWithType: Result<T, TErr>.Inequality
+  nameWithType.vb: Result(Of T, TErr).Inequality
+- uid: RustyOptions.Result`2.op_LessThan(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name: LessThan(Result<T, TErr>, Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_LessThan_RustyOptions_Result__0__1__RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.op_LessThan(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name.vb: LessThan(Result(Of T, TErr), Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.LessThan(RustyOptions.Result<T, TErr>, RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).LessThan(RustyOptions.Result(Of T, TErr), RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.LessThan(Result<T, TErr>, Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).LessThan(Result(Of T, TErr), Result(Of T, TErr))
+- uid: RustyOptions.Result`2.op_LessThan*
+  name: LessThan
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_LessThan_
+  commentId: Overload:RustyOptions.Result`2.op_LessThan
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.LessThan
+  fullName.vb: RustyOptions.Result(Of T, TErr).LessThan
+  nameWithType: Result<T, TErr>.LessThan
+  nameWithType.vb: Result(Of T, TErr).LessThan
+- uid: RustyOptions.Result`2.op_LessThanOrEqual(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name: LessThanOrEqual(Result<T, TErr>, Result<T, TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_LessThanOrEqual_RustyOptions_Result__0__1__RustyOptions_Result__0__1__
+  commentId: M:RustyOptions.Result`2.op_LessThanOrEqual(RustyOptions.Result{`0,`1},RustyOptions.Result{`0,`1})
+  name.vb: LessThanOrEqual(Result(Of T, TErr), Result(Of T, TErr))
+  fullName: RustyOptions.Result<T, TErr>.LessThanOrEqual(RustyOptions.Result<T, TErr>, RustyOptions.Result<T, TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).LessThanOrEqual(RustyOptions.Result(Of T, TErr), RustyOptions.Result(Of T, TErr))
+  nameWithType: Result<T, TErr>.LessThanOrEqual(Result<T, TErr>, Result<T, TErr>)
+  nameWithType.vb: Result(Of T, TErr).LessThanOrEqual(Result(Of T, TErr), Result(Of T, TErr))
+- uid: RustyOptions.Result`2.op_LessThanOrEqual*
+  name: LessThanOrEqual
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_op_LessThanOrEqual_
+  commentId: Overload:RustyOptions.Result`2.op_LessThanOrEqual
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.LessThanOrEqual
+  fullName.vb: RustyOptions.Result(Of T, TErr).LessThanOrEqual
+  nameWithType: Result<T, TErr>.LessThanOrEqual
+  nameWithType.vb: Result(Of T, TErr).LessThanOrEqual
+- uid: RustyOptions.Result`2.ToString
+  name: ToString()
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_ToString
+  commentId: M:RustyOptions.Result`2.ToString
+  fullName: RustyOptions.Result<T, TErr>.ToString()
+  fullName.vb: RustyOptions.Result(Of T, TErr).ToString()
+  nameWithType: Result<T, TErr>.ToString()
+  nameWithType.vb: Result(Of T, TErr).ToString()
+- uid: RustyOptions.Result`2.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  name: ToString(Nullable<String>, Nullable<IFormatProvider>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__
+  commentId: M:RustyOptions.Result`2.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})
+  name.vb: ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+  fullName: RustyOptions.Result<T, TErr>.ToString(System.Nullable<System.String>, System.Nullable<IFormatProvider>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).ToString(System.Nullable(Of System.String), System.Nullable(Of IFormatProvider))
+  nameWithType: Result<T, TErr>.ToString(Nullable<String>, Nullable<IFormatProvider>)
+  nameWithType.vb: Result(Of T, TErr).ToString(Nullable(Of String), Nullable(Of IFormatProvider))
+- uid: RustyOptions.Result`2.ToString*
+  name: ToString
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_ToString_
+  commentId: Overload:RustyOptions.Result`2.ToString
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.ToString
+  fullName.vb: RustyOptions.Result(Of T, TErr).ToString
+  nameWithType: Result<T, TErr>.ToString
+  nameWithType.vb: Result(Of T, TErr).ToString
+- uid: RustyOptions.Result`2.TryFormat(Span{System.Char},System.Int32@,ReadOnlySpan{System.Char},System.Nullable{IFormatProvider})
+  name: TryFormat(Span<Char>, out Int32, ReadOnlySpan<Char>, Nullable<IFormatProvider>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_TryFormat_Span_System_Char__System_Int32__ReadOnlySpan_System_Char__System_Nullable_IFormatProvider__
+  commentId: M:RustyOptions.Result`2.TryFormat(Span{System.Char},System.Int32@,ReadOnlySpan{System.Char},System.Nullable{IFormatProvider})
+  name.vb: TryFormat(Span(Of Char), ByRef Int32, ReadOnlySpan(Of Char), Nullable(Of IFormatProvider))
+  fullName: RustyOptions.Result<T, TErr>.TryFormat(Span<System.Char>, out System.Int32, ReadOnlySpan<System.Char>, System.Nullable<IFormatProvider>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).TryFormat(Span(Of System.Char), ByRef System.Int32, ReadOnlySpan(Of System.Char), System.Nullable(Of IFormatProvider))
+  nameWithType: Result<T, TErr>.TryFormat(Span<Char>, out Int32, ReadOnlySpan<Char>, Nullable<IFormatProvider>)
+  nameWithType.vb: Result(Of T, TErr).TryFormat(Span(Of Char), ByRef Int32, ReadOnlySpan(Of Char), Nullable(Of IFormatProvider))
+- uid: RustyOptions.Result`2.TryFormat*
+  name: TryFormat
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_TryFormat_
+  commentId: Overload:RustyOptions.Result`2.TryFormat
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.TryFormat
+  fullName.vb: RustyOptions.Result(Of T, TErr).TryFormat
+  nameWithType: Result<T, TErr>.TryFormat
+  nameWithType.vb: Result(Of T, TErr).TryFormat
+- uid: RustyOptions.Result`2.Unwrap
+  name: Unwrap()
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Unwrap
+  commentId: M:RustyOptions.Result`2.Unwrap
+  fullName: RustyOptions.Result<T, TErr>.Unwrap()
+  fullName.vb: RustyOptions.Result(Of T, TErr).Unwrap()
+  nameWithType: Result<T, TErr>.Unwrap()
+  nameWithType.vb: Result(Of T, TErr).Unwrap()
+- uid: RustyOptions.Result`2.Unwrap*
+  name: Unwrap
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Unwrap_
+  commentId: Overload:RustyOptions.Result`2.Unwrap
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.Unwrap
+  fullName.vb: RustyOptions.Result(Of T, TErr).Unwrap
+  nameWithType: Result<T, TErr>.Unwrap
+  nameWithType.vb: Result(Of T, TErr).Unwrap
+- uid: RustyOptions.Result`2.UnwrapErr
+  name: UnwrapErr()
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_UnwrapErr
+  commentId: M:RustyOptions.Result`2.UnwrapErr
+  fullName: RustyOptions.Result<T, TErr>.UnwrapErr()
+  fullName.vb: RustyOptions.Result(Of T, TErr).UnwrapErr()
+  nameWithType: Result<T, TErr>.UnwrapErr()
+  nameWithType.vb: Result(Of T, TErr).UnwrapErr()
+- uid: RustyOptions.Result`2.UnwrapErr*
+  name: UnwrapErr
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_UnwrapErr_
+  commentId: Overload:RustyOptions.Result`2.UnwrapErr
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.UnwrapErr
+  fullName.vb: RustyOptions.Result(Of T, TErr).UnwrapErr
+  nameWithType: Result<T, TErr>.UnwrapErr
+  nameWithType.vb: Result(Of T, TErr).UnwrapErr
+- uid: RustyOptions.Result`2.UnwrapOrElse(Func{`1,`0})
+  name: UnwrapOrElse(Func<TErr, T>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_UnwrapOrElse_Func__1__0__
+  commentId: M:RustyOptions.Result`2.UnwrapOrElse(Func{`1,`0})
+  name.vb: UnwrapOrElse(Func(Of TErr, T))
+  fullName: RustyOptions.Result<T, TErr>.UnwrapOrElse(Func<TErr, T>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).UnwrapOrElse(Func(Of TErr, T))
+  nameWithType: Result<T, TErr>.UnwrapOrElse(Func<TErr, T>)
+  nameWithType.vb: Result(Of T, TErr).UnwrapOrElse(Func(Of TErr, T))
+- uid: RustyOptions.Result`2.UnwrapOrElse*
+  name: UnwrapOrElse
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_UnwrapOrElse_
+  commentId: Overload:RustyOptions.Result`2.UnwrapOrElse
+  isSpec: "True"
+  fullName: RustyOptions.Result<T, TErr>.UnwrapOrElse
+  fullName.vb: RustyOptions.Result(Of T, TErr).UnwrapOrElse
+  nameWithType: Result<T, TErr>.UnwrapOrElse
+  nameWithType.vb: Result(Of T, TErr).UnwrapOrElse
+- uid: RustyOptions.ResultCollectionExtensions
+  name: ResultCollectionExtensions
+  href: api/RustyOptions.ResultCollectionExtensions.html
+  commentId: T:RustyOptions.ResultCollectionExtensions
+  fullName: RustyOptions.ResultCollectionExtensions
+  nameWithType: ResultCollectionExtensions
+- uid: RustyOptions.ResultCollectionExtensions.Errors*
+  name: Errors
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_Errors_
+  commentId: Overload:RustyOptions.ResultCollectionExtensions.Errors
+  isSpec: "True"
+  fullName: RustyOptions.ResultCollectionExtensions.Errors
+  nameWithType: ResultCollectionExtensions.Errors
+- uid: RustyOptions.ResultCollectionExtensions.Errors``2(IEnumerable{RustyOptions.Result{``0,``1}})
+  name: Errors<T, TErr>(IEnumerable<Result<T, TErr>>)
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_Errors__2_IEnumerable_RustyOptions_Result___0___1___
+  commentId: M:RustyOptions.ResultCollectionExtensions.Errors``2(IEnumerable{RustyOptions.Result{``0,``1}})
+  name.vb: Errors(Of T, TErr)(IEnumerable(Of Result(Of T, TErr)))
+  fullName: RustyOptions.ResultCollectionExtensions.Errors<T, TErr>(IEnumerable<RustyOptions.Result<T, TErr>>)
+  fullName.vb: RustyOptions.ResultCollectionExtensions.Errors(Of T, TErr)(IEnumerable(Of RustyOptions.Result(Of T, TErr)))
+  nameWithType: ResultCollectionExtensions.Errors<T, TErr>(IEnumerable<Result<T, TErr>>)
+  nameWithType.vb: ResultCollectionExtensions.Errors(Of T, TErr)(IEnumerable(Of Result(Of T, TErr)))
+- uid: RustyOptions.ResultCollectionExtensions.Values*
+  name: Values
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_Values_
+  commentId: Overload:RustyOptions.ResultCollectionExtensions.Values
+  isSpec: "True"
+  fullName: RustyOptions.ResultCollectionExtensions.Values
+  nameWithType: ResultCollectionExtensions.Values
+- uid: RustyOptions.ResultCollectionExtensions.Values``2(IEnumerable{RustyOptions.Result{``0,``1}})
+  name: Values<T, TErr>(IEnumerable<Result<T, TErr>>)
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_Values__2_IEnumerable_RustyOptions_Result___0___1___
+  commentId: M:RustyOptions.ResultCollectionExtensions.Values``2(IEnumerable{RustyOptions.Result{``0,``1}})
+  name.vb: Values(Of T, TErr)(IEnumerable(Of Result(Of T, TErr)))
+  fullName: RustyOptions.ResultCollectionExtensions.Values<T, TErr>(IEnumerable<RustyOptions.Result<T, TErr>>)
+  fullName.vb: RustyOptions.ResultCollectionExtensions.Values(Of T, TErr)(IEnumerable(Of RustyOptions.Result(Of T, TErr)))
+  nameWithType: ResultCollectionExtensions.Values<T, TErr>(IEnumerable<Result<T, TErr>>)
+  nameWithType.vb: ResultCollectionExtensions.Values(Of T, TErr)(IEnumerable(Of Result(Of T, TErr)))
+- uid: RustyOptions.ResultExtensions
+  name: ResultExtensions
+  href: api/RustyOptions.ResultExtensions.html
+  commentId: T:RustyOptions.ResultExtensions
+  fullName: RustyOptions.ResultExtensions
+  nameWithType: ResultExtensions
+- uid: RustyOptions.ResultExtensions.And*
+  name: And
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_And_
+  commentId: Overload:RustyOptions.ResultExtensions.And
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.And
+  nameWithType: ResultExtensions.And
+- uid: RustyOptions.ResultExtensions.And``3(RustyOptions.Result{``0,``2},RustyOptions.Result{``1,``2})
+  name: And<T1, T2, TErr>(Result<T1, TErr>, Result<T2, TErr>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_And__3_RustyOptions_Result___0___2__RustyOptions_Result___1___2__
+  commentId: M:RustyOptions.ResultExtensions.And``3(RustyOptions.Result{``0,``2},RustyOptions.Result{``1,``2})
+  name.vb: And(Of T1, T2, TErr)(Result(Of T1, TErr), Result(Of T2, TErr))
+  fullName: RustyOptions.ResultExtensions.And<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, RustyOptions.Result<T2, TErr>)
+  fullName.vb: RustyOptions.ResultExtensions.And(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), RustyOptions.Result(Of T2, TErr))
+  nameWithType: ResultExtensions.And<T1, T2, TErr>(Result<T1, TErr>, Result<T2, TErr>)
+  nameWithType.vb: ResultExtensions.And(Of T1, T2, TErr)(Result(Of T1, TErr), Result(Of T2, TErr))
+- uid: RustyOptions.ResultExtensions.AndThen*
+  name: AndThen
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_AndThen_
+  commentId: Overload:RustyOptions.ResultExtensions.AndThen
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.AndThen
+  nameWithType: ResultExtensions.AndThen
+- uid: RustyOptions.ResultExtensions.AndThen``3(RustyOptions.Result{``0,``2},Func{``0,RustyOptions.Result{``1,``2}})
+  name: AndThen<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Result<T2, TErr>>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__Func___0_RustyOptions_Result___1___2___
+  commentId: M:RustyOptions.ResultExtensions.AndThen``3(RustyOptions.Result{``0,``2},Func{``0,RustyOptions.Result{``1,``2}})
+  name.vb: AndThen(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Result(Of T2, TErr)))
+  fullName: RustyOptions.ResultExtensions.AndThen<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, RustyOptions.Result<T2, TErr>>)
+  fullName.vb: RustyOptions.ResultExtensions.AndThen(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, RustyOptions.Result(Of T2, TErr)))
+  nameWithType: ResultExtensions.AndThen<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Result<T2, TErr>>)
+  nameWithType.vb: ResultExtensions.AndThen(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Result(Of T2, TErr)))
+- uid: RustyOptions.ResultExtensions.Flatten*
+  name: Flatten
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Flatten_
+  commentId: Overload:RustyOptions.ResultExtensions.Flatten
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.Flatten
+  nameWithType: ResultExtensions.Flatten
+- uid: RustyOptions.ResultExtensions.Flatten``2(RustyOptions.Result{RustyOptions.Result{``0,``1},``1})
+  name: Flatten<T, TErr>(Result<Result<T, TErr>, TErr>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Flatten__2_RustyOptions_Result_RustyOptions_Result___0___1____1__
+  commentId: M:RustyOptions.ResultExtensions.Flatten``2(RustyOptions.Result{RustyOptions.Result{``0,``1},``1})
+  name.vb: Flatten(Of T, TErr)(Result(Of Result(Of T, TErr), TErr))
+  fullName: RustyOptions.ResultExtensions.Flatten<T, TErr>(RustyOptions.Result<RustyOptions.Result<T, TErr>, TErr>)
+  fullName.vb: RustyOptions.ResultExtensions.Flatten(Of T, TErr)(RustyOptions.Result(Of RustyOptions.Result(Of T, TErr), TErr))
+  nameWithType: ResultExtensions.Flatten<T, TErr>(Result<Result<T, TErr>, TErr>)
+  nameWithType.vb: ResultExtensions.Flatten(Of T, TErr)(Result(Of Result(Of T, TErr), TErr))
+- uid: RustyOptions.ResultExtensions.Map*
+  name: Map
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Map_
+  commentId: Overload:RustyOptions.ResultExtensions.Map
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.Map
+  nameWithType: ResultExtensions.Map
+- uid: RustyOptions.ResultExtensions.Map``3(RustyOptions.Result{``0,``2},Func{``0,``1})
+  name: Map<T1, T2, TErr>(Result<T1, TErr>, Func<T1, T2>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Map__3_RustyOptions_Result___0___2__Func___0___1__
+  commentId: M:RustyOptions.ResultExtensions.Map``3(RustyOptions.Result{``0,``2},Func{``0,``1})
+  name.vb: Map(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, T2))
+  fullName: RustyOptions.ResultExtensions.Map<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, T2>)
+  fullName.vb: RustyOptions.ResultExtensions.Map(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, T2))
+  nameWithType: ResultExtensions.Map<T1, T2, TErr>(Result<T1, TErr>, Func<T1, T2>)
+  nameWithType.vb: ResultExtensions.Map(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, T2))
+- uid: RustyOptions.ResultExtensions.MapErr*
+  name: MapErr
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapErr_
+  commentId: Overload:RustyOptions.ResultExtensions.MapErr
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.MapErr
+  nameWithType: ResultExtensions.MapErr
+- uid: RustyOptions.ResultExtensions.MapErr``3(RustyOptions.Result{``0,``1},Func{``1,``2})
+  name: MapErr<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, T2Err>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapErr__3_RustyOptions_Result___0___1__Func___1___2__
+  commentId: M:RustyOptions.ResultExtensions.MapErr``3(RustyOptions.Result{``0,``1},Func{``1,``2})
+  name.vb: MapErr(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, T2Err))
+  fullName: RustyOptions.ResultExtensions.MapErr<T, T1Err, T2Err>(RustyOptions.Result<T, T1Err>, Func<T1Err, T2Err>)
+  fullName.vb: RustyOptions.ResultExtensions.MapErr(Of T, T1Err, T2Err)(RustyOptions.Result(Of T, T1Err), Func(Of T1Err, T2Err))
+  nameWithType: ResultExtensions.MapErr<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, T2Err>)
+  nameWithType.vb: ResultExtensions.MapErr(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, T2Err))
+- uid: RustyOptions.ResultExtensions.MapOr*
+  name: MapOr
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOr_
+  commentId: Overload:RustyOptions.ResultExtensions.MapOr
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.MapOr
+  nameWithType: ResultExtensions.MapOr
+- uid: RustyOptions.ResultExtensions.MapOr``3(RustyOptions.Result{``0,``2},Func{``0,``1},``1)
+  name: MapOr<T1, T2, TErr>(Result<T1, TErr>, Func<T1, T2>, T2)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__Func___0___1____1_
+  commentId: M:RustyOptions.ResultExtensions.MapOr``3(RustyOptions.Result{``0,``2},Func{``0,``1},``1)
+  name.vb: MapOr(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, T2), T2)
+  fullName: RustyOptions.ResultExtensions.MapOr<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, T2>, T2)
+  fullName.vb: RustyOptions.ResultExtensions.MapOr(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, T2), T2)
+  nameWithType: ResultExtensions.MapOr<T1, T2, TErr>(Result<T1, TErr>, Func<T1, T2>, T2)
+  nameWithType.vb: ResultExtensions.MapOr(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, T2), T2)
+- uid: RustyOptions.ResultExtensions.MapOrElse*
+  name: MapOrElse
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOrElse_
+  commentId: Overload:RustyOptions.ResultExtensions.MapOrElse
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.MapOrElse
+  nameWithType: ResultExtensions.MapOrElse
+- uid: RustyOptions.ResultExtensions.MapOrElse``3(RustyOptions.Result{``0,``2},Func{``0,``1},Func{``2,``1})
+  name: MapOrElse<T1, T2, TErr>(Result<T1, TErr>, Func<T1, T2>, Func<TErr, T2>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__Func___0___1__Func___2___1__
+  commentId: M:RustyOptions.ResultExtensions.MapOrElse``3(RustyOptions.Result{``0,``2},Func{``0,``1},Func{``2,``1})
+  name.vb: MapOrElse(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, T2), Func(Of TErr, T2))
+  fullName: RustyOptions.ResultExtensions.MapOrElse<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, T2>, Func<TErr, T2>)
+  fullName.vb: RustyOptions.ResultExtensions.MapOrElse(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, T2), Func(Of TErr, T2))
+  nameWithType: ResultExtensions.MapOrElse<T1, T2, TErr>(Result<T1, TErr>, Func<T1, T2>, Func<TErr, T2>)
+  nameWithType.vb: ResultExtensions.MapOrElse(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, T2), Func(Of TErr, T2))
+- uid: RustyOptions.ResultExtensions.Or*
+  name: Or
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Or_
+  commentId: Overload:RustyOptions.ResultExtensions.Or
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.Or
+  nameWithType: ResultExtensions.Or
+- uid: RustyOptions.ResultExtensions.Or``3(RustyOptions.Result{``0,``1},RustyOptions.Result{``0,``2})
+  name: Or<T, T1Err, T2Err>(Result<T, T1Err>, Result<T, T2Err>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Or__3_RustyOptions_Result___0___1__RustyOptions_Result___0___2__
+  commentId: M:RustyOptions.ResultExtensions.Or``3(RustyOptions.Result{``0,``1},RustyOptions.Result{``0,``2})
+  name.vb: Or(Of T, T1Err, T2Err)(Result(Of T, T1Err), Result(Of T, T2Err))
+  fullName: RustyOptions.ResultExtensions.Or<T, T1Err, T2Err>(RustyOptions.Result<T, T1Err>, RustyOptions.Result<T, T2Err>)
+  fullName.vb: RustyOptions.ResultExtensions.Or(Of T, T1Err, T2Err)(RustyOptions.Result(Of T, T1Err), RustyOptions.Result(Of T, T2Err))
+  nameWithType: ResultExtensions.Or<T, T1Err, T2Err>(Result<T, T1Err>, Result<T, T2Err>)
+  nameWithType.vb: ResultExtensions.Or(Of T, T1Err, T2Err)(Result(Of T, T1Err), Result(Of T, T2Err))
+- uid: RustyOptions.ResultExtensions.OrElse*
+  name: OrElse
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_OrElse_
+  commentId: Overload:RustyOptions.ResultExtensions.OrElse
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.OrElse
+  nameWithType: ResultExtensions.OrElse
+- uid: RustyOptions.ResultExtensions.OrElse``3(RustyOptions.Result{``0,``1},Func{``1,RustyOptions.Result{``0,``2}})
+  name: OrElse<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, Result<T, T2Err>>)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__Func___1_RustyOptions_Result___0___2___
+  commentId: M:RustyOptions.ResultExtensions.OrElse``3(RustyOptions.Result{``0,``1},Func{``1,RustyOptions.Result{``0,``2}})
+  name.vb: OrElse(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, Result(Of T, T2Err)))
+  fullName: RustyOptions.ResultExtensions.OrElse<T, T1Err, T2Err>(RustyOptions.Result<T, T1Err>, Func<T1Err, RustyOptions.Result<T, T2Err>>)
+  fullName.vb: RustyOptions.ResultExtensions.OrElse(Of T, T1Err, T2Err)(RustyOptions.Result(Of T, T1Err), Func(Of T1Err, RustyOptions.Result(Of T, T2Err)))
+  nameWithType: ResultExtensions.OrElse<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, Result<T, T2Err>>)
+  nameWithType.vb: ResultExtensions.OrElse(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, Result(Of T, T2Err)))
+- uid: RustyOptions.ResultExtensions.UnwrapOr*
+  name: UnwrapOr
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_UnwrapOr_
+  commentId: Overload:RustyOptions.ResultExtensions.UnwrapOr
+  isSpec: "True"
+  fullName: RustyOptions.ResultExtensions.UnwrapOr
+  nameWithType: ResultExtensions.UnwrapOr
+- uid: RustyOptions.ResultExtensions.UnwrapOr``2(RustyOptions.Result{``0,``1},``0)
+  name: UnwrapOr<T, TErr>(Result<T, TErr>, T)
+  href: api/RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_UnwrapOr__2_RustyOptions_Result___0___1____0_
+  commentId: M:RustyOptions.ResultExtensions.UnwrapOr``2(RustyOptions.Result{``0,``1},``0)
+  name.vb: UnwrapOr(Of T, TErr)(Result(Of T, TErr), T)
+  fullName: RustyOptions.ResultExtensions.UnwrapOr<T, TErr>(RustyOptions.Result<T, TErr>, T)
+  fullName.vb: RustyOptions.ResultExtensions.UnwrapOr(Of T, TErr)(RustyOptions.Result(Of T, TErr), T)
+  nameWithType: ResultExtensions.UnwrapOr<T, TErr>(Result<T, TErr>, T)
+  nameWithType.vb: ResultExtensions.UnwrapOr(Of T, TErr)(Result(Of T, TErr), T)
+- uid: RustyOptions.TryGet`1
+  name: TryGet<T>
+  href: api/RustyOptions.TryGet-1.html
+  commentId: T:RustyOptions.TryGet`1
+  name.vb: TryGet(Of T)
+  fullName: RustyOptions.TryGet<T>
+  fullName.vb: RustyOptions.TryGet(Of T)
+  nameWithType: TryGet<T>
+  nameWithType.vb: TryGet(Of T)
+- uid: RustyOptions.TryGetValue`2
+  name: TryGetValue<TKey, TValue>
+  href: api/RustyOptions.TryGetValue-2.html
+  commentId: T:RustyOptions.TryGetValue`2
+  name.vb: TryGetValue(Of TKey, TValue)
+  fullName: RustyOptions.TryGetValue<TKey, TValue>
+  fullName.vb: RustyOptions.TryGetValue(Of TKey, TValue)
+  nameWithType: TryGetValue<TKey, TValue>
+  nameWithType.vb: TryGetValue(Of TKey, TValue)

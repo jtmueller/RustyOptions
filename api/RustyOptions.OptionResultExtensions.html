@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class OptionResultExtensions
+ </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class OptionResultExtensions
+ ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RustyOptions.OptionResultExtensions">
+
+
+  <h1 id="RustyOptions_OptionResultExtensions" data-uid="RustyOptions.OptionResultExtensions" class="text-break">Class OptionResultExtensions
+</h1>
+  <div class="markdown level0 summary"><p>Extension methods that transform <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> to <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>, or vice-versa.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">OptionResultExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
+  <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
+  <h5 id="RustyOptions_OptionResultExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class OptionResultExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions.Err%60%602(RustyOptions.Result%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L81">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionResultExtensions_Err_" data-uid="RustyOptions.OptionResultExtensions.Err*"></a>
+  <h4 id="RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__" data-uid="RustyOptions.OptionResultExtensions.Err``2(RustyOptions.Result{``0,``1})">Err&lt;T, TErr&gt;(Result&lt;T, TErr&gt;)</h4>
+  <div class="markdown level1 summary"><p>Converts from the <code>Err</code> state of <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> to <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;TErr&gt; Err&lt;T, TErr&gt;(this Result&lt;T, TErr&gt; self)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to be converted.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;TErr&gt;</td>
+        <td><p><code>Some(TErr)</code> if the result is <code>Err</code>, otherwise <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions.Ok%60%602(RustyOptions.Result%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L97">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionResultExtensions_Ok_" data-uid="RustyOptions.OptionResultExtensions.Ok*"></a>
+  <h4 id="RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__" data-uid="RustyOptions.OptionResultExtensions.Ok``2(RustyOptions.Result{``0,``1})">Ok&lt;T, TErr&gt;(Result&lt;T, TErr&gt;)</h4>
+  <div class="markdown level1 summary"><p>Converts from the <code>Ok</code> state of <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> to <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; Ok&lt;T, TErr&gt;(this Result&lt;T, TErr&gt; self)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to be converted.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p><code>Some(T)</code> if the result is <code>Ok</code>, otherwise <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions.OkOr%60%602(RustyOptions.Option%7B%60%600%7D%2C%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L20">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionResultExtensions_OkOr_" data-uid="RustyOptions.OptionResultExtensions.OkOr*"></a>
+  <h4 id="RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_" data-uid="RustyOptions.OptionResultExtensions.OkOr``2(RustyOptions.Option{``0},``1)">OkOr&lt;T, TErr&gt;(Option&lt;T&gt;, TErr)</h4>
+  <div class="markdown level1 summary"><p>Transforms the <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> into a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>,
+mapping <code>Some</code> to <code>Ok</code> and <code>None</code> to <code>Err</code> using the provided
+<code data-dev-comment-type="paramref" class="paramref">error</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; OkOr&lt;T, TErr&gt;(this Option&lt;T&gt; self, TErr error)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to transform.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TErr</span></td>
+        <td><span class="parametername">error</span></td>
+        <td><p>The error to use if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;</td>
+        <td><p>A <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> that contains either the option's value, or the provided error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions.OkOrElse%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L39">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionResultExtensions_OkOrElse_" data-uid="RustyOptions.OptionResultExtensions.OkOrElse*"></a>
+  <h4 id="RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__" data-uid="RustyOptions.OptionResultExtensions.OkOrElse``2(RustyOptions.Option{``0},Func{``1})">OkOrElse&lt;T, TErr&gt;(Option&lt;T&gt;, Func&lt;TErr&gt;)</h4>
+  <div class="markdown level1 summary"><p>Transforms the <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> into a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>,
+mapping <code>Some</code> to <code>Ok</code> and <code>None</code> to <code>Err</code> using the provided
+<code data-dev-comment-type="paramref" class="paramref">errorFactory</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; OkOrElse&lt;T, TErr&gt;(this Option&lt;T&gt; self, Func&lt;TErr&gt; errorFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to transform.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr&gt;</td>
+        <td><span class="parametername">errorFactory</span></td>
+        <td><p>A function that creates an error object to be used if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;</td>
+        <td><p>A <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> that contains either the option's value, or the provided error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions_Transpose__2_RustyOptions_Option_RustyOptions_Result___0___1___.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions.Transpose%60%602(RustyOptions.Option%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L59">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionResultExtensions_Transpose_" data-uid="RustyOptions.OptionResultExtensions.Transpose*"></a>
+  <h4 id="RustyOptions_OptionResultExtensions_Transpose__2_RustyOptions_Option_RustyOptions_Result___0___1___" data-uid="RustyOptions.OptionResultExtensions.Transpose``2(RustyOptions.Option{RustyOptions.Result{``0,``1}})">Transpose&lt;T, TErr&gt;(Option&lt;Result&lt;T, TErr&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Transposes an <code>Option</code> of a <code>Result</code> into a <code>Result</code> of an <code>Option</code>.</p>
+<p>
+<code>None</code> will be mapped to <code>Ok(None)</code>. 
+<code>Some(Ok(_))</code> and <code>Some(Err(_))</code> will be mapped to <code>Ok(Some(_))</code> and <code>Err(_)</code>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;Option&lt;T&gt;, TErr&gt; Transpose&lt;T, TErr&gt;(this Option&lt;Result&lt;T, TErr&gt;&gt; self)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>An option containing a result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;, TErr&gt;</td>
+        <td><p>An equivalent result containing an option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions_Transpose__2_RustyOptions_Result_RustyOptions_Option___0____1__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions.Transpose%60%602(RustyOptions.Result%7BRustyOptions.Option%7B%60%600%7D%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L117">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionResultExtensions_Transpose_" data-uid="RustyOptions.OptionResultExtensions.Transpose*"></a>
+  <h4 id="RustyOptions_OptionResultExtensions_Transpose__2_RustyOptions_Result_RustyOptions_Option___0____1__" data-uid="RustyOptions.OptionResultExtensions.Transpose``2(RustyOptions.Result{RustyOptions.Option{``0},``1})">Transpose&lt;T, TErr&gt;(Result&lt;Option&lt;T&gt;, TErr&gt;)</h4>
+  <div class="markdown level1 summary"><p>Transposes a <code>Result</code> of an <code>Option</code> into an <code>Option</code> of a <code>Result</code>.</p>
+<p>
+<code>Ok(None)</code> will be mapped to <code>None</code>. 
+<code>Ok(Some(_))</code> and <code>Err(_)</code> will be mapped to <code>Some(Ok(_))</code> and <code>Some(Err(_))</code>.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;Result&lt;T, TErr&gt;&gt; Transpose&lt;T, TErr&gt;(this Result&lt;Option&lt;T&gt;, TErr&gt; self)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>A result containing an option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</td>
+        <td><p>An equivalent option containing a result.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The type of the error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionResultExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.OptionResultExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionResultExtensions.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

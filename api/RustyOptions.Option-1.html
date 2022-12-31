@@ -1,0 +1,1224 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Option&lt;T&gt;
+ </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Option&lt;T&gt;
+ ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RustyOptions.Option`1">
+
+
+  <h1 id="RustyOptions_Option_1" data-uid="RustyOptions.Option`1" class="text-break">Struct Option&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"><p><a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> represents an optional value: every <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> is either <code>Some</code> and contains a value, or <code>None</code>, and does not.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</div>
+    <div><span class="xref">IComparable</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</div>
+    <div><span class="xref">IFormattable</span></div>
+    <div><span class="xref">ISpanFormattable</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
+  <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
+  <h5 id="RustyOptions_Option_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct Option&lt;T&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type the opton might contain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1__ctor__0_.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.%23ctor(%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L39">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1__ctor_" data-uid="RustyOptions.Option`1.#ctor*"></a>
+  <h4 id="RustyOptions_Option_1__ctor__0_" data-uid="RustyOptions.Option`1.#ctor(`0)">Option(T)</h4>
+  <div class="markdown level1 summary"><p>Creates an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> containing the given value.</p>
+<p>NOTE: Nulls are not allowed; a null value will result in a <code>None</code> option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Option(T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to wrap in an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_IsNone.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.IsNone%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L48">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_IsNone_" data-uid="RustyOptions.Option`1.IsNone*"></a>
+  <h4 id="RustyOptions_Option_1_IsNone" data-uid="RustyOptions.Option`1.IsNone">IsNone</h4>
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if the option is <code>None</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsNone { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_None.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.None%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L24">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_None_" data-uid="RustyOptions.Option`1.None*"></a>
+  <h4 id="RustyOptions_Option_1_None" data-uid="RustyOptions.Option`1.None">None</h4>
+  <div class="markdown level1 summary"><p>Returns the <code>None</code> option for the specified <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Option&lt;T&gt; None { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_AsEnumerable.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.AsEnumerable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L112">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_AsEnumerable_" data-uid="RustyOptions.Option`1.AsEnumerable*"></a>
+  <h4 id="RustyOptions_Option_1_AsEnumerable" data-uid="RustyOptions.Option`1.AsEnumerable">AsEnumerable()</h4>
+  <div class="markdown level1 summary"><p>Returns an <see cref="!:IEnumerable&lt;T>"></see> containing either zero or one value,
+depending on whether the option is <code>None</code> or <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly IEnumerable&lt;T&gt; AsEnumerable()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>An enumerable containing the option's value, or an empty enumerable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_AsSpan.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.AsSpan%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L99">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_AsSpan_" data-uid="RustyOptions.Option`1.AsSpan*"></a>
+  <h4 id="RustyOptions_Option_1_AsSpan" data-uid="RustyOptions.Option`1.AsSpan">AsSpan()</h4>
+  <div class="markdown level1 summary"><p>Converts the option into a <see cref="!:ReadOnlySpan&lt;T>"></see> that contains either zero or one
+items depending on whether the option is <code>None</code> or <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly ReadOnlySpan&lt;T&gt; AsSpan()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ReadOnlySpan</span>&lt;T&gt;</td>
+        <td><p>A span containing the option's value, or an empty span.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_CompareTo_RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.CompareTo(RustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L261">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_CompareTo_" data-uid="RustyOptions.Option`1.CompareTo*"></a>
+  <h4 id="RustyOptions_Option_1_CompareTo_RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.CompareTo(RustyOptions.Option{`0})">CompareTo(Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Compares the current instance with another object of the same type and returns an integer
+that indicates whether the current instance precedes, follows, or occurs in the same
+position in the sort order as the other object.</p>
+<p><code>Some</code> compares as less than any <code>None</code>, while two <code>Some</code> compare as their contained values would in <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int CompareTo(Option&lt;T&gt; other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p><code>-1</code> if this instance precendes <code data-dev-comment-type="paramref" class="paramref">other</code>, <code>0</code> if they are equal, and <code>1</code> if this instance follows <code data-dev-comment-type="paramref" class="paramref">other</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_Equals_RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.Equals(RustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L128">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_Equals_" data-uid="RustyOptions.Option`1.Equals*"></a>
+  <h4 id="RustyOptions_Option_1_Equals_RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.Equals(RustyOptions.Option{`0})">Equals(Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(Option&lt;T&gt; other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td><p>An object to compare with this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the current object is equal to the <code data-dev-comment-type="paramref" class="paramref">other</code> parameter;
+otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L147">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_Equals_" data-uid="RustyOptions.Option`1.Equals*"></a>
+  <h4 id="RustyOptions_Option_1_Equals_System_Nullable_System_Object__" data-uid="RustyOptions.Option`1.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>An object to compare with this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the current object is equal to the <code data-dev-comment-type="paramref" class="paramref">obj</code> parameter;
+otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_GetHashCode.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.GetHashCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L157">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_GetHashCode_" data-uid="RustyOptions.Option`1.GetHashCode*"></a>
+  <h4 id="RustyOptions_Option_1_GetHashCode" data-uid="RustyOptions.Option`1.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Retrieves the hash code of the object contained by the <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p>The hash code of the object returned by the <a class="xref" href="RustyOptions.Option-1.html#RustyOptions_Option_1_IsSome__0__">IsSome(out T)</a> method, if that
+method returns <code>true</code>, or zero if it returns <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_IsSome__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.IsSome(%600%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L56">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_IsSome_" data-uid="RustyOptions.Option`1.IsSome*"></a>
+  <h4 id="RustyOptions_Option_1_IsSome__0__" data-uid="RustyOptions.Option`1.IsSome(`0@)">IsSome(out T)</h4>
+  <div class="markdown level1 summary"><p>Returns <code>true</code> if the option is <code>Some</code>, and returns the contained
+value through <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool IsSome(out T value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the option is <code>Some</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_Match__1_Func__0___0__Func___0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.Match%60%601(Func%7B%600%2C%60%600%7D%2CFunc%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L73">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_Match_" data-uid="RustyOptions.Option`1.Match*"></a>
+  <h4 id="RustyOptions_Option_1_Match__1_Func__0___0__Func___0__" data-uid="RustyOptions.Option`1.Match``1(Func{`0,``0},Func{``0})">Match&lt;T2&gt;(Func&lt;T, T2&gt;, Func&lt;T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns the result of executing the <code data-dev-comment-type="paramref" class="paramref">onSome</code>
+or <code data-dev-comment-type="paramref" class="paramref">onNone</code> functions, depending on the state
+of the <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly T2 Match&lt;T2&gt;(Func&lt;T, T2&gt; onSome, Func&lt;T2&gt; onNone)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T, T2&gt;</td>
+        <td><span class="parametername">onSome</span></td>
+        <td><p>The function to pass the value to, if the result is <code>Ok</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T2&gt;</td>
+        <td><span class="parametername">onNone</span></td>
+        <td><p>The function to pass the error value to, if the result is <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><p>The value returned by the called function.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type of the given functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_ToString.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.ToString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L166">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_ToString_" data-uid="RustyOptions.Option`1.ToString*"></a>
+  <h4 id="RustyOptions_Option_1_ToString" data-uid="RustyOptions.Option`1.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns the text representation of the value of the current <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The text representation of the value of the current <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.ToString(System.Nullable%7BSystem.String%7D%2CSystem.Nullable%7BIFormatProvider%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L183">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_ToString_" data-uid="RustyOptions.Option`1.ToString*"></a>
+  <h4 id="RustyOptions_Option_1_ToString_System_Nullable_System_String__System_Nullable_IFormatProvider__" data-uid="RustyOptions.Option`1.ToString(System.Nullable{System.String},System.Nullable{IFormatProvider})">ToString(Nullable&lt;String&gt;, Nullable&lt;IFormatProvider&gt;)</h4>
+  <div class="markdown level1 summary"><p>Formats the value of the current <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> using the specified format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format to use, or a null reference to use the default format defined for
+the type of the contained value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The provider to use to format the value, or a null reference to obtain the
+format information from the current locale setting of the operating system.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The value of the current instance in the specified format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_TryFormat_Span_System_Char__System_Int32__ReadOnlySpan_System_Char__System_Nullable_IFormatProvider__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.TryFormat(Span%7BSystem.Char%7D%2CSystem.Int32%40%2CReadOnlySpan%7BSystem.Char%7D%2CSystem.Nullable%7BIFormatProvider%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L207">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_TryFormat_" data-uid="RustyOptions.Option`1.TryFormat*"></a>
+  <h4 id="RustyOptions_Option_1_TryFormat_Span_System_Char__System_Int32__ReadOnlySpan_System_Char__System_Nullable_IFormatProvider__" data-uid="RustyOptions.Option`1.TryFormat(Span{System.Char},System.Int32@,ReadOnlySpan{System.Char},System.Nullable{IFormatProvider})">TryFormat(Span&lt;Char&gt;, out Int32, ReadOnlySpan&lt;Char&gt;, Nullable&lt;IFormatProvider&gt;)</h4>
+  <div class="markdown level1 summary"><p>Tries to format the value of the current instance into the provided span of characters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly bool TryFormat(Span&lt;char&gt; destination, out int charsWritten, ReadOnlySpan&lt;char&gt; format, IFormatProvider? provider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Span</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="parametername">destination</span></td>
+        <td><p>The span in which to write this instance's value formatted as a span of characters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">charsWritten</span></td>
+        <td><p>When this method returns, contains the number of characters that were written in destination.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ReadOnlySpan</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="parametername">format</span></td>
+        <td><p>A span containing the characters that represent a standard or custom format string that defines the acceptable format for destination.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
+        <td><span class="parametername">provider</span></td>
+        <td><p>An optional object that supplies culture-specific formatting information for destination.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the formatting was successful; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_Unwrap.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.Unwrap%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L87">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_Unwrap_" data-uid="RustyOptions.Option`1.Unwrap*"></a>
+  <h4 id="RustyOptions_Option_1_Unwrap" data-uid="RustyOptions.Option`1.Unwrap">Unwrap()</h4>
+  <div class="markdown level1 summary"><p>Returns the contained <code>Some</code> value, or throws an <see cref="!:InvalidOperationException"></see>
+if the value is <code>None</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly T Unwrap()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_op_Equality_RustyOptions_Option__0__RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.op_Equality(RustyOptions.Option%7B%600%7D%2CRustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L278">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_op_Equality_" data-uid="RustyOptions.Option`1.op_Equality*"></a>
+  <h4 id="RustyOptions_Option_1_op_Equality_RustyOptions_Option__0__RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.op_Equality(RustyOptions.Option{`0},RustyOptions.Option{`0})">Equality(Option&lt;T&gt;, Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <code>Option</code> is equal to another <code>Option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Option&lt;T&gt; left, Option&lt;T&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first <code>Option</code> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second <code>Option</code> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the two values are equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_op_GreaterThan_RustyOptions_Option__0__RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.op_GreaterThan(RustyOptions.Option%7B%600%7D%2CRustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L296">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_op_GreaterThan_" data-uid="RustyOptions.Option`1.op_GreaterThan*"></a>
+  <h4 id="RustyOptions_Option_1_op_GreaterThan_RustyOptions_Option__0__RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.op_GreaterThan(RustyOptions.Option{`0},RustyOptions.Option{`0})">GreaterThan(Option&lt;T&gt;, Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <code>Option</code> is greater than another <code>Option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator&gt;(Option&lt;T&gt; left, Option&lt;T&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first <code>Option</code> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second <code>Option</code> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is greater than the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_op_GreaterThanOrEqual_RustyOptions_Option__0__RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.op_GreaterThanOrEqual(RustyOptions.Option%7B%600%7D%2CRustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L314">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_op_GreaterThanOrEqual_" data-uid="RustyOptions.Option`1.op_GreaterThanOrEqual*"></a>
+  <h4 id="RustyOptions_Option_1_op_GreaterThanOrEqual_RustyOptions_Option__0__RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.op_GreaterThanOrEqual(RustyOptions.Option{`0},RustyOptions.Option{`0})">GreaterThanOrEqual(Option&lt;T&gt;, Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <code>Option</code> is greater than or equal to another <code>Option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Option&lt;T&gt; left, Option&lt;T&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first <code>Option</code> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second <code>Option</code> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is greater than or equal to the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_op_Inequality_RustyOptions_Option__0__RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.op_Inequality(RustyOptions.Option%7B%600%7D%2CRustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L287">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_op_Inequality_" data-uid="RustyOptions.Option`1.op_Inequality*"></a>
+  <h4 id="RustyOptions_Option_1_op_Inequality_RustyOptions_Option__0__RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.op_Inequality(RustyOptions.Option{`0},RustyOptions.Option{`0})">Inequality(Option&lt;T&gt;, Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <code>Option</code> is not equal to another <code>Option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Option&lt;T&gt; left, Option&lt;T&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first <code>Option</code> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second <code>Option</code> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the two values are not equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_op_LessThan_RustyOptions_Option__0__RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.op_LessThan(RustyOptions.Option%7B%600%7D%2CRustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L305">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_op_LessThan_" data-uid="RustyOptions.Option`1.op_LessThan*"></a>
+  <h4 id="RustyOptions_Option_1_op_LessThan_RustyOptions_Option__0__RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.op_LessThan(RustyOptions.Option{`0},RustyOptions.Option{`0})">LessThan(Option&lt;T&gt;, Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <code>Option</code> is less than another <code>Option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Option&lt;T&gt; left, Option&lt;T&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first <code>Option</code> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second <code>Option</code> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is less than the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1_op_LessThanOrEqual_RustyOptions_Option__0__RustyOptions_Option__0__.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601.op_LessThanOrEqual(RustyOptions.Option%7B%600%7D%2CRustyOptions.Option%7B%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L323">View Source</a>
+  </span>
+  <a id="RustyOptions_Option_1_op_LessThanOrEqual_" data-uid="RustyOptions.Option`1.op_LessThanOrEqual*"></a>
+  <h4 id="RustyOptions_Option_1_op_LessThanOrEqual_RustyOptions_Option__0__RustyOptions_Option__0__" data-uid="RustyOptions.Option`1.op_LessThanOrEqual(RustyOptions.Option{`0},RustyOptions.Option{`0})">LessThanOrEqual(Option&lt;T&gt;, Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Determines whether one <code>Option</code> is less than or equal to another <code>Option</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Option&lt;T&gt; left, Option&lt;T&gt; right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first <code>Option</code> to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second <code>Option</code> to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is less than or equal to the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">IComparable&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">IFormattable</span>
+  </div>
+  <div>
+      <span class="xref">ISpanFormattable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_And__2_RustyOptions_Option___0__RustyOptions_Option___1__">OptionExtensions.And&lt;T1, T2&gt;(Option&lt;T1&gt;, Option&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AndThen__2_RustyOptions_Option___0__Func___0_RustyOptions_Option___1___">OptionExtensions.AndThen&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, Option&lt;T2&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Expect__1_RustyOptions_Option___0__System_String_">OptionExtensions.Expect&lt;T&gt;(Option&lt;T&gt;, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Filter__1_RustyOptions_Option___0__Func___0_System_Boolean__">OptionExtensions.Filter&lt;T&gt;(Option&lt;T&gt;, Func&lt;T, Boolean&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Map__2_RustyOptions_Option___0__Func___0___1__">OptionExtensions.Map&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_MapOr__2_RustyOptions_Option___0__Func___0___1____1_">OptionExtensions.MapOr&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, T2&gt;, T2)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_MapOrElse__2_RustyOptions_Option___0__Func___0___1__Func___1__">OptionExtensions.MapOrElse&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, T2&gt;, Func&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Or__1_RustyOptions_Option___0__RustyOptions_Option___0__">OptionExtensions.Or&lt;T&gt;(Option&lt;T&gt;, Option&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_OrElse__1_RustyOptions_Option___0__Func_RustyOptions_Option___0___">OptionExtensions.OrElse&lt;T&gt;(Option&lt;T&gt;, Func&lt;Option&lt;T&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Some__1___0_">OptionExtensions.Some&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_UnwrapOr__1_RustyOptions_Option___0____0_">OptionExtensions.UnwrapOr&lt;T&gt;(Option&lt;T&gt;, T)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_UnwrapOrElse__1_RustyOptions_Option___0__Func___0__">OptionExtensions.UnwrapOrElse&lt;T&gt;(Option&lt;T&gt;, Func&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Xor__1_RustyOptions_Option___0__RustyOptions_Option___0__">OptionExtensions.Xor&lt;T&gt;(Option&lt;T&gt;, Option&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Zip__2_RustyOptions_Option___0__RustyOptions_Option___1__">OptionExtensions.Zip&lt;T1, T2&gt;(Option&lt;T1&gt;, Option&lt;T2&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_ZipWith__3_RustyOptions_Option___0__RustyOptions_Option___1__Func___0___1___2__">OptionExtensions.ZipWith&lt;T1, T2, T3&gt;(Option&lt;T1&gt;, Option&lt;T2&gt;, Func&lt;T1, T2, T3&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_">OptionResultExtensions.OkOr&lt;T, TErr&gt;(Option&lt;T&gt;, TErr)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__">OptionResultExtensions.OkOrElse&lt;T, TErr&gt;(Option&lt;T&gt;, Func&lt;TErr&gt;)</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Option_1.md&amp;value=---%0Auid%3A%20RustyOptions.Option%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
