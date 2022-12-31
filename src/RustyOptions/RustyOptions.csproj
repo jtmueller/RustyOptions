@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <LangVersion>11</LangVersion>
+    <AssemblyName>RustyOptions</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net6.0' ">
+    <DocumentationFile>bin/Debug/net6.0/RustyOptions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net7.0' ">
+    <DocumentationFile>bin/Debug/net7.0/RustyOptions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Release|net6.0' ">
+    <DocumentationFile>bin/Release/net6.0/RustyOptions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Release|net7.0' ">
+    <DocumentationFile>bin/Release/net7.0/RustyOptions.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
