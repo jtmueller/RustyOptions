@@ -151,7 +151,7 @@ public static class ResultExtensions
     /// Calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
     /// </summary>
     /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
-    /// <typeparam name="T2">The <c>Ok</c> type of <paramref name="other"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
     /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
     /// <param name="self">The result.</param>
     /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
@@ -194,7 +194,7 @@ public static class ResultExtensions
     /// </summary>
     /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
     /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
-    /// <typeparam name="T2Err">The <c>Err</c> type of <paramref name="other"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>

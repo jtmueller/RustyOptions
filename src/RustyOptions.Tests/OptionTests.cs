@@ -183,9 +183,9 @@ public sealed class OptionTests
         Assert.True(someInt != noneInt);
         Assert.False(someInt == someOtherInt);
 
-        Assert.True(((object)someInt).Equals(someSameInt));
-        Assert.False(((object)someInt).Equals(noneInt));
-        Assert.False(((object)someInt).Equals(someOtherInt));
+        Assert.True(someInt.Equals((object)someSameInt));
+        Assert.False(someInt.Equals((object)noneInt));
+        Assert.False(someInt.Equals((object)someOtherInt));
 
         Assert.Equal(someInt.GetHashCode(), someSameInt.GetHashCode());
         Assert.NotEqual(someInt.GetHashCode(), noneInt.GetHashCode());

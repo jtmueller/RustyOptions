@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using static System.ArgumentNullException;
+﻿using static System.ArgumentNullException;
 
 namespace RustyOptions;
 

@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using static System.ArgumentNullException;
@@ -270,8 +268,6 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
             (false, false) => 0
         };
     }
-
-    private string DebuggerDisplay => _isSome ? $"Some({_value})" : "None";
 
     /// <summary>
     /// Determines whether one <c>Option</c> is equal to another <c>Option</c>.

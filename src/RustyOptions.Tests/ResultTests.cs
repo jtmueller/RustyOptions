@@ -212,13 +212,15 @@ public sealed class ResultTests
         Assert.Equal("Err(oops)", err.ToString());
         Assert.Equal("Ok(4,200.00)", ok.ToString("n2", CultureInfo.InvariantCulture));
         Assert.Equal("Err(oops)", err.ToString("n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Ok(4200)", ok.ToString(null, CultureInfo.InvariantCulture));
+        Assert.Equal("Err(oops)", err.ToString(null, CultureInfo.InvariantCulture));
     }
 
     [Fact]
     public void CanFormatToSpan()
     {
         var ok = Ok(4200);
-        var err = Err<int>("oops");
+        var err = Err<int, int>(-9600);
         var okNotSpanFormattable = Ok(new NotSpanFormattable { Value = 4200 });
         var okNotFormattable = Ok(new NotFormattable { Value = 4200 });
         var errNotSpanFormattable = Err<int, NotSpanFormattable>(new NotSpanFormattable { Value = -1 });
@@ -229,8 +231,8 @@ public sealed class ResultTests
         Assert.True(ok.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
         Assert.True(buffer[..written].SequenceEqual("Ok(4200)"));
 
-        Assert.True(err.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Err(oops)"));
+        Assert.True(err.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.True(buffer[..written].SequenceEqual("Err(-9,600.00)"));
 
         Assert.True(ok.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
         Assert.True(buffer[..written].SequenceEqual("Ok(4,200.00)"));
