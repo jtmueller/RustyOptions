@@ -5,7 +5,11 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
+<<<<<<< HEAD
 // TODO: OptionNumber that implements INumber?
+=======
+// TODO: Match that returns void?
+>>>>>>> Basic INumber implementation
 // TODO: Async?
 
 /// <summary>
@@ -415,7 +419,8 @@ public static class Option
     /// <param name="tryGetValue">The <see cref="TryGetValue{TKey,TValue}"/> function to call.</param>
     /// <returns>A function that will call the <paramref name="tryGetValue"/> function and wrap the results as an <see cref="Option{T}"/>.</returns>
     public static Func<TKey, Option<TValue>> Bind<TKey, TValue>(TryGetValue<TKey, TValue> tryGetValue)
-        where TValue : notnull where TKey : notnull
+        where TValue : notnull
+        where TKey : notnull
     {
         return (TKey key) => tryGetValue(key, out var value) ? new(value!) : default;
     }
