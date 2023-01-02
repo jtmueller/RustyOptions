@@ -79,12 +79,10 @@ public static class OptionCollectionExtensions
         }
         else
         {
-            using (var enumerator = self.GetEnumerator())
+            using var enumerator = self.GetEnumerator();
+            if (enumerator.MoveNext())
             {
-                if (enumerator.MoveNext())
-                {
-                    return Option.Some(enumerator.Current);
-                }
+                return Option.Some(enumerator.Current);
             }
         }
 
