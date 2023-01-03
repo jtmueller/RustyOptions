@@ -22,7 +22,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// <summary>
     /// Returns the <c>None</c> option for the specified <typeparamref name="T"/>.
     /// </summary>
-    [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "The syntax `Option<T>.None` is too nice to give up.")]
+    [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "The syntax `NumericOption<T>.None` is too nice to give up.")]
     public static NumericOption<T> None
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -48,22 +48,27 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// </summary>
     public bool IsNone => !_isSome;
 
+    /// <inheritdoc/>
     public static NumericOption<T> One
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => new(T.One);
     }
 
+    /// <inheritdoc/>
     public static int Radix => T.Radix;
 
+    /// <inheritdoc/>
     public static NumericOption<T> Zero
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => new(T.Zero);
     }
 
+    /// <inheritdoc/>
     public static NumericOption<T> AdditiveIdentity => new(T.AdditiveIdentity);
 
+    /// <inheritdoc/>
     public static NumericOption<T> MultiplicativeIdentity => new(T.MultiplicativeIdentity);
 
     /// <summary>
@@ -288,6 +293,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         };
     }
 
+    /// <inheritdoc/>
     public int CompareTo(object? obj) => obj is T objT ? CompareTo(objT) : -1;
 
     public int CompareTo(T other)
@@ -295,92 +301,109 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return _isSome ? Comparer<T>.Default.Compare(_value, other) : 1;
     }
 
+    /// <inheritdoc/>
     public static NumericOption<T> Abs(NumericOption<T> value)
         => value.Map(T.Abs);
 
+    /// <inheritdoc/>
     public static bool IsCanonical(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsCanonical(x);
 
+    /// <inheritdoc/>
     public static bool IsComplexNumber(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsComplexNumber(x);
 
+    /// <inheritdoc/>
     public static bool IsEvenInteger(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsEvenInteger(x);
 
+    /// <inheritdoc/>
     public static bool IsFinite(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsFinite(x);
 
+    /// <inheritdoc/>
     public static bool IsImaginaryNumber(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsImaginaryNumber(x);
 
+    /// <inheritdoc/>
     public static bool IsInfinity(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsInfinity(x);
 
+    /// <inheritdoc/>
     public static bool IsInteger(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsInteger(x);
 
+    /// <inheritdoc/>
     public static bool IsNaN(NumericOption<T> value)
         => !value.IsSome(out var x) || T.IsNaN(x);
 
+    /// <inheritdoc/>
     public static bool IsNegative(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsNegative(x);
 
+    /// <inheritdoc/>
     public static bool IsNegativeInfinity(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsNegativeInfinity(x);
 
+    /// <inheritdoc/>
     public static bool IsNormal(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsNormal(x);
 
+    /// <inheritdoc/>
     public static bool IsOddInteger(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsOddInteger(x);
 
+    /// <inheritdoc/>
     public static bool IsPositive(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsPositive(x);
 
+    /// <inheritdoc/>
     public static bool IsPositiveInfinity(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsPositiveInfinity(x);
 
+    /// <inheritdoc/>
     public static bool IsRealNumber(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsRealNumber(x);
 
+    /// <inheritdoc/>
     public static bool IsSubnormal(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsSubnormal(x);
 
+    /// <inheritdoc/>
     public static bool IsZero(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsZero(x);
 
+    /// <inheritdoc/>
     public static NumericOption<T> MaxMagnitude(NumericOption<T> x, NumericOption<T> y)
-    {
-        return x._isSome && y._isSome ? new(T.MaxMagnitude(x._value, y._value)) : default;
-    }
+        => x._isSome && y._isSome ? new(T.MaxMagnitude(x._value, y._value)) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> MaxMagnitudeNumber(NumericOption<T> x, NumericOption<T> y)
-    {
-        return x._isSome && y._isSome ? new(T.MaxMagnitudeNumber(x._value, y._value)) : default;
-    }
+        => x._isSome && y._isSome ? new(T.MaxMagnitudeNumber(x._value, y._value)) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> MinMagnitude(NumericOption<T> x, NumericOption<T> y)
-    {
-        return x._isSome && y._isSome ? new(T.MinMagnitude(x._value, y._value)) : default;
-    }
+        => x._isSome && y._isSome ? new(T.MinMagnitude(x._value, y._value)) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> MinMagnitudeNumber(NumericOption<T> x, NumericOption<T> y)
-    {
-        return x._isSome && y._isSome ? new(T.MinMagnitudeNumber(x._value, y._value)) : default;
-    }
+        => x._isSome && y._isSome ? new(T.MinMagnitudeNumber(x._value, y._value)) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider)
     {
         return T.TryParse(s, style, provider, out var parsed)
             ? new(parsed) : default;
     }
 
+    /// <inheritdoc/>
     public static NumericOption<T> Parse(string s, NumberStyles style, IFormatProvider? provider)
     {
         return T.TryParse(s, style, provider, out var parsed)
             ? new(parsed) : default;
     }
 
+    /// <inheritdoc/>
     public static bool TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, style, provider, out var parsed))
@@ -393,6 +416,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
+    /// <inheritdoc/>
     public static bool TryParse([NotNullWhen(true)] string? s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, style, provider, out var parsed))
@@ -405,12 +429,14 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
+    /// <inheritdoc/>
     public static NumericOption<T> Parse(ReadOnlySpan<char> s, IFormatProvider? provider)
     {
         return T.TryParse(s, provider, out var parsed)
             ? new(parsed) : default;
     }
 
+    /// <inheritdoc/>
     public static bool TryParse(ReadOnlySpan<char> s, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, provider, out var parsed))
@@ -423,12 +449,14 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
+    /// <inheritdoc/>
     public static NumericOption<T> Parse(string s, IFormatProvider? provider)
     {
         return T.TryParse(s, provider, out var parsed)
             ? new(parsed) : default;
     }
 
+    /// <inheritdoc/>
     public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, provider, out var parsed))
@@ -580,35 +608,44 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// <param name="value">The value to wrap in a <see cref="NumericOption{T}"/>.</param>
     public static implicit operator NumericOption<T>(T value) => new(value);
 
+    /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator %(NumericOption<T> left, NumericOption<T> right)
         => left._isSome && right._isSome ? new(left._value % right._value) : default;
 
+    /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator +(NumericOption<T> left, NumericOption<T> right)
         => left._isSome && right._isSome ? new(left._value + right._value) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> operator --(NumericOption<T> value)
         => value._isSome ? new(value._value - T.One) : default;
 
+    /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator /(NumericOption<T> left, NumericOption<T> right)
         => left._isSome && right._isSome ? new(left._value / right._value) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> operator ++(NumericOption<T> value)
         => value._isSome ? new(value._value + T.One) : default;
 
+    /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator *(NumericOption<T> left, NumericOption<T> right)
         => left._isSome && right._isSome ? new(left._value * right._value) : default;
 
+    /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator -(NumericOption<T> left, NumericOption<T> right)
         => left._isSome && right._isSome ? new(left._value - right._value) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> operator -(NumericOption<T> value)
         => value._isSome ? new(-value._value) : default;
 
+    /// <inheritdoc/>
     public static NumericOption<T> operator +(NumericOption<T> value)
         => value._isSome ? new(+value._value) : default;
 }
