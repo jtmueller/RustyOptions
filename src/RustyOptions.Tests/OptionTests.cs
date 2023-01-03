@@ -84,6 +84,19 @@ public sealed class OptionTests
     }
 
     [Fact]
+    public void CanMatchWithSideEffects()
+    {
+        var someInt = Some(42);
+        var noneInt = None<int>();
+
+        int output = 0;
+        someInt.Match(x => { output += x; }, () => { output -= 1; });
+        Assert.Equal(42, output);
+        noneInt.Match(x => { output += x; }, () => { output -= 1; });
+        Assert.Equal(41, output);
+    }
+
+    [Fact]
     public void CanGetSpan()
     {
         var someInt = Some(42);
