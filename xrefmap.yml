@@ -259,6 +259,15 @@ references:
   fullName.vb: RustyOptions.Option(Of T).IsSome
   nameWithType: Option<T>.IsSome
   nameWithType.vb: Option(Of T).IsSome
+- uid: RustyOptions.Option`1.Match(Action{`0},Action)
+  name: Match(Action<T>, Action)
+  href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Match_Action__0__Action_
+  commentId: M:RustyOptions.Option`1.Match(Action{`0},Action)
+  name.vb: Match(Action(Of T), Action)
+  fullName: RustyOptions.Option<T>.Match(Action<T>, Action)
+  fullName.vb: RustyOptions.Option(Of T).Match(Action(Of T), Action)
+  nameWithType: Option<T>.Match(Action<T>, Action)
+  nameWithType.vb: Option(Of T).Match(Action(Of T), Action)
 - uid: RustyOptions.Option`1.Match*
   name: Match
   href: api/RustyOptions.Option-1.html#RustyOptions_Option_1_Match_
@@ -1346,6 +1355,15 @@ references:
   fullName.vb: RustyOptions.Result(Of T, TErr).IsOk
   nameWithType: Result<T, TErr>.IsOk
   nameWithType.vb: Result(Of T, TErr).IsOk
+- uid: RustyOptions.Result`2.Match(Action{`0},Action{`1})
+  name: Match(Action<T>, Action<TErr>)
+  href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Match_Action__0__Action__1__
+  commentId: M:RustyOptions.Result`2.Match(Action{`0},Action{`1})
+  name.vb: Match(Action(Of T), Action(Of TErr))
+  fullName: RustyOptions.Result<T, TErr>.Match(Action<T>, Action<TErr>)
+  fullName.vb: RustyOptions.Result(Of T, TErr).Match(Action(Of T), Action(Of TErr))
+  nameWithType: Result<T, TErr>.Match(Action<T>, Action<TErr>)
+  nameWithType.vb: Result(Of T, TErr).Match(Action(Of T), Action(Of TErr))
 - uid: RustyOptions.Result`2.Match*
   name: Match
   href: api/RustyOptions.Result-2.html#RustyOptions_Result_2_Match_
