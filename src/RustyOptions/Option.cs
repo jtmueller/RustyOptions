@@ -5,11 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-<<<<<<< HEAD
-// TODO: OptionNumber that implements INumber?
-=======
-// TODO: Match that returns void?
->>>>>>> Basic INumber implementation
 // TODO: Async?
 
 /// <summary>
