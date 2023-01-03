@@ -1,7 +1,6 @@
 ﻿#if NET7_0_OR_GREATER
 
 using System.Numerics;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace RustyOptions;
@@ -9,7 +8,6 @@ namespace RustyOptions;
 /// <summary>
 /// This class contains static methods for creation an <see cref="Option{T}"/>.
 /// </summary>
-[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic.")]
 public static class NumericOption
 {
     /// <summary>

@@ -213,7 +213,7 @@ public static class OptionExtensions
     /// Returns <paramref name="self"/> if it contains a value, otherwise returns <paramref name="other"/>.
     /// <para>
     ///   Arguments passed to or are eagerly evaluated; if you are passing the result of a function call,
-    ///   it is recommended to use or_else, which is lazily evaluated.
+    ///   it is recommended to use <see cref="OrElse{T}(Option{T}, Func{Option{T}})"/>, which is lazily evaluated.
     /// </para>
     /// </summary>
     /// <typeparam name="T">The type contained by the option.</typeparam>

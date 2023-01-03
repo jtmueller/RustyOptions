@@ -13,7 +13,6 @@ namespace RustyOptions;
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
 /// <typeparam name="T">The type the opton might contain.</typeparam>
-[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic or F#.")]
 [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "Required for INumber.")]
 [Serializable]
 public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, IComparable<NumericOption<T>>, IFormattable,
@@ -352,42 +351,22 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
 
     public static NumericOption<T> MaxMagnitude(NumericOption<T> x, NumericOption<T> y)
     {
-        if (x._isSome && y._isSome)
-        {
-            return new(T.MaxMagnitude(x._value, y._value));
-        }
-
-        return default;
+        return x._isSome && y._isSome ? new(T.MaxMagnitude(x._value, y._value)) : default;
     }
 
     public static NumericOption<T> MaxMagnitudeNumber(NumericOption<T> x, NumericOption<T> y)
     {
-        if (x._isSome && y._isSome)
-        {
-            return new(T.MaxMagnitudeNumber(x._value, y._value));
-        }
-
-        return default;
+        return x._isSome && y._isSome ? new(T.MaxMagnitudeNumber(x._value, y._value)) : default;
     }
 
     public static NumericOption<T> MinMagnitude(NumericOption<T> x, NumericOption<T> y)
     {
-        if (x._isSome && y._isSome)
-        {
-            return new(T.MinMagnitude(x._value, y._value));
-        }
-
-        return default;
+        return x._isSome && y._isSome ? new(T.MinMagnitude(x._value, y._value)) : default;
     }
 
     public static NumericOption<T> MinMagnitudeNumber(NumericOption<T> x, NumericOption<T> y)
     {
-        if (x._isSome && y._isSome)
-        {
-            return new(T.MinMagnitudeNumber(x._value, y._value));
-        }
-
-        return default;
+        return x._isSome && y._isSome ? new(T.MinMagnitudeNumber(x._value, y._value)) : default;
     }
 
     public static NumericOption<T> Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider)
@@ -600,23 +579,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator %(NumericOption<T> left, NumericOption<T> right)
     {
-        if (left._isSome && right._isSome)
-        {
-            return new(left._value % right._value);
-        }
-
-        return default;
+        return left._isSome && right._isSome ? new(left._value % right._value) : default;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator +(NumericOption<T> left, NumericOption<T> right)
     {
-        if (left._isSome && right._isSome)
-        {
-            return new(left._value + right._value);
-        }
-
-        return default;
+        return left._isSome && right._isSome ? new(left._value + right._value) : default;
     }
 
     public static NumericOption<T> operator --(NumericOption<T> value)
@@ -627,12 +596,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator /(NumericOption<T> left, NumericOption<T> right)
     {
-        if (left._isSome && right._isSome)
-        {
-            return new(left._value / right._value);
-        }
-
-        return default;
+        return left._isSome && right._isSome ? new(left._value / right._value) : default;
     }
 
     public static NumericOption<T> operator ++(NumericOption<T> value)
@@ -643,23 +607,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator *(NumericOption<T> left, NumericOption<T> right)
     {
-        if (left._isSome && right._isSome)
-        {
-            return new(left._value * right._value);
-        }
-
-        return default;
+        return left._isSome && right._isSome ? new(left._value * right._value) : default;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator -(NumericOption<T> left, NumericOption<T> right)
     {
-        if (left._isSome && right._isSome)
-        {
-            return new(left._value - right._value);
-        }
-
-        return default;
+        return left._isSome && right._isSome ? new(left._value - right._value) : default;
     }
 
     public static NumericOption<T> operator -(NumericOption<T> value)
