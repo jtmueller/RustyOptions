@@ -92,6 +92,19 @@ public sealed class ResultTests
     }
 
     [Fact]
+    public void CanMatchWithSideEffects()
+    {
+        var ok = Ok(42);
+        var err = Err<int>("oops");
+
+        int output = 0;
+        ok.Match(x => output += x, e => { if (e == "oops") { output -= 1; } });
+        Assert.Equal(42, output);
+        err.Match(x => output += x, e => { if (e == "oops") { output -= 1; } });
+        Assert.Equal(42, output);
+    }
+
+    [Fact]
     public void CanUnwrap()
     {
         var ok = Ok(42);

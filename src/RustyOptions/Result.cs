@@ -5,7 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: Match overload that returns void (for side effects)?
 // TODO: ResultNumber that implement INumber?
 // TODO: Async?
 
@@ -88,6 +87,24 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         ThrowIfNull(onOk);
         ThrowIfNull(onErr);
         return _isOk ? onOk(_value) : onErr(_err);
+    }
+
+    /// <summary>
+    /// Calls the <paramref name="onOk"/> with the <c>Ok</c> value, or calls <paramref name="onErr"/>
+    /// with the <c>Err</c> value, as appropriate.
+    /// </summary>
+    /// <param name="onOk">The function to pass the value to, if the result is <c>Ok</c>.</param>
+    /// <param name="onErr">The function to pass the error value to, if the result is <c>Err</c>.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if either <paramref name="onOk"/> or <paramref name="onErr"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Match(Action<T> onOk, Action<TErr> onErr)
+    {
+        ThrowIfNull(onOk);
+        ThrowIfNull(onErr);
+        if (_isOk)
+            onOk(_value);
+        else
+            onErr(_err);
     }
 
     /// <summary>

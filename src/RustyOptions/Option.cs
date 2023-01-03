@@ -5,7 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: Match that returns void?
 // TODO: OptionNumber that implements INumber?
 // TODO: Async?
 
@@ -66,8 +65,8 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
     /// of the <see cref="Option{T}"/>.
     /// </summary>
     /// <typeparam name="T2">The return type of the given functions.</typeparam>
-    /// <param name="onSome">The function to pass the value to, if the result is <c>Ok</c>.</param>
-    /// <param name="onNone">The function to pass the error value to, if the result is <c>Err</c>.</param>
+    /// <param name="onSome">The function to pass the value to, if the option is <c>Some</c>.</param>
+    /// <param name="onNone">The function to call if the option is <c>None</c>.</param>
     /// <returns>The value returned by the called function.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if either <paramref name="onSome"/> or <paramref name="onNone"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -76,6 +75,24 @@ public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>
         ThrowIfNull(onSome);
         ThrowIfNull(onNone);
         return _isSome ? onSome(_value) : onNone();
+    }
+
+    /// <summary>
+    /// If the option is <c>Some</c>, passes the contained value to the <paramref name="onSome"/> function.
+    /// Otherwise calls the <paramref name="onNone"/> function.
+    /// </summary>
+    /// <param name="onSome">The function to call with the contained <c>Some</c> value, if any.</param>
+    /// <param name="onNone">The function to call if the option is <c>None</c>.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if either <paramref name="onSome"/> or <paramref name="onNone"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Match(Action<T> onSome, Action onNone)
+    {
+        ThrowIfNull(onSome);
+        ThrowIfNull(onNone);
+        if (_isSome)
+            onSome(_value);
+        else
+            onNone();
     }
 
     /// <summary>
