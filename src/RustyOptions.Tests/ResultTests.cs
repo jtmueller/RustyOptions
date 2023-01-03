@@ -101,7 +101,7 @@ public sealed class ResultTests
         ok.Match(x => output += x, e => { if (e == "oops") { output -= 1; } });
         Assert.Equal(42, output);
         err.Match(x => output += x, e => { if (e == "oops") { output -= 1; } });
-        Assert.Equal(42, output);
+        Assert.Equal(41, output);
     }
 
     [Fact]
