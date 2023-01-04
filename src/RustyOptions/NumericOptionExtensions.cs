@@ -47,7 +47,7 @@ public static class NumericOptionExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static T2 MapOr<T1, T2>(this NumericOption<T1> self, Func<T1, T2> mapper, T2 defaultValue)
         where T1 : struct, INumber<T1>
-        where T2 : struct, INumber<T2>
+        where T2 : notnull
     {
         ThrowIfNull(mapper);
         return self.IsSome(out var value) ? mapper(value) : defaultValue;
@@ -66,7 +66,7 @@ public static class NumericOptionExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOrElse<T1, T2>(this NumericOption<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
         where T1 : struct, INumber<T1>
-        where T2 : struct, INumber<T2>
+        where T2 : notnull
     {
         return self.Match(mapper, defaultFactory);
     }

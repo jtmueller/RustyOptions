@@ -103,6 +103,24 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     }
 
     /// <summary>
+    /// If the option is <c>Some</c>, passes the contained value to the <paramref name="onSome"/> function.
+    /// Otherwise calls the <paramref name="onNone"/> function.
+    /// </summary>
+    /// <param name="onSome">The function to call with the contained <c>Some</c> value, if any.</param>
+    /// <param name="onNone">The function to call if the option is <c>None</c>.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if either <paramref name="onSome"/> or <paramref name="onNone"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public void Match(Action<T> onSome, Action onNone)
+    {
+        ThrowIfNull(onSome);
+        ThrowIfNull(onNone);
+        if (_isSome)
+            onSome(_value);
+        else
+            onNone();
+    }
+
+    /// <summary>
     /// Returns the contained <c>Some</c> value, or throws an <see cref="InvalidOperationException"/>
     /// if the value is <c>None</c>.
     /// </summary>
@@ -169,7 +187,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// otherwise, <c>false</c>.
     /// </returns>
     public override bool Equals([NotNullWhen(true)] object? obj)
-        => obj is Option<T> opt && Equals(opt);
+        => obj is NumericOption<T> opt && Equals(opt);
 
     /// <summary>
     /// Retrieves the hash code of the object contained by the <see cref="Option{T}"/>, if any.
@@ -294,12 +312,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     }
 
     /// <inheritdoc/>
-    public int CompareTo(object? obj) => obj is T objT ? CompareTo(objT) : -1;
-
-    public int CompareTo(T other)
-    {
-        return _isSome ? Comparer<T>.Default.Compare(_value, other) : 1;
-    }
+    public int CompareTo(object? obj) => obj is NumericOption<T> opt ? CompareTo(opt) : -1;
 
     /// <inheritdoc/>
     public static NumericOption<T> Abs(NumericOption<T> value)
