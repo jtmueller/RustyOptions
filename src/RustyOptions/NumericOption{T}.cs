@@ -29,19 +29,21 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         get => default;
     }
 
-    static NumericOption<T> INumberBase<NumericOption<T>>.One
+    /// <inheritdoc/>
+    public static NumericOption<T> Zero
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => new(T.Zero);
+    }
+
+    /// <inheritdoc/>
+    public static NumericOption<T> One
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         get => new(T.One);
     }
 
     static int INumberBase<NumericOption<T>>.Radix => T.Radix;
-
-    static NumericOption<T> INumberBase<NumericOption<T>>.Zero
-    {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        get => new(T.Zero);
-    }
 
     static NumericOption<T> IAdditiveIdentity<NumericOption<T>, NumericOption<T>>.AdditiveIdentity => new(T.AdditiveIdentity);
 
@@ -309,7 +311,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// <inheritdoc/>
     public int CompareTo(object? obj) => obj is NumericOption<T> opt ? CompareTo(opt) : -1;
 
-    static NumericOption<T> INumberBase<NumericOption<T>>.Abs(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static NumericOption<T> Abs(NumericOption<T> value)
         => value.Map(T.Abs);
 
     static bool INumberBase<NumericOption<T>>.IsCanonical(NumericOption<T> value)
@@ -318,7 +321,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     static bool INumberBase<NumericOption<T>>.IsComplexNumber(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsComplexNumber(x);
 
-    static bool INumberBase<NumericOption<T>>.IsEvenInteger(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsEvenInteger(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsEvenInteger(x);
 
     static bool INumberBase<NumericOption<T>>.IsFinite(NumericOption<T> value)
@@ -327,31 +331,38 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     static bool INumberBase<NumericOption<T>>.IsImaginaryNumber(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsImaginaryNumber(x);
 
-    static bool INumberBase<NumericOption<T>>.IsInfinity(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsInfinity(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsInfinity(x);
 
     static bool INumberBase<NumericOption<T>>.IsInteger(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsInteger(x);
 
-    static bool INumberBase<NumericOption<T>>.IsNaN(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsNaN(NumericOption<T> value)
         => !value.IsSome(out var x) || T.IsNaN(x);
 
-    static bool INumberBase<NumericOption<T>>.IsNegative(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsNegative(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsNegative(x);
 
-    static bool INumberBase<NumericOption<T>>.IsNegativeInfinity(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsNegativeInfinity(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsNegativeInfinity(x);
 
     static bool INumberBase<NumericOption<T>>.IsNormal(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsNormal(x);
 
-    static bool INumberBase<NumericOption<T>>.IsOddInteger(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsOddInteger(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsOddInteger(x);
 
-    static bool INumberBase<NumericOption<T>>.IsPositive(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsPositive(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsPositive(x);
 
-    static bool INumberBase<NumericOption<T>>.IsPositiveInfinity(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsPositiveInfinity(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsPositiveInfinity(x);
 
     static bool INumberBase<NumericOption<T>>.IsRealNumber(NumericOption<T> value)
@@ -360,7 +371,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     static bool INumberBase<NumericOption<T>>.IsSubnormal(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsSubnormal(x);
 
-    static bool INumberBase<NumericOption<T>>.IsZero(NumericOption<T> value)
+    /// <inheritdoc/>
+    public static bool IsZero(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsZero(x);
 
     static NumericOption<T> INumberBase<NumericOption<T>>.MaxMagnitude(NumericOption<T> x, NumericOption<T> y)

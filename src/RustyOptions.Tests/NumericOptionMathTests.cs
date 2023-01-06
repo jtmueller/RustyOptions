@@ -168,6 +168,12 @@ public class NumericOptionMathTests
     {
         Assert.Equal(Option.Some(42), NumericOption.Some(42));
     }
+
+    [Fact]
+    public void CanGetAbsoluteValue()
+    {
+        Assert.Equal(Some(42), NumericOption<int>.Abs(Some(-42)));
+    }
 }
 
 #endif
