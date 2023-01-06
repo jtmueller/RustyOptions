@@ -432,7 +432,10 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
             ? new(parsed) : default;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
+    static bool INumberBase<NumericOption<T>>.TryParse(ReadOnlySpan<char> s,
+                                                       NumberStyles style,
+                                                       IFormatProvider? provider,
+                                                       [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, style, provider, out var parsed))
         {
@@ -445,7 +448,10 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     }
 
     /// <inheritdoc/>
-    static bool INumberBase<NumericOption<T>>.TryParse([NotNullWhen(true)] string? s, NumberStyles style, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
+    static bool INumberBase<NumericOption<T>>.TryParse([NotNullWhen(true)] string? s,
+                                                       NumberStyles style,
+                                                       IFormatProvider? provider,
+                                                       [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, style, provider, out var parsed))
         {
@@ -464,7 +470,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
             ? new(parsed) : default;
     }
 
-    static bool ISpanParsable<NumericOption<T>>.TryParse(ReadOnlySpan<char> s, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
+    static bool ISpanParsable<NumericOption<T>>.TryParse(ReadOnlySpan<char> s, IFormatProvider? provider,
+                                                         [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, provider, out var parsed))
         {
@@ -483,7 +490,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
             ? new(parsed) : default;
     }
 
-    static bool IParsable<NumericOption<T>>.TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, [MaybeNullWhen(false)] out NumericOption<T> result)
+    static bool IParsable<NumericOption<T>>.TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider,
+                                                     [MaybeNullWhen(false)] out NumericOption<T> result)
     {
         if (T.TryParse(s, provider, out var parsed))
         {
@@ -531,7 +539,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryConvertToChecked<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+    static bool INumberBase<NumericOption<T>>.TryConvertToChecked<TOther>(NumericOption<T> value,
+                                                                          [MaybeNullWhen(false)] out TOther result)
     {
         if (value.IsSome(out var x) && T.TryConvertToChecked<TOther>(x, out var converted))
         {
@@ -543,7 +552,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryConvertToSaturating<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+    static bool INumberBase<NumericOption<T>>.TryConvertToSaturating<TOther>(NumericOption<T> value,
+                                                                             [MaybeNullWhen(false)] out TOther result)
     {
         if (value.IsSome(out var x) && T.TryConvertToSaturating<TOther>(x, out var converted))
         {
@@ -555,7 +565,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryConvertToTruncating<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+    static bool INumberBase<NumericOption<T>>.TryConvertToTruncating<TOther>(NumericOption<T> value,
+                                                                             [MaybeNullWhen(false)] out TOther result)
     {
         if (value.IsSome(out var x) && T.TryConvertToTruncating<TOther>(x, out var converted))
         {
