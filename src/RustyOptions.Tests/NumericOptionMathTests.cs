@@ -123,6 +123,18 @@ public class NumericOptionMathTests
         Assert.Equal(Some(42), -Some(-42));
         Assert.Equal(None<int>(), -None<int>());
     }
+
+    [Fact]
+    public void CanUseGenericZeroAndOne()
+    {
+        var total = NumericOption<int>.Zero;
+        for (var i = NumericOption<int>.Zero; i < 5; i += NumericOption<int>.One)
+        {
+            total += i;
+        }
+
+        Assert.Equal(Some(10), total);
+    }
 }
 
 #endif
