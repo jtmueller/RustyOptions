@@ -402,6 +402,23 @@ public sealed class NumericOptionTests
         Array.Sort(items);
         Assert.Equal(new[] { a, b, c, d, n }, items);
     }
+
+    [Fact]
+    public void CanGetValues()
+    {
+        var options = Enumerable.Range(1, 10)
+            .Select(x => x % 2 == 0 ? Some(x) : None<int>());
+
+        var values = options.Values().ToArray();
+
+        Assert.Equal(new[] { 2, 4, 6, 8, 10 }, values);
+    }
+
+    [Fact]
+    public void CanConvertToOption()
+    {
+        Assert.Equal(Option.Some(42), NumericOption.Some(42));
+    }
 }
 
 #endif

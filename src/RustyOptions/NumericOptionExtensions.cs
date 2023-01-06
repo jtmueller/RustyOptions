@@ -243,6 +243,26 @@ public static class NumericOptionExtensions
 
         return default;
     }
+
+    /// <summary>
+    /// Flattens a sequence of <see cref="NumericOption{T}"/> into a sequence containing all inner values.
+    /// Empty elements are discarded.
+    /// </summary>
+    /// <param name="self">The sequence of options.</param>
+    /// <returns>A flattened sequence of values.</returns>
+    public static IEnumerable<T> Values<T>(this IEnumerable<NumericOption<T>> self)
+        where T : struct, INumber<T>
+    {
+        ThrowIfNull(self);
+
+        foreach (var option in self)
+        {
+            if (option.IsSome(out var value))
+            {
+                yield return value;
+            }
+        }
+    }
 }
 
 #endif

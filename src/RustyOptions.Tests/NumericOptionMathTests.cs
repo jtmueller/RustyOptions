@@ -164,15 +164,42 @@ public class NumericOptionMathTests
     }
 
     [Fact]
-    public void CanConvertToOption()
-    {
-        Assert.Equal(Option.Some(42), NumericOption.Some(42));
-    }
-
-    [Fact]
     public void CanGetAbsoluteValue()
     {
         Assert.Equal(Some(42), NumericOption<int>.Abs(Some(-42)));
+    }
+
+    [Fact]
+    public void CanGetMinMax()
+    {
+        var a = Some(42);
+        var b = Some(-12);
+        var none = None<int>();
+
+        Assert.Equal(a, NumericOption<int>.Max(a, b));
+        Assert.Equal(b, NumericOption<int>.Min(a, b));
+        Assert.Equal(a, NumericOption<int>.Max(a, none));
+        Assert.Equal(b, NumericOption<int>.Max(none, b));
+        Assert.Equal(a, NumericOption<int>.Min(a, none));
+        Assert.Equal(b, NumericOption<int>.Min(none, b));
+        Assert.Equal(none, NumericOption<int>.Max(none, none));
+        Assert.Equal(none, NumericOption<int>.Min(none, none));
+    }
+
+    [Fact]
+    public void CanClamp()
+    {
+        var bigValue = Some(500);
+        var smallValue = Some(1);
+        var min = Some(50);
+        var max = Some(100);
+        var none = None<int>();
+
+        Assert.Equal(max, NumericOption<int>.Clamp(bigValue, min, max));
+        Assert.Equal(min, NumericOption<int>.Clamp(smallValue, min, max));
+        Assert.Equal(none, NumericOption<int>.Clamp(none, min, max));
+        Assert.Equal(none, NumericOption<int>.Clamp(bigValue, none, max));
+        Assert.Equal(none, NumericOption<int>.Clamp(bigValue, min, none));
     }
 }
 

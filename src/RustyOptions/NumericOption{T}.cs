@@ -315,6 +315,37 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     public static NumericOption<T> Abs(NumericOption<T> value)
         => value.Map(T.Abs);
 
+    /// <inheritdoc/>
+    public static NumericOption<T> Max(NumericOption<T> x, NumericOption<T> y)
+    {
+        return (x._isSome, y._isSome) switch
+        {
+            (true, true) => new(T.Max(x._value, y._value)),
+            (false, true) => y,
+            (true, false) => x,
+            (false, false) => default
+        };
+    }
+
+    /// <inheritdoc/>
+    public static NumericOption<T> Min(NumericOption<T> x, NumericOption<T> y)
+    {
+        return (x._isSome, y._isSome) switch
+        {
+            (true, true) => new(T.Min(x._value, y._value)),
+            (false, true) => y,
+            (true, false) => x,
+            (false, false) => default
+        };
+    }
+
+    /// <inheritdoc/>
+    public static NumericOption<T> Clamp(NumericOption<T> value, NumericOption<T> min, NumericOption<T> max)
+    {
+        return value._isSome && min._isSome && max._isSome
+            ? new(T.Clamp(value._value, min._value, max._value)) : default;
+    }
+
     static bool INumberBase<NumericOption<T>>.IsCanonical(NumericOption<T> value)
         => value.IsSome(out var x) && T.IsCanonical(x);
 
