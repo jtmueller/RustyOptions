@@ -1,6 +1,7 @@
 ﻿#if NET7_0_OR_GREATER
 
-using System.Globalization;
+using System.Numerics;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 using static RustyOptions.NumericOption;
 
 namespace RustyOptions.Tests;
@@ -127,13 +128,45 @@ public class NumericOptionMathTests
     [Fact]
     public void CanUseGenericZeroAndOne()
     {
-        var total = NumericOption<int>.Zero;
-        for (var i = NumericOption<int>.Zero; i < 5; i += NumericOption<int>.One)
-        {
-            total += i;
-        }
+        RunTest(Some(5), Some(10));
+        RunTest(Some(5.0), Some(10.0));
 
-        Assert.Equal(Some(10), total);
+        static void RunTest<T>(T limit, T expected) where T : INumber<T>
+        {
+            var total = T.Zero;
+            for (var i = T.Zero; i < limit; i += T.One)
+            {
+                total += i;
+            }
+
+            Assert.Equal(expected, total);
+        }
+    }
+
+    [Fact]
+    public void CanUseOtherStaticProperties()
+    {
+        var iex = GetExpected<int>();
+        RunTest(iex.Radix, Some(iex.AdditiveIdentity), Some(iex.MultiplicativeIdentity));
+
+        var dex = GetExpected<double>();
+        RunTest(dex.Radix, Some(dex.AdditiveIdentity), Some(dex.MultiplicativeIdentity));
+
+        static (int Radix, T AdditiveIdentity, T MultiplicativeIdentity) GetExpected<T>() where T : INumber<T>
+            => (T.Radix, T.AdditiveIdentity, T.MultiplicativeIdentity);
+
+        static void RunTest<T>(int radix, T additive, T multiplicative) where T : INumber<T>
+        {
+            Assert.Equal(radix, T.Radix);
+            Assert.Equal(additive, T.AdditiveIdentity);
+            Assert.Equal(multiplicative, T.MultiplicativeIdentity);
+        }
+    }
+
+    [Fact]
+    public void CanConvertToOption()
+    {
+        Assert.Equal(Option.Some(42), NumericOption.Some(42));
     }
 }
 
