@@ -205,6 +205,8 @@ public sealed class NumericOptionTests
         Assert.NotEqual(someInt.GetHashCode(), someOtherInt.GetHashCode());
     }
 
+    // Commenting these out until I decide if I'm converting to a Result or a NumericResult
+
     //[Fact]
     //public void CanTransformToResultVal()
     //{

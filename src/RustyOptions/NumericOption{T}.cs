@@ -623,17 +623,18 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
 
     /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static NumericOption<T> operator %(NumericOption<T> left, NumericOption<T> right)
-        => left._isSome && right._isSome ? new(left._value % right._value) : default;
-
-    /// <inheritdoc/>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> operator +(NumericOption<T> left, NumericOption<T> right)
         => left._isSome && right._isSome ? new(left._value + right._value) : default;
 
     /// <inheritdoc/>
-    public static NumericOption<T> operator --(NumericOption<T> value)
-        => value._isSome ? new(value._value - T.One) : default;
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static NumericOption<T> operator -(NumericOption<T> left, NumericOption<T> right)
+        => left._isSome && right._isSome ? new(left._value - right._value) : default;
+
+    /// <inheritdoc/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static NumericOption<T> operator *(NumericOption<T> left, NumericOption<T> right)
+        => left._isSome && right._isSome ? new(left._value * right._value) : default;
 
     /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -645,22 +646,21 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         => value._isSome ? new(value._value + T.One) : default;
 
     /// <inheritdoc/>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static NumericOption<T> operator *(NumericOption<T> left, NumericOption<T> right)
-        => left._isSome && right._isSome ? new(left._value * right._value) : default;
+    public static NumericOption<T> operator --(NumericOption<T> value)
+        => value._isSome ? new(value._value - T.One) : default;
 
     /// <inheritdoc/>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static NumericOption<T> operator -(NumericOption<T> left, NumericOption<T> right)
-        => left._isSome && right._isSome ? new(left._value - right._value) : default;
+    public static NumericOption<T> operator +(NumericOption<T> value)
+        => value._isSome ? new(+value._value) : default;
 
     /// <inheritdoc/>
     public static NumericOption<T> operator -(NumericOption<T> value)
         => value._isSome ? new(-value._value) : default;
 
     /// <inheritdoc/>
-    public static NumericOption<T> operator +(NumericOption<T> value)
-        => value._isSome ? new(+value._value) : default;
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static NumericOption<T> operator %(NumericOption<T> left, NumericOption<T> right)
+        => left._isSome && right._isSome ? new(left._value % right._value) : default;
 }
 
 #endif
