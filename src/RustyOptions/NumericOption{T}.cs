@@ -15,8 +15,8 @@ namespace RustyOptions;
 /// <typeparam name="T">The type the opton might contain.</typeparam>
 [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "Required for INumber.")]
 [Serializable]
-public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, IComparable<NumericOption<T>>, IFormattable,
-                                          ISpanFormattable, INumber<NumericOption<T>>
+public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, IComparable<NumericOption<T>>, INumber<NumericOption<T>>,
+                                          IFormattable, ISpanFormattable
     where T : struct, INumber<T>
 {
     /// <summary>

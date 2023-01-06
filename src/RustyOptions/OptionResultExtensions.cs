@@ -1,4 +1,5 @@
-﻿using static System.ArgumentNullException;
+﻿using System.Numerics;
+using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
@@ -44,6 +45,48 @@ public static class OptionResultExtensions
         return self.IsSome(out var value)
             ? new(value) : new(errorFactory());
     }
+
+#if NET7_0_OR_GREATER
+
+    /// <summary>
+    /// Transforms the <see cref="NumericOption{T}"/> into a <see cref="Result{T,TErr}"/>,
+    /// mapping <c>Some</c> to <c>Ok</c> and <c>None</c> to <c>Err</c> using the provided
+    /// <paramref name="error"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the option's value.</typeparam>
+    /// <typeparam name="TErr">The type of the error.</typeparam>
+    /// <param name="self">The option to transform.</param>
+    /// <param name="error">The error to use if the option is <c>None</c>.</param>
+    /// <returns>A <see cref="Result{T,TErr}"/> that contains either the option's value, or the provided error.</returns>
+    public static Result<T, TErr> OkOr<T, TErr>(this NumericOption<T> self, TErr error)
+        where T : struct, INumber<T>
+        where TErr : notnull
+    {
+        return self.IsSome(out var value)
+            ? new(value) : new(error);
+    }
+
+    /// <summary>
+    /// Transforms the <see cref="NumericOption{T}"/> into a <see cref="Result{T,TErr}"/>,
+    /// mapping <c>Some</c> to <c>Ok</c> and <c>None</c> to <c>Err</c> using the provided
+    /// <paramref name="errorFactory"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the option's value.</typeparam>
+    /// <typeparam name="TErr">The type of the error.</typeparam>
+    /// <param name="self">The option to transform.</param>
+    /// <param name="errorFactory">A function that creates an error object to be used if the option is <c>None</c>.</param>
+    /// <returns>A <see cref="Result{T,TErr}"/> that contains either the option's value, or the provided error.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="errorFactory"/> is null.</exception>
+    public static Result<T, TErr> OkOrElse<T, TErr>(this NumericOption<T> self, Func<TErr> errorFactory)
+        where T : struct, INumber<T>
+        where TErr : notnull
+    {
+        ThrowIfNull(errorFactory);
+        return self.IsSome(out var value)
+            ? new(value) : new(errorFactory());
+    }
+
+#endif
 
     /// <summary>
     /// Transposes an <c>Option</c> of a <c>Result</c> into a <c>Result</c> of an <c>Option</c>.
@@ -102,6 +145,26 @@ public static class OptionResultExtensions
             ? Option.Some(value)
             : default;
     }
+
+#if NET7_0_OR_GREATER
+
+    /// <summary>
+    /// Converts from the <c>Ok</c> state of <see cref="Result{T, TErr}"/> to <see cref="NumericOption{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <typeparam name="TErr">The type of the error.</typeparam>
+    /// <param name="self">The result to be converted.</param>
+    /// <returns><c>Some(T)</c> if the result is <c>Ok</c>, otherwise <c>None</c>.</returns>
+    public static NumericOption<T> OkNumber<T, TErr>(this Result<T, TErr> self)
+        where T : struct, INumber<T>
+        where TErr : notnull
+    {
+        return self.IsOk(out var value)
+            ? NumericOption.Some(value)
+            : default;
+    }
+
+#endif
 
     /// <summary>
     /// Transposes a <c>Result</c> of an <c>Option</c> into an <c>Option</c> of a <c>Result</c>.

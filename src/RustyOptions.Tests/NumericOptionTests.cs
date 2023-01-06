@@ -1,6 +1,7 @@
 ﻿#if NET7_0_OR_GREATER
 
 using System.Globalization;
+using RustyOptions;
 using static RustyOptions.NumericOption;
 
 namespace RustyOptions.Tests;
@@ -205,49 +206,49 @@ public sealed class NumericOptionTests
         Assert.NotEqual(someInt.GetHashCode(), someOtherInt.GetHashCode());
     }
 
-    // Commenting these out until I decide if I'm converting to a Result or a NumericResult
+    [Fact]
+    public void CanConvertFromResult()
+    {
+        var ok = Result.Ok(4200);
+        var err = Result.Err<int>("oops");
 
-    //[Fact]
-    //public void CanTransformToResultVal()
-    //{
-    //    var someInt = Some(42);
-    //    var noneInt = None<int>();
+        var okOptSome = ok.OkNumber();
+        var okOptNone = ok.Err();
+        var errOptNone = err.OkNumber();
+        var errOptSome = err.Err();
 
-    //    var someResult = someInt.OkOr("No value found!");
-    //    var noneResult = noneInt.OkOr("No value found!");
+        Assert.Equal(Some(8400), okOptSome * 2);
+        Assert.Equal(Option<string>.None, okOptNone);
+        Assert.Equal(NumericOption<int>.None, errOptNone);
+        Assert.Equal(Option.Some("oops"), errOptSome);
+        Assert.Equal(Some(2100), ok.OkNumber() / 2);
+    }
 
-    //    Assert.True(someResult.IsOk(out var value) && value == 42);
-    //    Assert.True(noneResult.IsErr(out var err) && err == "No value found!");
-    //}
+    [Fact]
+    public void CanTransformToResultVal()
+    {
+        var someInt = Some(42);
+        var noneInt = None<int>();
 
-    //[Fact]
-    //public void CanTransformToResultFunc()
-    //{
-    //    var someInt = Some(42);
-    //    var noneInt = None<int>();
+        var someResult = someInt.OkOr("No value found!");
+        var noneResult = noneInt.OkOr("No value found!");
 
-    //    var someResult = someInt.OkOrElse(() => "No value found!");
-    //    var noneResult = noneInt.OkOrElse(() => "No value found!");
+        Assert.True(someResult.IsOk(out var value) && value == 42);
+        Assert.True(noneResult.IsErr(out var err) && err == "No value found!");
+    }
 
-    //    Assert.True(someResult.IsOk(out var value) && value == 42);
-    //    Assert.True(noneResult.IsErr(out var err) && err == "No value found!");
-    //}
+    [Fact]
+    public void CanTransformToResultFunc()
+    {
+        var someInt = Some(42);
+        var noneInt = None<int>();
 
-    //[Fact]
-    //public void CanTranspose()
-    //{
-    //    var someOkTest = Some(Result.Ok<int, string>(42));
-    //    var someErrTest = Some(Result.Err<int, string>("Bad things happened"));
-    //    var noneTest = None<Result<int, string>>();
+        var someResult = someInt.OkOrElse(() => "No value found!");
+        var noneResult = noneInt.OkOrElse(() => "No value found!");
 
-    //    var someOkExpected = Result.Ok<Option<int>, string>(Some(42));
-    //    var someErrExpected = Result.Err<Option<int>, string>("Bad things happened");
-    //    var noneExpected = Result.Ok<Option<int>, string>(None<int>());
-
-    //    Assert.Equal(someOkExpected, someOkTest.Transpose());
-    //    Assert.Equal(someErrExpected, someErrTest.Transpose());
-    //    Assert.Equal(noneExpected, noneTest.Transpose());
-    //}
+        Assert.True(someResult.IsOk(out var value) && value == 42);
+        Assert.True(noneResult.IsErr(out var err) && err == "No value found!");
+    }
 
     [Fact]
     public void CanGetString()
