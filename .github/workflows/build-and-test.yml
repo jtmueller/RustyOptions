@@ -36,9 +36,7 @@ jobs:
       run: dotnet build --no-restore --configuration Release
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal --collect:"Code Coverage"
+      run: dotnet test --no-restore --verbosity normal -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover 
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
-      with:
-        directory: ./RustyOptions.Tests/TestResults
