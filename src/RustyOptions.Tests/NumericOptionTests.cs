@@ -426,12 +426,19 @@ public sealed class NumericOptionTests
     public void CanParse()
     {
         var input = "45001";
+        var badinput = "not a number";
         var expected = Some(45_001);
+        var none = None<int>();
 
         Assert.Equal(expected, NumericOption.Parse<int>(input, CultureInfo.InvariantCulture));
         Assert.Equal(expected, NumericOption.Parse<int>(input));
         Assert.Equal(expected, NumericOption.Parse<int>(input.AsSpan(), CultureInfo.InvariantCulture));
         Assert.Equal(expected, NumericOption.Parse<int>(input.AsSpan()));
+
+        Assert.Equal(none, NumericOption.Parse<int>(badinput, CultureInfo.InvariantCulture));
+        Assert.Equal(none, NumericOption.Parse<int>(badinput));
+        Assert.Equal(none, NumericOption.Parse<int>(badinput.AsSpan(), CultureInfo.InvariantCulture));
+        Assert.Equal(none, NumericOption.Parse<int>(badinput.AsSpan()));
     }
 }
 
