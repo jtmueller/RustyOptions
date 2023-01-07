@@ -33,7 +33,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore src
     
     - name: Test
-      run:  dotnet test --no-build --verbosity normal --collect:"Code Coverage" --logger trx --results-directory coverage
+      run:  dotnet test --no-build --verbosity normal --collect:"Code Coverage" --logger trx --results-directory coverage src
 
     - name: Copy Coverage to Predictable Location
       run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
