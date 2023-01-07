@@ -15,7 +15,8 @@ public sealed class NumericOptionTests
         var someStruct = Some(42);
         var someNullableStruct = ((int?)42).AsOption();
         var someClass = "test".AsOption();
-        var nullOptStruct = NumericOption.Create((int?)null);
+        var nullOpt = NumericOption.Create((int?)null);
+        var notNullOpt = NumericOption.Create((int?)45);
 
         Assert.True(none.IsNone);
         Assert.False(none.IsSome(out _));
@@ -32,7 +33,8 @@ public sealed class NumericOptionTests
         Assert.Equal("test", classVal);
         Assert.False(someClass.IsNone);
 
-        Assert.True(nullOptStruct.IsNone);
+        Assert.True(nullOpt.IsNone);
+        Assert.Equal(Some(45), notNullOpt);
     }
 
     [Fact]
@@ -418,6 +420,18 @@ public sealed class NumericOptionTests
     public void CanConvertToOption()
     {
         Assert.Equal(Option.Some(42), NumericOption.Some(42));
+    }
+
+    [Fact]
+    public void CanParse()
+    {
+        var input = "45001";
+        var expected = Some(45_001);
+
+        Assert.Equal(expected, NumericOption.Parse<int>(input, CultureInfo.InvariantCulture));
+        Assert.Equal(expected, NumericOption.Parse<int>(input));
+        Assert.Equal(expected, NumericOption.Parse<int>(input.AsSpan(), CultureInfo.InvariantCulture));
+        Assert.Equal(expected, NumericOption.Parse<int>(input.AsSpan()));
     }
 }
 
