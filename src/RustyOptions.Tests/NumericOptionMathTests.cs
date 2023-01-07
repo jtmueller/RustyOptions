@@ -1,5 +1,6 @@
 ﻿#if NET7_0_OR_GREATER
 
+using System.Globalization;
 using System.Numerics;
 using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 using static RustyOptions.NumericOption;
@@ -544,6 +545,102 @@ public class NumericOptionMathTests
         static void RunTest<T>(T val1, T val2, T expected) where T : INumber<T>
         {
             Assert.Equal(expected, T.MinMagnitudeNumber(val1, val2));
+        }
+    }
+
+    [Fact]
+    public void CanParseSpanStyleProvider()
+    {
+        Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
+        Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
+
+        static T Parse<T>(string value) where T : INumber<T>
+        {
+            return T.Parse(value.AsSpan(), NumberStyles.Any, CultureInfo.InvariantCulture);
+        }
+    }
+
+    [Fact]
+    public void CanParseStringStyleProvider()
+    {
+        Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
+        Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
+
+        static T Parse<T>(string value) where T : INumber<T>
+        {
+            return T.Parse(value, NumberStyles.Any, CultureInfo.InvariantCulture);
+        }
+    }
+
+    [Fact]
+    public void CanParseSpanProvider()
+    {
+        Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
+        Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
+
+        static T Parse<T>(string value) where T : INumber<T>
+        {
+            return T.Parse(value.AsSpan(), CultureInfo.InvariantCulture);
+        }
+    }
+
+    [Fact]
+    public void CanParseStringProvider()
+    {
+        Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
+        Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
+
+        static T Parse<T>(string value) where T : INumber<T>
+        {
+            return T.Parse(value, CultureInfo.InvariantCulture);
+        }
+    }
+
+    [Fact]
+    public void CanTryParseSpanStyleProvider()
+    {
+        Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
+        Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
+
+        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        {
+            return (T.TryParse(value.AsSpan(), NumberStyles.Any, CultureInfo.InvariantCulture, out var result), result!);
+        }
+    }
+
+    [Fact]
+    public void CanTryParseStringStyleProvider()
+    {
+        Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
+        Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
+
+        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        {
+            return (T.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result), result!);
+        }
+    }
+
+    [Fact]
+    public void CanTryParseSpanProvider()
+    {
+        Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
+        Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
+
+        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        {
+            return (T.TryParse(value.AsSpan(), CultureInfo.InvariantCulture, out var result), result!);
+        }
+    }
+
+    [Fact]
+    public void CanTryParseStringProvider()
+    {
+        Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
+        Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
+
+        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        {
+            return (T.TryParse(value, CultureInfo.InvariantCulture, out var result), result!);
         }
     }
 }
