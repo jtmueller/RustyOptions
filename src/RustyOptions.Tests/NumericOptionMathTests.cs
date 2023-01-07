@@ -554,7 +554,7 @@ public class NumericOptionMathTests
         Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
         Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
 
-        static T Parse<T>(string value) where T : INumber<T>
+        static T Parse<T>(string value) where T : INumberBase<T>
         {
             return T.Parse(value.AsSpan(), NumberStyles.Any, CultureInfo.InvariantCulture);
         }
@@ -566,7 +566,7 @@ public class NumericOptionMathTests
         Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
         Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
 
-        static T Parse<T>(string value) where T : INumber<T>
+        static T Parse<T>(string value) where T : INumberBase<T>
         {
             return T.Parse(value, NumberStyles.Any, CultureInfo.InvariantCulture);
         }
@@ -578,7 +578,7 @@ public class NumericOptionMathTests
         Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
         Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
 
-        static T Parse<T>(string value) where T : INumber<T>
+        static T Parse<T>(string value) where T : ISpanParsable<T>
         {
             return T.Parse(value.AsSpan(), CultureInfo.InvariantCulture);
         }
@@ -590,7 +590,7 @@ public class NumericOptionMathTests
         Assert.Equal(Some(Parse<int>("512")), Parse<NumericOption<int>>("512"));
         Assert.Equal(None<int>(), Parse<NumericOption<int>>("not a number"));
 
-        static T Parse<T>(string value) where T : INumber<T>
+        static T Parse<T>(string value) where T : IParsable<T>
         {
             return T.Parse(value, CultureInfo.InvariantCulture);
         }
@@ -602,7 +602,7 @@ public class NumericOptionMathTests
         Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
         Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
 
-        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        static (bool, T) Parse<T>(string value) where T : INumberBase<T>
         {
             return (T.TryParse(value.AsSpan(), NumberStyles.Any, CultureInfo.InvariantCulture, out var result), result!);
         }
@@ -614,7 +614,7 @@ public class NumericOptionMathTests
         Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
         Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
 
-        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        static (bool, T) Parse<T>(string value) where T : INumberBase<T>
         {
             return (T.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var result), result!);
         }
@@ -626,7 +626,7 @@ public class NumericOptionMathTests
         Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
         Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
 
-        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        static (bool, T) Parse<T>(string value) where T : ISpanParsable<T>
         {
             return (T.TryParse(value.AsSpan(), CultureInfo.InvariantCulture, out var result), result!);
         }
@@ -638,7 +638,7 @@ public class NumericOptionMathTests
         Assert.Equal(Parse<int>("512"), Parse<NumericOption<int>>("512"));
         Assert.Equal((false, None<int>()), Parse<NumericOption<int>>("not a number"));
 
-        static (bool, T) Parse<T>(string value) where T : INumber<T>
+        static (bool, T) Parse<T>(string value) where T : IParsable<T>
         {
             return (T.TryParse(value, CultureInfo.InvariantCulture, out var result), result!);
         }
