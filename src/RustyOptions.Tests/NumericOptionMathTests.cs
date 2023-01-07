@@ -478,6 +478,74 @@ public class NumericOptionMathTests
             Assert.Equal(expected, T.IsZero(val));
         }
     }
+
+    [Fact]
+    public void MaxMagnitude()
+    {
+        RunTest(Some(12), Some(1001), GetExpected(12, 1001));
+        RunTest(Some(0), Some(-100), GetExpected(0, -100));
+        RunTest(Some(3.9), Some(501.4), GetExpected(3.9, 501.4));
+        RunTest(None<int>(), Some(50), None<int>());
+
+        static T GetExpected<T>(T val1, T val2) where T : INumber<T>
+            => T.MaxMagnitude(val1, val2);
+
+        static void RunTest<T>(T val1, T val2, T expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.MaxMagnitude(val1, val2));
+        }
+    }
+
+    [Fact]
+    public void MaxMagnitudeNumber()
+    {
+        RunTest(Some(12), Some(1001), GetExpected(12, 1001));
+        RunTest(Some(0), Some(-100), GetExpected(0, -100));
+        RunTest(Some(3.9), Some(501.4), GetExpected(3.9, 501.4));
+        RunTest(None<int>(), Some(50), None<int>());
+
+        static T GetExpected<T>(T val1, T val2) where T : INumber<T>
+            => T.MaxMagnitudeNumber(val1, val2);
+
+        static void RunTest<T>(T val1, T val2, T expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.MaxMagnitudeNumber(val1, val2));
+        }
+    }
+
+    [Fact]
+    public void MinMagnitude()
+    {
+        RunTest(Some(12), Some(1001), GetExpected(12, 1001));
+        RunTest(Some(0), Some(-100), GetExpected(0, -100));
+        RunTest(Some(3.9), Some(501.4), GetExpected(3.9, 501.4));
+        RunTest(None<int>(), Some(50), None<int>());
+
+        static T GetExpected<T>(T val1, T val2) where T : INumber<T>
+            => T.MinMagnitude(val1, val2);
+
+        static void RunTest<T>(T val1, T val2, T expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.MinMagnitude(val1, val2));
+        }
+    }
+
+    [Fact]
+    public void MinMagnitudeNumber()
+    {
+        RunTest(Some(12), Some(1001), GetExpected(12, 1001));
+        RunTest(Some(0), Some(-100), GetExpected(0, -100));
+        RunTest(Some(3.9), Some(501.4), GetExpected(3.9, 501.4));
+        RunTest(None<int>(), Some(50), None<int>());
+
+        static T GetExpected<T>(T val1, T val2) where T : INumber<T>
+            => T.MinMagnitudeNumber(val1, val2);
+
+        static void RunTest<T>(T val1, T val2, T expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.MinMagnitudeNumber(val1, val2));
+        }
+    }
 }
 
 #endif
