@@ -201,6 +201,283 @@ public class NumericOptionMathTests
         Assert.Equal(none, NumericOption<int>.Clamp(bigValue, none, max));
         Assert.Equal(none, NumericOption<int>.Clamp(bigValue, min, none));
     }
+
+    [Fact]
+    public void IsCanonical()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsCanonical(val);
+        
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsCanonical(val));
+        }
+    }
+
+    [Fact]
+    public void IsComplexNumber()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsComplexNumber(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsComplexNumber(val));
+        }
+    }
+
+    [Fact]
+    public void IsEvenInteger()
+    {
+        RunTest(Some(96), GetExpected(96));
+        RunTest(Some(17), GetExpected(17));
+        RunTest(Some(4.8), GetExpected(4.8));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsEvenInteger(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsEvenInteger(val));
+        }
+    }
+
+    [Fact]
+    public void IsFinite()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(double.PositiveInfinity), GetExpected(double.PositiveInfinity));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsFinite(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsFinite(val));
+        }
+    }
+
+    [Fact]
+    public void IsImaginaryNumber()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(double.PositiveInfinity), GetExpected(double.PositiveInfinity));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsImaginaryNumber(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsImaginaryNumber(val));
+        }
+    }
+
+    [Fact]
+    public void IsInfinity()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(double.PositiveInfinity), GetExpected(double.PositiveInfinity));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsInfinity(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsInfinity(val));
+        }
+    }
+
+    [Fact]
+    public void IsInteger()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsInteger(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsInteger(val));
+        }
+    }
+
+    [Fact]
+    public void IsNaN()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(double.NaN), GetExpected(double.NaN));
+        RunTest(None<int>(), true);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsNaN(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsNaN(val));
+        }
+    }
+
+    [Fact]
+    public void IsNegative()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(-3.8), GetExpected(-3.8));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsNegative(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsNegative(val));
+        }
+    }
+
+    [Fact]
+    public void IsNegativeInfinity()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(double.PositiveInfinity), GetExpected(double.PositiveInfinity));
+        RunTest(Some(double.NegativeInfinity), GetExpected(double.NegativeInfinity));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsNegativeInfinity(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsNegativeInfinity(val));
+        }
+    }
+
+    [Fact]
+    public void IsNormal()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsNormal(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsNormal(val));
+        }
+    }
+
+    [Fact]
+    public void IsOddInteger()
+    {
+        RunTest(Some(96), GetExpected(96));
+        RunTest(Some(17), GetExpected(17));
+        RunTest(Some(4.8), GetExpected(4.8));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsOddInteger(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsOddInteger(val));
+        }
+    }
+
+    [Fact]
+    public void IsPositive()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(-3.8), GetExpected(-3.8));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsPositive(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsPositive(val));
+        }
+    }
+
+    [Fact]
+    public void IsPositiveInfinity()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(double.PositiveInfinity), GetExpected(double.PositiveInfinity));
+        RunTest(Some(double.NegativeInfinity), GetExpected(double.NegativeInfinity));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsPositiveInfinity(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsPositiveInfinity(val));
+        }
+    }
+
+    [Fact]
+    public void IsRealNumber()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsRealNumber(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsRealNumber(val));
+        }
+    }
+
+    [Fact]
+    public void IsSubnormal()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsSubnormal(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsSubnormal(val));
+        }
+    }
+
+    [Fact]
+    public void IsZero()
+    {
+        RunTest(Some(97), GetExpected(97));
+        RunTest(Some(0), GetExpected(0));
+        RunTest(Some(3.9), GetExpected(3.9));
+        RunTest(None<int>(), false);
+
+        static bool GetExpected<T>(T val) where T : INumber<T>
+            => T.IsZero(val);
+
+        static void RunTest<T>(T val, bool expected) where T : INumber<T>
+        {
+            Assert.Equal(expected, T.IsZero(val));
+        }
+    }
 }
 
 #endif
