@@ -1,4 +1,4 @@
-name: build and test
+name: CI
 
 on:
   push:
@@ -13,7 +13,6 @@ env:
 
 jobs:
   build-and-test:
-
     name: build-and-test-${{matrix.os}}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -22,7 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET Core
+    - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
@@ -34,4 +33,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore src
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal src
+      run:  dotnet test --no-restore --verbosity normal -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover src
+
+# TODO: create code coverage badge, specific to branch if possible: https://github.com/marketplace/actions/net-code-coverage-badge
