@@ -45,9 +45,11 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
 
     static int INumberBase<NumericOption<T>>.Radix => T.Radix;
 
-    static NumericOption<T> IAdditiveIdentity<NumericOption<T>, NumericOption<T>>.AdditiveIdentity => new(T.AdditiveIdentity);
+    static NumericOption<T> IAdditiveIdentity<NumericOption<T>, NumericOption<T>>.AdditiveIdentity
+        => new(T.AdditiveIdentity);
 
-    static NumericOption<T> IMultiplicativeIdentity<NumericOption<T>, NumericOption<T>>.MultiplicativeIdentity => new(T.MultiplicativeIdentity);
+    static NumericOption<T> IMultiplicativeIdentity<NumericOption<T>, NumericOption<T>>.MultiplicativeIdentity
+        => new(T.MultiplicativeIdentity);
 
     private readonly bool _isSome;
     private readonly T _value;
@@ -419,6 +421,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         => x._isSome && y._isSome ? new(T.MinMagnitudeNumber(x._value, y._value)) : default;
 
     /// <inheritdoc/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider)
     {
         return T.TryParse(s, style, provider, out var parsed)
@@ -426,6 +429,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     }
 
     /// <inheritdoc/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> Parse(string s, NumberStyles style, IFormatProvider? provider)
     {
         return T.TryParse(s, style, provider, out var parsed)
@@ -463,7 +467,8 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> Parse(ReadOnlySpan<char> s, IFormatProvider? provider)
     {
         return T.TryParse(s, provider, out var parsed)
@@ -484,6 +489,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     }
 
     /// <inheritdoc/>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static NumericOption<T> Parse(string s, IFormatProvider? provider)
     {
         return T.TryParse(s, provider, out var parsed)
@@ -503,7 +509,67 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
+    /// <inheritdoc/>
+    public static NumericOption<T> CreateChecked<TOther>(TOther value)
+        where TOther : INumberBase<TOther>
+    {
+        NumericOption<T> result;
+
+        if (typeof(TOther) == typeof(NumericOption<T>))
+        {
+            result = (NumericOption<T>)(object)value;
+        }
+        else if (!TryConvertFromChecked(value, out result) && !TOther.TryConvertToChecked(value, out result))
+        {
+            result = default;
+        }
+
+        return result;
+    }
+
+    /// <inheritdoc/>
+    public static NumericOption<T> CreateSaturating<TOther>(TOther value)
+        where TOther : INumberBase<TOther>
+    {
+        NumericOption<T> result;
+
+        if (typeof(TOther) == typeof(NumericOption<T>))
+        {
+            result = (NumericOption<T>)(object)value;
+        }
+        else if (!TryConvertFromSaturating(value, out result) && !TOther.TryConvertToSaturating(value, out result))
+        {
+            result = default;
+        }
+
+        return result;
+    }
+
+    /// <inheritdoc/>
+    public static NumericOption<T> CreateTruncating<TOther>(TOther value)
+        where TOther : INumberBase<TOther>
+    {
+        NumericOption<T> result;
+
+        if (typeof(TOther) == typeof(NumericOption<T>))
+        {
+            result = (NumericOption<T>)(object)value;
+        }
+        else if (!TryConvertFromTruncating(value, out result) && !TOther.TryConvertToTruncating(value, out result))
+        {
+            result = default;
+        }
+
+        return result;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static bool INumberBase<NumericOption<T>>.TryConvertFromChecked<TOther>(TOther value, out NumericOption<T> result)
+        => TryConvertFromChecked(value, out result);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryConvertFromChecked<TOther>(TOther value, out NumericOption<T> result)
+        where TOther : INumberBase<TOther>
     {
         if (T.TryConvertFromChecked(value, out var converted))
         {
@@ -515,7 +581,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static bool INumberBase<NumericOption<T>>.TryConvertFromSaturating<TOther>(TOther value, out NumericOption<T> result)
+        => TryConvertFromSaturating(value, out result);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryConvertFromSaturating<TOther>(TOther value, out NumericOption<T> result)
+        where TOther : INumberBase<TOther>
     {
         if (T.TryConvertFromSaturating(value, out var converted))
         {
@@ -527,7 +599,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static bool INumberBase<NumericOption<T>>.TryConvertFromTruncating<TOther>(TOther value, out NumericOption<T> result)
+        => TryConvertFromTruncating(value, out result);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryConvertFromTruncating<TOther>(TOther value, out NumericOption<T> result)
+        where TOther : INumberBase<TOther>
     {
         if (T.TryConvertFromTruncating(value, out var converted))
         {
@@ -539,8 +617,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryConvertToChecked<TOther>(NumericOption<T> value,
-                                                                          [MaybeNullWhen(false)] out TOther result)
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    static bool INumberBase<NumericOption<T>>.TryConvertToChecked<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+        => TryConvertToChecked(value, out result);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryConvertToChecked<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+        where TOther : INumberBase<TOther>
     {
         if (value.IsSome(out var x) && T.TryConvertToChecked<TOther>(x, out var converted))
         {
@@ -552,8 +635,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryConvertToSaturating<TOther>(NumericOption<T> value,
-                                                                             [MaybeNullWhen(false)] out TOther result)
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    static bool INumberBase<NumericOption<T>>.TryConvertToSaturating<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+        => TryConvertToSaturating(value, out result);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryConvertToSaturating<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+        where TOther : INumberBase<TOther>
     {
         if (value.IsSome(out var x) && T.TryConvertToSaturating<TOther>(x, out var converted))
         {
@@ -565,8 +653,13 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         return false;
     }
 
-    static bool INumberBase<NumericOption<T>>.TryConvertToTruncating<TOther>(NumericOption<T> value,
-                                                                             [MaybeNullWhen(false)] out TOther result)
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    static bool INumberBase<NumericOption<T>>.TryConvertToTruncating<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+        => TryConvertToTruncating(value, out result);
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static bool TryConvertToTruncating<TOther>(NumericOption<T> value, [MaybeNullWhen(false)] out TOther result)
+        where TOther : INumberBase<TOther>
     {
         if (value.IsSome(out var x) && T.TryConvertToTruncating<TOther>(x, out var converted))
         {

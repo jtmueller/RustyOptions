@@ -643,6 +643,49 @@ public class NumericOptionMathTests
             return (T.TryParse(value, CultureInfo.InvariantCulture, out var result), result!);
         }
     }
+
+    // TODO: for create checked/saturating/truncating I'm not sure what value/types
+    // would cause the conversion to fail and the methods to return None.
+
+    [Fact]
+    public void CanCreateChecked()
+    {
+        var longSome = NumericOption<int>.CreateChecked(1024L);
+        _ = Assert.Throws<OverflowException>(() => NumericOption<int>.CreateChecked(long.MaxValue));
+        var doubleSome = NumericOption<int>.CreateChecked(1024.17);
+        _ = Assert.Throws<OverflowException>(() => NumericOption<int>.CreateChecked(double.MaxValue));
+
+        Assert.Equal(Some(1024), longSome);
+        Assert.Equal(Some(1024), doubleSome);
+    }
+
+    [Fact]
+    public void CanCreateSaturating()
+    {
+        var longSome = NumericOption<int>.CreateSaturating(1024L);
+        var longOverflow = NumericOption<int>.CreateSaturating(long.MaxValue);
+        var doubleSome = NumericOption<int>.CreateSaturating(1024.17);
+        var doubleOverflow = NumericOption<int>.CreateSaturating(double.MaxValue);
+
+        Assert.Equal(Some(1024), longSome);
+        Assert.Equal(Some(int.MaxValue), doubleOverflow);
+        Assert.Equal(Some(1024), doubleSome);
+        Assert.Equal(Some(int.MaxValue), doubleOverflow);
+    }
+
+    [Fact]
+    public void CanCreateTruncating()
+    {
+        var longSome = NumericOption<int>.CreateTruncating(1024L);
+        var longOverflow = NumericOption<int>.CreateTruncating(long.MaxValue);
+        var doubleSome = NumericOption<int>.CreateTruncating(1024.17);
+        var doubleOverflow = NumericOption<int>.CreateTruncating(double.MaxValue);
+
+        Assert.Equal(Some(1024), longSome);
+        Assert.Equal(Some(int.MaxValue), doubleOverflow);
+        Assert.Equal(Some(1024), doubleSome);
+        Assert.Equal(Some(int.MaxValue), doubleOverflow);
+    }
 }
 
 #endif
