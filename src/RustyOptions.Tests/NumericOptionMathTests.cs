@@ -654,7 +654,11 @@ public class NumericOptionMathTests
         _ = Assert.Throws<OverflowException>(() => NumericOption<int>.CreateChecked(long.MaxValue));
         var doubleSome = NumericOption<int>.CreateChecked(1024.17);
         _ = Assert.Throws<OverflowException>(() => NumericOption<int>.CreateChecked(double.MaxValue));
+        var noConvert = NumericOption<int>.CreateChecked(Some(1024));
+        var none = NumericOption<int>.CreateChecked(Some(System.Runtime.InteropServices.NFloat.E));
 
+        Assert.Equal(None<int>(), none);
+        Assert.Equal(Some(1024), noConvert);
         Assert.Equal(Some(1024), longSome);
         Assert.Equal(Some(1024), doubleSome);
     }
@@ -666,7 +670,11 @@ public class NumericOptionMathTests
         var longOverflow = NumericOption<int>.CreateSaturating(long.MaxValue);
         var doubleSome = NumericOption<int>.CreateSaturating(1024.17);
         var doubleOverflow = NumericOption<int>.CreateSaturating(double.MaxValue);
+        var noConvert = NumericOption<int>.CreateSaturating(Some(1024));
+        var none = NumericOption<int>.CreateTruncating(Some(System.Runtime.InteropServices.NFloat.E));
 
+        Assert.Equal(None<int>(), none);
+        Assert.Equal(Some(1024), noConvert);
         Assert.Equal(Some(1024), longSome);
         Assert.Equal(Some(int.MaxValue), doubleOverflow);
         Assert.Equal(Some(1024), doubleSome);
@@ -680,7 +688,11 @@ public class NumericOptionMathTests
         var longOverflow = NumericOption<int>.CreateTruncating(long.MaxValue);
         var doubleSome = NumericOption<int>.CreateTruncating(1024.17);
         var doubleOverflow = NumericOption<int>.CreateTruncating(double.MaxValue);
+        var noConvert = NumericOption<int>.CreateTruncating(Some(1024));
+        var none = NumericOption<int>.CreateTruncating(Some(System.Runtime.InteropServices.NFloat.E));
 
+        Assert.Equal(None<int>(), none);
+        Assert.Equal(Some(1024), noConvert);
         Assert.Equal(Some(1024), longSome);
         Assert.Equal(Some(int.MaxValue), doubleOverflow);
         Assert.Equal(Some(1024), doubleSome);
