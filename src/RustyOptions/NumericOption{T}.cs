@@ -249,32 +249,19 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     {
         if (_isSome)
         {
-            if (_value is ISpanFormattable spanFormattable)
+            if ("Some(".TryCopyTo(destination) && _value.TryFormat(destination[5..], out var innerWritten, format, provider))
             {
-                if ("Some(".TryCopyTo(destination) && spanFormattable.TryFormat(destination[5..], out var innerWritten, format, provider))
+                destination = destination[(5 + innerWritten)..];
+                if (destination.Length >= 1)
                 {
-                    destination = destination[(5 + innerWritten)..];
-                    if (destination.Length >= 1)
-                    {
-                        destination[0] = ')';
-                        charsWritten = innerWritten + 6;
-                        return true;
-                    }
-                }
-
-                charsWritten = 0;
-                return false;
-            }
-            else
-            {
-                var output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
-
-                if (output is not null && output.TryCopyTo(destination))
-                {
-                    charsWritten = output.Length;
+                    destination[0] = ')';
+                    charsWritten = innerWritten + 6;
                     return true;
                 }
             }
+
+            charsWritten = 0;
+            return false;
         }
         else
         {
