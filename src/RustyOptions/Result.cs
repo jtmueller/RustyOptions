@@ -5,7 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: ResultNumber that implement INumber?
 // TODO: Async?
 
 /// <summary>
@@ -16,7 +15,7 @@ namespace RustyOptions;
 /// <typeparam name="T">The type of the return value.</typeparam>
 /// <typeparam name="TErr">The type of the error value.</typeparam>
 [Serializable]
-public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, ISpanFormattable
+public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IFormattable, ISpanFormattable
     where T : notnull where TErr : notnull
 {
     /// <summary>

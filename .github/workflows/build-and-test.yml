@@ -1,4 +1,4 @@
-name: build and test
+name: CI
 
 on:
   push:
@@ -13,25 +13,31 @@ env:
 
 jobs:
   build-and-test:
-
     name: build-and-test-${{matrix.os}}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
+    defaults:
+      run:
+        working-directory: src
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET Core
+    - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Install dependencies
-      run: dotnet restore src
+      run: dotnet restore
       
     - name: Build
-      run: dotnet build --configuration Release --no-restore src
+      run: dotnet build --no-restore --configuration Release
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal src
+      run: dotnet test --no-restore --verbosity normal -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover 
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      if: ${{ matrix.os == 'ubuntu-latest' && github.event_name != 'pull_request' }}

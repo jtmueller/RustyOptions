@@ -1,12 +1,16 @@
-﻿using System.Runtime.CompilerServices;
+﻿#if NET7_0_OR_GREATER
+
+using System.Numerics;
+using System.Runtime.CompilerServices;
 using static System.ArgumentNullException;
+using static RustyOptions.NumericOption;
 
 namespace RustyOptions;
 
 /// <summary>
 /// Extension methods for the <see cref="Option{T}"/> type.
 /// </summary>
-public static class OptionExtensions
+public static class NumericOptionExtensions
 {
     /// <summary>
     /// If the option has a value, passes that option to the mapper function and returns that value
@@ -19,13 +23,13 @@ public static class OptionExtensions
     /// <returns>The mapped value as <c>Some</c>, or <c>None</c>.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T2> Map<T1, T2>(this Option<T1> self, Func<T1, T2> mapper)
-        where T1 : notnull
-        where T2 : notnull
+    public static NumericOption<T2> Map<T1, T2>(this NumericOption<T1> self, Func<T1, T2> mapper)
+        where T1 : struct, INumber<T1>
+        where T2 : struct, INumber<T2>
     {
         ThrowIfNull(mapper);
         return self.IsSome(out var value)
-            ? Option.Some(mapper(value)) : default;
+            ? Some(mapper(value)) : default;
     }
 
     /// <summary>
@@ -41,8 +45,8 @@ public static class OptionExtensions
     /// <param name="defaultValue">The default value to return if the option is <c>None</c>.</param>
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
-    public static T2 MapOr<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, T2 defaultValue)
-        where T1 : notnull
+    public static T2 MapOr<T1, T2>(this NumericOption<T1> self, Func<T1, T2> mapper, T2 defaultValue)
+        where T1 : struct, INumber<T1>
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -60,8 +64,8 @@ public static class OptionExtensions
     /// <returns>The mapped value, or the default value.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> or <paramref name="defaultFactory"/> is null.</exception>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T2 MapOrElse<T1, T2>(this Option<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
-        where T1 : notnull
+    public static T2 MapOrElse<T1, T2>(this NumericOption<T1> self, Func<T1, T2> mapper, Func<T2> defaultFactory)
+        where T1 : struct, INumber<T1>
         where T2 : notnull
     {
         return self.Match(mapper, defaultFactory);
@@ -76,8 +80,8 @@ public static class OptionExtensions
     /// <param name="message">The message for the exception that gets thrown if the option has no value.</param>
     /// <returns>The value contained in the option.</returns>
     /// <exception cref="InvalidOperationException">Thrown if the option does not contain a value.</exception>
-    public static T Expect<T>(this Option<T> self, string message)
-        where T : notnull
+    public static T Expect<T>(this NumericOption<T> self, string message)
+        where T : struct, INumber<T>
     {
         return self.IsSome(out var value)
             ? value : throw new InvalidOperationException(message);
@@ -89,8 +93,8 @@ public static class OptionExtensions
     /// <typeparam name="T">The type of the option.</typeparam>
     /// <param name="self">The option to bind.</param>
     /// <param name="defaultValue">The default value to return if the option is <c>None</c>.</param>
-    public static T UnwrapOr<T>(this Option<T> self, T defaultValue)
-        where T : notnull
+    public static T UnwrapOr<T>(this NumericOption<T> self, T defaultValue)
+        where T : struct, INumber<T>
     {
         return self.IsSome(out var value) ? value : defaultValue;
     }
@@ -103,8 +107,8 @@ public static class OptionExtensions
     /// <param name="self">The option to unwrap.</param>
     /// <param name="defaultFactory">A function that returns a default value to use if the option is <c>None</c>.</param>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="defaultFactory"/> is null.</exception>
-    public static T UnwrapOrElse<T>(this Option<T> self, Func<T> defaultFactory)
-        where T : notnull
+    public static T UnwrapOrElse<T>(this NumericOption<T> self, Func<T> defaultFactory)
+        where T : struct, INumber<T>
     {
         ThrowIfNull(defaultFactory);
         return self.IsSome(out var value) ? value : defaultFactory();
@@ -116,8 +120,8 @@ public static class OptionExtensions
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="self">The nested option to flatten.</param>
     /// <returns>The given option with one level of nesting removed.</returns>
-    public static Option<T> Flatten<T>(this Option<Option<T>> self)
-        where T : notnull
+    public static NumericOption<T> Flatten<T>(this NumericOption<NumericOption<T>> self)
+        where T : struct, INumber<T>
     {
         return self.IsSome(out var nested) ? nested : default;
     }
@@ -131,29 +135,12 @@ public static class OptionExtensions
     /// <param name="predicate">The function that determines if the value in the option is valid to return.</param>
     /// <returns><c>Some</c> if the option is <c>Some</c> and the predicate returns <c>true</c>, otherwise <c>None</c>.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="predicate"/> is null.</exception>
-    public static Option<T> Filter<T>(this Option<T> self, Func<T, bool> predicate)
-        where T : notnull
+    public static NumericOption<T> Filter<T>(this NumericOption<T> self, Func<T, bool> predicate)
+        where T : struct, INumber<T>
     {
         ThrowIfNull(predicate);
 
         return self.IsSome(out var value) && predicate(value) ? self : default;
-    }
-
-    /// <summary>
-    /// Zips this <c>Option</c> with another <c>Option</c>.
-    /// <para>If this option is <c>Some(s)</c> and other is <c>Some(o)</c>, this method returns <c>Some((s, o))</c>. Otherwise, <c>None</c> is returned.</para>
-    /// </summary>
-    /// <typeparam name="T1">The type contained by the first option.</typeparam>
-    /// <typeparam name="T2">The type contained by the second option.</typeparam>
-    /// <param name="self">The first option.</param>
-    /// <param name="other">The second option.</param>
-    /// <returns>An option containing the values from both input options, if both have values. Otherwise, <c>None</c>.</returns>
-    public static Option<(T1, T2)> Zip<T1, T2>(this Option<T1> self, Option<T2> other)
-        where T1 : notnull
-        where T2 : notnull
-    {
-        return self.IsSome(out var x) && other.IsSome(out var y)
-            ? Option.Some((x, y)) : default;
     }
 
     /// <summary>
@@ -168,15 +155,15 @@ public static class OptionExtensions
     /// <param name="zipper">A functon that combines values from the two options into a new type.</param>
     /// <returns>An option contianing the result of passing both values to the <paramref name="zipper"/> function, or <c>None</c>.</returns>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="zipper"/> is null.</exception>
-    public static Option<T3> ZipWith<T1, T2, T3>(this Option<T1> self, Option<T2> other, Func<T1, T2, T3> zipper)
-        where T1 : notnull
-        where T2 : notnull
-        where T3 : notnull
+    public static NumericOption<T3> ZipWith<T1, T2, T3>(this NumericOption<T1> self, NumericOption<T2> other, Func<T1, T2, T3> zipper)
+        where T1 : struct, INumber<T1>
+        where T2 : struct, INumber<T2>
+        where T3 : struct, INumber<T3>
     {
         ThrowIfNull(zipper);
 
         return self.IsSome(out var x) && other.IsSome(out var y)
-            ? Option.Some(zipper(x, y)) : default;
+            ? Some(zipper(x, y)) : default;
     }
 
     /// <summary>
@@ -186,9 +173,9 @@ public static class OptionExtensions
     /// <typeparam name="T2">The type contained by the second option.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="other">The second option.</param>
-    public static Option<T2> And<T1, T2>(this Option<T1> self, Option<T2> other)
-        where T1 : notnull
-        where T2 : notnull
+    public static NumericOption<T2> And<T1, T2>(this NumericOption<T1> self, NumericOption<T2> other)
+        where T1 : struct, INumber<T1>
+        where T2 : struct, INumber<T2>
     {
         return self.IsNone ? default : other;
     }
@@ -201,9 +188,9 @@ public static class OptionExtensions
     /// <param name="self">The first option.</param>
     /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
-    public static Option<T2> AndThen<T1, T2>(this Option<T1> self, Func<T1, Option<T2>> thenFn)
-        where T1 : notnull
-        where T2 : notnull
+    public static NumericOption<T2> AndThen<T1, T2>(this NumericOption<T1> self, Func<T1, NumericOption<T2>> thenFn)
+        where T1 : struct, INumber<T1>
+        where T2 : struct, INumber<T2>
     {
         ThrowIfNull(thenFn);
         return self.IsSome(out var value) ? thenFn(value) : default;
@@ -213,14 +200,14 @@ public static class OptionExtensions
     /// Returns <paramref name="self"/> if it contains a value, otherwise returns <paramref name="other"/>.
     /// <para>
     ///   Arguments passed to or are eagerly evaluated; if you are passing the result of a function call,
-    ///   it is recommended to use <see cref="OrElse{T}(Option{T}, Func{Option{T}})"/>, which is lazily evaluated.
+    ///   it is recommended to use <see cref="OrElse{T}(NumericOption{T}, Func{NumericOption{T}})"/>, which is lazily evaluated.
     /// </para>
     /// </summary>
     /// <typeparam name="T">The type contained by the option.</typeparam>
     /// <param name="self">The first option.</param>
     /// <param name="other">The replacement option to use if the first option is <c>None</c>.</param>
-    public static Option<T> Or<T>(this Option<T> self, Option<T> other)
-        where T : notnull
+    public static NumericOption<T> Or<T>(this NumericOption<T> self, NumericOption<T> other)
+        where T : struct, INumber<T>
     {
         return self.IsNone ? other : self;
     }
@@ -232,8 +219,8 @@ public static class OptionExtensions
     /// <param name="self">The option.</param>
     /// <param name="elseFn">The function that creates the alternate value if the option is <c>None</c>.</param>
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="elseFn"/> is null.</exception>
-    public static Option<T> OrElse<T>(this Option<T> self, Func<Option<T>> elseFn)
-        where T : notnull
+    public static NumericOption<T> OrElse<T>(this NumericOption<T> self, Func<NumericOption<T>> elseFn)
+        where T : struct, INumber<T>
     {
         ThrowIfNull(elseFn);
         return self.IsNone ? elseFn() : self;
@@ -245,8 +232,8 @@ public static class OptionExtensions
     /// <typeparam name="T">The type contained by the option.</typeparam>
     /// <param name="self">The option.</param>
     /// <param name="other">The other option.</param>
-    public static Option<T> Xor<T>(this Option<T> self, Option<T> other)
-        where T : notnull
+    public static NumericOption<T> Xor<T>(this NumericOption<T> self, NumericOption<T> other)
+        where T : struct, INumber<T>
     {
         if (self.IsNone)
             return other;
@@ -258,45 +245,24 @@ public static class OptionExtensions
     }
 
     /// <summary>
-    /// Wraps the given value in an <see cref="Option{T}"/>.
-    /// <para>NOTE: Null values will be returned as <c>None</c>, while non-null values will be returned as <c>Some</c>.</para>
+    /// Flattens a sequence of <see cref="NumericOption{T}"/> into a sequence containing all inner values.
+    /// Empty elements are discarded.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="value"></param>
-    /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> AsOption<T>(this T? value)
-        where T : class
+    /// <param name="self">The sequence of options.</param>
+    /// <returns>A flattened sequence of values.</returns>
+    public static IEnumerable<T> Values<T>(this IEnumerable<NumericOption<T>> self)
+        where T : struct, INumber<T>
     {
-        return Option.Create(value);
-    }
+        ThrowIfNull(self);
 
-    /// <summary>
-    /// Wraps the given value in an <see cref="Option{T}"/>.
-    /// <para>NOTE: Null values will be returned as <c>None</c>, while non-null values will be returned as <c>Some</c>.</para>
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="value"></param>
-    /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> AsOption<T>(this T? value)
-        where T : struct
-    {
-        return Option.Create(value);
-    }
-
-
-    /// <summary>
-    /// Wraps the given value in an <see cref="Option{T}"/>.
-    /// <para>NOTE: Null values will be returned as <c>None</c>, while non-null values will be returned as <c>Some</c>.</para>
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="value"></param>
-    /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> Some<T>(this T value)
-        where T : notnull
-    {
-        return Option.Some(value);
+        foreach (var option in self)
+        {
+            if (option.IsSome(out var value))
+            {
+                yield return value;
+            }
+        }
     }
 }
+
+#endif

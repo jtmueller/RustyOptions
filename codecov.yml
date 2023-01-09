@@ -1,0 +1,3 @@
+﻿fixes:
+  - "/[A-Za-z]+/runner/work/RustyOptions/RustyOptions/::"
+  - "[A-Za-z]:\\[a-z]+\\RustyOptions\\RustyOptions\\src\\RustyOptions\\::src/RustyOptions/"
