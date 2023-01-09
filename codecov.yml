@@ -1,3 +1,5 @@
-﻿fixes:
+codecov: 
+ token: 44f1dde7-875b-4a6b-8db0-9f73ca645d74
+ fixes:
   - "/[A-Za-z]+/runner/work/RustyOptions/RustyOptions/::"
   - "[A-Za-z]:\\[a-z]+\\RustyOptions\\RustyOptions\\src\\RustyOptions\\::src/RustyOptions/"
