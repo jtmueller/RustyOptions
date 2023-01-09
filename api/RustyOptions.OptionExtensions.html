@@ -335,7 +335,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;T&gt;</td>
+        <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
         <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
@@ -406,7 +406,7 @@ if the value is <code>None</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">System.String</span></td>
         <td><span class="parametername">message</span></td>
         <td><p>The message for the exception that gets thrown if the option has no value.</p>
 </td>
@@ -479,7 +479,7 @@ and returns <code>Some</code> if the predicated returns <code>true</code>, other
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The function that determines if the value in the option is valid to return.</p>
 </td>
@@ -843,7 +843,7 @@ as a <code>Some</code>.</p>
   <div class="markdown level1 summary"><p>Returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise returns <code data-dev-comment-type="paramref" class="paramref">other</code>.</p>
 <p>
   Arguments passed to or are eagerly evaluated; if you are passing the result of a function call,
-  it is recommended to use or_else, which is lazily evaluated.
+  it is recommended to use <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_OrElse__1_RustyOptions_Option___0__Func_RustyOptions_Option___0___">OrElse&lt;T&gt;(Option&lt;T&gt;, Func&lt;Option&lt;T&gt;&gt;)</a>, which is lazily evaluated.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
