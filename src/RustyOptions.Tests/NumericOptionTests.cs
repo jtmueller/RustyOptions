@@ -282,6 +282,7 @@ public sealed class NumericOptionTests
         Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
 
         Assert.False(someInt.TryFormat(Span<char>.Empty, out written, "", null));
+        Assert.False(noneInt.TryFormat(Span<char>.Empty, out written, "", null));
     }
 
     [Fact]

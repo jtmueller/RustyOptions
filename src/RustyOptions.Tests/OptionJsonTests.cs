@@ -37,6 +37,7 @@ namespace RustyOptions.Tests
             var properArrVal = obj.GetPropOption("array");
             Assert.True(properArrVal.IsSome(out var arrNode));
             Assert.True(arrNode is JsonArray jArr && jArr.Count == 3);
+            Assert.True(obj.GetPropOption("bogus").IsNone);
         }
 
         [Fact]

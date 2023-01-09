@@ -7,7 +7,7 @@
     <AnalysisMode>Recommended</AnalysisMode>
     <LangVersion>11</LangVersion>
     <AssemblyName>RustyOptions</AssemblyName>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <PackageId>RustyOptions</PackageId>
     <Authors>Joel Mueller</Authors>
     <Company></Company>
@@ -15,7 +15,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/jtmueller/RustyOptions</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <ReleaseVersion>0.2</ReleaseVersion>
+    <ReleaseVersion>0.3.0</ReleaseVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net6.0' ">

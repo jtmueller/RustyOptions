@@ -212,7 +212,7 @@ public class NumericOptionMathTests
 
         static bool GetExpected<T>(T val) where T : INumber<T>
             => T.IsCanonical(val);
-        
+
         static void RunTest<T>(T val, bool expected) where T : INumber<T>
         {
             Assert.Equal(expected, T.IsCanonical(val));
@@ -656,7 +656,9 @@ public class NumericOptionMathTests
         _ = Assert.Throws<OverflowException>(() => NumericOption<int>.CreateChecked(double.MaxValue));
         var noConvert = NumericOption<int>.CreateChecked(Some(1024));
         var none = NumericOption<int>.CreateChecked(System.Runtime.InteropServices.NFloat.E);
+        var alsoNone = NumericOption<int>.CreateChecked(Some(System.Runtime.InteropServices.NFloat.E));
 
+        Assert.Equal(None<int>(), alsoNone);
         Assert.Equal(None<int>(), none);
         Assert.Equal(Some(1024), noConvert);
         Assert.Equal(Some(1024), fromLong);
@@ -672,9 +674,12 @@ public class NumericOptionMathTests
         var doubleOverflow = NumericOption<int>.CreateSaturating(double.MaxValue);
         var noConvert = NumericOption<int>.CreateSaturating(Some(1024));
         var none = NumericOption<int>.CreateSaturating(System.Runtime.InteropServices.NFloat.E);
+        var alsoNone = NumericOption<int>.CreateSaturating(Some(System.Runtime.InteropServices.NFloat.E));
 
+        Assert.Equal(None<int>(), alsoNone);
         Assert.Equal(None<int>(), none);
         Assert.Equal(Some(1024), noConvert);
+        Assert.Equal(Some(1024), longOverflow);
         Assert.Equal(Some(1024), fromLong);
         Assert.Equal(Some(int.MaxValue), doubleOverflow);
         Assert.Equal(Some(1024), fromDouble);
@@ -690,9 +695,12 @@ public class NumericOptionMathTests
         var doubleOverflow = NumericOption<int>.CreateTruncating(double.MaxValue);
         var noConvert = NumericOption<int>.CreateTruncating(Some(1024));
         var none = NumericOption<int>.CreateTruncating(System.Runtime.InteropServices.NFloat.E);
+        var alsoNone = NumericOption<int>.CreateTruncating(Some(System.Runtime.InteropServices.NFloat.E));
 
+        Assert.Equal(None<int>(), alsoNone);
         Assert.Equal(None<int>(), none);
         Assert.Equal(Some(1024), noConvert);
+        Assert.Equal(Some(1024), longOverflow);
         Assert.Equal(Some(1024), fromLong);
         Assert.Equal(Some(int.MaxValue), doubleOverflow);
         Assert.Equal(Some(1024), fromDouble);
