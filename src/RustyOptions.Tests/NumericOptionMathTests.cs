@@ -679,7 +679,7 @@ public class NumericOptionMathTests
         Assert.Equal(None<int>(), alsoNone);
         Assert.Equal(None<int>(), none);
         Assert.Equal(Some(1024), noConvert);
-        Assert.Equal(Some(1024), longOverflow);
+        Assert.Equal(Some(int.MaxValue), longOverflow);
         Assert.Equal(Some(1024), fromLong);
         Assert.Equal(Some(int.MaxValue), doubleOverflow);
         Assert.Equal(Some(1024), fromDouble);
@@ -700,7 +700,7 @@ public class NumericOptionMathTests
         Assert.Equal(None<int>(), alsoNone);
         Assert.Equal(None<int>(), none);
         Assert.Equal(Some(1024), noConvert);
-        Assert.Equal(Some(1024), longOverflow);
+        Assert.Equal(Some(-1), longOverflow);
         Assert.Equal(Some(1024), fromLong);
         Assert.Equal(Some(int.MaxValue), doubleOverflow);
         Assert.Equal(Some(1024), fromDouble);
