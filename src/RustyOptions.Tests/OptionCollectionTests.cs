@@ -74,11 +74,22 @@ public class OptionCollectionTests
     public void CanGetValues()
     {
         var options = Enumerable.Range(1, 10)
-            .Select(x => x % 2 == 0 ? Some(x) : None<int>());
+            .Select(x => (x & 1) == 0 ? Some(x) : None<int>());
 
         var values = options.Values().ToArray();
 
         Assert.Equal(new[] { 2, 4, 6, 8, 10 }, values);
+    }
+
+    [Fact]
+    public async Task CanGetValuesAsync()
+    {
+        var options = EnumerateFilteredAsync(11, i => (i & 1) == 0);
+
+        await foreach (var x in options.ValuesAsync())
+        {
+            Assert.True((x & 1) == 0);
+        }
     }
 
     [Fact]
@@ -104,7 +115,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetFirstMatch()
     {
-        static bool Predicate(int x) => x % 2 == 0;
+        static bool Predicate(int x) => (x & 1) == 0;
 
         var empty = Array.Empty<int>();
         var notEmpty = new[] { 3, 5, 6, 7, 8, 9 };
@@ -113,6 +124,18 @@ public class OptionCollectionTests
         Assert.Equal(None<int>(), empty.FirstOrNone(Predicate));
         Assert.Equal(Some(6), notEmpty.FirstOrNone(Predicate));
         Assert.Equal(None<int>(), noMatches.FirstOrNone(Predicate));
+    }
+
+    [Fact]
+    public async Task CanGetFirstOrNoneAsync()
+    {
+        var empty = EnumerateAsync(0);
+        var notEmpty = EnumerateAsync(11);
+
+        Assert.Equal(None<int>(), await empty.FirstOrNoneAsync());
+        Assert.Equal(Some(0), await notEmpty.FirstOrNoneAsync());
+        Assert.Equal(Some(2), await notEmpty.FirstOrNoneAsync(x => x > 0 && (x & 1) == 0));
+        Assert.Equal(None<int>(), await notEmpty.FirstOrNoneAsync(x => x > 500));
     }
 
     [Fact]
@@ -138,7 +161,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetLastMatch()
     {
-        static bool Predicate(int x) => x % 2 == 0;
+        static bool Predicate(int x) => (x & 1) == 0;
 
         IList<int> empty = Array.Empty<int>();
         IReadOnlyList<int> emptyReadOnly = new ReadOnlyList<int>(empty);
@@ -196,7 +219,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetSingleMatch()
     {
-        static bool Predicate(int x) => x % 2 == 0;
+        static bool Predicate(int x) => (x & 1) == 0;
 
         var empty = Array.Empty<int>();
         var singleWithMatch = new[] { 4 };
@@ -255,6 +278,33 @@ public class OptionCollectionTests
     }
 
     /// <summary>
+    /// Generates an IAsyncEnumerable that counts up to, but not including, the given
+    /// <paramref name="exclusiveMax"/>
+    /// </summary>
+    private static async IAsyncEnumerable<int> EnumerateAsync(int exclusiveMax)
+    {
+        for (int i = 0; i < exclusiveMax; i++)
+        {
+            await Task.Yield();
+            yield return i;
+        }
+    }
+
+    /// <summary>
+    /// Generates an IAsyncEnumerable that counts up to, but not including, the given
+    /// <paramref name="exclusiveMax"/> - returning Some for numbers for which the predicate returns true
+    /// and None otherwise.
+    /// </summary>
+    private static async IAsyncEnumerable<Option<int>> EnumerateFilteredAsync(int exclusiveMax, Func<int, bool> predicate)
+    {
+        for (int i = 0; i < exclusiveMax; i++)
+        {
+            await Task.Yield();
+            yield return predicate(i) ? Some(i) : None<int>();
+        }
+    }
+
+    /// <summary>
     /// Most collections that implement IReadOnlyList<T> also implement
     /// IList<T>. We need this for code coverage.
     /// </summary>
@@ -297,4 +347,3 @@ public class OptionCollectionTests
         IEnumerator IEnumerable.GetEnumerator() => _dict.GetEnumerator();
     }
 }
-

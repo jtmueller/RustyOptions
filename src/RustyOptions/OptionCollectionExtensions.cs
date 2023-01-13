@@ -1,4 +1,5 @@
-﻿using static System.ArgumentNullException;
+﻿using System.Runtime.CompilerServices;
+using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
@@ -19,6 +20,27 @@ public static class OptionCollectionExtensions
         ThrowIfNull(self);
 
         foreach (var option in self)
+        {
+            if (option.IsSome(out var value))
+            {
+                yield return value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Flattens an asynchronous sequence of <see cref="Option{T}"/> into a sequence containing all inner values.
+    /// Empty elements are discarded.
+    /// </summary>
+    /// <param name="self">The sequence of options.</param>
+    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
+    /// <returns>A flattened sequence of values.</returns>
+    public static async IAsyncEnumerable<T> ValuesAsync<T>(this IAsyncEnumerable<Option<T>> self, [EnumeratorCancellation] CancellationToken ct = default)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+
+        await foreach (var option in self.WithCancellation(ct))
         {
             if (option.IsSome(out var value))
             {
@@ -90,6 +112,26 @@ public static class OptionCollectionExtensions
     }
 
     /// <summary>
+    /// Returns the first element of an asynchronous sequence if such exists.
+    /// </summary>
+    /// <param name="self">The sequence to return the first element from.</param>
+    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the first element if present.</returns>
+    public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, CancellationToken ct = default)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+
+        await using var enumerator = self.GetAsyncEnumerator(ct);
+        if (await enumerator.MoveNextAsync().ConfigureAwait(false))
+        {
+            return Option.Some(enumerator.Current);
+        }
+
+        return default;
+    }
+
+    /// <summary>
     /// Returns the first element of a sequence, satisfying a specified predicate, 
     /// if such exists.
     /// </summary>
@@ -102,11 +144,36 @@ public static class OptionCollectionExtensions
         ThrowIfNull(self);
         ThrowIfNull(predicate);
 
-        foreach (var iten in self)
+        foreach (var item in self)
         {
-            if (predicate(iten))
+            if (predicate(item))
             {
-                return Option.Some(iten);
+                return Option.Some(item);
+            }
+        }
+
+        return default;
+    }
+
+    /// <summary>
+    /// Returns the first element of a sequence, satisfying a specified predicate, 
+    /// if such exists.
+    /// </summary>
+    /// <param name="self">The sequence to return the first element from.</param>
+    /// <param name="predicate">The predicate to filter by.</param>
+    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the first matching element, if present.</returns>
+    public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, Func<T, bool> predicate, CancellationToken ct = default)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        ThrowIfNull(predicate);
+
+        await foreach (var item in self.WithCancellation(ct))
+        {
+            if (predicate(item))
+            {
+                return Option.Some(item);
             }
         }
 
