@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using RustyOptions.Async;
 using static RustyOptions.Option;
 
 namespace RustyOptions.Tests;

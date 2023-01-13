@@ -2,7 +2,7 @@
 using static System.ArgumentNullException;
 using static RustyOptions.Option;
 
-namespace RustyOptions;
+namespace RustyOptions.Async;
 
 /// <summary>
 /// Extension methods for async operations involving <see cref="Option{T}"/>.

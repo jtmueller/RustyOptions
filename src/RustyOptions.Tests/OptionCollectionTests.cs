@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using RustyOptions.Async;
 using static RustyOptions.Option;
 
 namespace RustyOptions.Tests;

@@ -15,7 +15,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/jtmueller/RustyOptions</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <ReleaseVersion>0.3.0</ReleaseVersion>
+    <ReleaseVersion>0.2</ReleaseVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net6.0' ">
@@ -34,4 +34,10 @@
     <DocumentationFile>bin/Release/net7.0/RustyOptions.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Async\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Async\" />
+  </ItemGroup>
 </Project>
