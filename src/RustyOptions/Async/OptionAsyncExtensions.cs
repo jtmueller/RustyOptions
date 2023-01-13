@@ -87,6 +87,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(mapper);
 
         var opt = await self.ConfigureAwait(false);
@@ -131,6 +132,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(mapper);
 
         var opt = await self.ConfigureAwait(false);
@@ -175,6 +177,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(mapper);
 
         var opt = await self.ConfigureAwait(false);
@@ -270,6 +273,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(mapper);
 
         var opt = await self.ConfigureAwait(false);
@@ -319,6 +323,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(mapper);
 
         var opt = await self.ConfigureAwait(false);
@@ -369,6 +374,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(mapper);
 
         var opt = await self.ConfigureAwait(false);
@@ -444,6 +450,8 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
+
         var opt = await self.ConfigureAwait(false);
         return opt.Match(mapper, defaultFactory);
     }
@@ -480,6 +488,8 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
+
         var opt = await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
@@ -516,6 +526,8 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
+
         var opt = await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
@@ -585,6 +597,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(thenFn);
 
         var opt = await self.ConfigureAwait(false);
@@ -641,6 +654,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(thenFn);
 
         var opt = await self.ConfigureAwait(false);
@@ -660,6 +674,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(thenFn);
 
         var opt = await self.ConfigureAwait(false);
@@ -692,6 +707,7 @@ public static class OptionAsyncExtensions
         where T : notnull
     {
         ThrowIfNull(elseFn);
+
         return self.IsNone
             ? await elseFn().ConfigureAwait(false)
             : self;
@@ -723,6 +739,7 @@ public static class OptionAsyncExtensions
     public static async ValueTask<Option<T>> OrElseAsync<T>(this Task<Option<T>> self, Func<Option<T>> elseFn)
         where T : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(elseFn);
 
         var opt = await self.ConfigureAwait(false);
@@ -757,6 +774,7 @@ public static class OptionAsyncExtensions
     public static async ValueTask<Option<T>> OrElseAsync<T>(this Task<Option<T>> self, Func<Task<Option<T>>> elseFn)
         where T : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(elseFn);
 
         var opt = await self.ConfigureAwait(false);
@@ -793,6 +811,7 @@ public static class OptionAsyncExtensions
     public static async ValueTask<Option<T>> OrElseAsync<T>(this Task<Option<T>> self, Func<ValueTask<Option<T>>> elseFn)
         where T : notnull
     {
+        ThrowIfNull(self);
         ThrowIfNull(elseFn);
 
         var opt = await self.ConfigureAwait(false);
