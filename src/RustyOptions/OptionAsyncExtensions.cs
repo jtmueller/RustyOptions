@@ -519,4 +519,151 @@ public static class OptionAsyncExtensions
         var opt = await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static ValueTask<Option<T2>> AndThenAsync<T1, T2>(this Option<T1> self, Func<T1, ValueTask<Option<T2>>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        return self.IsSome(out var value) ? thenFn(value) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this Option<T1> self, Func<T1, Task<Option<T2>>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        return self.IsSome(out var value)
+            ? await thenFn(value).ConfigureAwait(false) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this ValueTask<Option<T1>> self, Func<T1, Option<T2>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        var opt = await self.ConfigureAwait(false);
+        return opt.IsSome(out var value) ? thenFn(value) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this Task<Option<T1>> self, Func<T1, Option<T2>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        var opt = await self.ConfigureAwait(false);
+        return opt.IsSome(out var value) ? thenFn(value) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this ValueTask<Option<T1>> self, Func<T1, ValueTask<Option<T2>>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        var opt = await self.ConfigureAwait(false);
+        return opt.IsSome(out var value) ?
+            await thenFn(value).ConfigureAwait(false) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this ValueTask<Option<T1>> self, Func<T1, Task<Option<T2>>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        var opt = await self.ConfigureAwait(false);
+        return opt.IsSome(out var value)
+            ? await thenFn(value).ConfigureAwait(false) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this Task<Option<T1>> self, Func<T1, ValueTask<Option<T2>>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        var opt = await self.ConfigureAwait(false);
+        return opt.IsSome(out var value) ?
+            await thenFn(value).ConfigureAwait(false) : default;
+    }
+
+    /// <summary>
+    /// Asynchronously returns <c>None</c> if the option is <c>None</c>, otherwise calls <paramref name="thenFn"/> with the wrapped value and returns the result.
+    /// </summary>
+    /// <typeparam name="T1">The type contained by the first option.</typeparam>
+    /// <typeparam name="T2">The type contained by the second option.</typeparam>
+    /// <param name="self">The first option.</param>
+    /// <param name="thenFn">The function to call with the contained value, if there is a contained value.</param>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="thenFn"/> is null.</exception>
+    public static async ValueTask<Option<T2>> AndThenAsync<T1, T2>(this Task<Option<T1>> self, Func<T1, Task<Option<T2>>> thenFn)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(thenFn);
+
+        var opt = await self.ConfigureAwait(false);
+        return opt.IsSome(out var value)
+            ? await thenFn(value).ConfigureAwait(false) : default;
+    }
 }
