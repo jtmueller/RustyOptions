@@ -93,7 +93,7 @@
     <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultCollectionExtensions_Errors__2_IEnumerable_RustyOptions_Result___0___1___.md&amp;value=---%0Auid%3A%20RustyOptions.ResultCollectionExtensions.Errors%60%602(IEnumerable%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L37">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L67">View Source</a>
   </span>
   <a id="RustyOptions_ResultCollectionExtensions_Errors_" data-uid="RustyOptions.ResultCollectionExtensions.Errors*"></a>
   <h4 id="RustyOptions_ResultCollectionExtensions_Errors__2_IEnumerable_RustyOptions_Result___0___1___" data-uid="RustyOptions.ResultCollectionExtensions.Errors``2(IEnumerable{RustyOptions.Result{``0,``1}})">Errors&lt;T, TErr&gt;(IEnumerable&lt;Result&lt;T, TErr&gt;&gt;)</h4>
@@ -118,7 +118,7 @@ Ok results are discarded.</p>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
-        <td><p>The sequence of options.</p>
+        <td><p>The sequence of results.</p>
 </td>
       </tr>
     </tbody>
@@ -160,10 +160,86 @@ Ok results are discarded.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultCollectionExtensions_ErrorsAsync__2_IAsyncEnumerable_RustyOptions_Result___0___1___CancellationToken_.md&amp;value=---%0Auid%3A%20RustyOptions.ResultCollectionExtensions.ErrorsAsync%60%602(IAsyncEnumerable%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L90">View Source</a>
+  </span>
+  <a id="RustyOptions_ResultCollectionExtensions_ErrorsAsync_" data-uid="RustyOptions.ResultCollectionExtensions.ErrorsAsync*"></a>
+  <h4 id="RustyOptions_ResultCollectionExtensions_ErrorsAsync__2_IAsyncEnumerable_RustyOptions_Result___0___1___CancellationToken_" data-uid="RustyOptions.ResultCollectionExtensions.ErrorsAsync``2(IAsyncEnumerable{RustyOptions.Result{``0,``1}},CancellationToken)">ErrorsAsync&lt;T, TErr&gt;(IAsyncEnumerable&lt;Result&lt;T, TErr&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Flattens an asynchronous sequence of <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> into a sequence containing all error values.
+Ok results are discarded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async IAsyncEnumerable&lt;TErr&gt; ErrorsAsync&lt;T, TErr&gt;(this IAsyncEnumerable&lt;Result&lt;T, TErr&gt;&gt; self, CancellationToken ct = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IAsyncEnumerable</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The asynchronsou sequence of results.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>A CancellationToken that will interrupt async iteration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IAsyncEnumerable</span>&lt;TErr&gt;</td>
+        <td><p>A flattened sequence of values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultCollectionExtensions_Values__2_IEnumerable_RustyOptions_Result___0___1___.md&amp;value=---%0Auid%3A%20RustyOptions.ResultCollectionExtensions.Values%60%602(IEnumerable%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L16">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L22">View Source</a>
   </span>
   <a id="RustyOptions_ResultCollectionExtensions_Values_" data-uid="RustyOptions.ResultCollectionExtensions.Values*"></a>
   <h4 id="RustyOptions_ResultCollectionExtensions_Values__2_IEnumerable_RustyOptions_Result___0___1___" data-uid="RustyOptions.ResultCollectionExtensions.Values``2(IEnumerable{RustyOptions.Result{``0,``1}})">Values&lt;T, TErr&gt;(IEnumerable&lt;Result&lt;T, TErr&gt;&gt;)</h4>
@@ -188,7 +264,7 @@ Error results are discarded.</p>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
-        <td><p>The sequence of options.</p>
+        <td><p>The sequence of results.</p>
 </td>
       </tr>
     </tbody>
@@ -228,6 +304,82 @@ Error results are discarded.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultCollectionExtensions_ValuesAsync__2_IAsyncEnumerable_RustyOptions_Result___0___1___CancellationToken_.md&amp;value=---%0Auid%3A%20RustyOptions.ResultCollectionExtensions.ValuesAsync%60%602(IAsyncEnumerable%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L45">View Source</a>
+  </span>
+  <a id="RustyOptions_ResultCollectionExtensions_ValuesAsync_" data-uid="RustyOptions.ResultCollectionExtensions.ValuesAsync*"></a>
+  <h4 id="RustyOptions_ResultCollectionExtensions_ValuesAsync__2_IAsyncEnumerable_RustyOptions_Result___0___1___CancellationToken_" data-uid="RustyOptions.ResultCollectionExtensions.ValuesAsync``2(IAsyncEnumerable{RustyOptions.Result{``0,``1}},CancellationToken)">ValuesAsync&lt;T, TErr&gt;(IAsyncEnumerable&lt;Result&lt;T, TErr&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Flattens an asynchronous sequence of <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> into a sequence containing all inner values.
+Error results are discarded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async IAsyncEnumerable&lt;T&gt; ValuesAsync&lt;T, TErr&gt;(this IAsyncEnumerable&lt;Result&lt;T, TErr&gt;&gt; self, CancellationToken ct = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IAsyncEnumerable</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The asynchronsous sequence of results.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">ct</span></td>
+        <td><p>A CancellationToken that will interrupt async iteration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IAsyncEnumerable</span>&lt;T&gt;</td>
+        <td><p>A flattened sequence of values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
 
@@ -239,7 +391,7 @@ Error results are discarded.</p>
                     <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultCollectionExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.ResultCollectionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultCollectionExtensions.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

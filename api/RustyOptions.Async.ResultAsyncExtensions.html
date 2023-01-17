@@ -1,0 +1,2821 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ResultAsyncExtensions
+ </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ResultAsyncExtensions
+ ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RustyOptions.Async.ResultAsyncExtensions">
+
+
+  <h1 id="RustyOptions_Async_ResultAsyncExtensions" data-uid="RustyOptions.Async.ResultAsyncExtensions" class="text-break">Class ResultAsyncExtensions
+</h1>
+  <div class="markdown level0 summary"><p>Extension methods for async operations involving <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">ResultAsyncExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.Async.html">RustyOptions.Async</a></h6>
+  <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
+  <h5 id="RustyOptions_Async_ResultAsyncExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ResultAsyncExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_RustyOptions_Result___0___2__Func___0_Task_RustyOptions_Result___1___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CTask%7BRustyOptions.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L441">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_RustyOptions_Result___0___2__Func___0_Task_RustyOptions_Result___1___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{RustyOptions.Result{``1,``2}}})">AndThenAsync&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask_RustyOptions_Result___1___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CValueTask%7BRustyOptions.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L419">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask_RustyOptions_Result___1___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})">AndThenAsync&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_RustyOptions_Result___1___2___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CRustyOptions.Result%7B%60%601%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L484">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_RustyOptions_Result___1___2___" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,RustyOptions.Result{``1,``2}})">AndThenAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Result&lt;T2, TErr&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task_RustyOptions_Result___1___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CTask%7BRustyOptions.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L577">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task_RustyOptions_Result___1___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{RustyOptions.Result{``1,``2}}})">AndThenAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask_RustyOptions_Result___1___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CValueTask%7BRustyOptions.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L529">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask_RustyOptions_Result___1___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})">AndThenAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_RustyOptions_Result___1___2___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CRustyOptions.Result%7B%60%601%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L463">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_RustyOptions_Result___1___2___" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,RustyOptions.Result{``1,``2}})">AndThenAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Result&lt;T2, TErr&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task_RustyOptions_Result___1___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CTask%7BRustyOptions.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L553">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task_RustyOptions_Result___1___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{RustyOptions.Result{``1,``2}}})">AndThenAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask_RustyOptions_Result___1___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.AndThenAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CValueTask%7BRustyOptions.Result%7B%60%601%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L505">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask_RustyOptions_Result___1___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})">AndThenAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_RustyOptions_Result___0___2__Func___0_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L47">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_RustyOptions_Result___0___2__Func___0_Task___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{``1}})">MapAsync&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L21">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{``1}})">MapAsync&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L100">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0___1__" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,``1})">MapAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L210">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}})">MapAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L182">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}})">MapAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L73">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0___1__" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,``1})">MapAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L155">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}})">MapAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L128">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}})">MapAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_RustyOptions_Result___0___2__Func___0_Task___1___Func___2_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D%2CFunc%7B%60%602%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L309">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_RustyOptions_Result___0___2__Func___0_Task___1___Func___2_Task___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{``1}},Func{``2,Task{``1}})">MapOrElseAsync&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;, Func&lt;TErr, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;TErr, Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask___1___Func___2_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D%2CFunc%7B%60%602%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L287">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask___1___Func___2_ValueTask___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})">MapOrElseAsync&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;, Func&lt;TErr, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;TErr, ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0___1__Func___2___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2C%60%601%7D%2CFunc%7B%60%602%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L264">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0___1__Func___2___1__" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,``1},Func{``2,``1})">MapOrElseAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, T2&gt;, Func&lt;TErr, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task___1___Func___2_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D%2CFunc%7B%60%602%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L354">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task___1___Func___2_Task___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}},Func{``2,Task{``1}})">MapOrElseAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;, Func&lt;TErr, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;TErr, Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask___1___Func___2_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D%2CFunc%7B%60%602%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L400">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask___1___Func___2_ValueTask___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})">MapOrElseAsync&lt;T1, T2, TErr&gt;(Task&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;, Func&lt;TErr, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;TErr, ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0___1__Func___2___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2C%60%601%7D%2CFunc%7B%60%602%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L241">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0___1__Func___2___1__" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,``1},Func{``2,``1})">MapOrElseAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, T2&gt;, Func&lt;TErr, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task___1___Func___2_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D%2CFunc%7B%60%602%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L377">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task___1___Func___2_Task___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}},Func{``2,Task{``1}})">MapOrElseAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;, Func&lt;TErr, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;TErr, Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask___1___Func___2_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D%2CFunc%7B%60%602%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L331">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask___1___Func___2_ValueTask___1___" data-uid="RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})">MapOrElseAsync&lt;T1, T2, TErr&gt;(ValueTask&lt;Result&lt;T1, TErr&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;, Func&lt;TErr, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;TErr, ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_RustyOptions_Result___0___1__Func___1_Task_RustyOptions_Result___0___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CFunc%7B%60%601%2CTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L621">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_RustyOptions_Result___0___1__Func___1_Task_RustyOptions_Result___0___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(RustyOptions.Result{``0,``1},Func{``1,Task{RustyOptions.Result{``0,``2}}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_RustyOptions_Result___0___1__Func___1_ValueTask_RustyOptions_Result___0___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CFunc%7B%60%601%2CValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L601">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_RustyOptions_Result___0___1__Func___1_ValueTask_RustyOptions_Result___0___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(RustyOptions.Result{``0,``1},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_RustyOptions_Result___0___2___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CFunc%7B%60%601%2CRustyOptions.Result%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L664">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_RustyOptions_Result___0___2___" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,RustyOptions.Result{``0,``2}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(Task&lt;Result&lt;T, T1Err&gt;&gt;, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Task&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_Task_RustyOptions_Result___0___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CFunc%7B%60%601%2CTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L757">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_Task_RustyOptions_Result___0___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,Task{RustyOptions.Result{``0,``2}}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(Task&lt;Result&lt;T, T1Err&gt;&gt;, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Task&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_ValueTask_RustyOptions_Result___0___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(Task%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CFunc%7B%60%601%2CValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L733">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_ValueTask_RustyOptions_Result___0___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(Task&lt;Result&lt;T, T1Err&gt;&gt;, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Task&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_RustyOptions_Result___0___2___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CFunc%7B%60%601%2CRustyOptions.Result%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L643">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_RustyOptions_Result___0___2___" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,RustyOptions.Result{``0,``2}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(ValueTask&lt;Result&lt;T, T1Err&gt;&gt;, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this ValueTask&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_Task_RustyOptions_Result___0___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CFunc%7B%60%601%2CTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L709">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_Task_RustyOptions_Result___0___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,Task{RustyOptions.Result{``0,``2}}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(ValueTask&lt;Result&lt;T, T1Err&gt;&gt;, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this ValueTask&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_ValueTask_RustyOptions_Result___0___2____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions.OrElseAsync%60%603(ValueTask%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%7D%2CFunc%7B%60%601%2CValueTask%7BRustyOptions.Result%7B%60%600%2C%60%602%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L685">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_ValueTask_RustyOptions_Result___0___2____" data-uid="RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})">OrElseAsync&lt;T, T1Err, T2Err&gt;(ValueTask&lt;Result&lt;T, T1Err&gt;&gt;, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this ValueTask&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_ResultAsyncExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.Async.ResultAsyncExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/ResultAsyncExtensions.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

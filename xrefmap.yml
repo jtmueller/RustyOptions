@@ -7,6 +7,656 @@ references:
   commentId: N:RustyOptions
   fullName: RustyOptions
   nameWithType: RustyOptions
+- uid: RustyOptions.Async
+  name: RustyOptions.Async
+  href: api/RustyOptions.Async.html
+  commentId: N:RustyOptions.Async
+  fullName: RustyOptions.Async
+  nameWithType: RustyOptions.Async
+- uid: RustyOptions.Async.OptionAsyncExtensions
+  name: OptionAsyncExtensions
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html
+  commentId: T:RustyOptions.Async.OptionAsyncExtensions
+  fullName: RustyOptions.Async.OptionAsyncExtensions
+  nameWithType: OptionAsyncExtensions
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*
+  name: AndThenAsync
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_
+  commentId: Overload:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync
+  nameWithType: OptionAsyncExtensions.AndThenAsync
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(RustyOptions.Option{``0},Func{``0,Task{RustyOptions.Option{``1}}})
+  name: AndThenAsync<T1, T2>(Option<T1>, Func<T1, Task<Option<T2>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_RustyOptions_Option___0__Func___0_Task_RustyOptions_Option___1____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(RustyOptions.Option{``0},Func{``0,Task{RustyOptions.Option{``1}}})
+  name.vb: AndThenAsync(Of T1, T2)(Option(Of T1), Func(Of T1, Task(Of Option(Of T2))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(RustyOptions.Option<T1>, Func<T1, Task<RustyOptions.Option<T2>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, Task(Of RustyOptions.Option(Of T2))))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(Option<T1>, Func<T1, Task<Option<T2>>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Option(Of T1), Func(Of T1, Task(Of Option(Of T2))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{RustyOptions.Option{``1}}})
+  name: AndThenAsync<T1, T2>(Option<T1>, Func<T1, ValueTask<Option<T2>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_RustyOptions_Option___0__Func___0_ValueTask_RustyOptions_Option___1____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{RustyOptions.Option{``1}}})
+  name.vb: AndThenAsync(Of T1, T2)(Option(Of T1), Func(Of T1, ValueTask(Of Option(Of T2))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(RustyOptions.Option<T1>, Func<T1, ValueTask<RustyOptions.Option<T2>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, ValueTask(Of RustyOptions.Option(Of T2))))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(Option<T1>, Func<T1, ValueTask<Option<T2>>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Option(Of T1), Func(Of T1, ValueTask(Of Option(Of T2))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,RustyOptions.Option{``1}})
+  name: AndThenAsync<T1, T2>(Task<Option<T1>>, Func<T1, Option<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_RustyOptions_Option___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,RustyOptions.Option{``1}})
+  name.vb: AndThenAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Option(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, RustyOptions.Option<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, RustyOptions.Option(Of T2)))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(Task<Option<T1>>, Func<T1, Option<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Option(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{RustyOptions.Option{``1}}})
+  name: AndThenAsync<T1, T2>(Task<Option<T1>>, Func<T1, Task<Option<T2>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_Task_RustyOptions_Option___1____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{RustyOptions.Option{``1}}})
+  name.vb: AndThenAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Task(Of Option(Of T2))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, Task<RustyOptions.Option<T2>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, Task(Of RustyOptions.Option(Of T2))))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(Task<Option<T1>>, Func<T1, Task<Option<T2>>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Task(Of Option(Of T2))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{RustyOptions.Option{``1}}})
+  name: AndThenAsync<T1, T2>(Task<Option<T1>>, Func<T1, ValueTask<Option<T2>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask_RustyOptions_Option___1____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{RustyOptions.Option{``1}}})
+  name.vb: AndThenAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, ValueTask(Of Option(Of T2))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, ValueTask<RustyOptions.Option<T2>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, ValueTask(Of RustyOptions.Option(Of T2))))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(Task<Option<T1>>, Func<T1, ValueTask<Option<T2>>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, ValueTask(Of Option(Of T2))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,RustyOptions.Option{``1}})
+  name: AndThenAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Option<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_RustyOptions_Option___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,RustyOptions.Option{``1}})
+  name.vb: AndThenAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Option(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, RustyOptions.Option<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, RustyOptions.Option(Of T2)))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Option<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Option(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{RustyOptions.Option{``1}}})
+  name: AndThenAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Task<Option<T2>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task_RustyOptions_Option___1____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{RustyOptions.Option{``1}}})
+  name.vb: AndThenAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Task(Of Option(Of T2))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, Task<RustyOptions.Option<T2>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, Task(Of RustyOptions.Option(Of T2))))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Task<Option<T2>>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Task(Of Option(Of T2))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{RustyOptions.Option{``1}}})
+  name: AndThenAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, ValueTask<Option<T2>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask_RustyOptions_Option___1____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{RustyOptions.Option{``1}}})
+  name.vb: AndThenAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, ValueTask(Of Option(Of T2))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, ValueTask<RustyOptions.Option<T2>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.AndThenAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, ValueTask(Of RustyOptions.Option(Of T2))))
+  nameWithType: OptionAsyncExtensions.AndThenAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, ValueTask<Option<T2>>>)
+  nameWithType.vb: OptionAsyncExtensions.AndThenAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, ValueTask(Of Option(Of T2))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync*
+  name: MapAsync
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync_
+  commentId: Overload:RustyOptions.Async.OptionAsyncExtensions.MapAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync
+  nameWithType: OptionAsyncExtensions.MapAsync
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(RustyOptions.Option{``0},Func{``0,Task{``1}})
+  name: MapAsync<T1, T2>(Option<T1>, Func<T1, Task<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_RustyOptions_Option___0__Func___0_Task___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(RustyOptions.Option{``0},Func{``0,Task{``1}})
+  name.vb: MapAsync(Of T1, T2)(Option(Of T1), Func(Of T1, Task(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(RustyOptions.Option<T1>, Func<T1, Task<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, Task(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(Option<T1>, Func<T1, Task<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(Option(Of T1), Func(Of T1, Task(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{``1}})
+  name: MapAsync<T1, T2>(Option<T1>, Func<T1, ValueTask<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_RustyOptions_Option___0__Func___0_ValueTask___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{``1}})
+  name.vb: MapAsync(Of T1, T2)(Option(Of T1), Func(Of T1, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(RustyOptions.Option<T1>, Func<T1, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, ValueTask(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(Option<T1>, Func<T1, ValueTask<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(Option(Of T1), Func(Of T1, ValueTask(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,``1})
+  name: MapAsync<T1, T2>(Task<Option<T1>>, Func<T1, T2>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0___1__
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,``1})
+  name.vb: MapAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, T2))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, T2>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, T2))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(Task<Option<T1>>, Func<T1, T2>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, T2))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{``1}})
+  name: MapAsync<T1, T2>(Task<Option<T1>>, Func<T1, Task<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0_Task___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{``1}})
+  name.vb: MapAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Task(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, Task<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, Task(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(Task<Option<T1>>, Func<T1, Task<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Task(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}})
+  name: MapAsync<T1, T2>(Task<Option<T1>>, Func<T1, ValueTask<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}})
+  name.vb: MapAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, ValueTask(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(Task<Option<T1>>, Func<T1, ValueTask<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,``1})
+  name: MapAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, T2>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0___1__
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,``1})
+  name.vb: MapAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, T2))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, T2>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, T2))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, T2>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, T2))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{``1}})
+  name: MapAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Task<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{``1}})
+  name.vb: MapAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Task(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, Task<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, Task(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Task<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Task(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}})
+  name: MapAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, ValueTask<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}})
+  name.vb: MapAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, ValueTask(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, ValueTask<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*
+  name: MapOrElseAsync
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_
+  commentId: Overload:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(RustyOptions.Option{``0},Func{``0,Task{``1}},Func{Task{``1}})
+  name: MapOrElseAsync<T1, T2>(Option<T1>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_RustyOptions_Option___0__Func___0_Task___1___Func_Task___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(RustyOptions.Option{``0},Func{``0,Task{``1}},Func{Task{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2)(Option(Of T1), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(RustyOptions.Option<T1>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Option<T1>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Option(Of T1), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})
+  name: MapOrElseAsync<T1, T2>(Option<T1>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_RustyOptions_Option___0__Func___0_ValueTask___1___Func_ValueTask___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2)(Option(Of T1), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(RustyOptions.Option<T1>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(RustyOptions.Option(Of T1), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Option<T1>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Option(Of T1), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,``1},Func{``1})
+  name: MapOrElseAsync<T1, T2>(Task<Option<T1>>, Func<T1, T2>, Func<T2>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0___1__Func___1__
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,``1},Func{``1})
+  name.vb: MapOrElseAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, T2), Func(Of T2))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, T2>, Func<T2>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, T2), Func(Of T2))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Task<Option<T1>>, Func<T1, T2>, Func<T2>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, T2), Func(Of T2))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{``1}},Func{Task{``1}})
+  name: MapOrElseAsync<T1, T2>(Task<Option<T1>>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0_Task___1___Func_Task___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{``1}},Func{Task{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Task<Option<T1>>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})
+  name: MapOrElseAsync<T1, T2>(Task<Option<T1>>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask___1___Func_ValueTask___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Task<RustyOptions.Option<T1>>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Task(Of RustyOptions.Option(Of T1)), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(Task<Option<T1>>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(Task(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,``1},Func{``1})
+  name: MapOrElseAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, T2>, Func<T2>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0___1__Func___1__
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,``1},Func{``1})
+  name.vb: MapOrElseAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, T2), Func(Of T2))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, T2>, Func<T2>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, T2), Func(Of T2))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, T2>, Func<T2>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, T2), Func(Of T2))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{``1}},Func{Task{``1}})
+  name: MapOrElseAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task___1___Func_Task___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{``1}},Func{Task{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, Task<T2>>, Func<Task<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, Task(Of T2)), Func(Of Task(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})
+  name: MapOrElseAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask___1___Func_ValueTask___1___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync<T1, T2>(ValueTask<RustyOptions.Option<T1>>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(ValueTask(Of RustyOptions.Option(Of T1)), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+  nameWithType: OptionAsyncExtensions.MapOrElseAsync<T1, T2>(ValueTask<Option<T1>>, Func<T1, ValueTask<T2>>, Func<ValueTask<T2>>)
+  nameWithType.vb: OptionAsyncExtensions.MapOrElseAsync(Of T1, T2)(ValueTask(Of Option(Of T1)), Func(Of T1, ValueTask(Of T2)), Func(Of ValueTask(Of T2)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*
+  name: OrElseAsync
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_
+  commentId: Overload:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync
+  nameWithType: OptionAsyncExtensions.OrElseAsync
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(RustyOptions.Option{``0},Func{Task{RustyOptions.Option{``0}}})
+  name: OrElseAsync<T>(Option<T>, Func<Task<Option<T>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_RustyOptions_Option___0__Func_Task_RustyOptions_Option___0____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(RustyOptions.Option{``0},Func{Task{RustyOptions.Option{``0}}})
+  name.vb: OrElseAsync(Of T)(Option(Of T), Func(Of Task(Of Option(Of T))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(RustyOptions.Option<T>, Func<Task<RustyOptions.Option<T>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(RustyOptions.Option(Of T), Func(Of Task(Of RustyOptions.Option(Of T))))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(Option<T>, Func<Task<Option<T>>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(Option(Of T), Func(Of Task(Of Option(Of T))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(RustyOptions.Option{``0},Func{ValueTask{RustyOptions.Option{``0}}})
+  name: OrElseAsync<T>(Option<T>, Func<ValueTask<Option<T>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_RustyOptions_Option___0__Func_ValueTask_RustyOptions_Option___0____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(RustyOptions.Option{``0},Func{ValueTask{RustyOptions.Option{``0}}})
+  name.vb: OrElseAsync(Of T)(Option(Of T), Func(Of ValueTask(Of Option(Of T))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(RustyOptions.Option<T>, Func<ValueTask<RustyOptions.Option<T>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(RustyOptions.Option(Of T), Func(Of ValueTask(Of RustyOptions.Option(Of T))))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(Option<T>, Func<ValueTask<Option<T>>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(Option(Of T), Func(Of ValueTask(Of Option(Of T))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{RustyOptions.Option{``0}})
+  name: OrElseAsync<T>(Task<Option<T>>, Func<Option<T>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_RustyOptions_Option___0___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{RustyOptions.Option{``0}})
+  name.vb: OrElseAsync(Of T)(Task(Of Option(Of T)), Func(Of Option(Of T)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(Task<RustyOptions.Option<T>>, Func<RustyOptions.Option<T>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(Task(Of RustyOptions.Option(Of T)), Func(Of RustyOptions.Option(Of T)))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(Task<Option<T>>, Func<Option<T>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(Task(Of Option(Of T)), Func(Of Option(Of T)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{Task{RustyOptions.Option{``0}}})
+  name: OrElseAsync<T>(Task<Option<T>>, Func<Task<Option<T>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_Task_RustyOptions_Option___0____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{Task{RustyOptions.Option{``0}}})
+  name.vb: OrElseAsync(Of T)(Task(Of Option(Of T)), Func(Of Task(Of Option(Of T))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(Task<RustyOptions.Option<T>>, Func<Task<RustyOptions.Option<T>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(Task(Of RustyOptions.Option(Of T)), Func(Of Task(Of RustyOptions.Option(Of T))))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(Task<Option<T>>, Func<Task<Option<T>>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(Task(Of Option(Of T)), Func(Of Task(Of Option(Of T))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{ValueTask{RustyOptions.Option{``0}}})
+  name: OrElseAsync<T>(Task<Option<T>>, Func<ValueTask<Option<T>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_ValueTask_RustyOptions_Option___0____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{ValueTask{RustyOptions.Option{``0}}})
+  name.vb: OrElseAsync(Of T)(Task(Of Option(Of T)), Func(Of ValueTask(Of Option(Of T))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(Task<RustyOptions.Option<T>>, Func<ValueTask<RustyOptions.Option<T>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(Task(Of RustyOptions.Option(Of T)), Func(Of ValueTask(Of RustyOptions.Option(Of T))))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(Task<Option<T>>, Func<ValueTask<Option<T>>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(Task(Of Option(Of T)), Func(Of ValueTask(Of Option(Of T))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{RustyOptions.Option{``0}})
+  name: OrElseAsync<T>(ValueTask<Option<T>>, Func<Option<T>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_RustyOptions_Option___0___
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{RustyOptions.Option{``0}})
+  name.vb: OrElseAsync(Of T)(ValueTask(Of Option(Of T)), Func(Of Option(Of T)))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(ValueTask<RustyOptions.Option<T>>, Func<RustyOptions.Option<T>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(ValueTask(Of RustyOptions.Option(Of T)), Func(Of RustyOptions.Option(Of T)))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(ValueTask<Option<T>>, Func<Option<T>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(ValueTask(Of Option(Of T)), Func(Of Option(Of T)))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{Task{RustyOptions.Option{``0}}})
+  name: OrElseAsync<T>(ValueTask<Option<T>>, Func<Task<Option<T>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_Task_RustyOptions_Option___0____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{Task{RustyOptions.Option{``0}}})
+  name.vb: OrElseAsync(Of T)(ValueTask(Of Option(Of T)), Func(Of Task(Of Option(Of T))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(ValueTask<RustyOptions.Option<T>>, Func<Task<RustyOptions.Option<T>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(ValueTask(Of RustyOptions.Option(Of T)), Func(Of Task(Of RustyOptions.Option(Of T))))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(ValueTask<Option<T>>, Func<Task<Option<T>>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(ValueTask(Of Option(Of T)), Func(Of Task(Of Option(Of T))))
+- uid: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{ValueTask{RustyOptions.Option{``0}}})
+  name: OrElseAsync<T>(ValueTask<Option<T>>, Func<ValueTask<Option<T>>>)
+  href: api/RustyOptions.Async.OptionAsyncExtensions.html#RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_ValueTask_RustyOptions_Option___0____
+  commentId: M:RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{ValueTask{RustyOptions.Option{``0}}})
+  name.vb: OrElseAsync(Of T)(ValueTask(Of Option(Of T)), Func(Of ValueTask(Of Option(Of T))))
+  fullName: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync<T>(ValueTask<RustyOptions.Option<T>>, Func<ValueTask<RustyOptions.Option<T>>>)
+  fullName.vb: RustyOptions.Async.OptionAsyncExtensions.OrElseAsync(Of T)(ValueTask(Of RustyOptions.Option(Of T)), Func(Of ValueTask(Of RustyOptions.Option(Of T))))
+  nameWithType: OptionAsyncExtensions.OrElseAsync<T>(ValueTask<Option<T>>, Func<ValueTask<Option<T>>>)
+  nameWithType.vb: OptionAsyncExtensions.OrElseAsync(Of T)(ValueTask(Of Option(Of T)), Func(Of ValueTask(Of Option(Of T))))
+- uid: RustyOptions.Async.ResultAsyncExtensions
+  name: ResultAsyncExtensions
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html
+  commentId: T:RustyOptions.Async.ResultAsyncExtensions
+  fullName: RustyOptions.Async.ResultAsyncExtensions
+  nameWithType: ResultAsyncExtensions
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync*
+  name: AndThenAsync
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync_
+  commentId: Overload:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync
+  nameWithType: ResultAsyncExtensions.AndThenAsync
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{RustyOptions.Result{``1,``2}}})
+  name: AndThenAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Task<Result<T2, TErr>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_RustyOptions_Result___0___2__Func___0_Task_RustyOptions_Result___1___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{RustyOptions.Result{``1,``2}}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Task(Of Result(Of T2, TErr))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, Task<RustyOptions.Result<T2, TErr>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, Task(Of RustyOptions.Result(Of T2, TErr))))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Task<Result<T2, TErr>>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Task(Of Result(Of T2, TErr))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})
+  name: AndThenAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, ValueTask<Result<T2, TErr>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask_RustyOptions_Result___1___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, ValueTask(Of Result(Of T2, TErr))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, ValueTask<RustyOptions.Result<T2, TErr>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, ValueTask(Of RustyOptions.Result(Of T2, TErr))))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, ValueTask<Result<T2, TErr>>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, ValueTask(Of Result(Of T2, TErr))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,RustyOptions.Result{``1,``2}})
+  name: AndThenAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Result<T2, TErr>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_RustyOptions_Result___1___2___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,RustyOptions.Result{``1,``2}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Result(Of T2, TErr)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, RustyOptions.Result<T2, TErr>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, RustyOptions.Result(Of T2, TErr)))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Result<T2, TErr>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Result(Of T2, TErr)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{RustyOptions.Result{``1,``2}}})
+  name: AndThenAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Task<Result<T2, TErr>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task_RustyOptions_Result___1___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{RustyOptions.Result{``1,``2}}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Task(Of Result(Of T2, TErr))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, Task<RustyOptions.Result<T2, TErr>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, Task(Of RustyOptions.Result(Of T2, TErr))))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Task<Result<T2, TErr>>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Task(Of Result(Of T2, TErr))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})
+  name: AndThenAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, ValueTask<Result<T2, TErr>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask_RustyOptions_Result___1___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of Result(Of T2, TErr))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, ValueTask<RustyOptions.Result<T2, TErr>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, ValueTask(Of RustyOptions.Result(Of T2, TErr))))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, ValueTask<Result<T2, TErr>>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of Result(Of T2, TErr))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,RustyOptions.Result{``1,``2}})
+  name: AndThenAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Result<T2, TErr>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_RustyOptions_Result___1___2___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,RustyOptions.Result{``1,``2}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Result(Of T2, TErr)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, RustyOptions.Result<T2, TErr>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, RustyOptions.Result(Of T2, TErr)))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Result<T2, TErr>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Result(Of T2, TErr)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{RustyOptions.Result{``1,``2}}})
+  name: AndThenAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Task<Result<T2, TErr>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task_RustyOptions_Result___1___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{RustyOptions.Result{``1,``2}}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Task(Of Result(Of T2, TErr))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, Task<RustyOptions.Result<T2, TErr>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, Task(Of RustyOptions.Result(Of T2, TErr))))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Task<Result<T2, TErr>>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Task(Of Result(Of T2, TErr))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})
+  name: AndThenAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, ValueTask<Result<T2, TErr>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_AndThenAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask_RustyOptions_Result___1___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.AndThenAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{RustyOptions.Result{``1,``2}}})
+  name.vb: AndThenAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of Result(Of T2, TErr))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, ValueTask<RustyOptions.Result<T2, TErr>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, ValueTask(Of RustyOptions.Result(Of T2, TErr))))
+  nameWithType: ResultAsyncExtensions.AndThenAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, ValueTask<Result<T2, TErr>>>)
+  nameWithType.vb: ResultAsyncExtensions.AndThenAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of Result(Of T2, TErr))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync*
+  name: MapAsync
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync_
+  commentId: Overload:RustyOptions.Async.ResultAsyncExtensions.MapAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync
+  nameWithType: ResultAsyncExtensions.MapAsync
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{``1}})
+  name: MapAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Task<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_RustyOptions_Result___0___2__Func___0_Task___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{``1}})
+  name.vb: MapAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Task(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, Task<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, Task(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Task<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Task(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{``1}})
+  name: MapAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, ValueTask<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{``1}})
+  name.vb: MapAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, ValueTask(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, ValueTask<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, ValueTask(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,``1})
+  name: MapAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, T2>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0___1__
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,``1})
+  name.vb: MapAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, T2))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, T2>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, T2))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, T2>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, T2))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}})
+  name: MapAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Task<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}})
+  name.vb: MapAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, Task<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, Task(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Task<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}})
+  name: MapAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, ValueTask<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}})
+  name.vb: MapAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, ValueTask<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,``1})
+  name: MapAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, T2>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0___1__
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,``1})
+  name.vb: MapAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, T2))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, T2>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, T2))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, T2>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, T2))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}})
+  name: MapAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Task<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}})
+  name.vb: MapAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, Task<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, Task(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Task<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}})
+  name: MapAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, ValueTask<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}})
+  name.vb: MapAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, ValueTask<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync*
+  name: MapOrElseAsync
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync_
+  commentId: Overload:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{``1}},Func{``2,Task{``1}})
+  name: MapOrElseAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_RustyOptions_Result___0___2__Func___0_Task___1___Func___2_Task___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(RustyOptions.Result{``0,``2},Func{``0,Task{``1}},Func{``2,Task{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})
+  name: MapOrElseAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_RustyOptions_Result___0___2__Func___0_ValueTask___1___Func___2_ValueTask___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(RustyOptions.Result{``0,``2},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(RustyOptions.Result<T1, TErr>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(RustyOptions.Result(Of T1, TErr), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Result<T1, TErr>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Result(Of T1, TErr), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,``1},Func{``2,``1})
+  name: MapOrElseAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, T2>, Func<TErr, T2>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0___1__Func___2___1__
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,``1},Func{``2,``1})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, T2), Func(Of TErr, T2))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, T2>, Func<TErr, T2>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, T2), Func(Of TErr, T2))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, T2>, Func<TErr, T2>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, T2), Func(Of TErr, T2))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}},Func{``2,Task{``1}})
+  name: MapOrElseAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0_Task___1___Func___2_Task___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}},Func{``2,Task{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})
+  name: MapOrElseAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_Task_RustyOptions_Result___0___2___Func___0_ValueTask___1___Func___2_ValueTask___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(Task{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Task<RustyOptions.Result<T1, TErr>>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Task(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(Task<Result<T1, TErr>>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(Task(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,``1},Func{``2,``1})
+  name: MapOrElseAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, T2>, Func<TErr, T2>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0___1__Func___2___1__
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,``1},Func{``2,``1})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, T2), Func(Of TErr, T2))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, T2>, Func<TErr, T2>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, T2), Func(Of TErr, T2))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, T2>, Func<TErr, T2>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, T2), Func(Of TErr, T2))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}},Func{``2,Task{``1}})
+  name: MapOrElseAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_Task___1___Func___2_Task___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,Task{``1}},Func{``2,Task{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, Task<T2>>, Func<TErr, Task<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, Task(Of T2)), Func(Of TErr, Task(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})
+  name: MapOrElseAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_MapOrElseAsync__3_ValueTask_RustyOptions_Result___0___2___Func___0_ValueTask___1___Func___2_ValueTask___1___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync``3(ValueTask{RustyOptions.Result{``0,``2}},Func{``0,ValueTask{``1}},Func{``2,ValueTask{``1}})
+  name.vb: MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(ValueTask<RustyOptions.Result<T1, TErr>>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of RustyOptions.Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+  nameWithType: ResultAsyncExtensions.MapOrElseAsync<T1, T2, TErr>(ValueTask<Result<T1, TErr>>, Func<T1, ValueTask<T2>>, Func<TErr, ValueTask<T2>>)
+  nameWithType.vb: ResultAsyncExtensions.MapOrElseAsync(Of T1, T2, TErr)(ValueTask(Of Result(Of T1, TErr)), Func(Of T1, ValueTask(Of T2)), Func(Of TErr, ValueTask(Of T2)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync*
+  name: OrElseAsync
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync_
+  commentId: Overload:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync
+  isSpec: "True"
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync
+  nameWithType: ResultAsyncExtensions.OrElseAsync
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(RustyOptions.Result{``0,``1},Func{``1,Task{RustyOptions.Result{``0,``2}}})
+  name: OrElseAsync<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, Task<Result<T, T2Err>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_RustyOptions_Result___0___1__Func___1_Task_RustyOptions_Result___0___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(RustyOptions.Result{``0,``1},Func{``1,Task{RustyOptions.Result{``0,``2}}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, Task(Of Result(Of T, T2Err))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(RustyOptions.Result<T, T1Err>, Func<T1Err, Task<RustyOptions.Result<T, T2Err>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(RustyOptions.Result(Of T, T1Err), Func(Of T1Err, Task(Of RustyOptions.Result(Of T, T2Err))))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, Task<Result<T, T2Err>>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, Task(Of Result(Of T, T2Err))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(RustyOptions.Result{``0,``1},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})
+  name: OrElseAsync<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, ValueTask<Result<T, T2Err>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_RustyOptions_Result___0___1__Func___1_ValueTask_RustyOptions_Result___0___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(RustyOptions.Result{``0,``1},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, ValueTask(Of Result(Of T, T2Err))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(RustyOptions.Result<T, T1Err>, Func<T1Err, ValueTask<RustyOptions.Result<T, T2Err>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(RustyOptions.Result(Of T, T1Err), Func(Of T1Err, ValueTask(Of RustyOptions.Result(Of T, T2Err))))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Result<T, T1Err>, Func<T1Err, ValueTask<Result<T, T2Err>>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Result(Of T, T1Err), Func(Of T1Err, ValueTask(Of Result(Of T, T2Err))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,RustyOptions.Result{``0,``2}})
+  name: OrElseAsync<T, T1Err, T2Err>(Task<Result<T, T1Err>>, Func<T1Err, Result<T, T2Err>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_RustyOptions_Result___0___2___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,RustyOptions.Result{``0,``2}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(Task(Of Result(Of T, T1Err)), Func(Of T1Err, Result(Of T, T2Err)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Task<RustyOptions.Result<T, T1Err>>, Func<T1Err, RustyOptions.Result<T, T2Err>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Task(Of RustyOptions.Result(Of T, T1Err)), Func(Of T1Err, RustyOptions.Result(Of T, T2Err)))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Task<Result<T, T1Err>>, Func<T1Err, Result<T, T2Err>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Task(Of Result(Of T, T1Err)), Func(Of T1Err, Result(Of T, T2Err)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,Task{RustyOptions.Result{``0,``2}}})
+  name: OrElseAsync<T, T1Err, T2Err>(Task<Result<T, T1Err>>, Func<T1Err, Task<Result<T, T2Err>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_Task_RustyOptions_Result___0___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,Task{RustyOptions.Result{``0,``2}}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(Task(Of Result(Of T, T1Err)), Func(Of T1Err, Task(Of Result(Of T, T2Err))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Task<RustyOptions.Result<T, T1Err>>, Func<T1Err, Task<RustyOptions.Result<T, T2Err>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Task(Of RustyOptions.Result(Of T, T1Err)), Func(Of T1Err, Task(Of RustyOptions.Result(Of T, T2Err))))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Task<Result<T, T1Err>>, Func<T1Err, Task<Result<T, T2Err>>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Task(Of Result(Of T, T1Err)), Func(Of T1Err, Task(Of Result(Of T, T2Err))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})
+  name: OrElseAsync<T, T1Err, T2Err>(Task<Result<T, T1Err>>, Func<T1Err, ValueTask<Result<T, T2Err>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_Task_RustyOptions_Result___0___1___Func___1_ValueTask_RustyOptions_Result___0___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(Task{RustyOptions.Result{``0,``1}},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(Task(Of Result(Of T, T1Err)), Func(Of T1Err, ValueTask(Of Result(Of T, T2Err))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Task<RustyOptions.Result<T, T1Err>>, Func<T1Err, ValueTask<RustyOptions.Result<T, T2Err>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Task(Of RustyOptions.Result(Of T, T1Err)), Func(Of T1Err, ValueTask(Of RustyOptions.Result(Of T, T2Err))))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(Task<Result<T, T1Err>>, Func<T1Err, ValueTask<Result<T, T2Err>>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(Task(Of Result(Of T, T1Err)), Func(Of T1Err, ValueTask(Of Result(Of T, T2Err))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,RustyOptions.Result{``0,``2}})
+  name: OrElseAsync<T, T1Err, T2Err>(ValueTask<Result<T, T1Err>>, Func<T1Err, Result<T, T2Err>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_RustyOptions_Result___0___2___
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,RustyOptions.Result{``0,``2}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of Result(Of T, T1Err)), Func(Of T1Err, Result(Of T, T2Err)))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(ValueTask<RustyOptions.Result<T, T1Err>>, Func<T1Err, RustyOptions.Result<T, T2Err>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of RustyOptions.Result(Of T, T1Err)), Func(Of T1Err, RustyOptions.Result(Of T, T2Err)))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(ValueTask<Result<T, T1Err>>, Func<T1Err, Result<T, T2Err>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of Result(Of T, T1Err)), Func(Of T1Err, Result(Of T, T2Err)))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,Task{RustyOptions.Result{``0,``2}}})
+  name: OrElseAsync<T, T1Err, T2Err>(ValueTask<Result<T, T1Err>>, Func<T1Err, Task<Result<T, T2Err>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_Task_RustyOptions_Result___0___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,Task{RustyOptions.Result{``0,``2}}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of Result(Of T, T1Err)), Func(Of T1Err, Task(Of Result(Of T, T2Err))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(ValueTask<RustyOptions.Result<T, T1Err>>, Func<T1Err, Task<RustyOptions.Result<T, T2Err>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of RustyOptions.Result(Of T, T1Err)), Func(Of T1Err, Task(Of RustyOptions.Result(Of T, T2Err))))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(ValueTask<Result<T, T1Err>>, Func<T1Err, Task<Result<T, T2Err>>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of Result(Of T, T1Err)), Func(Of T1Err, Task(Of Result(Of T, T2Err))))
+- uid: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})
+  name: OrElseAsync<T, T1Err, T2Err>(ValueTask<Result<T, T1Err>>, Func<T1Err, ValueTask<Result<T, T2Err>>>)
+  href: api/RustyOptions.Async.ResultAsyncExtensions.html#RustyOptions_Async_ResultAsyncExtensions_OrElseAsync__3_ValueTask_RustyOptions_Result___0___1___Func___1_ValueTask_RustyOptions_Result___0___2____
+  commentId: M:RustyOptions.Async.ResultAsyncExtensions.OrElseAsync``3(ValueTask{RustyOptions.Result{``0,``1}},Func{``1,ValueTask{RustyOptions.Result{``0,``2}}})
+  name.vb: OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of Result(Of T, T1Err)), Func(Of T1Err, ValueTask(Of Result(Of T, T2Err))))
+  fullName: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(ValueTask<RustyOptions.Result<T, T1Err>>, Func<T1Err, ValueTask<RustyOptions.Result<T, T2Err>>>)
+  fullName.vb: RustyOptions.Async.ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of RustyOptions.Result(Of T, T1Err)), Func(Of T1Err, ValueTask(Of RustyOptions.Result(Of T, T2Err))))
+  nameWithType: ResultAsyncExtensions.OrElseAsync<T, T1Err, T2Err>(ValueTask<Result<T, T1Err>>, Func<T1Err, ValueTask<Result<T, T2Err>>>)
+  nameWithType.vb: ResultAsyncExtensions.OrElseAsync(Of T, T1Err, T2Err)(ValueTask(Of Result(Of T, T1Err)), Func(Of T1Err, ValueTask(Of Result(Of T, T2Err))))
 - uid: RustyOptions.Option
   name: Option
   href: api/RustyOptions.Option.html
@@ -519,6 +1169,31 @@ references:
   fullName.vb: RustyOptions.OptionCollectionExtensions.FirstOrNone(Of T)(IEnumerable(Of T))
   nameWithType: OptionCollectionExtensions.FirstOrNone<T>(IEnumerable<T>)
   nameWithType.vb: OptionCollectionExtensions.FirstOrNone(Of T)(IEnumerable(Of T))
+- uid: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync*
+  name: FirstOrNoneAsync
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync
+  nameWithType: OptionCollectionExtensions.FirstOrNoneAsync
+- uid: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync``1(IAsyncEnumerable{``0},CancellationToken)
+  name: FirstOrNoneAsync<T>(IAsyncEnumerable<T>, CancellationToken)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync__1_IAsyncEnumerable___0__CancellationToken_
+  commentId: M:RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync``1(IAsyncEnumerable{``0},CancellationToken)
+  name.vb: FirstOrNoneAsync(Of T)(IAsyncEnumerable(Of T), CancellationToken)
+  fullName: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync<T>(IAsyncEnumerable<T>, CancellationToken)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync(Of T)(IAsyncEnumerable(Of T), CancellationToken)
+  nameWithType: OptionCollectionExtensions.FirstOrNoneAsync<T>(IAsyncEnumerable<T>, CancellationToken)
+  nameWithType.vb: OptionCollectionExtensions.FirstOrNoneAsync(Of T)(IAsyncEnumerable(Of T), CancellationToken)
+- uid: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync``1(IAsyncEnumerable{``0},Func{``0,System.Boolean},CancellationToken)
+  name: FirstOrNoneAsync<T>(IAsyncEnumerable<T>, Func<T, Boolean>, CancellationToken)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync__1_IAsyncEnumerable___0__Func___0_System_Boolean__CancellationToken_
+  commentId: M:RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync``1(IAsyncEnumerable{``0},Func{``0,System.Boolean},CancellationToken)
+  name.vb: FirstOrNoneAsync(Of T)(IAsyncEnumerable(Of T), Func(Of T, Boolean), CancellationToken)
+  fullName: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync<T>(IAsyncEnumerable<T>, Func<T, System.Boolean>, CancellationToken)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync(Of T)(IAsyncEnumerable(Of T), Func(Of T, System.Boolean), CancellationToken)
+  nameWithType: OptionCollectionExtensions.FirstOrNoneAsync<T>(IAsyncEnumerable<T>, Func<T, Boolean>, CancellationToken)
+  nameWithType.vb: OptionCollectionExtensions.FirstOrNoneAsync(Of T)(IAsyncEnumerable(Of T), Func(Of T, Boolean), CancellationToken)
 - uid: RustyOptions.OptionCollectionExtensions.GetValueOrNone*
   name: GetValueOrNone
   href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_GetValueOrNone_
@@ -601,6 +1276,22 @@ references:
   fullName.vb: RustyOptions.OptionCollectionExtensions.Values(Of T)(IEnumerable(Of RustyOptions.Option(Of T)))
   nameWithType: OptionCollectionExtensions.Values<T>(IEnumerable<Option<T>>)
   nameWithType.vb: OptionCollectionExtensions.Values(Of T)(IEnumerable(Of Option(Of T)))
+- uid: RustyOptions.OptionCollectionExtensions.ValuesAsync*
+  name: ValuesAsync
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_ValuesAsync_
+  commentId: Overload:RustyOptions.OptionCollectionExtensions.ValuesAsync
+  isSpec: "True"
+  fullName: RustyOptions.OptionCollectionExtensions.ValuesAsync
+  nameWithType: OptionCollectionExtensions.ValuesAsync
+- uid: RustyOptions.OptionCollectionExtensions.ValuesAsync``1(IAsyncEnumerable{RustyOptions.Option{``0}},CancellationToken)
+  name: ValuesAsync<T>(IAsyncEnumerable<Option<T>>, CancellationToken)
+  href: api/RustyOptions.OptionCollectionExtensions.html#RustyOptions_OptionCollectionExtensions_ValuesAsync__1_IAsyncEnumerable_RustyOptions_Option___0___CancellationToken_
+  commentId: M:RustyOptions.OptionCollectionExtensions.ValuesAsync``1(IAsyncEnumerable{RustyOptions.Option{``0}},CancellationToken)
+  name.vb: ValuesAsync(Of T)(IAsyncEnumerable(Of Option(Of T)), CancellationToken)
+  fullName: RustyOptions.OptionCollectionExtensions.ValuesAsync<T>(IAsyncEnumerable<RustyOptions.Option<T>>, CancellationToken)
+  fullName.vb: RustyOptions.OptionCollectionExtensions.ValuesAsync(Of T)(IAsyncEnumerable(Of RustyOptions.Option(Of T)), CancellationToken)
+  nameWithType: OptionCollectionExtensions.ValuesAsync<T>(IAsyncEnumerable<Option<T>>, CancellationToken)
+  nameWithType.vb: OptionCollectionExtensions.ValuesAsync(Of T)(IAsyncEnumerable(Of Option(Of T)), CancellationToken)
 - uid: RustyOptions.OptionExtensions
   name: OptionExtensions
   href: api/RustyOptions.OptionExtensions.html
@@ -1608,6 +2299,22 @@ references:
   fullName.vb: RustyOptions.ResultCollectionExtensions.Errors(Of T, TErr)(IEnumerable(Of RustyOptions.Result(Of T, TErr)))
   nameWithType: ResultCollectionExtensions.Errors<T, TErr>(IEnumerable<Result<T, TErr>>)
   nameWithType.vb: ResultCollectionExtensions.Errors(Of T, TErr)(IEnumerable(Of Result(Of T, TErr)))
+- uid: RustyOptions.ResultCollectionExtensions.ErrorsAsync*
+  name: ErrorsAsync
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_ErrorsAsync_
+  commentId: Overload:RustyOptions.ResultCollectionExtensions.ErrorsAsync
+  isSpec: "True"
+  fullName: RustyOptions.ResultCollectionExtensions.ErrorsAsync
+  nameWithType: ResultCollectionExtensions.ErrorsAsync
+- uid: RustyOptions.ResultCollectionExtensions.ErrorsAsync``2(IAsyncEnumerable{RustyOptions.Result{``0,``1}},CancellationToken)
+  name: ErrorsAsync<T, TErr>(IAsyncEnumerable<Result<T, TErr>>, CancellationToken)
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_ErrorsAsync__2_IAsyncEnumerable_RustyOptions_Result___0___1___CancellationToken_
+  commentId: M:RustyOptions.ResultCollectionExtensions.ErrorsAsync``2(IAsyncEnumerable{RustyOptions.Result{``0,``1}},CancellationToken)
+  name.vb: ErrorsAsync(Of T, TErr)(IAsyncEnumerable(Of Result(Of T, TErr)), CancellationToken)
+  fullName: RustyOptions.ResultCollectionExtensions.ErrorsAsync<T, TErr>(IAsyncEnumerable<RustyOptions.Result<T, TErr>>, CancellationToken)
+  fullName.vb: RustyOptions.ResultCollectionExtensions.ErrorsAsync(Of T, TErr)(IAsyncEnumerable(Of RustyOptions.Result(Of T, TErr)), CancellationToken)
+  nameWithType: ResultCollectionExtensions.ErrorsAsync<T, TErr>(IAsyncEnumerable<Result<T, TErr>>, CancellationToken)
+  nameWithType.vb: ResultCollectionExtensions.ErrorsAsync(Of T, TErr)(IAsyncEnumerable(Of Result(Of T, TErr)), CancellationToken)
 - uid: RustyOptions.ResultCollectionExtensions.Values*
   name: Values
   href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_Values_
@@ -1624,6 +2331,22 @@ references:
   fullName.vb: RustyOptions.ResultCollectionExtensions.Values(Of T, TErr)(IEnumerable(Of RustyOptions.Result(Of T, TErr)))
   nameWithType: ResultCollectionExtensions.Values<T, TErr>(IEnumerable<Result<T, TErr>>)
   nameWithType.vb: ResultCollectionExtensions.Values(Of T, TErr)(IEnumerable(Of Result(Of T, TErr)))
+- uid: RustyOptions.ResultCollectionExtensions.ValuesAsync*
+  name: ValuesAsync
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_ValuesAsync_
+  commentId: Overload:RustyOptions.ResultCollectionExtensions.ValuesAsync
+  isSpec: "True"
+  fullName: RustyOptions.ResultCollectionExtensions.ValuesAsync
+  nameWithType: ResultCollectionExtensions.ValuesAsync
+- uid: RustyOptions.ResultCollectionExtensions.ValuesAsync``2(IAsyncEnumerable{RustyOptions.Result{``0,``1}},CancellationToken)
+  name: ValuesAsync<T, TErr>(IAsyncEnumerable<Result<T, TErr>>, CancellationToken)
+  href: api/RustyOptions.ResultCollectionExtensions.html#RustyOptions_ResultCollectionExtensions_ValuesAsync__2_IAsyncEnumerable_RustyOptions_Result___0___1___CancellationToken_
+  commentId: M:RustyOptions.ResultCollectionExtensions.ValuesAsync``2(IAsyncEnumerable{RustyOptions.Result{``0,``1}},CancellationToken)
+  name.vb: ValuesAsync(Of T, TErr)(IAsyncEnumerable(Of Result(Of T, TErr)), CancellationToken)
+  fullName: RustyOptions.ResultCollectionExtensions.ValuesAsync<T, TErr>(IAsyncEnumerable<RustyOptions.Result<T, TErr>>, CancellationToken)
+  fullName.vb: RustyOptions.ResultCollectionExtensions.ValuesAsync(Of T, TErr)(IAsyncEnumerable(Of RustyOptions.Result(Of T, TErr)), CancellationToken)
+  nameWithType: ResultCollectionExtensions.ValuesAsync<T, TErr>(IAsyncEnumerable<Result<T, TErr>>, CancellationToken)
+  nameWithType.vb: ResultCollectionExtensions.ValuesAsync(Of T, TErr)(IAsyncEnumerable(Of Result(Of T, TErr)), CancellationToken)
 - uid: RustyOptions.ResultExtensions
   name: ResultExtensions
   href: api/RustyOptions.ResultExtensions.html

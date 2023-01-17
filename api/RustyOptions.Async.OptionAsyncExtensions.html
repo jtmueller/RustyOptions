@@ -1,0 +1,2597 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class OptionAsyncExtensions
+ </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class OptionAsyncExtensions
+ ">
+  
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RustyOptions.Async.OptionAsyncExtensions">
+
+
+  <h1 id="RustyOptions_Async_OptionAsyncExtensions" data-uid="RustyOptions.Async.OptionAsyncExtensions" class="text-break">Class OptionAsyncExtensions
+</h1>
+  <div class="markdown level0 summary"><p>Extension methods for async operations involving <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">OptionAsyncExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.Async.html">RustyOptions.Async</a></h6>
+  <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
+  <h5 id="RustyOptions_Async_OptionAsyncExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class OptionAsyncExtensions : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_RustyOptions_Option___0__Func___0_Task_RustyOptions_Option___1____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%600%2CTask%7BRustyOptions.Option%7B%60%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L363">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_RustyOptions_Option___0__Func___0_Task_RustyOptions_Option___1____" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(RustyOptions.Option{``0},Func{``0,Task{RustyOptions.Option{``1}}})">AndThenAsync&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, Task&lt;Option&lt;T2&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this Option&lt;T1&gt; self, Func&lt;T1, Task&lt;Option&lt;T2&gt;&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_RustyOptions_Option___0__Func___0_ValueTask_RustyOptions_Option___1____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%600%2CValueTask%7BRustyOptions.Option%7B%60%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L346">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_RustyOptions_Option___0__Func___0_ValueTask_RustyOptions_Option___1____" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{RustyOptions.Option{``1}}})">AndThenAsync&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, ValueTask&lt;Option&lt;T2&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this Option&lt;T1&gt; self, Func&lt;T1, ValueTask&lt;Option&lt;T2&gt;&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_RustyOptions_Option___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CRustyOptions.Option%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L399">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_RustyOptions_Option___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,RustyOptions.Option{``1}})">AndThenAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Option&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Option&lt;T2&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_Task_RustyOptions_Option___1____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7BRustyOptions.Option%7B%60%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L476">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_Task_RustyOptions_Option___1____" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{RustyOptions.Option{``1}}})">AndThenAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Task&lt;Option&lt;T2&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Task&lt;Option&lt;T2&gt;&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask_RustyOptions_Option___1____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CValueTask%7BRustyOptions.Option%7B%60%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L456">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask_RustyOptions_Option___1____" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{RustyOptions.Option{``1}}})">AndThenAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, ValueTask&lt;Option&lt;T2&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, ValueTask&lt;Option&lt;T2&gt;&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_RustyOptions_Option___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CRustyOptions.Option%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L381">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_RustyOptions_Option___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,RustyOptions.Option{``1}})">AndThenAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Option&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Option&lt;T2&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task_RustyOptions_Option___1____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7BRustyOptions.Option%7B%60%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L437">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task_RustyOptions_Option___1____" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{RustyOptions.Option{``1}}})">AndThenAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Task&lt;Option&lt;T2&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Task&lt;Option&lt;T2&gt;&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask_RustyOptions_Option___1____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.AndThenAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CValueTask%7BRustyOptions.Option%7B%60%601%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L418">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_AndThenAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask_RustyOptions_Option___1____" data-uid="RustyOptions.Async.OptionAsyncExtensions.AndThenAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{RustyOptions.Option{``1}}})">AndThenAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, ValueTask&lt;Option&lt;T2&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code>None</code> if the option is <code>None</code>, otherwise calls <code data-dev-comment-type="paramref" class="paramref">thenFn</code> with the wrapped value and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; AndThenAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, ValueTask&lt;Option&lt;T2&gt;&gt;&gt; thenFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;&gt;</td>
+        <td><span class="parametername">thenFn</span></td>
+        <td><p>The function to call with the contained value, if there is a contained value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained by the first option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained by the second option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_RustyOptions_Option___0__Func___0_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L43">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_RustyOptions_Option___0__Func___0_Task___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(RustyOptions.Option{``0},Func{``0,Task{``1}})">MapAsync&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this Option&lt;T1&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_RustyOptions_Option___0__Func___0_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L22">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_RustyOptions_Option___0__Func___0_ValueTask___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{``1}})">MapAsync&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this Option&lt;T1&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L86">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0___1__" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,``1})">MapAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L176">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0_Task___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{``1}})">MapAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L131">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}})">MapAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L64">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0___1__" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,``1})">MapAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L154">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{``1}})">MapAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L109">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}})">MapAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>If the option has a value, passes that option to the mapper function and asynchronously returns that value
+as a <code>Some</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T2&gt;&gt; MapAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><p>The mapped value as <code>Some</code>, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type returned by the mapper functions.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_RustyOptions_Option___0__Func___0_Task___1___Func_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D%2CFunc%7BTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L217">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_RustyOptions_Option___0__Func___0_Task___1___Func_Task___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(RustyOptions.Option{``0},Func{``0,Task{``1}},Func{Task{``1}})">MapOrElseAsync&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;, Func&lt;Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this Option&lt;T1&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_RustyOptions_Option___0__Func___0_ValueTask___1___Func_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(RustyOptions.Option%7B%60%600%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D%2CFunc%7BValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L199">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_RustyOptions_Option___0__Func___0_ValueTask___1___Func_ValueTask___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(RustyOptions.Option{``0},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})">MapOrElseAsync&lt;T1, T2&gt;(Option&lt;T1&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;, Func&lt;ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this Option&lt;T1&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0___1__Func___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2C%60%601%7D%2CFunc%7B%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L252">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0___1__Func___1__" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,``1},Func{``1})">MapOrElseAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, T2&gt;, Func&lt;T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;T2&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T2&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0_Task___1___Func_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D%2CFunc%7BTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L328">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0_Task___1___Func_Task___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,Task{``1}},Func{Task{``1}})">MapOrElseAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;, Func&lt;Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask___1___Func_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D%2CFunc%7BValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L290">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_Task_RustyOptions_Option___0___Func___0_ValueTask___1___Func_ValueTask___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(Task{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})">MapOrElseAsync&lt;T1, T2&gt;(Task&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;, Func&lt;ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this Task&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0___1__Func___1__.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2C%60%601%7D%2CFunc%7B%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L234">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0___1__Func___1__" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,``1},Func{``1})">MapOrElseAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, T2&gt;, Func&lt;T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;T2&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T2&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task___1___Func_Task___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CTask%7B%60%601%7D%7D%2CFunc%7BTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L310">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0_Task___1___Func_Task___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,Task{``1}},Func{Task{``1}})">MapOrElseAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, Task&lt;T2&gt;&gt;, Func&lt;Task&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask___1___Func_ValueTask___1___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync%60%602(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7B%60%600%2CValueTask%7B%60%601%7D%7D%2CFunc%7BValueTask%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L272">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_MapOrElseAsync__2_ValueTask_RustyOptions_Option___0___Func___0_ValueTask___1___Func_ValueTask___1___" data-uid="RustyOptions.Async.OptionAsyncExtensions.MapOrElseAsync``2(ValueTask{RustyOptions.Option{``0}},Func{``0,ValueTask{``1}},Func{ValueTask{``1}})">MapOrElseAsync&lt;T1, T2&gt;(ValueTask&lt;Option&lt;T1&gt;&gt;, Func&lt;T1, ValueTask&lt;T2&gt;&gt;, Func&lt;ValueTask&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously computes a default function result (if <code>None</code>), or applies a different function to the contained value (if <code>Some</code>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2&gt;(this ValueTask&lt;Option&lt;T1&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T1&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that maps the value contained in the option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that lazily generates a default value, if required.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
+        <td><p>The mapped value, or the default value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type of the option's value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The return type after mapping.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_RustyOptions_Option___0__Func_Task_RustyOptions_Option___0____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(RustyOptions.Option%7B%60%600%7D%2CFunc%7BTask%7BRustyOptions.Option%7B%60%600%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L509">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_RustyOptions_Option___0__Func_Task_RustyOptions_Option___0____" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(RustyOptions.Option{``0},Func{Task{RustyOptions.Option{``0}}})">OrElseAsync&lt;T&gt;(Option&lt;T&gt;, Func&lt;Task&lt;Option&lt;T&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this Option&lt;T&gt; self, Func&lt;Task&lt;Option&lt;T&gt;&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_RustyOptions_Option___0__Func_ValueTask_RustyOptions_Option___0____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(RustyOptions.Option%7B%60%600%7D%2CFunc%7BValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L495">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_RustyOptions_Option___0__Func_ValueTask_RustyOptions_Option___0____" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(RustyOptions.Option{``0},Func{ValueTask{RustyOptions.Option{``0}}})">OrElseAsync&lt;T&gt;(Option&lt;T&gt;, Func&lt;ValueTask&lt;Option&lt;T&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this Option&lt;T&gt; self, Func&lt;ValueTask&lt;Option&lt;T&gt;&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_RustyOptions_Option___0___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7BRustyOptions.Option%7B%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L542">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_RustyOptions_Option___0___" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{RustyOptions.Option{``0}})">OrElseAsync&lt;T&gt;(Task&lt;Option&lt;T&gt;&gt;, Func&lt;Option&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this Task&lt;Option&lt;T&gt;&gt; self, Func&lt;Option&lt;T&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_Task_RustyOptions_Option___0____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7BTask%7BRustyOptions.Option%7B%60%600%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L577">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_Task_RustyOptions_Option___0____" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{Task{RustyOptions.Option{``0}}})">OrElseAsync&lt;T&gt;(Task&lt;Option&lt;T&gt;&gt;, Func&lt;Task&lt;Option&lt;T&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this Task&lt;Option&lt;T&gt;&gt; self, Func&lt;Task&lt;Option&lt;T&gt;&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_ValueTask_RustyOptions_Option___0____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(Task%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7BValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L614">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_Task_RustyOptions_Option___0___Func_ValueTask_RustyOptions_Option___0____" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(Task{RustyOptions.Option{``0}},Func{ValueTask{RustyOptions.Option{``0}}})">OrElseAsync&lt;T&gt;(Task&lt;Option&lt;T&gt;&gt;, Func&lt;ValueTask&lt;Option&lt;T&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this Task&lt;Option&lt;T&gt;&gt; self, Func&lt;ValueTask&lt;Option&lt;T&gt;&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_RustyOptions_Option___0___.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7BRustyOptions.Option%7B%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L526">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_RustyOptions_Option___0___" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{RustyOptions.Option{``0}})">OrElseAsync&lt;T&gt;(ValueTask&lt;Option&lt;T&gt;&gt;, Func&lt;Option&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this ValueTask&lt;Option&lt;T&gt;&gt; self, Func&lt;Option&lt;T&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_Task_RustyOptions_Option___0____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7BTask%7BRustyOptions.Option%7B%60%600%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L596">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_Task_RustyOptions_Option___0____" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{Task{RustyOptions.Option{``0}}})">OrElseAsync&lt;T&gt;(ValueTask&lt;Option&lt;T&gt;&gt;, Func&lt;Task&lt;Option&lt;T&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this ValueTask&lt;Option&lt;T&gt;&gt; self, Func&lt;Task&lt;Option&lt;T&gt;&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_ValueTask_RustyOptions_Option___0____.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions.OrElseAsync%60%601(ValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%2CFunc%7BValueTask%7BRustyOptions.Option%7B%60%600%7D%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L559">View Source</a>
+  </span>
+  <a id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync_" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync*"></a>
+  <h4 id="RustyOptions_Async_OptionAsyncExtensions_OrElseAsync__1_ValueTask_RustyOptions_Option___0___Func_ValueTask_RustyOptions_Option___0____" data-uid="RustyOptions.Async.OptionAsyncExtensions.OrElseAsync``1(ValueTask{RustyOptions.Option{``0}},Func{ValueTask{RustyOptions.Option{``0}}})">OrElseAsync&lt;T&gt;(ValueTask&lt;Option&lt;T&gt;&gt;, Func&lt;ValueTask&lt;Option&lt;T&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously returns <code data-dev-comment-type="paramref" class="paramref">self</code> if it contains a value, otherwise calls <code data-dev-comment-type="paramref" class="paramref">elseFn</code> and returns the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; OrElseAsync&lt;T&gt;(this ValueTask&lt;Option&lt;T&gt;&gt; self, Func&lt;ValueTask&lt;Option&lt;T&gt;&gt;&gt; elseFn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;&gt;</td>
+        <td><span class="parametername">elseFn</span></td>
+        <td><p>The function that creates the alternate value if the option is <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_Async_OptionAsyncExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.Async.OptionAsyncExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Async/OptionAsyncExtensions.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
