@@ -421,10 +421,12 @@ public static class ResultAsyncExtensions
         where TErr : notnull
         where T2 : notnull
     {
-        return self.Match(
-            onOk: thenFunc,
-            onErr: e => ValueTask.FromResult(Result.Err<T2, TErr>(e))
-        );
+        if (self.IsOk(out var value))
+        {
+            return thenFunc(value);
+        }
+
+        return ValueTask.FromResult(Result.Err<T2, TErr>(self.UnwrapErr()));
     }
 
     /// <summary>
@@ -441,10 +443,12 @@ public static class ResultAsyncExtensions
         where TErr : notnull
         where T2 : notnull
     {
-        return await self.Match(
-            onOk: thenFunc,
-            onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
-        ).ConfigureAwait(false);
+        if (self.IsOk(out var value))
+        {
+            return await thenFunc(value);
+        }
+
+        return Result.Err<T2, TErr>(self.UnwrapErr());
     }
 
     /// <summary>
@@ -504,10 +508,13 @@ public static class ResultAsyncExtensions
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: thenFunc,
-            onErr: e => ValueTask.FromResult(Result.Err<T2, TErr>(e))
-        );
+
+        if (result.IsOk(out var value))
+        {
+            return await thenFunc(value).ConfigureAwait(false);
+        }
+
+        return Result.Err<T2, TErr>(result.UnwrapErr());
     }
 
     /// <summary>
@@ -525,10 +532,13 @@ public static class ResultAsyncExtensions
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: thenFunc,
-            onErr: e => ValueTask.FromResult(Result.Err<T2, TErr>(e))
-        );
+
+        if (result.IsOk(out var value))
+        {
+            return await thenFunc(value).ConfigureAwait(false);
+        }
+
+        return Result.Err<T2, TErr>(result.UnwrapErr());
     }
 
     /// <summary>
@@ -546,10 +556,13 @@ public static class ResultAsyncExtensions
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: thenFunc,
-            onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
-        );
+
+        if (result.IsOk(out var value))
+        {
+            return await thenFunc(value).ConfigureAwait(false);
+        }
+
+        return Result.Err<T2, TErr>(result.UnwrapErr());
     }
 
     /// <summary>
@@ -567,10 +580,13 @@ public static class ResultAsyncExtensions
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: thenFunc,
-            onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
-        );
+
+        if (result.IsOk(out var value))
+        {
+            return await thenFunc(value).ConfigureAwait(false);
+        }
+
+        return Result.Err<T2, TErr>(result.UnwrapErr());
     }
 
     /// <summary>
@@ -607,10 +623,12 @@ public static class ResultAsyncExtensions
         where T1Err : notnull
         where T2Err : notnull
     {
-        return await self.Match(
-            onOk: x => Task.FromResult(Result.Ok<T, T2Err>(x)),
-            onErr: elseFunc
-        ).ConfigureAwait(false);
+        if (self.IsErr(out var err))
+        {
+            return await elseFunc(err).ConfigureAwait(false);
+        }
+
+        return Result.Ok<T, T2Err>(self.Unwrap());
     }
 
     /// <summary>
@@ -670,10 +688,13 @@ public static class ResultAsyncExtensions
         where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: x => ValueTask.FromResult(Result.Ok<T, T2Err>(x)),
-            onErr: elseFunc
-        ).ConfigureAwait(false);
+
+        if (result.IsErr(out var err))
+        {
+            return await elseFunc(err).ConfigureAwait(false);
+        }
+
+        return Result.Ok<T, T2Err>(result.Unwrap());
     }
 
     /// <summary>
@@ -691,10 +712,13 @@ public static class ResultAsyncExtensions
         where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: x => Task.FromResult(Result.Ok<T, T2Err>(x)),
-            onErr: elseFunc
-        ).ConfigureAwait(false);
+
+        if (result.IsErr(out var err))
+        {
+            return await elseFunc(err).ConfigureAwait(false);
+        }
+
+        return Result.Ok<T, T2Err>(result.Unwrap());
     }
 
     /// <summary>
@@ -712,10 +736,13 @@ public static class ResultAsyncExtensions
         where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: x => ValueTask.FromResult(Result.Ok<T, T2Err>(x)),
-            onErr: elseFunc
-        ).ConfigureAwait(false);
+
+        if (result.IsErr(out var err))
+        {
+            return await elseFunc(err).ConfigureAwait(false);
+        }
+
+        return Result.Ok<T, T2Err>(result.Unwrap());
     }
 
     /// <summary>
@@ -733,10 +760,13 @@ public static class ResultAsyncExtensions
         where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
-        return await result.Match(
-            onOk: x => Task.FromResult(Result.Ok<T, T2Err>(x)),
-            onErr: elseFunc
-        ).ConfigureAwait(false);
+
+        if (result.IsErr(out var err))
+        {
+            return await elseFunc(err).ConfigureAwait(false);
+        }
+
+        return Result.Ok<T, T2Err>(result.Unwrap());
     }
 }
  
