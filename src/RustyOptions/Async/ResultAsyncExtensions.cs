@@ -406,5 +406,171 @@ public static class ResultAsyncExtensions
         var result = await self.ConfigureAwait(false);
         return await result.Match(mapper, defaultFactory).ConfigureAwait(false);
     }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, ValueTask<Result<T2, TErr>>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        return self.Match(
+            onOk: thenFunc,
+            onErr: e => ValueTask.FromResult(Result.Err<T2, TErr>(e))
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Task<Result<T2, TErr>>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        return await self.Match(
+            onOk: thenFunc,
+            onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
+        ).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, Result<T2, TErr>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return result.Match(
+            onOk: thenFunc,
+            onErr: Result.Err<T2, TErr>
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, Result<T2, TErr>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return result.Match(
+            onOk: thenFunc,
+            onErr: Result.Err<T2, TErr>
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, ValueTask<Result<T2, TErr>>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: thenFunc,
+            onErr: e => ValueTask.FromResult(Result.Err<T2, TErr>(e))
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, ValueTask<Result<T2, TErr>>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: thenFunc,
+            onErr: e => ValueTask.FromResult(Result.Err<T2, TErr>(e))
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, Task<Result<T2, TErr>>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: thenFunc,
+            onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise returns the <c>Err</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T1">The <c>Ok</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2">The <c>Ok</c> type returned by <paramref name="thenFunc"/>.</typeparam>
+    /// <typeparam name="TErr">The <c>Err</c> type.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="thenFunc">The function to call with the <c>Ok</c> value, if any.</param>
+    /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
+    public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, Task<Result<T2, TErr>>> thenFunc)
+        where T1 : notnull
+        where TErr : notnull
+        where T2 : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: thenFunc,
+            onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
+        );
+    }
 }
  
