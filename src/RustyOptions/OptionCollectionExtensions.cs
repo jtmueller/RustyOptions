@@ -18,6 +18,7 @@ public static class OptionCollectionExtensions
     /// </summary>
     /// <param name="self">The sequence of options.</param>
     /// <returns>A flattened sequence of values.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static IEnumerable<T> Values<T>(this IEnumerable<Option<T>> self)
         where T : notnull
     {
@@ -39,6 +40,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The sequence of options.</param>
     /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
     /// <returns>A flattened sequence of values.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static async IAsyncEnumerable<T> ValuesAsync<T>(this IAsyncEnumerable<Option<T>> self, [EnumeratorCancellation] CancellationToken ct = default)
         where T : notnull
     {
@@ -61,6 +63,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The dictionary.</param>
     /// <param name="key">The key.</param>
     /// <returns>If the key is found, returns <c>Some(value)</c>. Otherwise, <c>None</c>.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static Option<TValue> GetValueOrNone<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> self, TKey key)
         where TValue : notnull
         where TKey : notnull
@@ -90,6 +93,7 @@ public static class OptionCollectionExtensions
     /// </summary>
     /// <param name="self">The sequence to return the first element from.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the first element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static Option<T> FirstOrNone<T>(this IEnumerable<T> self)
         where T : notnull
     {
@@ -121,6 +125,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The sequence to return the first element from.</param>
     /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the first element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, CancellationToken ct = default)
         where T : notnull
     {
@@ -142,6 +147,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The sequence to return the first element from.</param>
     /// <param name="predicate">The predicate to filter by.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the first matching element, if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="predicate"/> is null.</exception>
     public static Option<T> FirstOrNone<T>(this IEnumerable<T> self, Func<T, bool> predicate)
         where T : notnull
     {
@@ -167,6 +173,7 @@ public static class OptionCollectionExtensions
     /// <param name="predicate">The predicate to filter by.</param>
     /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the first matching element, if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="predicate"/> is null.</exception>
     public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, Func<T, bool> predicate, CancellationToken ct = default)
         where T : notnull
     {
@@ -189,6 +196,7 @@ public static class OptionCollectionExtensions
     /// </summary>
     /// <param name="self">The sequence to return the last element from.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the last element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static Option<T> LastOrNone<T>(this IEnumerable<T> self)
         where T : notnull
     {
@@ -228,6 +236,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The sequence to return the last element from.</param>
     /// <param name="predicate">The predicate to filter by.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the last element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="predicate"/> is null.</exception>
     public static Option<T> LastOrNone<T>(this IEnumerable<T> self, Func<T, bool> predicate)
         where T : notnull
     {
@@ -291,6 +300,7 @@ public static class OptionCollectionExtensions
     /// </summary>
     /// <param name="self">The sequence to return the element from.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static Option<T> SingleOrNone<T>(this IEnumerable<T> self)
         where T : notnull
     {
@@ -333,6 +343,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The sequence to return the element from.</param>
     /// <param name="predicate">The predicate to filter by.</param>
     /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="predicate"/> is null.</exception>
     public static Option<T> SingleOrNone<T>(this IEnumerable<T> self, Func<T, bool> predicate)
         where T : notnull
     {
@@ -368,6 +379,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The sequence to return the element from.</param>
     /// <param name="index">The index in the sequence.</param>
     /// <returns>An Option&lt;T&gt; instance containing the element if found.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static Option<T> ElementAtOrNone<T>(this IEnumerable<T> self, int index)
         where T : notnull
     {

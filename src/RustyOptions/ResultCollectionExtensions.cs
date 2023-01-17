@@ -18,6 +18,7 @@ public static class ResultCollectionExtensions
     /// </summary>
     /// <param name="self">The sequence of results.</param>
     /// <returns>A flattened sequence of values.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static IEnumerable<T> Values<T, TErr>(this IEnumerable<Result<T, TErr>> self)
         where T : notnull
         where TErr : notnull
@@ -40,6 +41,7 @@ public static class ResultCollectionExtensions
     /// <param name="self">The asynchronsous sequence of results.</param>
     /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
     /// <returns>A flattened sequence of values.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static async IAsyncEnumerable<T> ValuesAsync<T, TErr>(this IAsyncEnumerable<Result<T, TErr>> self, [EnumeratorCancellation] CancellationToken ct = default)
         where T : notnull
         where TErr : notnull
@@ -61,6 +63,7 @@ public static class ResultCollectionExtensions
     /// </summary>
     /// <param name="self">The sequence of results.</param>
     /// <returns>A flattened sequence of error values.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static IEnumerable<TErr> Errors<T, TErr>(this IEnumerable<Result<T, TErr>> self)
         where T : notnull
         where TErr : notnull
@@ -83,6 +86,7 @@ public static class ResultCollectionExtensions
     /// <param name="self">The asynchronsou sequence of results.</param>
     /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
     /// <returns>A flattened sequence of values.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static async IAsyncEnumerable<TErr> ErrorsAsync<T, TErr>(this IAsyncEnumerable<Result<T, TErr>> self, [EnumeratorCancellation] CancellationToken ct = default)
         where T : notnull
         where TErr : notnull
