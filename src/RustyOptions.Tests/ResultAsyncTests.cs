@@ -271,9 +271,9 @@ public class ResultAsyncTests
         var taskSrcNone = Task.FromResult(sourceNone);
         var valTaskSrcNone = ValueTask.FromResult(sourceNone);
 
-        var mapper = () => Ok(-1);
-        var taskMapper = () => Task.FromResult(Ok(-1));
-        var valTaskMapper = () => ValueTask.FromResult(Ok(-1));
+        var mapper = (string _) => Ok(-1);
+        var taskMapper = (string _) => Task.FromResult(Ok(-1));
+        var valTaskMapper = (string _) => ValueTask.FromResult(Ok(-1));
 
         yield return new object[] { source, taskMapper, expected };
         yield return new object[] { source, valTaskMapper, expected };
