@@ -298,19 +298,15 @@ public static class OptionCollectionExtensions
 
         if (self is IList<T> list)
         {
-            return list.Count switch
-            {
-                1 => Option.Some(list[0]),
-                _ => default
-            };
+            return list.Count == 1
+                ? Option.Some(list[0])
+                : default;
         }
         else if (self is IReadOnlyList<T> readOnlyList)
         {
-            return readOnlyList.Count switch
-            {
-                1 => Option.Some(readOnlyList[0]),
-                _ => default
-            };
+            return readOnlyList.Count == 1
+                ? Option.Some(readOnlyList[0])
+                : default;
         }
         else
         {
