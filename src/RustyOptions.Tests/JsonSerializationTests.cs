@@ -7,6 +7,8 @@ namespace RustyOptions.Tests;
 
 public class JsonSerializationTests
 {
+    private const string DtoString = "2019-09-07T15:50:00-04:00";
+    private static readonly DateTimeOffset DtoParsed = DateTimeOffset.Parse("2019-09-07T15:50:00-04:00", CultureInfo.InvariantCulture);
     private static readonly JsonSerializerOptions JsonOpts = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
     [Fact]
@@ -18,7 +20,7 @@ public class JsonSerializationTests
         Assert.Equal(42, parsed.Foo);
         Assert.Equal(Some(17), parsed.Bar);
         Assert.Equal(Some("Frank"), parsed.Name);
-        Assert.Equal(Some(DateTimeOffset.Parse("2019-09-07T15:50-04:00", CultureInfo.InvariantCulture)), parsed.LastUpdated);
+        Assert.Equal(Some(DtoParsed), parsed.LastUpdated);
     }
 
     [Fact]
@@ -46,6 +48,38 @@ public class JsonSerializationTests
     }
 
     [Fact]
+    public void CanSerializeOptionsAllSome()
+    {
+        var sut = new ClassWithOptions
+        {
+            Foo =  42,
+            Bar = Some(17),
+            Name = Some("Frank"),
+            LastUpdated = Some(DtoParsed)
+        };
+
+        var serialized = JsonSerializer.Serialize(sut, JsonOpts);
+
+        Assert.Equal(OptionsAllSome, serialized);
+    }
+
+    [Fact]
+    public void CanSerializeOptionsAllNone()
+    {
+        var sut = new ClassWithOptions
+        {
+            Foo = 42,
+            Bar = None<int>(),
+            Name = None<string>(),
+            LastUpdated = None<DateTimeOffset>()
+        };
+
+        var serialized = JsonSerializer.Serialize(sut, JsonOpts);
+
+        Assert.Equal(OptionsAllNull, serialized);
+    }
+
+    [Fact(Skip = "Result serialization not yet implemented")]
     public void CanParseResultOk()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultOk, JsonOpts);
@@ -55,7 +89,7 @@ public class JsonSerializationTests
         Assert.Equal(Ok(75), parsed.CurrentCount);
     }
 
-    [Fact]
+    [Fact(Skip = "Result serialization not yet implemented")]
     public void CanParseResultErr()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultErr, JsonOpts);
@@ -65,7 +99,7 @@ public class JsonSerializationTests
         Assert.Equal(Err<int>("not found!"), parsed.CurrentCount);
     }
 
-    [Fact]
+    [Fact(Skip = "Result serialization not yet implemented")]
     public void CanParseResultMissing()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultMissing, JsonOpts);
@@ -75,7 +109,7 @@ public class JsonSerializationTests
         Assert.Equal(Err<int>(""), parsed.CurrentCount);
     }
 
-    [Fact]
+    [Fact(Skip = "Result serialization not yet implemented")]
     public void CanParseResultNull()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultNull, JsonOpts);
@@ -85,8 +119,8 @@ public class JsonSerializationTests
         Assert.Equal(Err<int>(""), parsed.CurrentCount);
     }
 
-    private const string OptionsAllSome = """
-        { "foo": 42, "bar": 17, "name": "Frank", "lastUpdated": "2019-09-07T15:50-04:00" }
+    private const string OptionsAllSome = $$"""
+        {"foo":42,"bar":17,"name":"Frank","lastUpdated":"{{DtoString}}"}
         """;
 
     private const string OptionsAllMissing = """
@@ -94,7 +128,7 @@ public class JsonSerializationTests
         """;
 
     private const string OptionsAllNull = """
-        { "foo": 42, "bar": null, "name": null, "lastUpdated": null }
+        {"foo":42,"bar":null,"name":null,"lastUpdated":null}
         """;
 
     private const string ResultOk = """

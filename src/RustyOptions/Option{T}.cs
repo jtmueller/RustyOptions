@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
@@ -11,6 +12,7 @@ namespace RustyOptions;
 /// <typeparam name="T">The type the opton might contain.</typeparam>
 [SuppressMessage("Naming", "CA1716:Identifiers should not match keywords", Justification = "Not concerned with Visual Basic or F#.")]
 [Serializable]
+[JsonConverter(typeof(OptionJsonConverter))]
 public readonly struct Option<T> : IEquatable<Option<T>>, IComparable<Option<T>>, IFormattable, ISpanFormattable
     where T : notnull
 {
