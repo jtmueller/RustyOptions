@@ -81,7 +81,7 @@ public sealed class ResultJsonConverter : JsonConverterFactory
             }
             else
             {
-                throw new NotSupportedException($"Unable to read propery: '{reader.GetString()}'");
+                throw new NotSupportedException($"Unable to read property: '{reader.GetString()}'");
             }
 
             if (!reader.Read() || reader.TokenType != JsonTokenType.EndObject)
