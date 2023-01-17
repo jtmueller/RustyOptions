@@ -572,5 +572,171 @@ public static class ResultAsyncExtensions
             onErr: e => Task.FromResult(Result.Err<T2, TErr>(e))
         );
     }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, ValueTask<Result<T, T2Err>>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        return self.Match(
+            onOk: x => ValueTask.FromResult(Result.Ok<T, T2Err>(x)),
+            onErr: elseFunc
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, Task<Result<T, T2Err>>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        return await self.Match(
+            onOk: x => Task.FromResult(Result.Ok<T, T2Err>(x)),
+            onErr: elseFunc
+        ).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err, Result<T, T2Err>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return result.Match(
+            onOk: Result.Ok<T, T2Err>,
+            onErr: elseFunc
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err, Result<T, T2Err>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return result.Match(
+            onOk: Result.Ok<T, T2Err>,
+            onErr: elseFunc
+        );
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err, ValueTask<Result<T, T2Err>>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: x => ValueTask.FromResult(Result.Ok<T, T2Err>(x)),
+            onErr: elseFunc
+        ).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err, Task<Result<T, T2Err>>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: x => Task.FromResult(Result.Ok<T, T2Err>(x)),
+            onErr: elseFunc
+        ).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err, ValueTask<Result<T, T2Err>>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: x => ValueTask.FromResult(Result.Ok<T, T2Err>(x)),
+            onErr: elseFunc
+        ).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Asynchronously calls <paramref name="elseFunc"/> if the result is <c>Err</c>, otherwise returns the <c>Ok</c> value of <paramref name="self"/>.
+    /// </summary>
+    /// <typeparam name="T">The <c>Ok</c> type of the result.</typeparam>
+    /// <typeparam name="T1Err">The <c>Err</c> type of <paramref name="self"/>.</typeparam>
+    /// <typeparam name="T2Err">The <c>Err</c> type returned by <paramref name="elseFunc"/>.</typeparam>
+    /// <param name="self">The result.</param>
+    /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
+    /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err, Task<Result<T, T2Err>>> elseFunc)
+        where T : notnull
+        where T1Err : notnull
+        where T2Err : notnull
+    {
+        var result = await self.ConfigureAwait(false);
+        return await result.Match(
+            onOk: x => Task.FromResult(Result.Ok<T, T2Err>(x)),
+            onErr: elseFunc
+        ).ConfigureAwait(false);
+    }
 }
  

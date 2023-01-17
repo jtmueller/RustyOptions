@@ -222,5 +222,76 @@ public class ResultAsyncTests
         yield return new object[] { taskSrcNone, valTaskMapper, expectedNone };
         yield return new object[] { valTaskSrcNone, valTaskMapper, expectedNone };
     }
+
+    [Theory]
+    [MemberData(nameof(GetOrElseAsyncValues))]
+    public async Task CanOrElseAsync(object source, object mapper, Result<int, string> expected)
+    {
+        switch ((source, mapper))
+        {
+            case (Result<int, string> src, Func<string, ValueTask<Result<int, string>>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (Result<int, string> src, Func<string, Task<Result<int, string>>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (ValueTask<Result<int, string>> src, Func<string, Result<int, string>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (Task<Result<int, string>> src, Func<string, Result<int, string>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (ValueTask<Result<int, string>> src, Func<string, ValueTask<Result<int, string>>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (Task<Result<int, string>> src, Func<string, ValueTask<Result<int, string>>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (ValueTask<Result<int, string>> src, Func<string, Task<Result<int, string>>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+            case (Task<Result<int, string>> src, Func<string, Task<Result<int, string>>> mpr):
+                Assert.Equal(expected, await src.OrElseAsync(mpr));
+                break;
+
+            default:
+                Assert.Fail($"Unexpected source/mapper: {source.GetType().Name}/{mapper.GetType().Name}");
+                break;
+        }
+    }
+
+    public static IEnumerable<object[]> GetOrElseAsyncValues()
+    {
+        var expected = Ok(42);
+        var expectedNone = Ok(-1);
+        var source = Ok(42);
+        var sourceNone = Err<int>("oops");
+        var taskSrc = Task.FromResult(source);
+        var valTaskSrc = ValueTask.FromResult(source);
+        var taskSrcNone = Task.FromResult(sourceNone);
+        var valTaskSrcNone = ValueTask.FromResult(sourceNone);
+
+        var mapper = () => Ok(-1);
+        var taskMapper = () => Task.FromResult(Ok(-1));
+        var valTaskMapper = () => ValueTask.FromResult(Ok(-1));
+
+        yield return new object[] { source, taskMapper, expected };
+        yield return new object[] { source, valTaskMapper, expected };
+        yield return new object[] { taskSrc, mapper, expected };
+        yield return new object[] { valTaskSrc, mapper, expected };
+        yield return new object[] { taskSrc, taskMapper, expected };
+        yield return new object[] { valTaskSrc, taskMapper, expected };
+        yield return new object[] { taskSrc, valTaskMapper, expected };
+        yield return new object[] { valTaskSrc, valTaskMapper, expected };
+
+        yield return new object[] { sourceNone, taskMapper, expectedNone };
+        yield return new object[] { sourceNone, valTaskMapper, expectedNone };
+        yield return new object[] { taskSrcNone, mapper, expectedNone };
+        yield return new object[] { valTaskSrcNone, mapper, expectedNone };
+        yield return new object[] { taskSrcNone, taskMapper, expectedNone };
+        yield return new object[] { valTaskSrcNone, taskMapper, expectedNone };
+        yield return new object[] { taskSrcNone, valTaskMapper, expectedNone };
+        yield return new object[] { valTaskSrcNone, valTaskMapper, expectedNone };
+    }
 }
 
