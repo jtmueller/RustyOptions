@@ -450,7 +450,7 @@ public sealed class OptionTests
     [InlineData("Darkred", ConsoleColor.DarkRed)]
     [InlineData("foo", null)]
     [InlineData("9", ConsoleColor.Blue)]
-    [InlineData("797", null)]
+    [InlineData("797", (ConsoleColor)797)]
     [InlineData(null, null)]
     public void CanParseEnums(string name, ConsoleColor? expected)
     {

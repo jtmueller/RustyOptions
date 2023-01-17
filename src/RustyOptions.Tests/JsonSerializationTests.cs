@@ -6,6 +6,7 @@ namespace RustyOptions.Tests;
 public class JsonSerializationTests
 {
 
+
     private class ClassWithOptions
     {
         public int Foo { get; set; }
@@ -23,11 +24,8 @@ public class JsonSerializationTests
     private class ClassWithOptionAndResult
     {
         public int Foo { get; set; }
-    }
-
-    private enum Thingy
-    {
-        One, Two, Three
+        public Option<int> Bar { get; set; }
+        public Result<int, string> Output { get; set; }
     }
 }
 
