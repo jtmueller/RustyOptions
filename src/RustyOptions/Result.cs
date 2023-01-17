@@ -5,8 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: Async?
-
 /// <summary>
 /// <see cref="Result{T, TErr}"/> is used to return the result of an operation that might fail, without
 /// throwing an exception. Either <see cref="IsOk"/> will return <c>true</c> and the contained result value,

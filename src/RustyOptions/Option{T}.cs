@@ -5,8 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: Async?
-
 /// <summary>
 /// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
 /// </summary>
