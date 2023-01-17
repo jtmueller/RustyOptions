@@ -42,7 +42,6 @@ public sealed class ResultJsonConverter : JsonConverterFactory
 
     private sealed class ResultJsonConverterInner<T, TErr> : JsonConverter<Result<T, TErr>>
         where T : notnull
-        where TErr : notnull
     {
         private readonly JsonConverter<T> _valueConverter;
         private readonly JsonConverter<TErr> _errConverter;

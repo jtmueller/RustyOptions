@@ -21,7 +21,6 @@ public static class ResultCollectionExtensions
     /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static IEnumerable<T> Values<T, TErr>(this IEnumerable<Result<T, TErr>> self)
         where T : notnull
-        where TErr : notnull
     {
         ThrowIfNull(self);
 
@@ -44,7 +43,6 @@ public static class ResultCollectionExtensions
     /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static async IAsyncEnumerable<T> ValuesAsync<T, TErr>(this IAsyncEnumerable<Result<T, TErr>> self, [EnumeratorCancellation] CancellationToken ct = default)
         where T : notnull
-        where TErr : notnull
     {
         ThrowIfNull(self);
 
@@ -66,13 +64,12 @@ public static class ResultCollectionExtensions
     /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static IEnumerable<TErr> Errors<T, TErr>(this IEnumerable<Result<T, TErr>> self)
         where T : notnull
-        where TErr : notnull
     {
         ThrowIfNull(self);
 
         foreach (var result in self)
         {
-            if (result.IsErr(out var err))
+            if (result.IsErr(out var err) && err is not null)
             {
                 yield return err;
             }
@@ -89,13 +86,12 @@ public static class ResultCollectionExtensions
     /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
     public static async IAsyncEnumerable<TErr> ErrorsAsync<T, TErr>(this IAsyncEnumerable<Result<T, TErr>> self, [EnumeratorCancellation] CancellationToken ct = default)
         where T : notnull
-        where TErr : notnull
     {
         ThrowIfNull(self);
 
         await foreach (var result in self.WithCancellation(ct))
         {
-            if (result.IsErr(out var err))
+            if (result.IsErr(out var err) && err is not null)
             {
                 yield return err;
             }

@@ -229,28 +229,28 @@ public class ResultAsyncTests
     {
         switch ((source, mapper))
         {
-            case (Result<int, string> src, Func<string, ValueTask<Result<int, string>>> mpr):
+            case (Result<int, string> src, Func<string?, ValueTask<Result<int, string>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (Result<int, string> src, Func<string, Task<Result<int, string>>> mpr):
+            case (Result<int, string> src, Func<string?, Task<Result<int, string>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (ValueTask<Result<int, string>> src, Func<string, Result<int, string>> mpr):
+            case (ValueTask<Result<int, string>> src, Func<string?, Result<int, string>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (Task<Result<int, string>> src, Func<string, Result<int, string>> mpr):
+            case (Task<Result<int, string>> src, Func<string?, Result<int, string>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (ValueTask<Result<int, string>> src, Func<string, ValueTask<Result<int, string>>> mpr):
+            case (ValueTask<Result<int, string>> src, Func<string?, ValueTask<Result<int, string>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (Task<Result<int, string>> src, Func<string, ValueTask<Result<int, string>>> mpr):
+            case (Task<Result<int, string>> src, Func<string?, ValueTask<Result<int, string>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (ValueTask<Result<int, string>> src, Func<string, Task<Result<int, string>>> mpr):
+            case (ValueTask<Result<int, string>> src, Func<string?, Task<Result<int, string>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
-            case (Task<Result<int, string>> src, Func<string, Task<Result<int, string>>> mpr):
+            case (Task<Result<int, string>> src, Func<string?, Task<Result<int, string>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
                 break;
 

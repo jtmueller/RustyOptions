@@ -16,7 +16,7 @@ namespace RustyOptions;
 [Serializable]
 [JsonConverter(typeof(ResultJsonConverter))]
 public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IFormattable, ISpanFormattable
-    where T : notnull where TErr : notnull
+    where T : notnull
 {
     /// <summary>
     /// Initializes a <see cref="Result{T, TErr}"/> in the <c>Ok</c> state containing the given value.
@@ -61,10 +61,15 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
 
     /// <summary>
     /// Returnd <c>true</c> if the result is in the <c>Err</c> state, and <paramref name="error"/> will contain the error value.
+    /// <para>
+    /// NOTE: While in most cases <paramref name="error"/> will be non-null when this method returns <c>true</c>,
+    /// a default instance of this struct will be in the <c>Err</c> state, but the err value will be
+    /// the default value for <typeparamref name="TErr"/>, and therefore possibly null. 
+    /// </para>
     /// </summary>
     /// <param name="error">The returned error value, if any.</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public bool IsErr([MaybeNullWhen(false)] out TErr error)
+    public bool IsErr([MaybeNull] out TErr error)
     {
         // A default instance of this struct will be in the Err state, but the err value will be
         // the default value for TErr, and therefore possibly null.
@@ -264,7 +269,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// whichever method returns <c>true</c>.
     /// </returns>
     public override int GetHashCode()
-        => _isOk ? _value.GetHashCode() : _err.GetHashCode();
+        => _isOk ? _value.GetHashCode() : _err?.GetHashCode() ?? 0;
 
     /// <summary>
     /// Returns the text representation of the value of the current <see cref="Result{T, TErr}"/> object.

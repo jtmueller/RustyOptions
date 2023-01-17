@@ -126,7 +126,7 @@ public static class OptionResultExtensions
         where TErr : notnull
     {
         return self.IsErr(out var err)
-            ? Option.Some(err)
+            ? Option.Some(err!)
             : default;
     }
 

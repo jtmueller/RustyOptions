@@ -19,7 +19,6 @@ public static class Result
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, TErr> Ok<T, TErr>(T value)
         where T : notnull
-        where TErr : notnull
     {
         return new(value);
     }
@@ -68,7 +67,6 @@ public static class Result
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, TErr> Err<T, TErr>(TErr error)
         where T : notnull
-        where TErr : notnull
     {
         return new(error);
     }
