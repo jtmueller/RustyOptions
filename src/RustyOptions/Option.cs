@@ -146,10 +146,10 @@ public static class Option
     /// </summary>
     /// <typeparam name="T">The enum type to parse into.</typeparam>
     /// <param name="value">The string to parse.</param>
-    /// <param name="ignoreCase">Whether to ignore case while parsing. Defaults to <c>true</c>.</param>
+    /// <param name="ignoreCase">Whether to ignore case while parsing. Defaults to <c>false</c>.</param>
     /// <returns>An <see cref="Option{T}"/> containing the parsed enum, or <c>None</c>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> ParseEnum<T>(string value, bool ignoreCase = true)
+    public static Option<T> ParseEnum<T>(string value, bool ignoreCase = false)
         where T : struct, Enum
     {
         return Enum.TryParse<T>(value, ignoreCase, out var parsed)
@@ -162,10 +162,10 @@ public static class Option
     /// </summary>
     /// <typeparam name="T">The enum type to parse into.</typeparam>
     /// <param name="value">The string to parse.</param>
-    /// <param name="ignoreCase">Whether to ignore case while parsing. Defaults to <c>true</c>.</param>
+    /// <param name="ignoreCase">Whether to ignore case while parsing. Defaults to <c>false</c>.</param>
     /// <returns>An <see cref="Option{T}"/> containing the parsed enum, or <c>None</c>.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<T> ParseEnum<T>(ReadOnlySpan<char> value, bool ignoreCase = true)
+    public static Option<T> ParseEnum<T>(ReadOnlySpan<char> value, bool ignoreCase = false)
         where T : struct, Enum
     {
         return Enum.TryParse<T>(value, ignoreCase, out var parsed)

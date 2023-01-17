@@ -15,10 +15,8 @@ public sealed class OptionJsonConverter : JsonConverterFactory
     {
         ThrowIfNull(typeToConvert);
 
-        if (!typeToConvert.IsGenericType)
-            return false;
-
-        return typeToConvert.GetGenericTypeDefinition() == typeof(Option<>);
+        return typeToConvert.IsGenericType
+            && typeToConvert.GetGenericTypeDefinition() == typeof(Option<>);
     }
 
     /// <inheritdoc/>
@@ -29,12 +27,13 @@ public sealed class OptionJsonConverter : JsonConverterFactory
 
         Type valueType = typeToConvert.GetGenericArguments()[0];
 
-        var converter = (JsonConverter?)Activator.CreateInstance(
+        var converter = Activator.CreateInstance(
             typeof(OptionJsonConverterInner<>).MakeGenericType(new[] { valueType }),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
             args: new object[] { options },
-            culture: null);
+            culture: null
+        ) as JsonConverter;
 
         return converter;
     }

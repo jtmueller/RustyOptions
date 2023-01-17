@@ -79,7 +79,7 @@ public class JsonSerializationTests
         Assert.Equal(OptionsAllNull, serialized);
     }
 
-    [Fact(Skip = "Result serialization not yet implemented")]
+    [Fact]
     public void CanParseResultOk()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultOk, JsonOpts);
@@ -89,7 +89,7 @@ public class JsonSerializationTests
         Assert.Equal(Ok(75), parsed.CurrentCount);
     }
 
-    [Fact(Skip = "Result serialization not yet implemented")]
+    [Fact]
     public void CanParseResultErr()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultErr, JsonOpts);
@@ -99,24 +99,48 @@ public class JsonSerializationTests
         Assert.Equal(Err<int>("not found!"), parsed.CurrentCount);
     }
 
-    [Fact(Skip = "Result serialization not yet implemented")]
+    [Fact]
     public void CanParseResultMissing()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultMissing, JsonOpts);
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
-        Assert.Equal(Err<int>(""), parsed.CurrentCount);
+        Assert.True(parsed.CurrentCount.IsErr(out var err) && err is null);
     }
 
-    [Fact(Skip = "Result serialization not yet implemented")]
+    [Fact]
     public void CanParseResultNull()
     {
-        var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultNull, JsonOpts);
+        Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<ClassWithResult>(ResultNull, JsonOpts));
+    }
 
-        Assert.NotNull(parsed);
-        Assert.Equal(42, parsed.Foo);
-        Assert.Equal(Err<int>(""), parsed.CurrentCount);
+    [Fact]
+    public void CanSerializeResultOk()
+    {
+        var sut = new ClassWithResult
+        {
+            Foo = 42,
+            CurrentCount = Ok(75)
+        };
+
+        var serialized = JsonSerializer.Serialize(sut, JsonOpts);
+
+        Assert.Equal(ResultOk, serialized);
+    }
+
+    [Fact]
+    public void CanSerializeResultErr()
+    {
+        var sut = new ClassWithResult
+        {
+            Foo = 42,
+            CurrentCount = Err<int>("not found!")
+        };
+
+        var serialized = JsonSerializer.Serialize(sut, JsonOpts);
+
+        Assert.Equal(ResultErr, serialized);
     }
 
     private const string OptionsAllSome = $$"""
@@ -132,11 +156,11 @@ public class JsonSerializationTests
         """;
 
     private const string ResultOk = """
-        { "foo": 42, "currentCount": 75 }
+        {"foo":42,"currentCount":{"ok":75}}
         """;
 
     private const string ResultErr = """
-        { "foo": 42, "currentCount": "not found!" }
+        {"foo":42,"currentCount":{"err":"not found!"}}
         """;
 
     private const string ResultMissing = """

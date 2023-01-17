@@ -444,17 +444,17 @@ public sealed class OptionTests
     }
 
     [Theory]
-    [InlineData("Blue", ConsoleColor.Blue)]
-    [InlineData("red", ConsoleColor.Red)]
-    [InlineData("darkYellow", ConsoleColor.DarkYellow)]
-    [InlineData("Darkred", ConsoleColor.DarkRed)]
-    [InlineData("foo", null)]
-    [InlineData("9", ConsoleColor.Blue)]
-    [InlineData("797", (ConsoleColor)797)]
-    [InlineData(null, null)]
-    public void CanParseEnums(string name, ConsoleColor? expected)
+    [InlineData("Blue", false, ConsoleColor.Blue)]
+    [InlineData("red", true, ConsoleColor.Red)]
+    [InlineData("darkYellow", true, ConsoleColor.DarkYellow)]
+    [InlineData("Darkred", false, null)]
+    [InlineData("foo", true, null)]
+    [InlineData("9", false, ConsoleColor.Blue)]
+    [InlineData("797", false, (ConsoleColor)797)]
+    [InlineData(null, true, null)]
+    public void CanParseEnums(string name, bool ignoreCase, ConsoleColor? expected)
     {
-        Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name));
-        Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name.AsSpan()));
+        Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name, ignoreCase));
+        Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name.AsSpan(), ignoreCase));
     }
 }
