@@ -139,6 +139,38 @@ public static class Option
         => Parse<T>(s, provider: null);
 
 #endif
+
+    /// <summary>
+    /// Converts the string representation of the name or numeric value of one or more enumerated constants to an equivalent enumerated object.
+    /// The return value indicates whether the conversion succeeded.
+    /// </summary>
+    /// <typeparam name="T">The enum type to parse into.</typeparam>
+    /// <param name="value">The string to parse.</param>
+    /// <param name="ignoreCase">Whether to ignore case while parsing. Defaults to <c>true</c>.</param>
+    /// <returns>An <see cref="Option{T}"/> containing the parsed enum, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> ParseEnum<T>(string value, bool ignoreCase = true)
+        where T : struct, Enum
+    {
+        return Enum.TryParse<T>(value, ignoreCase, out var parsed)
+            ? new(parsed) : default;
+    }
+
+    /// <summary>
+    /// Converts the string representation of the name or numeric value of one or more enumerated constants to an equivalent enumerated object.
+    /// The return value indicates whether the conversion succeeded.
+    /// </summary>
+    /// <typeparam name="T">The enum type to parse into.</typeparam>
+    /// <param name="value">The string to parse.</param>
+    /// <param name="ignoreCase">Whether to ignore case while parsing. Defaults to <c>true</c>.</param>
+    /// <returns>An <see cref="Option{T}"/> containing the parsed enum, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> ParseEnum<T>(ReadOnlySpan<char> value, bool ignoreCase = true)
+        where T : struct, Enum
+    {
+        return Enum.TryParse<T>(value, ignoreCase, out var parsed)
+            ? new(parsed) : default;
+    }
 }
 
 /// <summary>
