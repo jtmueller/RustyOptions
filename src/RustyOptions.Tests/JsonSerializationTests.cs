@@ -1,7 +1,5 @@
 ﻿using System.Globalization;
 using System.Text.Json;
-using static RustyOptions.Option;
-using static RustyOptions.Result;
 
 namespace RustyOptions.Tests;
 
@@ -18,9 +16,9 @@ public class JsonSerializationTests
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
-        Assert.Equal(Some(17), parsed.Bar);
-        Assert.Equal(Some("Frank"), parsed.Name);
-        Assert.Equal(Some(DtoParsed), parsed.LastUpdated);
+        Assert.Equal(Option.Some(17), parsed.Bar);
+        Assert.Equal(Option.Some("Frank"), parsed.Name);
+        Assert.Equal(Option.Some(DtoParsed), parsed.LastUpdated);
     }
 
     [Fact]
@@ -30,9 +28,9 @@ public class JsonSerializationTests
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
-        Assert.Equal(None<int>(), parsed.Bar);
-        Assert.Equal(None<string>(), parsed.Name);
-        Assert.Equal(None<DateTimeOffset>(), parsed.LastUpdated);
+        Assert.Equal(Option.None<int>(), parsed.Bar);
+        Assert.Equal(Option.None<string>(), parsed.Name);
+        Assert.Equal(Option.None<DateTimeOffset>(), parsed.LastUpdated);
     }
 
     [Fact]
@@ -42,9 +40,9 @@ public class JsonSerializationTests
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
-        Assert.Equal(None<int>(), parsed.Bar);
-        Assert.Equal(None<string>(), parsed.Name);
-        Assert.Equal(None<DateTimeOffset>(), parsed.LastUpdated);
+        Assert.Equal(Option.None<int>(), parsed.Bar);
+        Assert.Equal(Option.None<string>(), parsed.Name);
+        Assert.Equal(Option.None<DateTimeOffset>(), parsed.LastUpdated);
     }
 
     [Fact]
@@ -53,9 +51,9 @@ public class JsonSerializationTests
         var sut = new ClassWithOptions
         {
             Foo =  42,
-            Bar = Some(17),
-            Name = Some("Frank"),
-            LastUpdated = Some(DtoParsed)
+            Bar = Option.Some(17),
+            Name = Option.Some("Frank"),
+            LastUpdated = Option.Some(DtoParsed)
         };
 
         var serialized = JsonSerializer.Serialize(sut, JsonOpts);
@@ -69,15 +67,87 @@ public class JsonSerializationTests
         var sut = new ClassWithOptions
         {
             Foo = 42,
-            Bar = None<int>(),
-            Name = None<string>(),
-            LastUpdated = None<DateTimeOffset>()
+            Bar = Option.None<int>(),
+            Name = Option.None<string>(),
+            LastUpdated = Option.None<DateTimeOffset>()
         };
 
         var serialized = JsonSerializer.Serialize(sut, JsonOpts);
 
         Assert.Equal(OptionsAllNull, serialized);
     }
+
+#if NET7_0_OR_GREATER
+
+    [Fact]
+    public void CanParseNumericOptionsAllSome()
+    {
+        var parsed = JsonSerializer.Deserialize<ClassWithNumbers>(NumericOptionsAllSome, JsonOpts);
+
+        Assert.NotNull(parsed);
+        Assert.Equal(42, parsed.Foo);
+        Assert.Equal(NumericOption.Some(17), parsed.Bar);
+        Assert.Equal(NumericOption.Some(3.14), parsed.Baz);
+        Assert.Equal(NumericOption.Some((byte)255), parsed.Quux);
+    }
+
+    [Fact]
+    public void CanParseNumericOptionsAllMissing()
+    {
+        var parsed = JsonSerializer.Deserialize<ClassWithNumbers>(NumericOptionsAllMissing, JsonOpts);
+
+        Assert.NotNull(parsed);
+        Assert.Equal(42, parsed.Foo);
+        Assert.Equal(NumericOption.None<int>(), parsed.Bar);
+        Assert.Equal(NumericOption.None<double>(), parsed.Baz);
+        Assert.Equal(NumericOption.None<byte>(), parsed.Quux);
+    }
+
+    [Fact]
+    public void CanParseNumericOptionsAllNull()
+    {
+        var parsed = JsonSerializer.Deserialize<ClassWithNumbers>(NumericOptionsAllNull, JsonOpts);
+
+        Assert.NotNull(parsed);
+        Assert.Equal(42, parsed.Foo);
+        Assert.Equal(NumericOption.None<int>(), parsed.Bar);
+        Assert.Equal(NumericOption.None<double>(), parsed.Baz);
+        Assert.Equal(NumericOption.None<byte>(), parsed.Quux);
+    }
+
+    [Fact]
+    public void CanSerializeNumericOptionsAllSome()
+    {
+        var sut = new ClassWithNumbers
+        {
+            Foo = 42,
+            Bar = NumericOption.Some(17),
+            Baz = NumericOption.Some(3.14),
+            Quux = NumericOption.Some((byte)255)
+        };
+
+        var serialized = JsonSerializer.Serialize(sut, JsonOpts);
+
+        Assert.Equal(NumericOptionsAllSome, serialized);
+    }
+
+    [Fact]
+    public void CanSerializeNumericOptionsAllNone()
+    {
+        var sut = new ClassWithNumbers
+        {
+            Foo = 42,
+            Bar = NumericOption.None<int>(),
+            Baz = NumericOption.None<double>(),
+            Quux = NumericOption.None<byte>()
+        };
+
+        var serialized = JsonSerializer.Serialize(sut, JsonOpts);
+
+        Assert.Equal(NumericOptionsAllNull, serialized);
+    }
+
+#endif
 
     [Fact]
     public void CanParseResultOk()
@@ -86,7 +156,7 @@ public class JsonSerializationTests
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
-        Assert.Equal(Ok(75), parsed.CurrentCount);
+        Assert.Equal(Result.Ok(75), parsed.CurrentCount);
     }
 
     [Fact]
@@ -96,7 +166,7 @@ public class JsonSerializationTests
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
-        Assert.Equal(Err<int>("not found!"), parsed.CurrentCount);
+        Assert.Equal(Result.Err<int>("not found!"), parsed.CurrentCount);
     }
 
     [Fact]
@@ -121,7 +191,7 @@ public class JsonSerializationTests
         var sut = new ClassWithResult
         {
             Foo = 42,
-            CurrentCount = Ok(75)
+            CurrentCount = Result.Ok(75)
         };
 
         var serialized = JsonSerializer.Serialize(sut, JsonOpts);
@@ -135,7 +205,7 @@ public class JsonSerializationTests
         var sut = new ClassWithResult
         {
             Foo = 42,
-            CurrentCount = Err<int>("not found!")
+            CurrentCount = Result.Err<int>("not found!")
         };
 
         var serialized = JsonSerializer.Serialize(sut, JsonOpts);
@@ -153,6 +223,18 @@ public class JsonSerializationTests
 
     private const string OptionsAllNull = """
         {"foo":42,"bar":null,"name":null,"lastUpdated":null}
+        """;
+
+    private const string NumericOptionsAllSome = """
+        {"foo":42,"bar":17,"baz":3.14,"quux":255}
+        """;
+
+    private const string NumericOptionsAllMissing = """
+        { "foo": 42 }
+        """;
+
+    private const string NumericOptionsAllNull = """
+        {"foo":42,"bar":null,"baz":null,"quux":null}
         """;
 
     private const string ResultOk = """
@@ -184,5 +266,15 @@ public class JsonSerializationTests
         public int Foo { get; set; }
         public Result<int, string> CurrentCount { get; set; }
     }
+
+#if NET7_0_OR_GREATER
+    private sealed record ClassWithNumbers
+    {
+        public int Foo { get; set; }
+        public NumericOption<int> Bar { get; set; }
+        public NumericOption<double> Baz { get; set; }
+        public NumericOption<byte> Quux { get; set; }
+    }
+#endif
 }
 
