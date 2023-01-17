@@ -22,7 +22,7 @@ RustyOptions uses the type system to:
 var output = Option.Parse<int>(userInput)
     .AndThen(ValidateRange)
     .OrElse(() => defaultsByGroup.GetValueOrNone(user.GroupId))
-    .MapOr(UIRangeWidget.Render, string.Empty);
+    .MapOr(PillWidget.Render, string.Empty);
 ```
 
 The example above does the following:
