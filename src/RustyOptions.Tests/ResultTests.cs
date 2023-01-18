@@ -68,7 +68,7 @@ public sealed class ResultTests
         var err = Err<int>(new InvalidOperationException("oops"));
 
         Assert.True(ok.IsOk(out var okVal) && okVal == 42);
-        Assert.True(err.IsErr(out var ex) && ex.Message == "oops");
+        Assert.True(err.IsErr(out var ex) && ex?.Message == "oops");
     }
 
     [Fact]
@@ -373,7 +373,7 @@ public sealed class ResultTests
 #pragma warning restore CA2201 // Do not raise reserved exception types
 
         Assert.Equal(Result.OkExn(42), mappedOk);
-        Assert.True(mappedErr.IsErr(out var e) && e.Message == "oops");
+        Assert.True(mappedErr.IsErr(out var e) && e?.Message == "oops");
     }
 
     [Fact]

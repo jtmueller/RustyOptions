@@ -21,7 +21,6 @@ public static class ResultExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T2, TErr> Map<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         return self.Match(
@@ -43,8 +42,6 @@ public static class ResultExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Result<T, T2Err> MapErr<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, T2Err> errMapper)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         return self.Match(
             onOk: Result.Ok<T, T2Err>,
@@ -71,7 +68,6 @@ public static class ResultExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOr<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, T2 defaultValue)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -94,7 +90,6 @@ public static class ResultExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T2 MapOrElse<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, T2> mapper, Func<TErr, T2> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         return self.Match(mapper, defaultFactory);
@@ -116,7 +111,6 @@ public static class ResultExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T UnwrapOr<T, TErr>(this Result<T, TErr> self, T defaultValue)
         where T : notnull
-        where TErr : notnull
     {
         return self.IsOk(out var value) ? value : defaultValue;
     }
@@ -140,7 +134,6 @@ public static class ResultExtensions
     /// </returns>
     public static Result<T2, TErr> And<T1, T2, TErr>(this Result<T1, TErr> self, Result<T2, TErr> other)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var selfOk = !self.IsErr(out var selfErr);
@@ -158,7 +151,6 @@ public static class ResultExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static Result<T2, TErr> AndThen<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Result<T2, TErr>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         return self.Match(
@@ -183,8 +175,6 @@ public static class ResultExtensions
     /// <returns>The <c>Ok</c> value of <paramref name="self"/>, or returns <paramref name="other"/>.</returns>
     public static Result<T, T2Err> Or<T, T1Err, T2Err>(this Result<T, T1Err> self, Result<T, T2Err> other)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         return self.IsOk(out var value) ? Result.Ok<T, T2Err>(value) : other;
     }
@@ -200,8 +190,6 @@ public static class ResultExtensions
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
     public static Result<T, T2Err> OrElse<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, Result<T, T2Err>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         return self.Match(
             onOk: Result.Ok<T, T2Err>,
@@ -218,7 +206,6 @@ public static class ResultExtensions
     /// <returns>The inner result.</returns>
     public static Result<T, TErr> Flatten<T, TErr>(this Result<Result<T, TErr>, TErr> self)
         where T : notnull
-        where TErr : notnull
     {
         return self.Match(
             onOk: x => x,

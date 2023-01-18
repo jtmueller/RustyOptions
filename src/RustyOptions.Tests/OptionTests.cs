@@ -442,4 +442,19 @@ public sealed class OptionTests
         public override string ToString() => Value.ToString();
 #pragma warning restore CA1305 // Specify IFormatProvider
     }
+
+    [Theory]
+    [InlineData("Blue", false, ConsoleColor.Blue)]
+    [InlineData("red", true, ConsoleColor.Red)]
+    [InlineData("darkYellow", true, ConsoleColor.DarkYellow)]
+    [InlineData("Darkred", false, null)]
+    [InlineData("foo", true, null)]
+    [InlineData("9", false, ConsoleColor.Blue)]
+    [InlineData("797", false, (ConsoleColor)797)]
+    [InlineData(null, true, null)]
+    public void CanParseEnums(string name, bool ignoreCase, ConsoleColor? expected)
+    {
+        Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name, ignoreCase));
+        Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name.AsSpan(), ignoreCase));
+    }
 }

@@ -20,7 +20,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, ValueTask<T2>> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -46,7 +45,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Task<T2>> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -72,7 +70,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, T2> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -99,7 +96,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, T2> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(self);
@@ -127,7 +123,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, ValueTask<T2>> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -154,7 +149,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, Task<T2>> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(mapper);
@@ -181,7 +175,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, ValueTask<T2>> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(self);
@@ -209,7 +202,6 @@ public static class ResultAsyncExtensions
     /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="mapper"/> is null.</exception>
     public static async ValueTask<Result<T2, TErr>> MapAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, Task<T2>> mapper)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         ThrowIfNull(self);
@@ -241,7 +233,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, T2> mapper, Func<TErr, T2> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -264,7 +255,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, T2> mapper, Func<TErr, T2> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -287,7 +277,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, ValueTask<T2>> mapper, Func<TErr, ValueTask<T2>> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         return self.Match(mapper, defaultFactory);
@@ -309,7 +298,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Task<T2>> mapper, Func<TErr, Task<T2>> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         return await self.Match(mapper, defaultFactory).ConfigureAwait(false);
@@ -331,7 +319,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, ValueTask<T2>> mapper, Func<TErr, ValueTask<T2>> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -354,7 +341,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, Task<T2>> mapper, Func<TErr, Task<T2>> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -377,7 +363,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, Task<T2>> mapper, Func<TErr, Task<T2>> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -400,7 +385,6 @@ public static class ResultAsyncExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static async ValueTask<T2> MapOrElseAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, ValueTask<T2>> mapper, Func<TErr, ValueTask<T2>> defaultFactory)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -418,7 +402,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, ValueTask<Result<T2, TErr>>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         if (self.IsOk(out var value))
@@ -440,7 +423,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Result<T1, TErr> self, Func<T1, Task<Result<T2, TErr>>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         if (self.IsOk(out var value))
@@ -462,7 +444,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, Result<T2, TErr>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -483,7 +464,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, Result<T2, TErr>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -504,7 +484,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, ValueTask<Result<T2, TErr>>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -528,7 +507,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, ValueTask<Result<T2, TErr>>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -552,7 +530,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this ValueTask<Result<T1, TErr>> self, Func<T1, Task<Result<T2, TErr>>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -576,7 +553,6 @@ public static class ResultAsyncExtensions
     /// <returns>The result of calling <paramref name="thenFunc"/> if the result is <c>Ok</c>, otherwise the <c>Err</c> value of <paramref name="self"/>.</returns>
     public static async ValueTask<Result<T2, TErr>> AndThenAsync<T1, T2, TErr>(this Task<Result<T1, TErr>> self, Func<T1, Task<Result<T2, TErr>>> thenFunc)
         where T1 : notnull
-        where TErr : notnull
         where T2 : notnull
     {
         var result = await self.ConfigureAwait(false);
@@ -598,15 +574,15 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, ValueTask<Result<T, T2Err>>> elseFunc)
+    public static ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err?, ValueTask<Result<T, T2Err>>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
-        return self.Match(
-            onOk: x => ValueTask.FromResult(Result.Ok<T, T2Err>(x)),
-            onErr: elseFunc
-        );
+        if (self.IsErr(out var err))
+        {
+            return elseFunc(err);
+        }
+
+        return ValueTask.FromResult(Result.Ok<T, T2Err>(self.Unwrap()));
     }
 
     /// <summary>
@@ -618,10 +594,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err, Task<Result<T, T2Err>>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Result<T, T1Err> self, Func<T1Err?, Task<Result<T, T2Err>>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         if (self.IsErr(out var err))
         {
@@ -640,10 +614,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err, Result<T, T2Err>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err?, Result<T, T2Err>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
         return result.Match(
@@ -661,10 +633,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err, Result<T, T2Err>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err?, Result<T, T2Err>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
         return result.Match(
@@ -682,10 +652,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err, ValueTask<Result<T, T2Err>>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err?, ValueTask<Result<T, T2Err>>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
 
@@ -706,10 +674,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err, Task<Result<T, T2Err>>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err?, Task<Result<T, T2Err>>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
 
@@ -730,10 +696,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err, ValueTask<Result<T, T2Err>>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err?, ValueTask<Result<T, T2Err>>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
 
@@ -754,10 +718,8 @@ public static class ResultAsyncExtensions
     /// <param name="self">The result.</param>
     /// <param name="elseFunc">The function to call with the <c>Err</c> value, if any.</param>
     /// <returns>The <c>Ok</c> value of the result, or the result of passing the <c>Err</c> value to <paramref name="elseFunc"/>.</returns>
-    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err, Task<Result<T, T2Err>>> elseFunc)
+    public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err?, Task<Result<T, T2Err>>> elseFunc)
         where T : notnull
-        where T1Err : notnull
-        where T2Err : notnull
     {
         var result = await self.ConfigureAwait(false);
 
@@ -769,4 +731,3 @@ public static class ResultAsyncExtensions
         return Result.Ok<T, T2Err>(result.Unwrap());
     }
 }
- 

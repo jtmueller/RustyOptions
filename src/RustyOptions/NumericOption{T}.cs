@@ -5,16 +5,18 @@ using System.Globalization;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
 /// <summary>
-/// <see cref="Option{T}"/> represents an optional value: every <see cref="Option{T}"/> is either <c>Some</c> and contains a value, or <c>None</c>, and does not. 
+/// <see cref="NumericOption{T}"/> represents an optional number: every <see cref="NumericOption{T}"/> is either <c>Some</c> and contains a number, or <c>None</c>, and does not. 
 /// </summary>
-/// <typeparam name="T">The type the opton might contain.</typeparam>
+/// <typeparam name="T">The type the option might contain.</typeparam>
 [SuppressMessage("Design", "CA1000:Do not declare static members on generic types", Justification = "Required for INumber.")]
 [Serializable]
+[JsonConverter(typeof(NumericOptionJsonConverter))]
 public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, IComparable<NumericOption<T>>, INumber<NumericOption<T>>,
                                           IFormattable, ISpanFormattable
     where T : struct, INumber<T>

@@ -35,6 +35,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = Option and Result types for C#, inspired by Rust
-		version = 0.4.0
+		version = 0.5.0
 	EndGlobalSection
 EndGlobal
