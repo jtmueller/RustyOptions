@@ -60,7 +60,6 @@ public sealed class NumericOptionJsonConverter : JsonConverterFactory
         {
             return reader.TokenType switch
             {
-                JsonTokenType.None => default,
                 JsonTokenType.Null => default,
                 _ => NumericOption.Some(_valueConverter.Read(ref reader, _valueType, options)!)
             };

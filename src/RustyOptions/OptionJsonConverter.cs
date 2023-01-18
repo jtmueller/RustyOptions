@@ -57,7 +57,6 @@ public sealed class OptionJsonConverter : JsonConverterFactory
         {
             return reader.TokenType switch
             {
-                JsonTokenType.None => default,
                 JsonTokenType.Null => default,
                 _ => Option.Some(_valueConverter.Read(ref reader, _valueType, options)!)
             };

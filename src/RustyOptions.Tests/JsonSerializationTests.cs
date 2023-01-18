@@ -6,7 +6,7 @@ namespace RustyOptions.Tests;
 public class JsonSerializationTests
 {
     private const string DtoString = "2019-09-07T15:50:00-04:00";
-    private static readonly DateTimeOffset DtoParsed = DateTimeOffset.Parse("2019-09-07T15:50:00-04:00", CultureInfo.InvariantCulture);
+    private static readonly Option<DateTimeOffset> DtoParsed = Option.Parse<DateTimeOffset>("2019-09-07T15:50:00-04:00", CultureInfo.InvariantCulture);
     private static readonly JsonSerializerOptions JsonOpts = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
     [Fact]
@@ -18,7 +18,7 @@ public class JsonSerializationTests
         Assert.Equal(42, parsed.Foo);
         Assert.Equal(Option.Some(17), parsed.Bar);
         Assert.Equal(Option.Some("Frank"), parsed.Name);
-        Assert.Equal(Option.Some(DtoParsed), parsed.LastUpdated);
+        Assert.Equal(DtoParsed, parsed.LastUpdated);
     }
 
     [Fact]
@@ -53,7 +53,7 @@ public class JsonSerializationTests
             Foo =  42,
             Bar = Option.Some(17),
             Name = Option.Some("Frank"),
-            LastUpdated = Option.Some(DtoParsed)
+            LastUpdated = DtoParsed
         };
 
         var serialized = JsonSerializer.Serialize(sut, JsonOpts);
@@ -176,6 +176,9 @@ public class JsonSerializationTests
 
         Assert.NotNull(parsed);
         Assert.Equal(42, parsed.Foo);
+
+        // A default instance of the Result struct will be in the Err state, but the err value will be
+        // the default value for TErr, and therefore possibly null.
         Assert.True(parsed.CurrentCount.IsErr(out var err) && err is null);
     }
 
