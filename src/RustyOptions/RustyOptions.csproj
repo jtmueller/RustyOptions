@@ -16,6 +16,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/jtmueller/RustyOptions</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(TargetFramework)' == 'Debug|net6.0' ">
@@ -35,9 +36,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Async\" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Async\" />
+    <None Include="../../README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>
