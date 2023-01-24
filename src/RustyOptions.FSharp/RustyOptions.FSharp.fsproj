@@ -9,7 +9,7 @@
     <PackageId>RustyOptions.FSharp</PackageId>
     <Authors>Joel Mueller</Authors>
     <Company></Company>
-    <PackageDescription>Option and Result types for C#, inspired by Rust</PackageDescription>
+    <PackageDescription>F# support for RustyOptions</PackageDescription>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/jtmueller/RustyOptions</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

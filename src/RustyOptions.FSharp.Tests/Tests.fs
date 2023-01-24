@@ -69,3 +69,51 @@ let ``Can convert Result with module functions`` () =
 
     Assert.Equal(ok, okConverted)
     Assert.Equal(err, errConverted)
+
+#if NET7_0_OR_GREATER
+[<Fact>]
+let ``Can convert NumericOption with extension methods`` () =
+    let some = RustyOptions.NumericOption.Some(42)
+    let none = RustyOptions.NumericOption.None<int>()
+
+    Assert.Equal(Some(42), some.AsFSharpOption());
+    Assert.Equal(None, none.AsFSharpOption());
+
+    Assert.Equal(ValueSome(42), some.AsFSharpValueOption());
+    Assert.Equal(ValueNone, none.AsFSharpValueOption());
+
+[<Fact>]
+let ``Can convert NumericOption with module functions`` () =
+    let some = Some 42
+    let none = None
+
+    let rustySome = some |> Option.toRustyNumericOption
+    let rustyNone = none |> Option.toRustyNumericOption
+
+    let someConverted = rustySome |> Option.ofRustyNumericOption
+    let noneConverted = rustyNone |> Option.ofRustyNumericOption
+
+    Assert.Equal(RustyOptions.NumericOption.Some(42), rustySome)
+    Assert.Equal(RustyOptions.NumericOption.None<int>(), rustyNone)
+
+    Assert.Equal(some, someConverted)
+    Assert.Equal(none, noneConverted)
+
+[<Fact>]
+let ``Can convert NumericValueOption with module functions`` () =
+    let some = ValueSome 42
+    let none = ValueNone
+
+    let rustySome = some |> ValueOption.toRustyNumericOption
+    let rustyNone = none |> ValueOption.toRustyNumericOption
+
+    let someConverted = rustySome |> ValueOption.ofRustyNumericOption
+    let noneConverted = rustyNone |> ValueOption.ofRustyNumericOption
+
+    Assert.Equal(RustyOptions.NumericOption.Some(42), rustySome)
+    Assert.Equal(RustyOptions.NumericOption.None<int>(), rustyNone)
+
+    Assert.Equal(some, someConverted)
+    Assert.Equal(none, noneConverted)
+
+#endif

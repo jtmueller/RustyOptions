@@ -42,4 +42,32 @@ public sealed class FSharpConversionTests
         Assert.Equal(42, okFs.ResultValue);
         Assert.Equal("oops", errFs.ErrorValue);
     }
+
+#if NET7_0_OR_GREATER
+    [Fact]
+    public void CanConvertNumericOption()
+    {
+        var some = NumericOption.Some(42);
+        var none = NumericOption.None<int>();
+
+        var someFs = some.AsFSharpOption();
+        var noneFs = none.AsFSharpOption();
+
+        Assert.Equal(42, someFs.Value);
+        Assert.Throws<NullReferenceException>(() => noneFs.Value);
+    }
+
+    [Fact]
+    public void CanConvertNumericValueOption()
+    {
+        var some = NumericOption.Some(42);
+        var none = NumericOption.None<int>();
+
+        var someFs = some.AsFSharpValueOption();
+        var noneFs = none.AsFSharpValueOption();
+
+        Assert.Equal(42, someFs.Value);
+        Assert.True(noneFs.IsNone);
+    }
+#endif
 }

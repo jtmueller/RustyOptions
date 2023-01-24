@@ -127,6 +127,7 @@ For performance and convenience:
  - `IFormattable` and `ISpanFormattable` allow `Option` and `Result` to efficiently format their content.
  - `Option` and `Result` can be efficiently converted to `ReadOnlySpan<T>` or `IEnumerable<T>` for easier interop with existing code.
  - Convenient extension methods for working with dictionaries (`GetValueOrNone`), collections (`FirstOrNone`), enums (`Option.ParseEnum`) and more.
+ - Supports explicit conversion to and from the F# Option, ValueOption, and Result types for easy interop.
 
 ## FAQ
 

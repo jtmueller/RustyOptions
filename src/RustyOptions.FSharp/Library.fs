@@ -29,6 +29,24 @@ module TypeExtensions =
             | (true, value) -> Ok value
             | _ -> Error(x.UnwrapErr())
 
+#if NET7_0_OR_GREATER
+    type RustyOptions.NumericOption<'a when 'a : struct and 'a :> System.ValueType and 'a : (new : unit -> 'a) and 'a :> System.Numerics.INumber<'a>> with
+
+        /// Converts a RustyOptions NumericOption into an F# ValueOption.
+        [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+        member x.AsFSharpValueOption() =
+            match x.IsSome() with
+            | (true, value) -> ValueSome value
+            | _ -> ValueNone
+
+        /// Converts a RustyOptions NumericOption into an F# Option.
+        [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+        member x.AsFSharpOption() =
+            match x.IsSome() with
+            | (true, value) -> Some(value)
+            | _ -> None
+#endif
+
 /// This module provides C# extension methods on RustyOptions types.
 [<Extension>]
 module CSharpTypeExtensions =
@@ -57,6 +75,28 @@ module CSharpTypeExtensions =
         | (true, value) -> Ok value
         | _ -> Error(x.UnwrapErr())
 
+#if NET7_0_OR_GREATER
+/// This module provides C# extension methods on RustyOptions numeric types.
+[<Extension>]
+module CSharpNumericTypeExtensions =
+
+    /// Converts a RustyOptions Option into an F# ValueOption.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let AsFSharpValueOption(x: RustyOptions.NumericOption<'a>) =
+        match x.IsSome() with
+        | (true, value) -> ValueSome value
+        | _ -> ValueNone
+
+    /// Converts a RustyOptions Option into an F# ValueOption.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let AsFSharpOption(x: RustyOptions.NumericOption<'a>) =
+        match x.IsSome() with
+        | (true, value) -> Some value
+        | _ -> None
+#endif
+
 module Option =
 
     /// Converts a RustyOptions Option into an F# Option.
@@ -73,6 +113,22 @@ module Option =
         | Some(value) -> RustyOptions.Option.Some(value)
         | _ -> RustyOptions.Option.None<'a>()
 
+#if NET7_0_OR_GREATER
+    /// Converts a RustyOptions Option into an F# Option.
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let ofRustyNumericOption (x: RustyOptions.NumericOption<'a>) =
+        match x.IsSome() with
+        | (true, value) -> Some value
+        | _ -> None
+
+    /// Converts an F# Option into a RustyOptions Option.
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let toRustyNumericOption (x: 'a option) =
+        match x with
+        | Some(value) -> RustyOptions.NumericOption.Some(value)
+        | _ -> RustyOptions.NumericOption.None<'a>()
+#endif
+
 module ValueOption =
 
     /// Converts a RustyOptions Option into an F# ValueOption.
@@ -88,6 +144,22 @@ module ValueOption =
         match x with
         | ValueSome(value) -> RustyOptions.Option.Some(value)
         | _ -> RustyOptions.Option.None<'a>()
+
+#if NET7_0_OR_GREATER
+    /// Converts a RustyOptions Option into an F# Option.
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let ofRustyNumericOption (x: RustyOptions.NumericOption<'a>) =
+        match x.IsSome() with
+        | (true, value) -> ValueSome value
+        | _ -> ValueNone
+
+    /// Converts an F# Option into a RustyOptions Option.
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let toRustyNumericOption (x: 'a voption) =
+        match x with
+        | ValueSome(value) -> RustyOptions.NumericOption.Some(value)
+        | _ -> RustyOptions.NumericOption.None<'a>()
+#endif
 
 module Result =
 
