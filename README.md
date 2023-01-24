@@ -138,5 +138,5 @@ For performance and convenience:
     - As of this writing, Optional hasn't been updated in five years.
   - What about F# `Option` and `Result`?
     - C# code needs to take a dependency on `FSharp.Core` in order to use these types, and the F#-centric functions to work
-      these types is awkward to use from C#.
+      with these types is awkward to use from C#. As a result, C# requires C#-specific types for this functionality.
     - If there's demand, I can make a separate NuGet package that provides conversion between RustyOptions types and F# Option/Result. Open an issue if this is important to you!
