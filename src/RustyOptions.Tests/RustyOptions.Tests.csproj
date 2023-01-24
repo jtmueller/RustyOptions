@@ -8,7 +8,7 @@
     <LangVersion>11</LangVersion>
     <IsPackable>false</IsPackable>
     <AssemblyName>RustyOptions.Tests</AssemblyName>
-    <ReleaseVersion>0.5.0</ReleaseVersion>
+    <ReleaseVersion>0.6.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,5 +30,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RustyOptions\RustyOptions.csproj" />
+    <ProjectReference Include="..\RustyOptions.FSharp\RustyOptions.FSharp.fsproj" />
   </ItemGroup>
 </Project>

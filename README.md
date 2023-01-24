@@ -27,11 +27,12 @@ Option<int> ex1 = Option.Some(42);
 Option<int> ex2 = 42.Some();
 Option<int> ex3 = Option<int>.None;
 Option<int> ex4 = Option.None<int>();
+Option<int> ex5 = default; // equivalent to Option.None<int>()
 
 int? maybeNull = GetPossiblyNullInteger();
 Option<int> ex5 = Option.Create(maybeNull); // null turns into Option.None
 
-// Or you can use 'using static' for more concise/Rust-like syntax:
+// Or you can use 'using static' for more concise/F#/Rust-like syntax:
 using static RustyOptions.Option;
 
 var ex6 = Some(42);
@@ -73,7 +74,7 @@ Result<int, string> ex4 = Result.Err<int>("Oops.");
 Result<int, Exception> ex5 = Result.Err<int>(new Exception("Oops."));
 Result<int, MyCustomException> ex6 = Result.Err<int, MyCustomException(someException);
 
-// Or you can use 'using static' for more concise/Rust-like syntax:
+// Or you can use 'using static' for more concise/F#/Rust-like syntax:
 using static RustyOptions.Result;
 
 var ex7 = Ok(42);
@@ -126,6 +127,7 @@ For performance and convenience:
  - `IFormattable` and `ISpanFormattable` allow `Option` and `Result` to efficiently format their content.
  - `Option` and `Result` can be efficiently converted to `ReadOnlySpan<T>` or `IEnumerable<T>` for easier interop with existing code.
  - Convenient extension methods for working with dictionaries (`GetValueOrNone`), collections (`FirstOrNone`), enums (`Option.ParseEnum`) and more.
+ - Supports explicit conversion to and from the F# Option, ValueOption, and Result types for easy interop.
 
 ## FAQ
 
@@ -137,6 +139,4 @@ For performance and convenience:
     - I think having distinct `Option` and `Result` types is more clear than having two different kinds of Option.
     - As of this writing, Optional hasn't been updated in five years.
   - What about F# `Option` and `Result`?
-    - C# code needs to take a dependency on `FSharp.Core` in order to use these types, and the F#-centric functions to work
-      with these types are awkward to use from C#. As a result, C# requires C#-specific types for this functionality.
-    - If there's demand, I can make a separate NuGet package that provides conversion between RustyOptions types and F# Option/Result. Open an issue if this is important to you!
+    - The `RustyOptions.FSharp` nuget package will allow you to convert between F# and RustyOptions types.
