@@ -20,7 +20,7 @@ RustyOptions uses the type system to:
 
 ### Creating an Option
 
-There are many ways to create an Option instance - use whichever appeals to you!
+There are many ways to create an `Option` instance - use whichever appeals to you!
 
 ```csharp
 Option<int> ex1 = Option.Some(42);
@@ -59,7 +59,7 @@ if (myOption.IsNone)
 
 ### Creating a Result
 
-Result can also be created in a variety of ways.
+`Result` can also be created in a variety of ways.
 
 ```csharp
 // assumes an Err type of string
@@ -126,3 +126,17 @@ For performance and convenience:
  - `IFormattable` and `ISpanFormattable` allow `Option` and `Result` to efficiently format their content.
  - `Option` and `Result` can be efficiently converted to `ReadOnlySpan<T>` or `IEnumerable<T>` for easier interop with existing code.
  - Convenient extension methods for working with dictionaries (`GetValueOrNone`), collections (`FirstOrNone`), enums (`Option.ParseEnum`) and more.
+
+## FAQ
+
+  - This library only supports .NET 6 and above. What about .NET Framework?
+    - You may want to consider the [Optional](https://github.com/nlkl/Optional) library for legacy framework support.
+  - Why create this library if [Optional](https://github.com/nlkl/Optional) already exists?
+    - I prefer the Rust Option/Result API methods and wanted to replicate those in C#.
+    - I wanted to take advantage of modern .NET features like `ISpanParsable<T>` and `INumber<T>`.
+    - I think having distinct `Option` and `Result` types is more clear than having two different kinds of Option.
+    - As of this writing, Optional hasn't been updated in five years.
+  - What about F# `Option` and `Result`?
+    - C# code needs to take a dependency on `FSharp.Core` in order to use these types, and the F#-centric functions to work
+      these types is awkward to use from C#.
+    - If there's demand, I can make a separate NuGet package that provides conversion between RustyOptions types and F# Option/Result. Open an issue if this is important to you!
