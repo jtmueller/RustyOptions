@@ -115,6 +115,44 @@ The example above does the following:
  3. If either steps 1 or 2 fail, we attempt to do a dictionary lookup to get a default value using the current user's group ID.
  4. If at the end we have a value, we render it to a string. Otherwise, we set `output` to an empty string.
 
+### Parsing (.NET 7+ only)
+
+Any current or future type that supports `IParsable<T>` or `ISpanParsable<T>` can be conditionally parsed into an `Option<T>` or `NumericOption<T>`.
+
+```csharp
+Option<int> integer = Option.Parse<int>("12345");
+Option<DateTime> date = Option.Parse<DateTime>("2023-06-17");
+Option<TimeSpan> timespan = Option.Parse<TimeSpan>("05:11:04");
+Option<double> fraction = Option.Parse<double>("3.14");
+Option<Guid> guid = Option.Parse<Guid>("ac439fd6-9b64-42f3-bc74-38017c97b965");
+Option<int> nothing = Option.Parse<int>("foo");
+```
+
+### Generic Math (.NET 7+ only)
+
+Doing math with `NumericOption<int>` is similar to doing math with `Nullable<int>`. Anything combined with `None` comes out as `None`, but if all values involved are `Some` then the math operations are performed as normal on the inner type, and results are wrapped in `Some`.
+
+```csharp
+using static RustyOptions.NumericOption;
+
+var a = Some(3);
+var b = Some(5);
+
+Assert.Equal(Some(15), a * b);
+
+// Implicit conversion allows you to mix raw numbers and options in the same expression:
+Assert.Equal(Some(25), b * 5);
+
+// You can even use Option<int> as the index value in a for loop!
+for (var i = Some(0); i < 5; i++)
+{
+    // If you set i to None inside the loop,
+    // the loop will exit when the current iteration completes,
+    // as None is not less than 5.
+    i = None<int>();
+}
+```
+
 ## Uses Modern .NET Features
 
 For performance and convenience:
