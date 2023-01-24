@@ -5,6 +5,9 @@ Option and Result types for C#, inspired by Rust
 [![CodeQL](https://github.com/jtmueller/RustyOptions/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jtmueller/RustyOptions/actions/workflows/codeql-analysis.yml) 
 [![codecov](https://codecov.io/gh/jtmueller/RustyOptions/branch/main/graph/badge.svg?token=M81EJH4ZEI)](https://codecov.io/gh/jtmueller/RustyOptions)
 
+```
+dotnet add package RustyOptions
+```
 
 ## Avoid Null-Reference Errors
 
