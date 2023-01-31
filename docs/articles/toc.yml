@@ -1,2 +1,23 @@
 - name: Introduction
   href: intro.md
+
+- name: Options
+  href: option.md
+
+- name: Results
+  href: result.md
+
+- name: Collections
+  href: collections.md
+
+- name: Async
+  href: async.md
+
+- name: JSON Serialization
+  href: json.md
+
+- name: Parsing
+  href: parsing.md
+
+- name: Generic Math
+  href: math.md
