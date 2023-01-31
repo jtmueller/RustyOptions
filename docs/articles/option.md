@@ -78,7 +78,8 @@ Option<FileStream> OpenFile(string filename)
     }
     catch (Exception ex)
     {
-        Console.Error.WriteLine("An exception occurred opening file '{0}': {1}", filename, ex.Message);
+        Console.Error.WriteLine("An exception occurred opening file '{0}': {1}", 
+            filename, ex.Message);
         return None<FileStream>();
     }
 }
