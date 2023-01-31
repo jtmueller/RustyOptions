@@ -4,7 +4,7 @@
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <IsPackable>false</IsPackable>
-    <ReleaseVersion>0.6.0</ReleaseVersion>
+    <ReleaseVersion>0.6.1</ReleaseVersion>
     <AssemblyName>RustyOptions.FSharp.Tests</AssemblyName>
   </PropertyGroup>
 
@@ -27,8 +27,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Remove="FSharp.Core" />
-    <PackageReference Include="FSharp.Core" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+    <PackageReference Update="FSharp.Core" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+    <PackageReference Update="FSharp.Core" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
