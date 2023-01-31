@@ -8,7 +8,7 @@
     <LangVersion>11</LangVersion>
     <IsPackable>false</IsPackable>
     <AssemblyName>RustyOptions.Tests</AssemblyName>
-    <ReleaseVersion>0.6.0</ReleaseVersion>
+    <ReleaseVersion>0.6.1</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
