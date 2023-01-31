@@ -28,18 +28,19 @@ There are many ways to create an `Option` instance - use whichever appeals to yo
 ```csharp
 Option<int> ex1 = Option.Some(42);
 Option<int> ex2 = 42.Some();
-Option<int> ex3 = Option<int>.None;
-Option<int> ex4 = Option.None<int>();
-Option<int> ex5 = default; // equivalent to Option.None<int>()
+Option<int> ex3 = new Option<int>(42);
+Option<int> ex4 = Option<int>.None;
+Option<int> ex5 = Option.None<int>();
+Option<int> ex6 = default; // equivalent to Option.None<int>()
 
 int? maybeNull = GetPossiblyNullInteger();
-Option<int> ex5 = Option.Create(maybeNull); // null turns into Option.None
+Option<int> ex7 = Option.Create(maybeNull); // null turns into Option.None
 
 // Or you can use 'using static' for more concise/F#/Rust-like syntax:
 using static RustyOptions.Option;
 
-var ex6 = Some(42);
-var ex7 = None<int>();
+var ex8 = Some(42);
+var ex9 = None<int>();
 ```
 
 ### Getting values from an Option
