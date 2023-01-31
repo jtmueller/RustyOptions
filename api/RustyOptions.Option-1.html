@@ -4,22 +4,22 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Option&lt;T&gt;
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Struct Option&lt;T&gt;
  </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Option&lt;T&gt;
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Struct Option&lt;T&gt;
  ">
-  
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  
-  
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -77,8 +77,8 @@
   <div class="markdown level0 conceptual"></div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</div>
-    <div><span class="xref">IComparable</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</div>
+    <div><span class="xref">IEquatable&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</div>
+    <div><span class="xref">IComparable&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</div>
     <div><span class="xref">IFormattable</span></div>
     <div><span class="xref">ISpanFormattable</span></div>
   </div>
@@ -234,7 +234,7 @@ depending on whether the option is <code>None</code> or <code>Some</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable&lt;&gt;</span>&lt;T&gt;</td>
         <td><p>An enumerable containing the option's value, or an empty enumerable.</p>
 </td>
       </tr>
@@ -267,7 +267,7 @@ items depending on whether the option is <code>None</code> or <code>Some</code>.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ReadOnlySpan</span>&lt;T&gt;</td>
+        <td><span class="xref">ReadOnlySpan&lt;&gt;</span>&lt;T&gt;</td>
         <td><p>A span containing the option's value, or an empty span.</p>
 </td>
       </tr>
@@ -539,7 +539,7 @@ Otherwise calls the <code data-dev-comment-type="paramref" class="paramref">onNo
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><span class="xref">Action&lt;&gt;</span>&lt;T&gt;</td>
         <td><span class="parametername">onSome</span></td>
         <td><p>The function to call with the contained <code>Some</code> value, if any.</p>
 </td>
@@ -581,13 +581,13 @@ of the <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, T2&gt;</td>
+        <td><span class="xref">Func&lt;, &gt;</span>&lt;T, T2&gt;</td>
         <td><span class="parametername">onSome</span></td>
         <td><p>The function to pass the value to, if the option is <code>Some</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T2&gt;</td>
+        <td><span class="xref">Func&lt;&gt;</span>&lt;T2&gt;</td>
         <td><span class="parametername">onNone</span></td>
         <td><p>The function to call if the option is <code>None</code>.</p>
 </td>
@@ -743,7 +743,7 @@ format information from the current locale setting of the operating system.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Span</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="xref">Span&lt;&gt;</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
         <td><span class="parametername">destination</span></td>
         <td><p>The span in which to write this instance's value formatted as a span of characters.</p>
 </td>
@@ -755,7 +755,7 @@ format information from the current locale setting of the operating system.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">ReadOnlySpan</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="xref">ReadOnlySpan&lt;&gt;</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
         <td><span class="parametername">format</span></td>
         <td><p>A span containing the characters that represent a standard or custom format string that defines the acceptable format for destination.</p>
 </td>

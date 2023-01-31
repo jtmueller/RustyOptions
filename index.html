@@ -4,20 +4,20 @@
 
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>This is the HOMEPAGE. </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="This is the HOMEPAGE. ">
-  
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  
-  
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>RustyOptions </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="RustyOptions ">
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -59,13 +59,171 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="this-is-the-homepage">This is the <strong>HOMEPAGE</strong>.</h1>
+<h1 id="rustyoptions">RustyOptions</h1>
 
-<p>Refer to <a href="http://daringfireball.net/projects/markdown/">Markdown</a> for how to write markdown files.</p>
-<h2 id="quick-start-notes">Quick Start Notes:</h2>
+<p>Option and Result types for C#, inspired by Rust</p>
+<p><a href="https://github.com/jtmueller/RustyOptions/actions/workflows/build-and-test.yml"><img src="https://github.com/jtmueller/RustyOptions/actions/workflows/build-and-test.yml/badge.svg" alt="CI"></a>
+<a href="https://github.com/jtmueller/RustyOptions/actions/workflows/codeql-analysis.yml"><img src="https://github.com/jtmueller/RustyOptions/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL"></a>
+<a href="https://codecov.io/gh/jtmueller/RustyOptions"><img src="https://codecov.io/gh/jtmueller/RustyOptions/branch/main/graph/badge.svg?token=M81EJH4ZEI" alt="codecov"></a>
+<a href="https://www.nuget.org/packages/RustyOptions/"><img src="https://buildstats.info/nuget/RustyOptions" alt="NuGet"></a></p>
+<pre><code>dotnet add package RustyOptions
+</code></pre>
+<h2 id="avoid-null-reference-errors">Avoid Null-Reference Errors</h2>
+<p>The C# <a href="https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references">nullable reference types</a> feature is useful,
+but it's entirely optional, and the warnings it produces are easily ignored.</p>
+<p>RustyOptions uses the type system to:</p>
+<ul>
+<li>Make it impossible to access a possibly-missing value without first checking if the value is present.</li>
+<li>Clearly express your intent in the code you build. If a method might not return a value, or might return an error message instead of a value, you can express this in the return type where it can't be missed.</li>
+<li>Provide an <a href="https://jtmueller.github.io/RustyOptions/api/RustyOptions.html">expressive API</a> that allows chaining and combination of optional or possibly-failed results.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="creating-an-option">Creating an Option</h3>
+<p>There are many ways to create an <code>Option</code> instance - use whichever appeals to you!</p>
+<pre><code class="lang-csharp">Option&lt;int&gt; ex1 = Option.Some(42);
+Option&lt;int&gt; ex2 = 42.Some();
+Option&lt;int&gt; ex3 = new Option&lt;int&gt;(42);
+Option&lt;int&gt; ex4 = Option&lt;int&gt;.None;
+Option&lt;int&gt; ex5 = Option.None&lt;int&gt;();
+Option&lt;int&gt; ex6 = default; // equivalent to Option.None&lt;int&gt;()
+
+int? maybeNull = GetPossiblyNullInteger();
+Option&lt;int&gt; ex7 = Option.Create(maybeNull); // null turns into Option.None
+
+// Or you can use 'using static' for more concise/F#/Rust-like syntax:
+using static RustyOptions.Option;
+
+var ex8 = Some(42);
+var ex9 = None&lt;int&gt;();
+</code></pre>
+<h3 id="getting-values-from-an-option">Getting values from an Option</h3>
+<pre><code class="lang-csharp">if (myOption.IsSome(out var value))
+{
+    // do something with the value
+}
+
+// Get the contained value if Some, or the default value for the contained type if None
+var innerValue = myOption.UnwrapOr(default);
+
+if (myOption.IsNone)
+{
+   // Do something because the option is None,
+   // although in many cases the Unwrap/Map/And/Or
+   // methods are more useful than checking IsNone directly.
+}
+</code></pre>
+<h3 id="creating-a-result">Creating a Result</h3>
+<p><code>Result</code> can also be created in a variety of ways.</p>
+<pre><code class="lang-csharp">// assumes an Err type of string
+Result&lt;int, string&gt; ex1 = Result.Ok(42);
+// assumes an Err type of Exception
+Result&lt;int, Exception&gt; ex2 = Result.OkExn(42);
+// fully specify Ok and Err types
+Result&lt;int, MyCustomException&gt; ex3 = Result.Ok&lt;int, MyCustomException&gt;(42);
+
+Result&lt;int, string&gt; ex4 = Result.Err&lt;int&gt;(&quot;Oops.&quot;);
+Result&lt;int, Exception&gt; ex5 = Result.Err&lt;int&gt;(new Exception(&quot;Oops.&quot;));
+Result&lt;int, MyCustomException&gt; ex6 = Result.Err&lt;int, MyCustomException(someException);
+
+// Or you can use 'using static' for more concise/F#/Rust-like syntax:
+using static RustyOptions.Result;
+
+var ex7 = Ok(42);
+var ex8 = Err&lt;int&gt;(&quot;oops&quot;);
+</code></pre>
+<h3 id="getting-values-from-a-result">Getting values from a Result</h3>
+<pre><code class="lang-csharp">if (myResult.IsOk(out var value))
+{
+    // do something with the value
+}
+
+if (myResult.IsErr(out var err))
+{
+    // do something with the error
+}
+</code></pre>
+<h3 id="safely-chain-together-fallible-methods">Safely Chain Together Fallible Methods</h3>
+<p>RustyOptions has an <a href="https://jtmueller.github.io/RustyOptions/api/RustyOptions.html">extensive API</a>
+that supports safely chaining together multiple methods that return <code>Option</code> or <code>Result</code>
+and supports easily converting between <code>Option</code> and <code>Result</code> if you have a mixture of such methods.</p>
+<pre><code class="lang-csharp">var output = Option.Parse&lt;int&gt;(userInput)
+    .AndThen(ValidateRange)
+    .OrElse(() =&gt; defaultsByGroup.GetValueOrNone(user.GroupId))
+    .MapOr(PillWidget.Render, string.Empty);
+</code></pre>
+<p>The example above does the following:</p>
 <ol>
-<li>Add images to the <em>images</em> folder if the file is referencing an image.</li>
+<li>Attempts to parse the user input into an integer.</li>
+<li>If the parsing succeeds, passes the resulting number to the <code>ValidateRange</code> method, which returns <code>Some(parsedInput)</code>
+if the parsed input is within the valid range, or <code>None</code> if it falls outside the valid range.</li>
+<li>If either steps 1 or 2 fail, we attempt to do a dictionary lookup to get a default value using the current user's group ID.</li>
+<li>If at the end we have a value, we render it to a string. Otherwise, we set <code>output</code> to an empty string.</li>
 </ol>
+<h3 id="parsing-net-7-only">Parsing (.NET 7+ only)</h3>
+<p>Any current or future type that supports <code>IParsable&lt;T&gt;</code> or <code>ISpanParsable&lt;T&gt;</code> can be conditionally parsed into an <code>Option&lt;T&gt;</code> or <code>NumericOption&lt;T&gt;</code>.</p>
+<pre><code class="lang-csharp">Option&lt;int&gt; integer = Option.Parse&lt;int&gt;(&quot;12345&quot;);
+Option&lt;DateTime&gt; date = Option.Parse&lt;DateTime&gt;(&quot;2023-06-17&quot;);
+Option&lt;TimeSpan&gt; timespan = Option.Parse&lt;TimeSpan&gt;(&quot;05:11:04&quot;);
+Option&lt;double&gt; fraction = Option.Parse&lt;double&gt;(&quot;3.14&quot;);
+Option&lt;Guid&gt; guid = Option.Parse&lt;Guid&gt;(&quot;ac439fd6-9b64-42f3-bc74-38017c97b965&quot;);
+Option&lt;int&gt; nothing = Option.Parse&lt;int&gt;(&quot;foo&quot;);
+</code></pre>
+<h3 id="generic-math-net-7-only">Generic Math (.NET 7+ only)</h3>
+<p>Doing math with <code>NumericOption&lt;int&gt;</code> is similar to doing math with <code>Nullable&lt;int&gt;</code>. Anything combined with <code>None</code> comes out as <code>None</code>, but if all values involved are <code>Some</code> then the math operations are performed as normal on the inner type, and results are wrapped in <code>Some</code>.</p>
+<pre><code class="lang-csharp">using static RustyOptions.NumericOption;
+
+var a = Some(3);
+var b = Some(5);
+
+Assert.Equal(Some(15), a * b);
+
+// Implicit conversion allows you to mix raw numbers and options in the same expression:
+Assert.Equal(Some(25), b * 5);
+
+// You can even use Option&lt;int&gt; as the index value in a for loop!
+for (var i = Some(0); i &lt; 5; i++)
+{
+    // If you set i to None inside the loop,
+    // the loop will exit when the current iteration completes,
+    // as None is not less than 5.
+    i = None&lt;int&gt;();
+}
+</code></pre>
+<h2 id="uses-modern-net-features">Uses Modern .NET Features</h2>
+<p>For performance and convenience:</p>
+<ul>
+<li>Supports parsing any type that implements <code>IParsable&lt;T&gt;</code> or <code>ISpanParsable&lt;T&gt;</code> (.NET 7 and above only)</li>
+<li>The <code>NumericOption&lt;T&gt;</code> type supports generic math for any contained type that implements <code>INumber&lt;T&gt;</code> (.NET 7 and above only)</li>
+<li>Supports <code>async</code> and <code>IAsyncEnumerable&lt;T&gt;</code>.</li>
+<li>Supports nullable type annotations.</li>
+<li>Supports serialization and deserialization with <code>System.Text.Json</code>.</li>
+<li><code>IEquatable&lt;T&gt;</code> and <code>IComparable&lt;T&gt;</code> allow <code>Option</code> and <code>Result</code> types to be easily compared and sorted.</li>
+<li><code>IFormattable</code> and <code>ISpanFormattable</code> allow <code>Option</code> and <code>Result</code> to efficiently format their content.</li>
+<li><code>Option</code> and <code>Result</code> can be efficiently converted to <code>ReadOnlySpan&lt;T&gt;</code> or <code>IEnumerable&lt;T&gt;</code> for easier interop with existing code.</li>
+<li>Convenient extension methods for working with dictionaries (<code>GetValueOrNone</code>), collections (<code>FirstOrNone</code>), enums (<code>Option.ParseEnum</code>) and more.</li>
+<li>Supports explicit conversion to and from the F# Option, ValueOption, and Result types for easy interop.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>This library only supports .NET 6 and above. What about .NET Framework?
+<ul>
+<li>You may want to consider the <a href="https://github.com/nlkl/Optional">Optional</a> library for legacy framework support.</li>
+</ul>
+</li>
+<li>Why create this library if <a href="https://github.com/nlkl/Optional">Optional</a> already exists?
+<ul>
+<li>I prefer the Rust Option/Result API methods and wanted to replicate those in C#.</li>
+<li>I wanted to take advantage of modern .NET features like <code>ISpanParsable&lt;T&gt;</code> and <code>INumber&lt;T&gt;</code>.</li>
+<li>I think having distinct <code>Option</code> and <code>Result</code> types is more clear than having two different kinds of Option.</li>
+<li>As of this writing, Optional hasn't been updated in five years.</li>
+</ul>
+</li>
+<li>What about F# <code>Option</code> and <code>Result</code>?
+<ul>
+<li>The <code>RustyOptions.FSharp</code> nuget package will allow you to convert between F# and RustyOptions types.</li>
+</ul>
+</li>
+</ul>
 </article>
           </div>
 
@@ -74,7 +232,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/users/jtm/docs/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

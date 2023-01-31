@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Options </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Options ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="options">Options</h1>
+
+<p>The <code>Option</code> type is used when an actual value might not exist.
+It avoids the <a href="https://en.wikipedia.org/wiki/Null_pointer#History">billion-dollar mistake</a> of null references
+by making it impossible to forget to check whether a possibly-missing value is present.</p>
+<h2 id="remarks">Remarks</h2>
+<p>The following code illustrates a function which generates an option type.</p>
+<pre><code class="lang-csharp">using RustyOptions;
+
+Option&lt;int&gt; KeepIfPositive(int x) =&gt; x &gt; 0 ? Option.Some(x) : Option&lt;int&gt;.None;
+</code></pre>
+<p>You can take advantage of the <code>using static</code> feature of C# for more concise syntax that is closer to
+that of languages with built-in Option types, such as F# or Rust.</p>
+<pre><code class="lang-csharp">using RustyOptions;
+using static RustyOptions.Option;
+
+Option&lt;int&gt; KeepIfPositive(int x) =&gt; x &gt; 0 ? Some(x) : None&lt;int&gt;();
+</code></pre>
+<p>The value <code>None</code> is used when an option does not have the actual value.</p>
+<h2 id="using-options">Using Options</h2>
+<p>Options are commonly used when a search does not return a matching result, as shown in the following code.</p>
+<pre><code class="lang-csharp">using RustyOptions;
+using static RustyOptions.Option;
+
+Option&lt;T&gt; TryFindMatch&lt;T&gt;(IEnumerable&lt;T&gt; list, Func&lt;T, bool&gt; predicate)
+{
+    foreach (var value in list)
+    {
+        if (predicate(value))
+        {
+            return Some(value);
+        }
+    }
+
+    return None&lt;T&gt;();
+}
+
+// result1 is Some(100) and its type is Option&lt;int&gt;
+var result1 = TryFindMatch(new[] { 200, 100, 50, 25 }, x =&gt; x == 100);
+
+// result2 is None and its type is Option&lt;char&gt;
+var result2 = TryFindMatch(new[] { 'a', 'b', 'c', 'd' }, x =&gt; x == 'y');
+</code></pre>
+<p>In the previous code, the function <code>TryFindMatch</code> takes a list of values and a predicate function
+that returns a Boolean value. The function iterates the list, and if an element is found that satisfies
+the predicate, the iteration ends and the matching value is returned wrapped in a <code>Some</code> option. If
+the function reaches the end of the list without finding a match, <code>None</code> is returned.</p>
+<p>RustyOptions provides extension methods for most collection types. For more information, see <a href="collections.html">Collections</a>.</p>
+<p>Options can also be useful when a value might not exist, for example if it is possible that an exception will
+be thrown when you try to construct a value. The following code sample illustrates this.</p>
+<pre><code class="lang-csharp">using System.IO;
+using RustyOptions;
+using static RustyOptions.Option;
+
+Option&lt;FileStream&gt; OpenFile(string filename)
+{
+    try
+    {
+        var file = File.Open(filename, FileMode.Create);
+        return Some(file);
+    }
+    catch (Exception ex)
+    {
+        Console.Error.WriteLine(&quot;An exception occurred opening file '{0}': {1}&quot;, 
+            filename, ex.Message);
+        return None&lt;FileStream&gt;();
+    }
+}
+</code></pre>
+<p>The <code>OpenFile</code> function in the previous example returns a <code>FileStream</code> option if the file opens successfully,
+and <code>None</code> if an exception occurs. Depending on the situation, it may not be an appropriate design choice to
+catch an exception rather than allowing it to propagate.</p>
+<h2 id="null-values">Null Values</h2>
+<p>Note that unlike the F# Option type, RustyOptions does not allow <code>Some(null)</code> - any attempt to create an option
+with a null value will result in <code>None</code>.</p>
+<h2 id="option-properties-and-methods">Option Properties and Methods</h2>
+<p>The option type supports the <a href="../api/RustyOptions.Option-1.html">following properties and methods</a>.</p>
+<h2 id="converting-to-other-types">Converting to Other Types</h2>
+<p>Options can be converted to <a href="result.html">Results</a> using the
+<a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_">OkOr</a>
+or <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__">OkOrElse</a> extension methods.</p>
+<p>Options can be converted to <code>IEnumerable&lt;T&gt;</code> using the <a href="../api/RustyOptions.Option-1.html#RustyOptions_Option_1_AsEnumerable">AsEnumerable</a> method.</p>
+<p>Options can be converted to <code>ReadOnlySpan&lt;T&gt;</code> using the <a href="../api/RustyOptions.Option-1.html#RustyOptions_Option_1_AsSpan">AsSpan</a> method.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/users/jtm/docs/docs/articles/option.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

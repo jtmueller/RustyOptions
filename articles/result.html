@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Results </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Results ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="results">Results</h1>
+
+<p>The <code>Result&lt;T, TErr&gt;</code> type lets you write error-tolerant code that can be composed.</p>
+<pre><code class="lang-csharp">using RustyOptions;
+using static RustyOptions.Result;
+
+// Defaults to an error type of string
+Result&lt;int, string&gt; ok1 = Ok(42);
+// Defaults to an error type of Exception
+Result&lt;int, Exception&gt; ok2 = OkExn(42);
+// fully-specified types
+Result&lt;int, MyCustomErrType&gt; ok3 = Ok&lt;int, MyCustomErrType&gt;(42);
+
+// Error type is string, but you must specify the Ok type
+Result&lt;int, string&gt; err1 = Err&lt;int&gt;(&quot;oops&quot;);
+// Error type is Exception, but you must specify the Ok type.
+Result&lt;int, Exception&gt; err2 = Err&lt;int&gt;(new Exception(&quot;oops&quot;));
+// fully-specified types
+Result&lt;int, MyCustomErrType&gt; err3 = Err&lt;int, MyCustomErrType&gt;(new MyCustomErrType(&quot;oops&quot;));
+</code></pre>
+<h2 id="remarks">Remarks</h2>
+<p>The <code>Result</code> type is used for operations that might not succeed, and need to return a reason if the operation failed.
+In other words, error handling.</p>
+<p>Because C# is fundamentally based on exceptions for error handling, it is not advisable to attempt to write a large program
+that uses <code>Result</code> exclusively for all error handling. The lack of stack traces will make debugging difficult, and it's not
+possible to completely eliminate all need for try/catch statements.</p>
+<p>Where <code>Result</code> shines is in specific, isolated use-cases where operations are expected to fail, and we need to know why the
+operation failed, but do not want to pay the cost of constructing a stack-trace for an Exception. One example would be input
+validation.</p>
+<p>Results have both advantages and disadvantages when compared to exception-based error handling.</p>
+<h3 id="advantages">Advantages</h3>
+<ul>
+<li>Throwing an exception for a routine, non-exceptional failure (such as input validation) is expensive, mainly due to creating
+the exception's stack trace. <code>Result</code> does not have this overhead.</li>
+<li>If you want to avoid using exceptions in such cases, you need to manually track three things:
+<ul>
+<li>Did the operation succeed?</li>
+<li>If so, what is the return value?</li>
+<li>If not, why not?</li>
+</ul>
+</li>
+<li>The <code>Result</code> type tracks exactly this information, in a way that is easily composable with other results.</li>
+<li><code>Result</code> does not force you to use any specific type to indicate an error. Errors can be instances of <code>Exception</code> but they
+can also be strings or any custom type you desire.</li>
+</ul>
+<h3 id="disadvantages">Disadvantages</h3>
+<ul>
+<li>It's easier to accidentally ignore a <code>Result</code> in the <code>Err</code> state than it is to accidentally ignore an exception.</li>
+<li>Exceptions have stack traces, whereas <code>Result</code> does not. This can make errors more difficult to track down
+if you have many deeply-nested Result-returning functions.</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">using RustyOptions;
+using static RustyOptions.Result;
+
+// Define a simple type which has fields that can be validated
+record Request(string Name, string Email);
+
+// Define some logic for what defines a valid name.
+// Generates a Result which is an Ok if the name validates;
+// otherwise, it generates a Result which is an Err.
+Result&lt;Request, string&gt; ValidateName(Request req) =&gt;
+    req.Name switch
+    {
+        null =&gt; Err&lt;Request&gt;(&quot;No name found.&quot;),
+        &quot;&quot; =&gt; Err&lt;Request&gt;(&quot;Name is empty.&quot;),
+        &quot;bananas&quot; =&gt; Err&lt;Request&gt;(&quot;Bananas is not a name.&quot;),
+        _ =&gt; Ok(req)
+    };
+
+// Similarly, define some email validation logic.
+Result&lt;Request, string&gt; ValidateEmail(Request req) =&gt;
+    req.Email switch
+    {
+        null =&gt; Err&lt;Request&gt;(&quot;No email found.&quot;),
+        &quot;&quot; =&gt; Err&lt;Request&gt;(&quot;Email is empty.&quot;),
+        var s when s.EndsWith(&quot;bananas.com&quot;) =&gt; Err&lt;Request&gt;(&quot;No email from bananas.com is allowed.&quot;),
+        _ =&gt; Ok(req)
+    };
+
+// Compose the name/email validation functions
+Result&lt;Request, string&gt; ValidateRequest(Result&lt;Request, string&gt; reqResult) =&gt;
+    reqResult.AndThen(ValidateName).AndThen(ValidateEmail);
+
+void Test()
+{
+    // Now, create and validate a Request and check the result.
+    var req1 = new Request(&quot;Phillip&quot;, &quot;phillip@contoso.biz&quot;);
+    var res1 = ValidateRequest(Ok(req1));
+    res1.Match(
+        onOk: req =&gt; Console.WriteLine($&quot;My request was valid! Name: {req.Name} Email: {req.Email}&quot;),
+        onErr: e =&gt; Console.WriteLine($&quot;Error: {e}&quot;)
+    );
+    // Prints: &quot;My request was valid! Name: Phillip Email: phillip@contoso.biz&quot;
+
+    var req2 = new Request(&quot;Phillip&quot;, &quot;phillip@bananas.com&quot;);
+    var res2 = ValidateRequest(Ok(req2));
+    res2.Match(
+        onOk: req =&gt; Console.WriteLine($&quot;My request was valid! Name: {req.Name} Email: {req.Email}&quot;),
+        onErr: e =&gt; Console.WriteLine($&quot;Error: {e}&quot;)
+    );
+    // Prints: &quot;Error: No email from bananas.com is allowed.&quot;
+}
+
+</code></pre>
+<h2 id="converting-from-exceptions-to-results">Converting from Exceptions to Results</h2>
+<p>You can use <code>Result.Try</code> to call a function that might throw an exception, returning either the return value or the exception wrapped in a <code>Result</code>.</p>
+<pre><code class="lang-csharp">var res = Result.Try(MethodMaybeThrows);
+
+int x = 5;
+int y = 10;
+var res2 = Result.Try(() =&gt; MethodWithArgsMaybeThrows(x, y));
+</code></pre>
+<h2 id="converting-to-other-types">Converting to Other Types</h2>
+<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>Option&lt;T&gt;</code> with the <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__">Ok</a> extension method.</p>
+<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>Option&lt;TErr&gt;</code> with the <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__">Err</a> extension method.</p>
+<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>IEnumerable&lt;T&gt;</code> with the <a href="../api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsEnumerable">AsEnumerable</a> method.</p>
+<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>ReadOnlySpan&lt;T&gt;</code> with the <a href="../api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsSpan">AsSpan</a> method.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/users/jtm/docs/docs/articles/result.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
