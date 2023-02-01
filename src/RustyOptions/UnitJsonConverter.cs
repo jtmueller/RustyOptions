@@ -11,14 +11,14 @@ public sealed class UnitJsonConverter : JsonConverter<Unit>
     /// <summary>
     /// Creates a new instance of UnitJsonConverter.
     /// </summary>
-    public UnitJsonConverter()
+    public UnitJsonConverter() : base()
     {
     }
 
     /// <inheritdoc/>
     public override Unit Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        if (reader.TokenType != JsonTokenType.Null || !reader.Read())
+        if (reader.TokenType != JsonTokenType.Null)
             throw new JsonException();
 
         return default;
@@ -30,4 +30,3 @@ public sealed class UnitJsonConverter : JsonConverter<Unit>
         writer.WriteNullValue();
     }
 }
-

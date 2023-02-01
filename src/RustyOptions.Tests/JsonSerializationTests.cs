@@ -216,6 +216,50 @@ public class JsonSerializationTests
         Assert.Equal(ResultErr, serialized);
     }
 
+    [Fact]
+    public void CanSerializeUnit()
+    {
+        Unit unit;
+
+        var serialized = JsonSerializer.Serialize(unit);
+
+        Assert.Equal("null", serialized);
+    }
+
+    [Fact]
+    public void CanDeserializeUnit()
+    {
+        var deserialized = JsonSerializer.Deserialize<Unit>("null");
+
+        Assert.Equal(Unit.Default, deserialized);
+    }
+
+    [Fact]
+    public void CanSerializeUnitResult()
+    {
+        var ok = Result.Ok(Unit.Default);
+        var err = Result.Err<Unit>("oops");
+
+        var serOk = JsonSerializer.Serialize(ok);
+        var serErr = JsonSerializer.Serialize(err);
+
+        Assert.Equal("""{"ok":null}""", serOk);
+        Assert.Equal("""{"err":"oops"}""", serErr);
+    }
+
+    [Fact]
+    public void CanDeserializeUnitResult()
+    {
+        var ok = Result.Ok(Unit.Default);
+        var err = Result.Err<Unit>("oops");
+
+        var desOk = JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":null}""");
+        var desErr = JsonSerializer.Deserialize<Result<Unit, string>>("""{"err":"oops"}""");
+
+        Assert.Equal(ok, desOk);
+        Assert.Equal(err, desErr);
+    }
+
     private const string OptionsAllSome = $$"""
         {"foo":42,"bar":17,"name":"Frank","lastUpdated":"{{DtoString}}"}
         """;
