@@ -8,6 +8,9 @@ namespace RustyOptions;
 /// </summary>
 public sealed class UnitJsonConverter : JsonConverter<Unit>
 {
+    /// <summary>
+    /// Creates a new instance of UnitJsonConverter.
+    /// </summary>
     public UnitJsonConverter()
     {
     }

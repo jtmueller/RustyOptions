@@ -29,6 +29,11 @@ module TypeExtensions =
             | (true, value) -> Ok value
             | _ -> Error(x.UnwrapErr())
 
+    type RustyOptions.Unit with
+        /// Converts a RustyOptions Unit into an F# unit.
+        [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+        member x.AsFSharpUnit() = ()
+
 #if NET7_0_OR_GREATER
     type RustyOptions.NumericOption<'a when 'a : struct and 'a :> System.ValueType and 'a : (new : unit -> 'a) and 'a :> System.Numerics.INumber<'a>> with
 
@@ -74,6 +79,11 @@ module CSharpTypeExtensions =
         match x.IsOk() with
         | (true, value) -> Ok value
         | _ -> Error(x.UnwrapErr())
+
+    /// Converts a RustyOptions Unit into an F# unit.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let AsFSharpUnit(x: RustyOptions.Unit) = ()
 
 #if NET7_0_OR_GREATER
 /// This module provides C# extension methods on RustyOptions numeric types.
@@ -176,3 +186,17 @@ module Result =
         match x with
         | Ok(value) -> RustyOptions.Result.Ok<'a, 'err>(value)
         | Error(err) -> RustyOptions.Result.Err<'a, 'err>(err)
+
+    /// Converts a RustyOptions Unit Result into an F# unit Result.
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let ofRustyUnitResult (x: RustyOptions.Result<RustyOptions.Unit, 'err>) =
+        match x.IsOk() with
+        | (true, _) -> Ok ()
+        | _ -> Error(x.UnwrapErr())
+
+    /// Converts an F# unit Result into a RustyOptions Unit Result.
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let toRustyUnitResult (x: Result<unit, 'err>) =
+        match x with
+        | Ok(_) -> RustyOptions.Result.Ok<RustyOptions.Unit, 'err>(RustyOptions.Unit.Default)
+        | Error(err) -> RustyOptions.Result.Err<RustyOptions.Unit, 'err>(err)

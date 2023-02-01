@@ -20,7 +20,7 @@ public readonly struct Unit : IEquatable<Unit>, IComparable<Unit>, ISpanFormatta
     /// <summary>
     /// Returns the <c>Unit</c> instance.
     /// </summary>
-    public static readonly Unit Default = default;
+    public static readonly Unit Default;
 
     /// <inheritdoc />
     public int CompareTo(Unit other) => 0;
