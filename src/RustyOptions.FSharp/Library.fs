@@ -4,7 +4,6 @@ open System.Runtime.CompilerServices
 
 /// This module provides F# extension methods on RustyOptions types.
 [<AutoOpen>]
-[<Extension>]
 module TypeExtensions =
 
     type RustyOptions.Option<'a> with
@@ -85,7 +84,6 @@ module CSharpTypeExtensions =
         match x.IsOk() with
         | (true, value) -> Ok value
         | _ -> Error(x.UnwrapErr())
-
 
     /// Converts a RustyOptions Unit Result into an F# unit Result.
     [<Extension>]
