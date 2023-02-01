@@ -256,6 +256,8 @@ public class JsonSerializationTests
         var desOk = JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":null}""");
         var desErr = JsonSerializer.Deserialize<Result<Unit, string>>("""{"err":"oops"}""");
 
+        _ = Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":1}"""));
+
         Assert.Equal(ok, desOk);
         Assert.Equal(err, desErr);
     }
