@@ -4,6 +4,7 @@ Option and Result types for C#, inspired by Rust
 [![CI](https://github.com/jtmueller/RustyOptions/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/jtmueller/RustyOptions/actions/workflows/build-and-test.yml) 
 [![CodeQL](https://github.com/jtmueller/RustyOptions/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jtmueller/RustyOptions/actions/workflows/codeql-analysis.yml) 
 [![codecov](https://codecov.io/gh/jtmueller/RustyOptions/branch/main/graph/badge.svg?token=M81EJH4ZEI)](https://codecov.io/gh/jtmueller/RustyOptions)
+[![NuGet](https://buildstats.info/nuget/RustyOptions)](https://www.nuget.org/packages/RustyOptions/)
 
 ```
 dotnet add package RustyOptions
@@ -173,8 +174,10 @@ For performance and convenience:
 
 ## FAQ
 
-  - This library only supports .NET 6 and above. What about .NET Framework?
+  - This library only supports .NET 6 and above. What about .NET Framework? .NET 5? .NET Core 3.1?
     - You may want to consider the [Optional](https://github.com/nlkl/Optional) library for legacy framework support.
+    - .NET Core 3.1 and .NET 5 are not supported because as of this writing they are no longer supported by Microsoft.
+      However, if these runtimes are important to you, we welcome pull requests.
   - Why create this library if [Optional](https://github.com/nlkl/Optional) already exists?
     - I prefer the Rust Option/Result API methods and wanted to replicate those in C#.
     - I wanted to take advantage of modern .NET features like `ISpanParsable<T>` and `INumber<T>`.
