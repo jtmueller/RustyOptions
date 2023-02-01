@@ -4,6 +4,7 @@ open System.Runtime.CompilerServices
 
 /// This module provides F# extension methods on RustyOptions types.
 [<AutoOpen>]
+[<Extension>]
 module TypeExtensions =
 
     type RustyOptions.Option<'a> with
@@ -26,13 +27,18 @@ module TypeExtensions =
         [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
         member x.AsFSharpResult() =
             match x.IsOk() with
-            | (true, value) -> Ok value
+            | (true, value) -> Ok(value)
             | _ -> Error(x.UnwrapErr())
 
     type RustyOptions.Unit with
         /// Converts a RustyOptions Unit into an F# unit.
         [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
-        member x.AsFSharpUnit() = ()
+        member _.AsFSharpUnit() : unit = ()
+
+    type Microsoft.FSharp.Core.Unit with
+        /// Converts an F# unit into a RustyOptions Unit.
+        [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+        member _.AsRustyUnit() = RustyOptions.Unit.Default
 
 #if NET7_0_OR_GREATER
     type RustyOptions.NumericOption<'a when 'a : struct and 'a :> System.ValueType and 'a : (new : unit -> 'a) and 'a :> System.Numerics.INumber<'a>> with
@@ -80,10 +86,17 @@ module CSharpTypeExtensions =
         | (true, value) -> Ok value
         | _ -> Error(x.UnwrapErr())
 
-    /// Converts a RustyOptions Unit into an F# unit.
+
+    /// Converts a RustyOptions Unit Result into an F# unit Result.
     [<Extension>]
     [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
-    let AsFSharpUnit(x: RustyOptions.Unit) = ()
+    let AsFSharpUnitResult(x: RustyOptions.Result<RustyOptions.Unit, 'err>) =
+        match x.IsOk() with
+        | (true, _) -> Ok ()
+        | _ -> Error(x.UnwrapErr())
+
+    // NOTE: We can't have an AsFSharpUnit method for C#, because C# interprets
+    // a unit-returning F# function as if it's a void-returning C# function.
 
 #if NET7_0_OR_GREATER
 /// This module provides C# extension methods on RustyOptions numeric types.

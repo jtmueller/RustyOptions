@@ -70,6 +70,28 @@ let ``Can convert Result with module functions`` () =
     Assert.Equal(ok, okConverted)
     Assert.Equal(err, errConverted)
 
+[<Fact>]
+let ``Can convert Unit`` () =
+    let rustyUnit = RustyOptions.Unit.Default;
+    let fsUnit = ()
+
+    Assert.Equal(fsUnit, rustyUnit.AsFSharpUnit());
+    Assert.Equal(rustyUnit, fsUnit.AsRustyUnit());
+
+[<Fact>]
+let ``Can convert Unit Result`` () =
+    let rustyOk = RustyOptions.Result.Ok<RustyOptions.Unit, string>(RustyOptions.Unit.Default)
+    let rustyErr = RustyOptions.Result.Err<RustyOptions.Unit, string>("oops")
+
+    let fsOk = Ok ()
+    let fsErr = Error("oops")
+
+    Assert.Equal(fsOk, rustyOk |> Result.ofRustyUnitResult)
+    Assert.Equal(fsErr, rustyErr |> Result.ofRustyUnitResult)
+
+    Assert.Equal(rustyOk, fsOk |> Result.toRustyUnitResult)
+    Assert.Equal(rustyErr, fsErr |> Result.toRustyUnitResult)
+
 #if NET7_0_OR_GREATER
 [<Fact>]
 let ``Can convert NumericOption with extension methods`` () =
