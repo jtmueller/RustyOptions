@@ -43,6 +43,19 @@ public sealed class FSharpConversionTests
         Assert.Equal("oops", errFs.ErrorValue);
     }
 
+    [Fact]
+    public void CanConvertUnitResult()
+    {
+        var ok = Result.Ok(Unit.Default);
+        var err = Result.Err<Unit>("oops");
+
+        var okFs = ok.AsFSharpUnitResult();
+        var errFs = err.AsFSharpUnitResult();
+
+        Assert.True(okFs.IsOk);
+        Assert.Equal("oops", errFs.ErrorValue);
+    }
+
 #if NET7_0_OR_GREATER
     [Fact]
     public void CanConvertNumericOption()
