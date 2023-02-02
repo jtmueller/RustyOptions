@@ -108,7 +108,6 @@ void Test()
     );
     // Prints: "Error: No email from bananas.com is allowed."
 }
-
 ```
 
 ## Converting from Exceptions to Results
