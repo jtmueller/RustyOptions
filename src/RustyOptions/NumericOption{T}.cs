@@ -161,6 +161,18 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     }
 
     /// <summary>
+    /// Returns an enumerator for the option.
+    /// </summary>
+    /// <returns>The enumerator.</returns>
+    public IEnumerator<T> GetEnumerator()
+    {
+        if (_isSome)
+        {
+            yield return _value;
+        }
+    }
+
+    /// <summary>
     /// Indicates whether the current object is equal to another object of the same type.
     /// </summary>
     /// <param name="other">An object to compare with this object.</param>

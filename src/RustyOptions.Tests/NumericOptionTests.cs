@@ -124,14 +124,14 @@ public sealed class NumericOptionTests
         var noneInt = None<int>();
 
         int value = 0;
-        foreach (var x in noneInt.AsEnumerable())
+        foreach (var x in noneInt)
         {
             value += x;
         }
 
         Assert.Equal(0, value);
 
-        foreach (var x in someInt.AsEnumerable())
+        foreach (var x in someInt)
         {
             value += x;
         }

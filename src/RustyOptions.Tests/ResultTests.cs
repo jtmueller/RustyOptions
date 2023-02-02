@@ -162,14 +162,14 @@ public sealed class ResultTests
         var err = Err<int>("oops");
 
         int value = 0;
-        foreach (var x in err.AsEnumerable())
+        foreach (var x in err)
         {
             value += x;
         }
 
         Assert.Equal(0, value);
 
-        foreach (var x in ok.AsEnumerable())
+        foreach (var x in ok)
         {
             value += x;
         }
