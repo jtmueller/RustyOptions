@@ -12,6 +12,7 @@ public sealed class NumericOptionTests
     public void CanPerformBasicOperations()
     {
         var none = None<int>();
+        var otherNone = 0.NoneNumeric();  // value is used to determine option type, then discarded
         var someStruct = Some(42);
         var someNullableStruct = ((int?)42).AsOption();
         var someClass = "test".AsOption();
@@ -19,6 +20,7 @@ public sealed class NumericOptionTests
         var notNullOpt = NumericOption.Create((int?)45);
 
         Assert.True(none.IsNone);
+        Assert.True(otherNone.IsNone);
         Assert.False(none.IsSome(out _));
 
         Assert.True(someStruct.IsSome(out var structVal));

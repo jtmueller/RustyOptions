@@ -1,5 +1,6 @@
 ﻿#if NET7_0_OR_GREATER
 
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using static System.ArgumentNullException;
@@ -262,6 +263,34 @@ public static class NumericOptionExtensions
                 yield return value;
             }
         }
+    }
+
+    /// <summary>
+    /// Wraps the given number in a <see cref="NumericOption{T}"/>.
+    /// </summary>
+    /// <typeparam name="T">The type used in the returned <see cref="NumericOption{T}"/>.</typeparam>
+    /// <param name="value">The value that will be contained in the <c>NumericOption</c>.</param>
+    /// <returns>The value wrapped in an <see cref="NumericOption{T}"/></returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static NumericOption<T> SomeNumeric<T>(this T value)
+        where T : struct, INumber<T>
+    {
+        return new(value);
+    }
+
+    /// <summary>
+    /// Returns <c>None</c> option typed to match <paramref name="value"/>. The value is not
+    /// used except to determine the type of the option.
+    /// </summary>
+    /// <typeparam name="T">The type used in the returned <see cref="NumericOption{T}"/>.</typeparam>
+    /// <param name="value">The value used to determine the type of the returned <c>None</c> option. The value itself is not used.</param>
+    /// <returns>A <c>None</c> option.</returns>
+    [SuppressMessage("Design", "IDE0060:Remove unused parameter", Justification = "As this is an extension method, it's not possible for the parameter to be unused.")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static NumericOption<T> NoneNumeric<T>(this T value)
+        where T : struct, INumber<T>
+    {
+        return default;
     }
 }
 

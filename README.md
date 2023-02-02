@@ -33,15 +33,16 @@ Option<int> ex3 = new Option<int>(42);
 Option<int> ex4 = Option<int>.None;
 Option<int> ex5 = Option.None<int>();
 Option<int> ex6 = default; // equivalent to Option.None<int>()
+Option<int> ex7 = 0.None(); // value is used only to determine type
 
 int? maybeNull = GetPossiblyNullInteger();
-Option<int> ex7 = Option.Create(maybeNull); // null turns into Option.None
+Option<int> ex8 = Option.Create(maybeNull); // null turns into Option.None
 
 // Or you can use 'using static' for more concise/F#/Rust-like syntax:
 using static RustyOptions.Option;
 
-var ex8 = Some(42);
-var ex9 = None<int>();
+var ex9 = Some(42);
+var ex10 = None<int>();
 ```
 
 ### Getting values from an Option
