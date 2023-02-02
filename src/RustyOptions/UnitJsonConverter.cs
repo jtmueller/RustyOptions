@@ -6,7 +6,7 @@ namespace RustyOptions;
 /// <summary>
 /// Supports <see cref="Unit"/> in System.Text.Json serialization.
 /// </summary>
-public sealed class UnitJsonConverter : JsonConverter<Unit>
+internal sealed class UnitJsonConverter : JsonConverter<Unit>
 {
     /// <summary>
     /// Creates a new instance of UnitJsonConverter.

@@ -8,7 +8,7 @@ namespace RustyOptions;
 /// <summary>
 /// Supports <see cref="Option{T}"/> in System.Text.Json serialization.
 /// </summary>
-public sealed class OptionJsonConverter : JsonConverterFactory
+internal sealed class OptionJsonConverter : JsonConverterFactory
 {
     /// <inheritdoc/>
     public override bool CanConvert(Type typeToConvert)

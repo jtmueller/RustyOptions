@@ -1,7 +1,6 @@
 ﻿#if NET7_0_OR_GREATER
 
 using System.Globalization;
-using RustyOptions;
 using static RustyOptions.NumericOption;
 
 namespace RustyOptions.Tests;

@@ -8,7 +8,7 @@ namespace RustyOptions;
 /// <summary>
 /// Supports <see cref="Result{T, TErr}"/> in System.Text.Json serialization.
 /// </summary>
-public sealed class ResultJsonConverter : JsonConverterFactory
+internal sealed class ResultJsonConverter : JsonConverterFactory
 {
     /// <inheritdoc/>
     public override bool CanConvert(Type typeToConvert)

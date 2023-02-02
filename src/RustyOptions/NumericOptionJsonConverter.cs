@@ -11,7 +11,7 @@ namespace RustyOptions;
 /// <summary>
 /// Supports <see cref="NumericOption{T}"/> in System.Text.Json serialization.
 /// </summary>
-public sealed class NumericOptionJsonConverter : JsonConverterFactory
+internal sealed class NumericOptionJsonConverter : JsonConverterFactory
 {
     /// <inheritdoc/>
     public override bool CanConvert(Type typeToConvert)
