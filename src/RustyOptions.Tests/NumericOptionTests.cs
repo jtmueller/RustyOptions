@@ -17,6 +17,8 @@ public sealed class NumericOptionTests
         var someClass = "test".AsOption();
         var nullOpt = NumericOption.Create((int?)null);
         var notNullOpt = NumericOption.Create((int?)45);
+        NumericOption<int> convertedOpt = Option.Some(10); // implicit conversion from Option
+        NumericOption<int> convertedInt = 10; // Implicit conversion from integer
 
         Assert.True(none.IsNone);
         Assert.True(otherNone.IsNone);
@@ -36,6 +38,9 @@ public sealed class NumericOptionTests
 
         Assert.True(nullOpt.IsNone);
         Assert.Equal(Some(45), notNullOpt);
+
+        Assert.Equal(Some(10), convertedOpt);
+        Assert.Equal(Some(10), convertedInt);
     }
 
     [Fact]
@@ -421,7 +426,8 @@ public sealed class NumericOptionTests
     [Fact]
     public void CanConvertToOption()
     {
-        Assert.Equal(Option.Some(42), NumericOption.Some(42));
+        Option<int> converted = NumericOption.Some(42);
+        Assert.Equal(Option.Some(42), converted);
     }
 
     [Fact]

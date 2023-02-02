@@ -730,14 +730,24 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// Converts a <see cref="NumericOption{T}"/> into an <see cref="Option{T}"/>.
     /// </summary>
     /// <param name="self">The numeric option to convert.</param>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static implicit operator Option<T>(NumericOption<T> self)
         => self.IsSome(out var val) ? Option.Some(val) : Option<T>.None;
 
     /// <summary>
-    /// Converts a <typeparamref name="T"/> into a <see cref="NumericOption{T}"/>.
+    /// Implicitly converts a <typeparamref name="T"/> into a <see cref="NumericOption{T}"/>.
     /// </summary>
     /// <param name="value">The value to wrap in a <see cref="NumericOption{T}"/>.</param>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static implicit operator NumericOption<T>(T value) => new(value);
+
+    /// <summary>
+    /// Implicitly converts <see cref="Option{T}"/> into <see cref="NumericOption{T}"/>, provided that <c>T</c> is compatible with NumericOption.
+    /// </summary>
+    /// <param name="option">The option to convert.</param>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static implicit operator NumericOption<T>(Option<T> option)
+        => option.IsSome(out var val) ? new(val) : default;
 
     /// <inheritdoc/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

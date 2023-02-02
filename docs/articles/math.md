@@ -34,4 +34,6 @@ for (var i = Some(0); i < 5; i++)
 
 As you can see from the last example above, comparison operators such as `<` and increment operators like `++` also work with `NumericOption<T>`, even when comparing an option to a concrete number.
 
+`NumericOption<T>` can be implicitly converted to and from `Option<T>` provided that the contained type is compatible with `NumericOption<T>`.
+
 This support works for any built-in type that implements `INumber<T>`, any custom type that implements `INumber<T>`, and any future built-in types that implement `INumber<T>`. Enjoy!

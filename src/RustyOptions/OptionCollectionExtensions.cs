@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using static System.ArgumentNullException;
+﻿using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
@@ -8,10 +7,6 @@ namespace RustyOptions;
 /// </summary>
 public static class OptionCollectionExtensions
 {
-    // NOTE: Due to a bug in coverlet.collector, certain lines in methods involving IAsyncEnumerable
-    // will show as partially-covered in code-coverage tools, even when they are fully-covered.
-    // https://github.com/coverlet-coverage/coverlet/issues/1104#issuecomment-1005332269
-
     /// <summary>
     /// Flattens a sequence of <see cref="Option{T}"/> into a sequence containing all inner values.
     /// Empty elements are discarded.
@@ -25,28 +20,6 @@ public static class OptionCollectionExtensions
         ThrowIfNull(self);
 
         foreach (var option in self)
-        {
-            if (option.IsSome(out var value))
-            {
-                yield return value;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Flattens an asynchronous sequence of <see cref="Option{T}"/> into a sequence containing all inner values.
-    /// Empty elements are discarded.
-    /// </summary>
-    /// <param name="self">The sequence of options.</param>
-    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
-    /// <returns>A flattened sequence of values.</returns>
-    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
-    public static async IAsyncEnumerable<T> ValuesAsync<T>(this IAsyncEnumerable<Option<T>> self, [EnumeratorCancellation] CancellationToken ct = default)
-        where T : notnull
-    {
-        ThrowIfNull(self);
-
-        await foreach (var option in self.WithCancellation(ct))
         {
             if (option.IsSome(out var value))
             {
@@ -120,27 +93,6 @@ public static class OptionCollectionExtensions
     }
 
     /// <summary>
-    /// Returns the first element of an asynchronous sequence if such exists.
-    /// </summary>
-    /// <param name="self">The sequence to return the first element from.</param>
-    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
-    /// <returns>An <see cref="Option{T}"/> instance containing the first element if present.</returns>
-    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
-    public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, CancellationToken ct = default)
-        where T : notnull
-    {
-        ThrowIfNull(self);
-
-        await using var enumerator = self.GetAsyncEnumerator(ct);
-        if (await enumerator.MoveNextAsync().ConfigureAwait(false))
-        {
-            return Option.Some(enumerator.Current);
-        }
-
-        return default;
-    }
-
-    /// <summary>
     /// Returns the first element of a sequence, satisfying a specified predicate, 
     /// if such exists.
     /// </summary>
@@ -155,32 +107,6 @@ public static class OptionCollectionExtensions
         ThrowIfNull(predicate);
 
         foreach (var item in self)
-        {
-            if (predicate(item))
-            {
-                return Option.Some(item);
-            }
-        }
-
-        return default;
-    }
-
-    /// <summary>
-    /// Returns the first element of a sequence, satisfying a specified predicate, 
-    /// if such exists.
-    /// </summary>
-    /// <param name="self">The sequence to return the first element from.</param>
-    /// <param name="predicate">The predicate to filter by.</param>
-    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
-    /// <returns>An <see cref="Option{T}"/> instance containing the first matching element, if present.</returns>
-    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="predicate"/> is null.</exception>
-    public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, Func<T, bool> predicate, CancellationToken ct = default)
-        where T : notnull
-    {
-        ThrowIfNull(self);
-        ThrowIfNull(predicate);
-
-        await foreach (var item in self.WithCancellation(ct))
         {
             if (predicate(item))
             {

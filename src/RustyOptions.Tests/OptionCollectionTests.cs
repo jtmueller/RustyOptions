@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Runtime.CompilerServices;
-using RustyOptions.Async;
 using static RustyOptions.Option;
 
 namespace RustyOptions.Tests;
@@ -84,39 +82,6 @@ public class OptionCollectionTests
     }
 
     [Fact]
-    public async Task CanGetValuesAsync()
-    {
-        int count = 0;
-        await foreach (var x in EnumerateFilteredAsync(11, i => (i & 1) == 0).ValuesAsync())
-        {
-            Assert.True((x & 1) == 0);
-            count++;
-        }
-
-        Assert.Equal(6, count);
-    }
-
-    [Fact]
-    public async Task CanGetValuesWithCancelAsync()
-    {
-        using var cts = new CancellationTokenSource();
-
-        int count = 0;
-        await foreach (var x in EnumerateFilteredAsync(11, i => (i & 1) == 0, cts.Token).ValuesAsync(cts.Token))
-        {
-            Assert.True((x & 1) == 0);
-            count++;
-
-            if (count > 2)
-            {
-                cts.Cancel();
-            }
-        }
-
-        Assert.Equal(3, count);
-    }
-
-    [Fact]
     public void CanGetFirst()
     {
         IList<int> empty = Array.Empty<int>();
@@ -148,33 +113,6 @@ public class OptionCollectionTests
         Assert.Equal(None<int>(), empty.FirstOrNone(Predicate));
         Assert.Equal(Some(6), notEmpty.FirstOrNone(Predicate));
         Assert.Equal(None<int>(), noMatches.FirstOrNone(Predicate));
-    }
-
-    [Fact]
-    public async Task CanGetFirstOrNoneAsync()
-    {
-        Assert.Equal(None<int>(), await EnumerateAsync(0).FirstOrNoneAsync());
-        Assert.Equal(Some(0), await EnumerateAsync(11).FirstOrNoneAsync());
-        Assert.Equal(Some(2), await EnumerateAsync(11).FirstOrNoneAsync(x => x > 0 && (x & 1) == 0));
-        Assert.Equal(None<int>(), await EnumerateAsync(11).FirstOrNoneAsync(x => x > 500));
-    }
-
-    [Fact]
-    public async Task CanGetFirstOrNoneWithCancelAsync()
-    {
-        using var cts = new CancellationTokenSource();
-
-        Assert.Equal(None<int>(), await EnumerateAsync(0, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(Some(0), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(Some(2), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 0 && (x & 1) == 0, cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 500, cts.Token));
-
-        cts.Cancel();
-
-        Assert.Equal(None<int>(), await EnumerateAsync(0, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 0 && (x & 1) == 0, cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 500, cts.Token));
     }
 
     [Fact]
@@ -313,33 +251,6 @@ public class OptionCollectionTests
         foreach (var item in items)
         {
             yield return item;
-        }
-    }
-
-    /// <summary>
-    /// Generates an IAsyncEnumerable that counts up to, but not including, the given
-    /// <paramref name="exclusiveMax"/>
-    /// </summary>
-    private static async IAsyncEnumerable<int> EnumerateAsync(int exclusiveMax, [EnumeratorCancellation] CancellationToken ct = default)
-    {
-        for (int i = 0; !ct.IsCancellationRequested && i < exclusiveMax; i++)
-        {
-            await Task.Yield();
-            yield return i;
-        }
-    }
-
-    /// <summary>
-    /// Generates an IAsyncEnumerable that counts up to, but not including, the given
-    /// <paramref name="exclusiveMax"/> - returning Some for numbers for which the predicate returns true
-    /// and None otherwise.
-    /// </summary>
-    private static async IAsyncEnumerable<Option<int>> EnumerateFilteredAsync(int exclusiveMax, Func<int, bool> predicate, [EnumeratorCancellation] CancellationToken ct = default)
-    {
-        for (int i = 0; !ct.IsCancellationRequested && i < exclusiveMax; i++)
-        {
-            await Task.Yield();
-            yield return predicate(i) ? Some(i) : None<int>();
         }
     }
 
