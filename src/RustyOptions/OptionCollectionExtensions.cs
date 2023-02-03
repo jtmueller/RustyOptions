@@ -356,7 +356,9 @@ public static class OptionCollectionExtensions
     public static Option<T> PeekOrNone<T>(this Stack<T> self)
         where T : notnull
     {
-        return self.TryPeek(out var result) ? Option.Some(result) : default;
+        ThrowIfNull(self);
+        return self.TryPeek(out var result)
+            ? Option.Some(result) : default;
     }
 
     /// <summary>
@@ -370,7 +372,9 @@ public static class OptionCollectionExtensions
     public static Option<T> PopOrNone<T>(this Stack<T> self)
         where T : notnull
     {
-        return self.TryPop(out var result) ? Option.Some(result) : default;
+        ThrowIfNull(self);
+        return self.TryPop(out var result)
+            ? Option.Some(result) : default;
     }
 
     /// <summary>
@@ -384,6 +388,7 @@ public static class OptionCollectionExtensions
     public static Option<T> PeekOrNone<T>(this ImmutableStack<T> self)
         where T : notnull
     {
+        ThrowIfNull(self);
         return self.IsEmpty ? default : Option.Some(self.Peek());
     }
 
@@ -393,12 +398,14 @@ public static class OptionCollectionExtensions
     /// </summary>
     /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
     /// <param name="self">The stack.</param>
-    /// <param name="result">An <see cref="Option{T}"/> containging the value to removed from the stack, if any.</param>
+    /// <param name="result">An <see cref="Option{T}"/> containing the value removed from the stack, if any.</param>
     /// <returns>A modified verison of the <c>ImmutableStack</c> without the removed value.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static ImmutableStack<T> PopOrNone<T>(this ImmutableStack<T> self, out Option<T> result)
         where T : notnull
     {
+        ThrowIfNull(self);
+
         if (self.IsEmpty)
         {
             result = default;
@@ -409,4 +416,112 @@ public static class OptionCollectionExtensions
         result = Option.Some(value);
         return newStack;
     }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>Queue</c> if one is present.
+    /// The object is not removed from the <c>Queue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this Queue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var value)
+            ? Option.Some(value) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>Queue</c> if one is present.
+    /// The object is removed from the <c>Queue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> DequeueOrNone<T>(this Queue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryDequeue(out var value)
+            ? Option.Some(value) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>PriorityQueue</c> if one is present.
+    /// The object is not removed from the <c>PriorityQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <typeparam name="TPriority">The type of the priority value.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<(T, TPriority)> PeekOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var value, out var priority)
+            ? Option.Some((value, priority)) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>PriorityQueue</c> if one is present.
+    /// The object is removed from the <c>PriorityQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <typeparam name="TPriority">The type of the priority value.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<(T, TPriority)> DequeueOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryDequeue(out var value, out var priority)
+            ? Option.Some((value, priority)) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>ImmutableQueue</c> if one is present.
+    /// The object is not removed from the <c>ImmutableQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ImmutableQueue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.IsEmpty ? default : Option.Some(self.Peek());
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>ImmutableQueue</c> if one is present.
+    /// The object is removed from the <c>ImmutableQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <param name="result">An <see cref="Option{T}"/> containing the value removed from the stack, if any.</param>
+    /// <returns>A modified verison of the <c>ImmutableStack</c> without the removed value.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ImmutableQueue<T> DequeueOrNone<T>(this ImmutableQueue<T> self, out Option<T> result)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+
+        if (self.IsEmpty)
+        {
+            result = default;
+            return self;
+        }
+
+        var newQueue = self.Dequeue(out var value);
+        result = Option.Some(value);
+        return newQueue;
+    }
+
+    // TODO: HashSet, SortedSet, ImmutableHashSet, ImmmutableSortedSet
 }

@@ -281,14 +281,79 @@ public class OptionCollectionTests
         var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
         var emptyStack = ImmutableStack<int>.Empty;
 
-        var newStack = stack.PopOrNone(out var value);
+        stack = stack.PopOrNone(out var value);
         Assert.Equal(Some(5), value);
-        Assert.Equal(4, newStack.Count());
+        Assert.Equal(4, stack.Count());
         emptyStack.PopOrNone(out value);
         Assert.True(value.IsNone);
     }
 
-    /// <summary>
+    [Fact]
+    public void CanPeekQueue()
+    {
+        var queue = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = new Queue<int>();
+
+        Assert.Equal(Some(1), queue.PeekOrNone());
+        Assert.True(emptyQueue.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanDequeueQueue()
+    {
+        var queue = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = new Queue<int>();
+
+        Assert.Equal(Some(1), queue.DequeueOrNone());
+        Assert.Equal(4, queue.Count);
+        Assert.True(emptyQueue.DequeueOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPeekPriorityQueue()
+    {
+        var queue = new PriorityQueue<int, int>(new[] { (1, 3), (2, 2), (3, 1), (4, 1), (5, 0) });
+        var emptyQueue = new PriorityQueue<int, int>();
+
+        Assert.Equal(Some((5, 0)), queue.PeekOrNone());
+        Assert.True(emptyQueue.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanDequeuePriorityQueue()
+    {
+        var queue = new PriorityQueue<int, int>(new[] { (1, 3), (2, 2), (3, 1), (4, 1), (5, 0) });
+        var emptyQueue = new PriorityQueue<int, int>();
+
+        Assert.Equal(Some((5, 0)), queue.DequeueOrNone());
+        Assert.Equal(4, queue.Count);
+        Assert.True(emptyQueue.DequeueOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPeekImmutableQueue()
+    {
+        var queue = ImmutableQueue.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = ImmutableQueue<int>.Empty;
+
+        Assert.Equal(Some(1), queue.PeekOrNone());
+        Assert.True(emptyQueue.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanDequeueImmutableQueue()
+    {
+        var queue = ImmutableQueue.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = ImmutableQueue<int>.Empty;
+
+        queue = queue.DequeueOrNone(out var value);
+        Assert.Equal(Some(1), value);
+        Assert.Equal(4, queue.Count());
+        emptyQueue.DequeueOrNone(out value);
+        Assert.True(value.IsNone);
+    }
+
+    /// <summary>y
     /// Ensures an IEnumerable can't be downcast.
     /// </summary>
     private static IEnumerable<T> Enumerate<T>(IEnumerable<T> items)
