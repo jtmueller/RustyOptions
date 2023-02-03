@@ -523,5 +523,67 @@ public static class OptionCollectionExtensions
         return newQueue;
     }
 
-    // TODO: HashSet, SortedSet, ImmutableHashSet, ImmmutableSortedSet
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The HashSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this HashSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The SortedSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this SortedSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The HashSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this ImmutableHashSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The SortedSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this ImmutableSortedSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
 }

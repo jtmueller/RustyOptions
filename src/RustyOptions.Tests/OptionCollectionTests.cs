@@ -353,6 +353,62 @@ public class OptionCollectionTests
         Assert.True(value.IsNone);
     }
 
+    [Fact]
+    public void CanGetValueFromHashSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = new HashSet<string>(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
+    [Fact]
+    public void CanGetValueFromSortedSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = new SortedSet<string>(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(ReferenceEquals(found.Unwrap(), words[2]));
+    }
+
+    [Fact]
+    public void CanGetValueFromImmutableHashSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = ImmutableHashSet.Create(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
+    [Fact]
+    public void CanGetValueFromImmutableSortedSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = ImmutableSortedSet.Create(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
     /// <summary>y
     /// Ensures an IEnumerable can't be downcast.
     /// </summary>
