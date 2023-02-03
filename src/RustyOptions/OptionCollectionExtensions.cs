@@ -1,4 +1,6 @@
-﻿using static System.ArgumentNullException;
+﻿using System.Collections.Immutable;
+using System.Runtime.CompilerServices;
+using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
@@ -341,5 +343,70 @@ public static class OptionCollectionExtensions
         }
 
         return default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
+    /// The object is not removed from the <c>Stack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this Stack<T> self)
+        where T : notnull
+    {
+        return self.TryPeek(out var result) ? Option.Some(result) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
+    /// The object is removed from the <c>Stack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PopOrNone<T>(this Stack<T> self)
+        where T : notnull
+    {
+        return self.TryPop(out var result) ? Option.Some(result) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>ImmutableStack</c> if one is present.
+    /// The object is not removed from the <c>ImmutableStack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ImmutableStack<T> self)
+        where T : notnull
+    {
+        return self.IsEmpty ? default : Option.Some(self.Peek());
+    }
+
+    /// <summary>
+    /// Sets <paramref name="result"/> to an <see cref="Option{T}"/> that contains the object at the top of the <c>ImmutableStack</c> if one is present.
+    /// A modified version of the stack without that value is returned.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <param name="result">An <see cref="Option{T}"/> containging the value to removed from the stack, if any.</param>
+    /// <returns>A modified verison of the <c>ImmutableStack</c> without the removed value.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ImmutableStack<T> PopOrNone<T>(this ImmutableStack<T> self, out Option<T> result)
+        where T : notnull
+    {
+        if (self.IsEmpty)
+        {
+            result = default;
+            return self;
+        }
+
+        var newStack = self.Pop(out var value);
+        result = Option.Some(value);
+        return newStack;
     }
 }

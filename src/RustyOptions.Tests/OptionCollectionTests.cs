@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using static RustyOptions.Option;
@@ -241,6 +242,50 @@ public class OptionCollectionTests
         Assert.Equal(Some(5), notEmpty.ElementAtOrNone(5));
         Assert.Equal(Some(5), notEmptyReadOnly.ElementAtOrNone(5));
         Assert.Equal(Some(5), notEmptyEnumerable.ElementAtOrNone(5));
+    }
+
+    [Fact]
+    public void CanPeekStack()
+    {
+        var stack = new Stack<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = new Stack<int>();
+
+        Assert.Equal(Some(5), stack.PeekOrNone());
+        Assert.True(emptyStack.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPopStack()
+    {
+        var stack = new Stack<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = new Stack<int>();
+
+        Assert.Equal(Some(5), stack.PopOrNone());
+        Assert.Equal(4, stack.Count);
+        Assert.True(emptyStack.PopOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPeekImmutableStack()
+    {
+        var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = ImmutableStack<int>.Empty;
+
+        Assert.Equal(Some(5), stack.PeekOrNone());
+        Assert.True(emptyStack.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPopImmutableStack()
+    {
+        var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = ImmutableStack<int>.Empty;
+
+        var newStack = stack.PopOrNone(out var value);
+        Assert.Equal(Some(5), value);
+        Assert.Equal(4, newStack.Count());
+        emptyStack.PopOrNone(out value);
+        Assert.True(value.IsNone);
     }
 
     /// <summary>
