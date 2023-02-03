@@ -458,12 +458,12 @@ public static class OptionCollectionExtensions
     /// <param name="self">The queue.</param>
     /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<(T Value, TPriority Priority)> PeekOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
+    public static Option<(T Element, TPriority Priority)> PeekOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
         where T : notnull
     {
         ThrowIfNull(self);
-        return self.TryPeek(out var value, out var priority)
-            ? Option.Some((value, priority)) : default;
+        return self.TryPeek(out var element, out var priority)
+            ? Option.Some((element, priority)) : default;
     }
 
     /// <summary>
@@ -475,12 +475,12 @@ public static class OptionCollectionExtensions
     /// <param name="self">The queue.</param>
     /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Option<(T Value, TPriority Priority)> DequeueOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
+    public static Option<(T Element, TPriority Priority)> DequeueOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
         where T : notnull
     {
         ThrowIfNull(self);
-        return self.TryDequeue(out var value, out var priority)
-            ? Option.Some((value, priority)) : default;
+        return self.TryDequeue(out var element, out var priority)
+            ? Option.Some((element, priority)) : default;
     }
 
     /// <summary>
