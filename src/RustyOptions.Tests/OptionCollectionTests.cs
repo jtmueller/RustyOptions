@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -407,6 +408,72 @@ public class OptionCollectionTests
         Assert.Equal(Some("two"), found);
         Assert.True(notFound.IsNone);
         Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
+    [Fact]
+    public void CanTakeFromConcurrentBag()
+    {
+        var bag = new ConcurrentBag<int>();
+        Assert.True(bag.TakeOrNone().IsNone);
+
+        bag.Add(5);
+        Assert.Equal(Some(5), bag.TakeOrNone());
+        Assert.Empty(bag);
+    }
+
+    [Fact]
+    public void CanPeekConcurrentBag()
+    {
+        var bag = new ConcurrentBag<int>();
+        Assert.True(bag.PeekOrNone().IsNone);
+
+        bag.Add(5);
+        Assert.Equal(Some(5), bag.PeekOrNone());
+        Assert.NotEmpty(bag);
+    }
+
+    [Fact]
+    public void CanPeekConcurrentQueue()
+    {
+        var bag = new ConcurrentQueue<int>();
+        Assert.True(bag.PeekOrNone().IsNone);
+
+        bag.Enqueue(5);
+        Assert.Equal(Some(5), bag.PeekOrNone());
+        Assert.NotEmpty(bag);
+    }
+
+    [Fact]
+    public void CanDequeueConcurrentQueue()
+    {
+        var bag = new ConcurrentQueue<int>();
+        Assert.True(bag.DequeueOrNone().IsNone);
+
+        bag.Enqueue(5);
+        Assert.Equal(Some(5), bag.DequeueOrNone());
+        Assert.Empty(bag);
+    }
+
+    [Fact]
+    public void CanPeekConcurrentStack()
+    {
+        var bag = new ConcurrentStack<int>();
+        Assert.True(bag.PeekOrNone().IsNone);
+
+        bag.Push(5);
+        Assert.Equal(Some(5), bag.PeekOrNone());
+        Assert.NotEmpty(bag);
+    }
+
+    [Fact]
+    public void CanPopConcurrentStack()
+    {
+        var bag = new ConcurrentStack<int>();
+        Assert.True(bag.PopOrNone().IsNone);
+
+        bag.Push(5);
+        Assert.Equal(Some(5), bag.PopOrNone());
+        Assert.Empty(bag);
     }
 
     /// <summary>y

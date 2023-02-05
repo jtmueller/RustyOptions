@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using static System.ArgumentNullException;
 
@@ -585,5 +586,93 @@ public static class OptionCollectionExtensions
         ThrowIfNull(self);
         return self.TryGetValue(equalValue, out var actualValue)
             ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Attempts to remove and return an object from the collection.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam>
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> TakeOrNone<T>(this IProducerConsumerCollection<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryTake(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Attempts to return an object from the <see cref="ConcurrentBag{T}"/> without removing it.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam> 
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ConcurrentBag<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Attempts to return an object from the beginning of the <see cref="ConcurrentQueue{T}"/> without removing it.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam> 
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ConcurrentQueue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>PriorityQueue</c> if one is present.
+    /// The object is removed from the <c>PriorityQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> DequeueOrNone<T>(this ConcurrentQueue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryDequeue(out var result)
+            ? Option.Some(result) : default;
+    }
+
+    /// <summary>
+    /// Attempts to return an object from the top of the <see cref="ConcurrentStack{T}"/> without removing it.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam> 
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ConcurrentStack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
+    /// The object is removed from the <c>Stack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PopOrNone<T>(this ConcurrentStack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPop(out var result)
+            ? Option.Some(result) : default;
     }
 }
