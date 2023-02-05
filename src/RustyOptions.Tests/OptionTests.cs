@@ -423,6 +423,7 @@ public sealed class OptionTests
         Assert.True(c < d);
         Assert.True(c <= c);
         Assert.True(n > a);
+        Assert.False(n > n);
 #pragma warning restore CS1718 // Comparison made to same variable
 
         var items = new[] { d, b, n, c, a };
