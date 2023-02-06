@@ -69,13 +69,32 @@ module CSharpTypeExtensions =
         | (true, value) -> ValueSome value
         | _ -> ValueNone
 
-    /// Converts a RustyOptions Option into an F# ValueOption.
+    // We have to use FromFSharpValueOption and FromFSharpOption because
+    // F# doesn't allow overloads in this circumstance, so ToRustyOption will not work.
+
+    /// Converts an F# ValueOption into a RustyOptions Option.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let FromFSharpValueOption(x: 'a voption) =
+        match x with
+        | ValueSome(value) -> RustyOptions.Option.Some(value)
+        | _ -> RustyOptions.Option<'a>.None
+
+    /// Converts a RustyOptions Option into an F# Option.
     [<Extension>]
     [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
     let AsFSharpOption(x: RustyOptions.Option<'a>) =
         match x.IsSome() with
         | (true, value) -> Some value
         | _ -> None
+
+    /// Converts an F# Option into a RustyOptions Option.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let FromFSharpOption(x: 'a option) =
+        match x with
+        | Some(value) -> RustyOptions.Option.Some(value)
+        | _ -> RustyOptions.Option<'a>.None
 
     /// Converts a RustyOptions Result into an F# Result.
     [<Extension>]
@@ -85,6 +104,14 @@ module CSharpTypeExtensions =
         | (true, value) -> Ok value
         | _ -> Error(x.UnwrapErr())
 
+    /// Converts an F# Result into a RustyOptions Result.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let FromFSharpResult(x: Result<'a, 'err>) =
+        match x with
+        | Ok(value) -> RustyOptions.Result.Ok<'a, 'err>(value)
+        | Error(err) -> RustyOptions.Result.Err<'a, 'err>(err)
+
     /// Converts a RustyOptions Unit Result into an F# unit Result.
     [<Extension>]
     [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
@@ -92,6 +119,14 @@ module CSharpTypeExtensions =
         match x.IsOk() with
         | (true, _) -> Ok ()
         | _ -> Error(x.UnwrapErr())
+
+    /// Converts an F# unit Result into a RustyOptions Unit Result.
+    [<Extension>]
+    [<MethodImpl(MethodImplOptions.AggressiveInlining)>]
+    let FromFSharpUnitResult(x: Result<unit, 'err>) =
+        match x with
+        | Ok _ -> RustyOptions.Result.Ok<RustyOptions.Unit, 'err>(RustyOptions.Unit.Default)
+        | Error(err) -> RustyOptions.Result.Err<RustyOptions.Unit, 'err>(err)
 
     // NOTE: We can't have an AsFSharpUnit method for C#, because C# interprets
     // a unit-returning F# function as if it's a void-returning C# function.
@@ -132,7 +167,7 @@ module Option =
     let toRustyOption (x: 'a option) =
         match x with
         | Some(value) -> RustyOptions.Option.Some(value)
-        | _ -> RustyOptions.Option.None<'a>()
+        | _ -> RustyOptions.Option<'a>.None
 
 #if NET7_0_OR_GREATER
     /// Converts a RustyOptions Option into an F# Option.
@@ -164,7 +199,7 @@ module ValueOption =
     let toRustyOption (x: 'a voption) =
         match x with
         | ValueSome(value) -> RustyOptions.Option.Some(value)
-        | _ -> RustyOptions.Option.None<'a>()
+        | _ -> RustyOptions.Option<'a>.None
 
 #if NET7_0_OR_GREATER
     /// Converts a RustyOptions Option into an F# Option.

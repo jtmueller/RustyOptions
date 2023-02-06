@@ -15,6 +15,9 @@ public sealed class FSharpConversionTests
 
         Assert.Equal(42, someFs.Value);
         Assert.Throws<NullReferenceException>(() => noneFs.Value);
+
+        Assert.Equal(some, someFs.FromFSharpOption());
+        Assert.Equal(none, noneFs.FromFSharpOption());
     }
 
     [Fact]
@@ -28,6 +31,9 @@ public sealed class FSharpConversionTests
 
         Assert.Equal(42, someFs.Value);
         Assert.True(noneFs.IsNone);
+
+        Assert.Equal(some, someFs.FromFSharpValueOption());
+        Assert.Equal(none, noneFs.FromFSharpValueOption());
     }
 
     [Fact]
@@ -41,6 +47,9 @@ public sealed class FSharpConversionTests
 
         Assert.Equal(42, okFs.ResultValue);
         Assert.Equal("oops", errFs.ErrorValue);
+
+        Assert.Equal(ok, okFs.FromFSharpResult());
+        Assert.Equal(err, errFs.FromFSharpResult());
     }
 
     [Fact]
@@ -54,6 +63,9 @@ public sealed class FSharpConversionTests
 
         Assert.True(okFs.IsOk);
         Assert.Equal("oops", errFs.ErrorValue);
+
+        Assert.Equal(ok, okFs.FromFSharpUnitResult());
+        Assert.Equal(err, errFs.FromFSharpUnitResult());
     }
 
 #if NET7_0_OR_GREATER
