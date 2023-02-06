@@ -14,12 +14,10 @@ these interfaces for most primitive types in the framework.
 RustyOptions can parse any type into an `Option<T>` that implements either of these interfaces, through the `Option.Parse<T>()` method.
 
 ```csharp
-
 // get all the integer values from an enumerable of strings, 
 // discarding any strings that could not be parsed into an integer
 
 IEnumerable<string> input = GetInput();
 
 IEnumerable<int> integers = input.Select(Option.Parse<int>).Values();
-
 ```
