@@ -100,10 +100,10 @@ The option type supports the [following properties and methods](../api/RustyOpti
 
 ## Converting to Other Types
 
-Options can be converted to [Results](result.md) using the 
-[OkOr](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_) 
-or [OkOrElse](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__) extension methods.
+  - Options can be converted to [Results](result.md) using the 
+    [OkOr](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_OkOr__2_RustyOptions_Option___0____1_) 
+    or [OkOrElse](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_OkOrElse__2_RustyOptions_Option___0__Func___1__) extension methods.
 
-Options can be converted to `IEnumerable<T>` using the [AsEnumerable](../api/RustyOptions.Option-1.yml#RustyOptions_Option_1_AsEnumerable) method.
+  - Options can be converted to `IEnumerable<T>` using the [AsEnumerable](../api/RustyOptions.Option-1.yml#RustyOptions_Option_1_AsEnumerable) method.
 
-Options can be converted to `ReadOnlySpan<T>` using the [AsSpan](../api/RustyOptions.Option-1.yml#RustyOptions_Option_1_AsSpan) method.
+  - Options can be converted to `ReadOnlySpan<T>` using the [AsSpan](../api/RustyOptions.Option-1.yml#RustyOptions_Option_1_AsSpan) method.

@@ -124,10 +124,10 @@ var res2 = Result.Try(() => MethodWithArgsMaybeThrows(x, y));
 
 ## Converting to Other Types
 
-`Result<T, TErr>` can be converted to `Option<T>` with the [Ok](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__) extension method.
+  - `Result<T, TErr>` can be converted to `Option<T>` with the [Ok](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__) extension method.
 
-`Result<T, TErr>` can be converted to `Option<TErr>` with the [Err](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__) extension method.
+  - `Result<T, TErr>` can be converted to `Option<TErr>` with the [Err](../api/RustyOptions.OptionResultExtensions.yml#RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__) extension method.
 
-`Result<T, TErr>` can be converted to `IEnumerable<T>` with the [AsEnumerable](../api/RustyOptions.Result-2.yml#RustyOptions_Result_2_AsEnumerable) method.
+  - `Result<T, TErr>` can be converted to `IEnumerable<T>` with the [AsEnumerable](../api/RustyOptions.Result-2.yml#RustyOptions_Result_2_AsEnumerable) method.
 
-`Result<T, TErr>` can be converted to `ReadOnlySpan<T>` with the [AsSpan](../api/RustyOptions.Result-2.yml#RustyOptions_Result_2_AsSpan) method.
+  - `Result<T, TErr>` can be converted to `ReadOnlySpan<T>` with the [AsSpan](../api/RustyOptions.Result-2.yml#RustyOptions_Result_2_AsSpan) method.
