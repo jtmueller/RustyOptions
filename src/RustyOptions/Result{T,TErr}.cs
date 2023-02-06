@@ -233,6 +233,18 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     }
 
     /// <summary>
+    /// Returns an enumerator for the option.
+    /// </summary>
+    /// <returns>The enumerator.</returns>
+    public IEnumerator<T> GetEnumerator()
+    {
+        if (_isOk)
+        {
+            yield return _value;
+        }
+    }
+
+    /// <summary>
     /// Indicates whether the current object is equal to another object.
     /// </summary>
     /// <param name="other">An object to compare with this object.</param>

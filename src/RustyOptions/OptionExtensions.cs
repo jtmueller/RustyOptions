@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
@@ -285,18 +286,32 @@ public static class OptionExtensions
         return Option.Create(value);
     }
 
-
     /// <summary>
     /// Wraps the given value in an <see cref="Option{T}"/>.
     /// <para>NOTE: Null values will be returned as <c>None</c>, while non-null values will be returned as <c>Some</c>.</para>
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="value"></param>
+    /// <typeparam name="T">The type used in the returned <see cref="Option{T}"/>.</typeparam>
+    /// <param name="value">The value that will be contained in the <c>Option</c>.</param>
     /// <returns>The value wrapped in an <see cref="Option{T}"/></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static Option<T> Some<T>(this T value)
         where T : notnull
     {
-        return Option.Some(value);
+        return new(value);
+    }
+
+    /// <summary>
+    /// Returns <c>None</c> option typed to match <paramref name="value"/>. The value is not
+    /// used except to determine the type of the option.
+    /// </summary>
+    /// <typeparam name="T">The type used in the returned <see cref="Option{T}"/>.</typeparam>
+    /// <param name="value">The value used to determine the type of the returned <c>None</c> option. The value itself is not used.</param>
+    /// <returns>A <c>None</c> option.</returns>
+    [SuppressMessage("Design", "IDE0060:Remove unused parameter", Justification = "As this is an extension method, it's not possible for the parameter to be unused.")]
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> None<T>(this T value)
+        where T : notnull
+    {
+        return default;
     }
 }

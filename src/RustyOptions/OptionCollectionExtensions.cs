@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections.Immutable;
+using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
@@ -8,10 +10,6 @@ namespace RustyOptions;
 /// </summary>
 public static class OptionCollectionExtensions
 {
-    // NOTE: Due to a bug in coverlet.collector, certain lines in methods involving IAsyncEnumerable
-    // will show as partially-covered in code-coverage tools, even when they are fully-covered.
-    // https://github.com/coverlet-coverage/coverlet/issues/1104#issuecomment-1005332269
-
     /// <summary>
     /// Flattens a sequence of <see cref="Option{T}"/> into a sequence containing all inner values.
     /// Empty elements are discarded.
@@ -25,28 +23,6 @@ public static class OptionCollectionExtensions
         ThrowIfNull(self);
 
         foreach (var option in self)
-        {
-            if (option.IsSome(out var value))
-            {
-                yield return value;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Flattens an asynchronous sequence of <see cref="Option{T}"/> into a sequence containing all inner values.
-    /// Empty elements are discarded.
-    /// </summary>
-    /// <param name="self">The sequence of options.</param>
-    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
-    /// <returns>A flattened sequence of values.</returns>
-    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
-    public static async IAsyncEnumerable<T> ValuesAsync<T>(this IAsyncEnumerable<Option<T>> self, [EnumeratorCancellation] CancellationToken ct = default)
-        where T : notnull
-    {
-        ThrowIfNull(self);
-
-        await foreach (var option in self.WithCancellation(ct))
         {
             if (option.IsSome(out var value))
             {
@@ -120,27 +96,6 @@ public static class OptionCollectionExtensions
     }
 
     /// <summary>
-    /// Returns the first element of an asynchronous sequence if such exists.
-    /// </summary>
-    /// <param name="self">The sequence to return the first element from.</param>
-    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
-    /// <returns>An <see cref="Option{T}"/> instance containing the first element if present.</returns>
-    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
-    public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, CancellationToken ct = default)
-        where T : notnull
-    {
-        ThrowIfNull(self);
-
-        await using var enumerator = self.GetAsyncEnumerator(ct);
-        if (await enumerator.MoveNextAsync().ConfigureAwait(false))
-        {
-            return Option.Some(enumerator.Current);
-        }
-
-        return default;
-    }
-
-    /// <summary>
     /// Returns the first element of a sequence, satisfying a specified predicate, 
     /// if such exists.
     /// </summary>
@@ -155,32 +110,6 @@ public static class OptionCollectionExtensions
         ThrowIfNull(predicate);
 
         foreach (var item in self)
-        {
-            if (predicate(item))
-            {
-                return Option.Some(item);
-            }
-        }
-
-        return default;
-    }
-
-    /// <summary>
-    /// Returns the first element of a sequence, satisfying a specified predicate, 
-    /// if such exists.
-    /// </summary>
-    /// <param name="self">The sequence to return the first element from.</param>
-    /// <param name="predicate">The predicate to filter by.</param>
-    /// <param name="ct">A CancellationToken that will interrupt async iteration.</param>
-    /// <returns>An <see cref="Option{T}"/> instance containing the first matching element, if present.</returns>
-    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="predicate"/> is null.</exception>
-    public static async ValueTask<Option<T>> FirstOrNoneAsync<T>(this IAsyncEnumerable<T> self, Func<T, bool> predicate, CancellationToken ct = default)
-        where T : notnull
-    {
-        ThrowIfNull(self);
-        ThrowIfNull(predicate);
-
-        await foreach (var item in self.WithCancellation(ct))
         {
             if (predicate(item))
             {
@@ -415,5 +344,335 @@ public static class OptionCollectionExtensions
         }
 
         return default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
+    /// The object is not removed from the <c>Stack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this Stack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var result)
+            ? Option.Some(result) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
+    /// The object is removed from the <c>Stack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PopOrNone<T>(this Stack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPop(out var result)
+            ? Option.Some(result) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>ImmutableStack</c> if one is present.
+    /// The object is not removed from the <c>ImmutableStack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ImmutableStack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.IsEmpty ? default : Option.Some(self.Peek());
+    }
+
+    /// <summary>
+    /// Sets <paramref name="result"/> to an <see cref="Option{T}"/> that contains the object at the top of the <c>ImmutableStack</c> if one is present.
+    /// A modified version of the stack without that value is returned.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <param name="result">An <see cref="Option{T}"/> containing the value removed from the stack, if any.</param>
+    /// <returns>A modified verison of the <c>ImmutableStack</c> without the removed value.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ImmutableStack<T> PopOrNone<T>(this ImmutableStack<T> self, out Option<T> result)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+
+        if (self.IsEmpty)
+        {
+            result = default;
+            return self;
+        }
+
+        var newStack = self.Pop(out var value);
+        result = Option.Some(value);
+        return newStack;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>Queue</c> if one is present.
+    /// The object is not removed from the <c>Queue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this Queue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var value)
+            ? Option.Some(value) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>Queue</c> if one is present.
+    /// The object is removed from the <c>Queue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> DequeueOrNone<T>(this Queue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryDequeue(out var value)
+            ? Option.Some(value) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>PriorityQueue</c> if one is present.
+    /// The object is not removed from the <c>PriorityQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <typeparam name="TPriority">The type of the priority value.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<(T Element, TPriority Priority)> PeekOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var element, out var priority)
+            ? Option.Some((element, priority)) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>PriorityQueue</c> if one is present.
+    /// The object is removed from the <c>PriorityQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <typeparam name="TPriority">The type of the priority value.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<(T Element, TPriority Priority)> DequeueOrNone<T, TPriority>(this PriorityQueue<T, TPriority> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryDequeue(out var element, out var priority)
+            ? Option.Some((element, priority)) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>ImmutableQueue</c> if one is present.
+    /// The object is not removed from the <c>ImmutableQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ImmutableQueue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.IsEmpty ? default : Option.Some(self.Peek());
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>ImmutableQueue</c> if one is present.
+    /// The object is removed from the <c>ImmutableQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <param name="result">An <see cref="Option{T}"/> containing the value removed from the stack, if any.</param>
+    /// <returns>A modified verison of the <c>ImmutableStack</c> without the removed value.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ImmutableQueue<T> DequeueOrNone<T>(this ImmutableQueue<T> self, out Option<T> result)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+
+        if (self.IsEmpty)
+        {
+            result = default;
+            return self;
+        }
+
+        var newQueue = self.Dequeue(out var value);
+        result = Option.Some(value);
+        return newQueue;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The HashSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this HashSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The SortedSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this SortedSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The HashSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this ImmutableHashSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Searches the set for a given value and returns the equal value it finds, if any.
+    /// </summary>
+    /// <typeparam name="T">The type of the value.</typeparam>
+    /// <param name="self">The SortedSet.</param>
+    /// <param name="equalValue">The value to search for.</param>
+    /// <returns><c>Some</c> containing the value the search found, or <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> GetValueOrNone<T>(this ImmutableSortedSet<T> self, T equalValue)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryGetValue(equalValue, out var actualValue)
+            ? Option.Some(actualValue) : default;
+    }
+
+    /// <summary>
+    /// Attempts to remove and return an object from the collection.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam>
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> TakeOrNone<T>(this IProducerConsumerCollection<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryTake(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Attempts to return an object from the <see cref="ConcurrentBag{T}"/> without removing it.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam> 
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ConcurrentBag<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Attempts to return an object from the beginning of the <see cref="ConcurrentQueue{T}"/> without removing it.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam> 
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ConcurrentQueue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the beginning of the <c>PriorityQueue</c> if one is present.
+    /// The object is removed from the <c>PriorityQueue</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the queue and the returned option.</typeparam>
+    /// <param name="self">The queue.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the queue has any values, and <c>None</c> if the queue is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> DequeueOrNone<T>(this ConcurrentQueue<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryDequeue(out var result)
+            ? Option.Some(result) : default;
+    }
+
+    /// <summary>
+    /// Attempts to return an object from the top of the <see cref="ConcurrentStack{T}"/> without removing it.
+    /// </summary>
+    /// <typeparam name="T">The item type.</typeparam> 
+    /// <param name="self">The collection.</param>
+    /// <returns>Returns a <c>Some</c> containing the value if there is a value, otherwise <c>None</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PeekOrNone<T>(this ConcurrentStack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPeek(out var item) ? Option.Some(item) : default;
+    }
+
+    /// <summary>
+    /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
+    /// The object is removed from the <c>Stack</c>.
+    /// </summary>
+    /// <typeparam name="T">The type contained by the stack and the returned option.</typeparam>
+    /// <param name="self">The stack.</param>
+    /// <returns>An <see cref="Option{T}"/> that is <c>Some</c> if the stack has any values, and <c>None</c> if the stack is empty.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> PopOrNone<T>(this ConcurrentStack<T> self)
+        where T : notnull
+    {
+        ThrowIfNull(self);
+        return self.TryPop(out var result)
+            ? Option.Some(result) : default;
     }
 }

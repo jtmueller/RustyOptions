@@ -1,8 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Concurrent;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Runtime.CompilerServices;
-using RustyOptions.Async;
 using static RustyOptions.Option;
 
 namespace RustyOptions.Tests;
@@ -84,39 +84,6 @@ public class OptionCollectionTests
     }
 
     [Fact]
-    public async Task CanGetValuesAsync()
-    {
-        int count = 0;
-        await foreach (var x in EnumerateFilteredAsync(11, i => (i & 1) == 0).ValuesAsync())
-        {
-            Assert.True((x & 1) == 0);
-            count++;
-        }
-
-        Assert.Equal(6, count);
-    }
-
-    [Fact]
-    public async Task CanGetValuesWithCancelAsync()
-    {
-        using var cts = new CancellationTokenSource();
-
-        int count = 0;
-        await foreach (var x in EnumerateFilteredAsync(11, i => (i & 1) == 0, cts.Token).ValuesAsync(cts.Token))
-        {
-            Assert.True((x & 1) == 0);
-            count++;
-
-            if (count > 2)
-            {
-                cts.Cancel();
-            }
-        }
-
-        Assert.Equal(3, count);
-    }
-
-    [Fact]
     public void CanGetFirst()
     {
         IList<int> empty = Array.Empty<int>();
@@ -148,33 +115,6 @@ public class OptionCollectionTests
         Assert.Equal(None<int>(), empty.FirstOrNone(Predicate));
         Assert.Equal(Some(6), notEmpty.FirstOrNone(Predicate));
         Assert.Equal(None<int>(), noMatches.FirstOrNone(Predicate));
-    }
-
-    [Fact]
-    public async Task CanGetFirstOrNoneAsync()
-    {
-        Assert.Equal(None<int>(), await EnumerateAsync(0).FirstOrNoneAsync());
-        Assert.Equal(Some(0), await EnumerateAsync(11).FirstOrNoneAsync());
-        Assert.Equal(Some(2), await EnumerateAsync(11).FirstOrNoneAsync(x => x > 0 && (x & 1) == 0));
-        Assert.Equal(None<int>(), await EnumerateAsync(11).FirstOrNoneAsync(x => x > 500));
-    }
-
-    [Fact]
-    public async Task CanGetFirstOrNoneWithCancelAsync()
-    {
-        using var cts = new CancellationTokenSource();
-
-        Assert.Equal(None<int>(), await EnumerateAsync(0, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(Some(0), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(Some(2), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 0 && (x & 1) == 0, cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 500, cts.Token));
-
-        cts.Cancel();
-
-        Assert.Equal(None<int>(), await EnumerateAsync(0, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 0 && (x & 1) == 0, cts.Token));
-        Assert.Equal(None<int>(), await EnumerateAsync(11, cts.Token).FirstOrNoneAsync(x => x > 500, cts.Token));
     }
 
     [Fact]
@@ -305,7 +245,238 @@ public class OptionCollectionTests
         Assert.Equal(Some(5), notEmptyEnumerable.ElementAtOrNone(5));
     }
 
-    /// <summary>
+    [Fact]
+    public void CanPeekStack()
+    {
+        var stack = new Stack<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = new Stack<int>();
+
+        Assert.Equal(Some(5), stack.PeekOrNone());
+        Assert.True(emptyStack.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPopStack()
+    {
+        var stack = new Stack<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = new Stack<int>();
+
+        Assert.Equal(Some(5), stack.PopOrNone());
+        Assert.Equal(4, stack.Count);
+        Assert.True(emptyStack.PopOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPeekImmutableStack()
+    {
+        var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = ImmutableStack<int>.Empty;
+
+        Assert.Equal(Some(5), stack.PeekOrNone());
+        Assert.True(emptyStack.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPopImmutableStack()
+    {
+        var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyStack = ImmutableStack<int>.Empty;
+
+        stack = stack.PopOrNone(out var value);
+        Assert.Equal(Some(5), value);
+        Assert.Equal(4, stack.Count());
+        emptyStack.PopOrNone(out value);
+        Assert.True(value.IsNone);
+    }
+
+    [Fact]
+    public void CanPeekQueue()
+    {
+        var queue = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = new Queue<int>();
+
+        Assert.Equal(Some(1), queue.PeekOrNone());
+        Assert.True(emptyQueue.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanDequeueQueue()
+    {
+        var queue = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = new Queue<int>();
+
+        Assert.Equal(Some(1), queue.DequeueOrNone());
+        Assert.Equal(4, queue.Count);
+        Assert.True(emptyQueue.DequeueOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPeekPriorityQueue()
+    {
+        var queue = new PriorityQueue<int, int>(new[] { (1, 3), (2, 2), (3, 1), (4, 1), (5, 0) });
+        var emptyQueue = new PriorityQueue<int, int>();
+
+        Assert.Equal(Some((5, 0)), queue.PeekOrNone());
+        Assert.True(emptyQueue.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanDequeuePriorityQueue()
+    {
+        var queue = new PriorityQueue<int, int>(new[] { (1, 3), (2, 2), (3, 1), (4, 1), (5, 0) });
+        var emptyQueue = new PriorityQueue<int, int>();
+
+        Assert.Equal(Some((5, 0)), queue.DequeueOrNone());
+        Assert.Equal(4, queue.Count);
+        Assert.True(emptyQueue.DequeueOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanPeekImmutableQueue()
+    {
+        var queue = ImmutableQueue.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = ImmutableQueue<int>.Empty;
+
+        Assert.Equal(Some(1), queue.PeekOrNone());
+        Assert.True(emptyQueue.PeekOrNone().IsNone);
+    }
+
+    [Fact]
+    public void CanDequeueImmutableQueue()
+    {
+        var queue = ImmutableQueue.Create(new[] { 1, 2, 3, 4, 5 });
+        var emptyQueue = ImmutableQueue<int>.Empty;
+
+        queue = queue.DequeueOrNone(out var value);
+        Assert.Equal(Some(1), value);
+        Assert.Equal(4, queue.Count());
+        emptyQueue.DequeueOrNone(out value);
+        Assert.True(value.IsNone);
+    }
+
+    [Fact]
+    public void CanGetValueFromHashSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = new HashSet<string>(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
+    [Fact]
+    public void CanGetValueFromSortedSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = new SortedSet<string>(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(ReferenceEquals(found.Unwrap(), words[2]));
+    }
+
+    [Fact]
+    public void CanGetValueFromImmutableHashSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = ImmutableHashSet.Create(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
+    [Fact]
+    public void CanGetValueFromImmutableSortedSet()
+    {
+        var words = new[] { "zero", "one", "two", "three" };
+        var set = ImmutableSortedSet.Create(words);
+
+        var found = set.GetValueOrNone("two");
+        var notFound = set.GetValueOrNone("green");
+
+        Assert.Equal(Some("two"), found);
+        Assert.True(notFound.IsNone);
+        Assert.True(found.IsSome(out var value) && ReferenceEquals(value, words[2]));
+    }
+
+    [Fact]
+    public void CanTakeFromConcurrentBag()
+    {
+        var bag = new ConcurrentBag<int>();
+        Assert.True(bag.TakeOrNone().IsNone);
+
+        bag.Add(5);
+        Assert.Equal(Some(5), bag.TakeOrNone());
+        Assert.Empty(bag);
+    }
+
+    [Fact]
+    public void CanPeekConcurrentBag()
+    {
+        var bag = new ConcurrentBag<int>();
+        Assert.True(bag.PeekOrNone().IsNone);
+
+        bag.Add(5);
+        Assert.Equal(Some(5), bag.PeekOrNone());
+        Assert.NotEmpty(bag);
+    }
+
+    [Fact]
+    public void CanPeekConcurrentQueue()
+    {
+        var bag = new ConcurrentQueue<int>();
+        Assert.True(bag.PeekOrNone().IsNone);
+
+        bag.Enqueue(5);
+        Assert.Equal(Some(5), bag.PeekOrNone());
+        Assert.NotEmpty(bag);
+    }
+
+    [Fact]
+    public void CanDequeueConcurrentQueue()
+    {
+        var bag = new ConcurrentQueue<int>();
+        Assert.True(bag.DequeueOrNone().IsNone);
+
+        bag.Enqueue(5);
+        Assert.Equal(Some(5), bag.DequeueOrNone());
+        Assert.Empty(bag);
+    }
+
+    [Fact]
+    public void CanPeekConcurrentStack()
+    {
+        var bag = new ConcurrentStack<int>();
+        Assert.True(bag.PeekOrNone().IsNone);
+
+        bag.Push(5);
+        Assert.Equal(Some(5), bag.PeekOrNone());
+        Assert.NotEmpty(bag);
+    }
+
+    [Fact]
+    public void CanPopConcurrentStack()
+    {
+        var bag = new ConcurrentStack<int>();
+        Assert.True(bag.PopOrNone().IsNone);
+
+        bag.Push(5);
+        Assert.Equal(Some(5), bag.PopOrNone());
+        Assert.Empty(bag);
+    }
+
+    /// <summary>y
     /// Ensures an IEnumerable can't be downcast.
     /// </summary>
     private static IEnumerable<T> Enumerate<T>(IEnumerable<T> items)
@@ -313,33 +484,6 @@ public class OptionCollectionTests
         foreach (var item in items)
         {
             yield return item;
-        }
-    }
-
-    /// <summary>
-    /// Generates an IAsyncEnumerable that counts up to, but not including, the given
-    /// <paramref name="exclusiveMax"/>
-    /// </summary>
-    private static async IAsyncEnumerable<int> EnumerateAsync(int exclusiveMax, [EnumeratorCancellation] CancellationToken ct = default)
-    {
-        for (int i = 0; !ct.IsCancellationRequested && i < exclusiveMax; i++)
-        {
-            await Task.Yield();
-            yield return i;
-        }
-    }
-
-    /// <summary>
-    /// Generates an IAsyncEnumerable that counts up to, but not including, the given
-    /// <paramref name="exclusiveMax"/> - returning Some for numbers for which the predicate returns true
-    /// and None otherwise.
-    /// </summary>
-    private static async IAsyncEnumerable<Option<int>> EnumerateFilteredAsync(int exclusiveMax, Func<int, bool> predicate, [EnumeratorCancellation] CancellationToken ct = default)
-    {
-        for (int i = 0; !ct.IsCancellationRequested && i < exclusiveMax; i++)
-        {
-            await Task.Yield();
-            yield return predicate(i) ? Some(i) : None<int>();
         }
     }
 

@@ -9,6 +9,7 @@ public sealed class OptionTests
     public void CanPerformBasicOperations()
     {
         var none = None<int>();
+        var otherNone = 0.None(); // value is used to determine option type, then discarded
         var someStruct = 42.Some();
         var someNullableStruct = ((int?)42).AsOption();
         var someClass = "test".AsOption();
@@ -16,6 +17,7 @@ public sealed class OptionTests
         var nullOptStruct = Option.Create((int?)null);
 
         Assert.True(none.IsNone);
+        Assert.True(otherNone.IsNone);
         Assert.False(none.IsSome(out _));
 
         Assert.True(someStruct.IsSome(out var structVal));
@@ -121,14 +123,14 @@ public sealed class OptionTests
         var noneInt = None<int>();
 
         int value = 0;
-        foreach (var x in noneInt.AsEnumerable())
+        foreach (var x in noneInt)
         {
             value += x;
         }
 
         Assert.Equal(0, value);
 
-        foreach (var x in someInt.AsEnumerable())
+        foreach (var x in someInt)
         {
             value += x;
         }
@@ -256,6 +258,7 @@ public sealed class OptionTests
         Assert.Equal("Some(4200)", someInt.ToString());
         Assert.Equal("None", noneInt.ToString());
         Assert.Equal("Some(4,200.00)", someInt.ToString("n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4200)", someInt.ToString(null, CultureInfo.InvariantCulture));
         Assert.Equal("None", noneInt.ToString("n2", CultureInfo.InvariantCulture));
     }
 
@@ -420,6 +423,7 @@ public sealed class OptionTests
         Assert.True(c < d);
         Assert.True(c <= c);
         Assert.True(n > a);
+        Assert.False(n > n);
 #pragma warning restore CS1718 // Comparison made to same variable
 
         var items = new[] { d, b, n, c, a };

@@ -1,7 +1,6 @@
 ﻿#if NET7_0_OR_GREATER
 
 using System.Globalization;
-using RustyOptions;
 using static RustyOptions.NumericOption;
 
 namespace RustyOptions.Tests;
@@ -12,13 +11,17 @@ public sealed class NumericOptionTests
     public void CanPerformBasicOperations()
     {
         var none = None<int>();
+        var otherNone = 0.NoneNumeric();  // value is used to determine option type, then discarded
         var someStruct = Some(42);
         var someNullableStruct = ((int?)42).AsOption();
         var someClass = "test".AsOption();
         var nullOpt = NumericOption.Create((int?)null);
         var notNullOpt = NumericOption.Create((int?)45);
+        NumericOption<int> convertedOpt = Option.Some(10); // implicit conversion from Option
+        NumericOption<int> convertedInt = 10; // Implicit conversion from integer
 
         Assert.True(none.IsNone);
+        Assert.True(otherNone.IsNone);
         Assert.False(none.IsSome(out _));
 
         Assert.True(someStruct.IsSome(out var structVal));
@@ -35,6 +38,9 @@ public sealed class NumericOptionTests
 
         Assert.True(nullOpt.IsNone);
         Assert.Equal(Some(45), notNullOpt);
+
+        Assert.Equal(Some(10), convertedOpt);
+        Assert.Equal(Some(10), convertedInt);
     }
 
     [Fact]
@@ -124,14 +130,14 @@ public sealed class NumericOptionTests
         var noneInt = None<int>();
 
         int value = 0;
-        foreach (var x in noneInt.AsEnumerable())
+        foreach (var x in noneInt)
         {
             value += x;
         }
 
         Assert.Equal(0, value);
 
-        foreach (var x in someInt.AsEnumerable())
+        foreach (var x in someInt)
         {
             value += x;
         }
@@ -261,6 +267,7 @@ public sealed class NumericOptionTests
         Assert.Equal("Some(4200)", someInt.ToString());
         Assert.Equal("None", noneInt.ToString());
         Assert.Equal("Some(4,200.00)", someInt.ToString("n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4200)", someInt.ToString(null, CultureInfo.InvariantCulture));
         Assert.Equal("None", noneInt.ToString("n2", CultureInfo.InvariantCulture));
     }
 
@@ -399,6 +406,7 @@ public sealed class NumericOptionTests
         Assert.True(c < d);
         Assert.True(c <= c);
         Assert.True(n > a);
+        Assert.False(n > n);
 #pragma warning restore CS1718 // Comparison made to same variable
 
         var items = new[] { d, b, n, c, a };
@@ -420,7 +428,8 @@ public sealed class NumericOptionTests
     [Fact]
     public void CanConvertToOption()
     {
-        Assert.Equal(Option.Some(42), NumericOption.Some(42));
+        Option<int> converted = NumericOption.Some(42);
+        Assert.Equal(Option.Some(42), converted);
     }
 
     [Fact]

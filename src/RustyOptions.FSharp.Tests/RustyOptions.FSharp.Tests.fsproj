@@ -4,7 +4,7 @@
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <IsPackable>false</IsPackable>
-    <ReleaseVersion>0.7.0</ReleaseVersion>
+    <ReleaseVersion>0.8.0</ReleaseVersion>
     <AssemblyName>RustyOptions.FSharp.Tests</AssemblyName>
   </PropertyGroup>
 
