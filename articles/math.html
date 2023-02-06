@@ -68,7 +68,33 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="generic-math">Generic Math</h1>
 
-<p>TODO</p>
+<p><em>NOTE: Generic Math is supported by .NET 7 and above only. This feature is not available in .NET 6.</em></p>
+<p>.NET 7 introduces new <a href="https://learn.microsoft.com/en-us/dotnet/standard/generics/math">math-related generic interfaces</a> to the base class library. RustyOptions provides the <code>NumericOption&lt;T&gt;</code> type to support this. <code>NumericOption</code> can store any struct that implements the <code>INumber&lt;T&gt;</code> interface, and allows you to transparently perform math operations on these optional values.</p>
+<p>This works similarly to <code>Nullable&lt;T&gt;</code> which also <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types#lifted-operators">allows you to perform math operations on contained values</a>. Such operations produce <code>null</code> if one or both operands are <code>null</code> in the case of <code>Nullable&lt;T&gt;</code>, and they produce <code>None</code> if one or both operands are <code>None</code> in the case of <code>NumericOption&lt;T&gt;</code>.</p>
+<p>The difference is that this functionality in <code>Nullable&lt;T&gt;</code> depends on compiler support, which is not available to third-party types. This is why you can only do math with options in the .NET 7+ version of RustyOptions.</p>
+<p><code>NumericOption&lt;T&gt;</code> supports implicit conversion from <code>T</code> which means you can mix, for example, <code>NumericOption&lt;int&gt;</code> and <code>int</code> in the same expression, and it will just work.</p>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">using RustyOptions;
+using static RustyOptions.NumericOption;
+
+var fifteen = Some(3) * 5;
+// returns Some(15)
+
+var none = Some(3) * None&lt;int&gt;();
+// returns None typed to int
+
+// You can even use Option&lt;int&gt; as the index value in a for loop!
+for (var i = Some(0); i &lt; 5; i++)
+{
+    // If you set i to None inside the loop,
+    // the loop will exit when the current iteration completes,
+    // as None is not less than 5.
+    i = None&lt;int&gt;();
+}
+</code></pre>
+<p>As you can see from the last example above, comparison operators such as <code>&lt;</code> and increment operators like <code>++</code> also work with <code>NumericOption&lt;T&gt;</code>, even when comparing an option to a concrete number.</p>
+<p><code>NumericOption&lt;T&gt;</code> can be implicitly converted to and from <code>Option&lt;T&gt;</code> provided that the contained type is compatible with <code>NumericOption&lt;T&gt;</code>.</p>
+<p>This support works for any built-in type that implements <code>INumber&lt;T&gt;</code>, any custom type that implements <code>INumber&lt;T&gt;</code>, and any future built-in types that implement <code>INumber&lt;T&gt;</code>. Enjoy!</p>
 </article>
           </div>
 

@@ -68,7 +68,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="async">Async</h1>
 
-<p>TODO</p>
+<p>The <code>RustyOptions.Async</code> namespace provides extension methods for <code>IAsyncEnumerable&lt;T&gt;</code>
+as well as async versions of RustyOptions API methods like <code>Map</code>, <code>OrElse</code>, <code>AndThen</code>.</p>
+<h2 id="iasyncenumerable">IAsyncEnumerable<t></t></h2>
+<p>RustyOptions provides <code>FirstOrNoneAsync</code> for any async enumerable, as well as <code>Values</code> and <code>Errors</code> methods
+for async enumerables that return <code>Option&lt;T&gt;</code> or <code>Result&lt;T, TErr&gt;</code>.</p>
+<h2 id="async-optionresult-methods">Async Option/Result Methods</h2>
+<p>RustyOptions provides asynchronous versions of most Option/Result API methods. There are 8 overloads of each
+method, for the various combinations of <code>Task</code> and <code>ValueTask</code> plus tasks that return an Option/Result vs
+Option/Result objects that return a task. Because there are so many overloads, they are found in the
+<code>RustyOptions.Async</code> namespace so that they don't clutter intellisense for non-async code.</p>
 </article>
           </div>
 

@@ -169,7 +169,6 @@ void Test()
     );
     // Prints: &quot;Error: No email from bananas.com is allowed.&quot;
 }
-
 </code></pre>
 <h2 id="converting-from-exceptions-to-results">Converting from Exceptions to Results</h2>
 <p>You can use <code>Result.Try</code> to call a function that might throw an exception, returning either the return value or the exception wrapped in a <code>Result</code>.</p>
@@ -180,10 +179,16 @@ int y = 10;
 var res2 = Result.Try(() =&gt; MethodWithArgsMaybeThrows(x, y));
 </code></pre>
 <h2 id="converting-to-other-types">Converting to Other Types</h2>
-<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>Option&lt;T&gt;</code> with the <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__">Ok</a> extension method.</p>
-<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>Option&lt;TErr&gt;</code> with the <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__">Err</a> extension method.</p>
-<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>IEnumerable&lt;T&gt;</code> with the <a href="../api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsEnumerable">AsEnumerable</a> method.</p>
-<p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>ReadOnlySpan&lt;T&gt;</code> with the <a href="../api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsSpan">AsSpan</a> method.</p>
+<ul>
+<li><p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>Option&lt;T&gt;</code> with the <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Ok__2_RustyOptions_Result___0___1__">Ok</a> extension method.</p>
+</li>
+<li><p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>Option&lt;TErr&gt;</code> with the <a href="../api/RustyOptions.OptionResultExtensions.html#RustyOptions_OptionResultExtensions_Err__2_RustyOptions_Result___0___1__">Err</a> extension method.</p>
+</li>
+<li><p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>IEnumerable&lt;T&gt;</code> with the <a href="../api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsEnumerable">AsEnumerable</a> method.</p>
+</li>
+<li><p><code>Result&lt;T, TErr&gt;</code> can be converted to <code>ReadOnlySpan&lt;T&gt;</code> with the <a href="../api/RustyOptions.Result-2.html#RustyOptions_Result_2_AsSpan">AsSpan</a> method.</p>
+</li>
+</ul>
 </article>
           </div>
 

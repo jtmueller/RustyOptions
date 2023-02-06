@@ -68,7 +68,40 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="json-serialization">JSON Serialization</h1>
 
-<p>TODO</p>
+<p>RustyOptions types support serialization and deserialization using <code>System.Text.Json</code>.</p>
+<p><strong>Options:</strong></p>
+<ul>
+<li>A <code>Some</code> option will be serialized as the raw value in json.</li>
+<li>A <code>None</code> option will be serialized as explicitly null in json.</li>
+<li>When parsing, a missing property will be deserialized as <code>None</code>.</li>
+<li>An explicitly null value will be deserialized as <code>None</code>.</li>
+<li>Any other value will be deserialized as <code>Some</code>.</li>
+</ul>
+<pre><code class="lang-csharp">using RustyOptions;
+using System.Text.Json;
+
+record Person(string First, Option&lt;string&gt; Middle, string Last, Option&lt;int&gt; Age);
+
+string json1 = &quot;{ \&quot;first\&quot;: \&quot;James\&quot;, \&quot;middle\&quot;: \&quot;Tiberius\&quot;, \&quot;last\&quot;: \&quot;Kirk\&quot; }&quot;;
+string json2 = &quot;{ \&quot;first\&quot;: \&quot;Martin\&quot;, \&quot;last\&quot;: \&quot;Redshirt\&quot;, \&quot;age\&quot;: 23 }&quot;;
+
+var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+var person1 = JsonSerializer.Deserialize&lt;Person&gt;(json1, options);
+// [Person { First = James, Middle = Some(Tiberius), Last = Kirk, Age = None }]
+
+var person1 = JsonSerializer.Deserialize&lt;Person&gt;(json2, options);
+// [Person { First = Martin, Middle = None, Last = Redshirt, Age = Some(23) }]
+</code></pre>
+<p><strong>Results:</strong></p>
+<ul>
+<li>A <code>Result&lt;T, TErr&gt;</code> will be serialized or parsed as an object that contains either an <code>ok</code> or an <code>err</code> property:
+<ul>
+<li><code>{ &quot;ok&quot;: 42 }</code></li>
+<li><code>{ &quot;err&quot;: &quot;oops!&quot; }</code></li>
+</ul>
+</li>
+</ul>
 </article>
           </div>
 

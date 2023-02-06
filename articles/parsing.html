@@ -68,7 +68,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="parsing">Parsing</h1>
 
-<p>TODO</p>
+<p><code>Option.ParseEnum&lt;T&gt;()</code> is a wrapper for <code>Enum.TryParse</code> that returns an <code>Option&lt;T&gt;</code> based on whether the parsing was successful.
+This method is available in all versions of RustyOptions.</p>
+<h2 id="generic-parsing">Generic Parsing</h2>
+<p><em>NOTE: Generic Parsing is supported by .NET 7 and above only. This feature is not available in .NET 6.</em></p>
+<p>.NET 7 introduced the <a href="https://learn.microsoft.com/en-us/dotnet/api/system.iparsable-1?view=net-7.0"><code>IParsable&lt;T&gt;</code></a> and
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.ispanparsable-1?view=net-7.0"><code>ISpanParsable&lt;T&gt;</code></a> interfaces, and implemented
+these interfaces for most primitive types in the framework.</p>
+<p>RustyOptions can parse any type into an <code>Option&lt;T&gt;</code> that implements either of these interfaces, through the <code>Option.Parse&lt;T&gt;()</code> method.</p>
+<pre><code class="lang-csharp">// get all the integer values from an enumerable of strings, 
+// discarding any strings that could not be parsed into an integer
+
+IEnumerable&lt;string&gt; input = GetInput();
+
+IEnumerable&lt;int&gt; integers = input.Select(Option.Parse&lt;int&gt;).Values();
+</code></pre>
 </article>
           </div>
 

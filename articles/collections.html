@@ -68,7 +68,23 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="collections">Collections</h1>
 
-<p>TODO</p>
+<p>RustyOptions provides extension methods that return options for collection operations that might not produce a value:</p>
+<ul>
+<li><code>TryXXX</code> methods have <code>XXXOrNone</code> equivalents.</li>
+<li><code>XXXOrDefault</code> methods have <code>XXXOrNone</code> equivalents.</li>
+</ul>
+<p>In addition, the <code>.Values()</code> extension method will pull all the values that exist out of a collection of <code>Option&lt;T&gt;</code> or <code>Result&lt;T, TErr&gt;</code>,
+while the <code>.Errors()</code> extension method will pull all of the errors from a collection of <code>Result&lt;T, TErr&gt;</code>.</p>
+<h2 id="supported-collections">Supported Collections</h2>
+<ul>
+<li>Any type implementing <code>IEnumerable&lt;T&gt;</code> (First, Last, Single, ElementAt)</li>
+<li><code>IDictionary&lt;TKey, TValue&gt;</code>, <code>IReadOnlyDictionary&lt;TKey, TValue&gt;</code></li>
+<li><code>Stack&lt;T&gt;</code>, <code>ImmutableStack&lt;T&gt;</code>, <code>ConcurrentStack&lt;T&gt;</code></li>
+<li><code>Queue&lt;T&gt;</code>, <code>PriorityQueue&lt;T, TPriority&gt;</code>, <code>ImmutableQueue&lt;T&gt;</code>, <code>ConcurrentQueue&lt;T&gt;</code></li>
+<li><code>HashSet&lt;T&gt;</code>, <code>SortedSet&lt;T&gt;</code>, <code>ImmutableHashSet&lt;T&gt;</code>, <code>ImmutableSortedSet&lt;T&gt;</code></li>
+<li><code>IProducerConsumerCollection&lt;T&gt;</code>, <code>ConcurrentBag&lt;T&gt;</code></li>
+</ul>
+<p>For details, see the <a href="../api/RustyOptions.OptionCollectionExtensions.html">API Documentation</a>.</p>
 </article>
           </div>
 

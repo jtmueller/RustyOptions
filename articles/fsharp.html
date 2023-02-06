@@ -68,7 +68,24 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="f-compatibility">F# Compatibility</h1>
 
-<p>TODO</p>
+<p>The F# language has its own built-in <code>Option</code>, <code>ValueOption</code>, and <code>Result</code> types, and both language features and
+utility functions to make these types ergonomic to work with in the context of F#.</p>
+<p>There would be little value in extensive F# support for RustyOptions. Similarly, while the F# types can be used
+from C# by referencing the FSharp.Core namespace, they are not convenient to use from C#, and the FSharp.Core
+dependency is fairly heavy-weight for just these types.</p>
+<p>RustyOptions is therefore designed to be used from C#. However, it provides the <code>RustyOptions.FSharp</code> nuget package,
+which provides convenient methods for converting between RustyOptions Option/Result types, and F# Option/Result types.
+If you are working with a mixture of F# and C# code, RustyOptions can ease the interop between these two languages:</p>
+<ul>
+<li>C# code receiving values from F# code can use <code>FromFSharpXXX</code> extension methods to convert F# Options or Results
+into RustyOptions equivalents that are easier to work with from C#.</li>
+<li>C# code passing values to F# can use RustyOptions types for ease of working with in C#, then use <code>AsFSharpXXX</code> extension
+methods to convert to the equivalent F# types that the F# code expects.</li>
+<li>F# code receiving values from C# that use RustyOptions types can use <code>Option.ofRustyOption</code> or <code>ValueOption.ofRustyOption</code> or
+<code>Result.ofRustyResult</code> to convert to types that are more convenient to use in F#.</li>
+<li>F# code passing values to C# can use <code>Option.toRustyOption</code> or <code>ValueOption.toRustyOption</code> or <code>Result.toRustyResult</code> to
+convert to any RustyOptions types expected by C# code.</li>
+</ul>
 </article>
           </div>
 

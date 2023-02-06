@@ -86,15 +86,16 @@ Option&lt;int&gt; ex3 = new Option&lt;int&gt;(42);
 Option&lt;int&gt; ex4 = Option&lt;int&gt;.None;
 Option&lt;int&gt; ex5 = Option.None&lt;int&gt;();
 Option&lt;int&gt; ex6 = default; // equivalent to Option.None&lt;int&gt;()
+Option&lt;int&gt; ex7 = 0.None(); // value is used only to determine type
 
 int? maybeNull = GetPossiblyNullInteger();
-Option&lt;int&gt; ex7 = Option.Create(maybeNull); // null turns into Option.None
+Option&lt;int&gt; ex8 = Option.Create(maybeNull); // null turns into Option.None
 
 // Or you can use 'using static' for more concise/F#/Rust-like syntax:
 using static RustyOptions.Option;
 
-var ex8 = Some(42);
-var ex9 = None&lt;int&gt;();
+var ex9 = Some(42);
+var ex10 = None&lt;int&gt;();
 </code></pre>
 <h3 id="getting-values-from-an-option">Getting values from an Option</h3>
 <pre><code class="lang-csharp">if (myOption.IsSome(out var value))
@@ -205,9 +206,11 @@ for (var i = Some(0); i &lt; 5; i++)
 </ul>
 <h2 id="faq">FAQ</h2>
 <ul>
-<li>This library only supports .NET 6 and above. What about .NET Framework?
+<li>This library only supports .NET 6 and above. What about .NET Framework? .NET 5? .NET Core 3.1?
 <ul>
 <li>You may want to consider the <a href="https://github.com/nlkl/Optional">Optional</a> library for legacy framework support.</li>
+<li>.NET Core 3.1 and .NET 5 are not supported because as of this writing they are no longer supported by Microsoft.
+However, if these runtimes are important to you, we welcome pull requests.</li>
 </ul>
 </li>
 <li>Why create this library if <a href="https://github.com/nlkl/Optional">Optional</a> already exists?

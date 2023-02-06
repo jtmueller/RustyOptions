@@ -68,7 +68,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="formatting-options-and-results">Formatting Options and Results</h1>
 
-<p>TODO</p>
+<p>RustyOptions types implement both <code>IFormattable</code> and <code>ISpanFormattable</code> for efficient use in string-building. Any format strings
+are passed through to the contained type.</p>
+<pre><code class="lang-csharp">Assert.Equal(&quot;Some(4,200.00)&quot;, Some(4200).ToString(&quot;n2&quot;, CultureInfo.InvariantCulture));
+Assert.Equal(&quot;None&quot;, None&lt;int&gt;().ToString(&quot;n2&quot;, CultureInfo.InvariantCulture));
+
+Assert.Equal(&quot;Ok(4,200.00)&quot;, Ok(4200).ToString(&quot;n2&quot;, CultureInfo.InvariantCulture));
+Assert.Equal(&quot;Err(oops)&quot;, Err&lt;int&gt;(&quot;oops&quot;).ToString(&quot;n2&quot;, CultureInfo.InvariantCulture));
+</code></pre>
 </article>
           </div>
 
