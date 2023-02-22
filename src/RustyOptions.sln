@@ -3,29 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions", "RustyOptions\RustyOptions.csproj", "{3E62E77B-58E6-497A-8202-072D69B20B7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RustyOptions", "RustyOptions\RustyOptions.csproj", "{3E62E77B-58E6-497A-8202-072D69B20B7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Tests", "RustyOptions.Tests\RustyOptions.Tests.csproj", "{B261E3E2-0462-4F28-9C4D-5D9809D55B83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RustyOptions.Tests", "RustyOptions.Tests\RustyOptions.Tests.csproj", "{B261E3E2-0462-4F28-9C4D-5D9809D55B83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7C76B2E-33BD-4754-91C4-BB62CADAE7B3}"
 	ProjectSection(SolutionItems) = preProject
-		..\README.md = ..\README.md
 		..\.github\workflows\build-and-test.yml = ..\.github\workflows\build-and-test.yml
-		..\.github\workflows\codeql-analysis.yml = ..\.github\workflows\codeql-analysis.yml
 		..\codecov.yml = ..\codecov.yml
+		..\.github\workflows\codeql-analysis.yml = ..\.github\workflows\codeql-analysis.yml
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RustyOptions.FSharp", "RustyOptions.FSharp\RustyOptions.FSharp.fsproj", "{0BC912B8-D467-4267-812A-EBAB84AAFEC0}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "RustyOptions.FSharp", "RustyOptions.FSharp\RustyOptions.FSharp.fsproj", "{0BC912B8-D467-4267-812A-EBAB84AAFEC0}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RustyOptions.FSharp.Tests", "RustyOptions.FSharp.Tests\RustyOptions.FSharp.Tests.fsproj", "{C80F0600-4305-4B44-9534-8B38EDDBE4DF}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "RustyOptions.FSharp.Tests", "RustyOptions.FSharp.Tests\RustyOptions.FSharp.Tests.fsproj", "{C80F0600-4305-4B44-9534-8B38EDDBE4DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Analyzer", "RustyOptions.Analyzer\RustyOptions.Analyzer\RustyOptions.Analyzer.csproj", "{6DAAC3ED-9E1C-4A2C-A2B0-8B3D720F1FCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Analyzer.CodeFixes", "RustyOptions.Analyzer\RustyOptions.Analyzer.CodeFixes\RustyOptions.Analyzer.CodeFixes.csproj", "{950F7F8F-5B13-4E48-B5A2-68C5F45CB725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Analyzer.Package", "RustyOptions.Analyzer\RustyOptions.Analyzer.Package\RustyOptions.Analyzer.Package.csproj", "{A2F57D20-8FEB-40F5-BF08-A2527C14E51E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Analyzer.Test", "RustyOptions.Analyzer\RustyOptions.Analyzer.Test\RustyOptions.Analyzer.Test.csproj", "{1DBCCB58-2956-4DAB-A55F-888C2846FF45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustyOptions.Analyzer.Vsix", "RustyOptions.Analyzer\RustyOptions.Analyzer.Vsix\RustyOptions.Analyzer.Vsix.csproj", "{76ED422B-E597-4970-8D1E-606FCDCB5AD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3E62E77B-58E6-497A-8202-072D69B20B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -44,6 +51,29 @@ Global
 		{C80F0600-4305-4B44-9534-8B38EDDBE4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C80F0600-4305-4B44-9534-8B38EDDBE4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C80F0600-4305-4B44-9534-8B38EDDBE4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAAC3ED-9E1C-4A2C-A2B0-8B3D720F1FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAAC3ED-9E1C-4A2C-A2B0-8B3D720F1FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAAC3ED-9E1C-4A2C-A2B0-8B3D720F1FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAAC3ED-9E1C-4A2C-A2B0-8B3D720F1FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{950F7F8F-5B13-4E48-B5A2-68C5F45CB725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{950F7F8F-5B13-4E48-B5A2-68C5F45CB725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{950F7F8F-5B13-4E48-B5A2-68C5F45CB725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{950F7F8F-5B13-4E48-B5A2-68C5F45CB725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F57D20-8FEB-40F5-BF08-A2527C14E51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F57D20-8FEB-40F5-BF08-A2527C14E51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F57D20-8FEB-40F5-BF08-A2527C14E51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F57D20-8FEB-40F5-BF08-A2527C14E51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DBCCB58-2956-4DAB-A55F-888C2846FF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBCCB58-2956-4DAB-A55F-888C2846FF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBCCB58-2956-4DAB-A55F-888C2846FF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBCCB58-2956-4DAB-A55F-888C2846FF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76ED422B-E597-4970-8D1E-606FCDCB5AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76ED422B-E597-4970-8D1E-606FCDCB5AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76ED422B-E597-4970-8D1E-606FCDCB5AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76ED422B-E597-4970-8D1E-606FCDCB5AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = Option and Result types for C#, inspired by Rust
