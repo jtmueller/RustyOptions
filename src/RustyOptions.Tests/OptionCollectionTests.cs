@@ -253,7 +253,7 @@ public class OptionCollectionTests
 #if NET7_0_OR_GREATER
         var ints = strings.SelectWhere(Option.Parse<int>);
 #else
-        var ints = strings.SelectWhere(x => int.TryParse(x, out int i) ? Some(i) : None<int>());
+        var ints = strings.SelectWhere(Option.Bind<string, int>(int.TryParse));
 #endif
 
         Assert.Equal(new[] { 1, 5, 7, 9, 10 }, ints);
