@@ -106,15 +106,15 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetFirstMatch()
     {
-        static bool Predicate(int x) => (x & 1) == 0;
+        static bool IsEven(int x) => (x & 1) == 0;
 
         var empty = Array.Empty<int>();
         var notEmpty = new[] { 3, 5, 6, 7, 8, 9 };
         var noMatches = new[] { 1, 3, 5, 7 };
 
-        Assert.Equal(None<int>(), empty.FirstOrNone(Predicate));
-        Assert.Equal(Some(6), notEmpty.FirstOrNone(Predicate));
-        Assert.Equal(None<int>(), noMatches.FirstOrNone(Predicate));
+        Assert.Equal(None<int>(), empty.FirstOrNone(IsEven));
+        Assert.Equal(Some(6), notEmpty.FirstOrNone(IsEven));
+        Assert.Equal(None<int>(), noMatches.FirstOrNone(IsEven));
     }
 
     [Fact]
@@ -140,7 +140,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetLastMatch()
     {
-        static bool Predicate(int x) => (x & 1) == 0;
+        static bool IsEven(int x) => (x & 1) == 0;
 
         IList<int> empty = Array.Empty<int>();
         IReadOnlyList<int> emptyReadOnly = new ReadOnlyList<int>(empty);
@@ -154,17 +154,17 @@ public class OptionCollectionTests
         IReadOnlyList<int> noMatchesReadOnly = new ReadOnlyList<int>(noMatches);
         IEnumerable<int> noMatchesEnumerable = Enumerate(noMatches);
 
-        Assert.Equal(None<int>(), empty.LastOrNone(Predicate));
-        Assert.Equal(None<int>(), emptyReadOnly.LastOrNone(Predicate));
-        Assert.Equal(None<int>(), emptyEnumerable.LastOrNone(Predicate));
+        Assert.Equal(None<int>(), empty.LastOrNone(IsEven));
+        Assert.Equal(None<int>(), emptyReadOnly.LastOrNone(IsEven));
+        Assert.Equal(None<int>(), emptyEnumerable.LastOrNone(IsEven));
 
-        Assert.Equal(Some(8), notEmpty.LastOrNone(Predicate));
-        Assert.Equal(Some(8), notEmptyReadOnly.LastOrNone(Predicate));
-        Assert.Equal(Some(8), notEmptyEnumerable.LastOrNone(Predicate));
+        Assert.Equal(Some(8), notEmpty.LastOrNone(IsEven));
+        Assert.Equal(Some(8), notEmptyReadOnly.LastOrNone(IsEven));
+        Assert.Equal(Some(8), notEmptyEnumerable.LastOrNone(IsEven));
 
-        Assert.Equal(None<int>(), noMatches.LastOrNone(Predicate));
-        Assert.Equal(None<int>(), noMatchesReadOnly.LastOrNone(Predicate));
-        Assert.Equal(None<int>(), noMatchesEnumerable.LastOrNone(Predicate));
+        Assert.Equal(None<int>(), noMatches.LastOrNone(IsEven));
+        Assert.Equal(None<int>(), noMatchesReadOnly.LastOrNone(IsEven));
+        Assert.Equal(None<int>(), noMatchesEnumerable.LastOrNone(IsEven));
     }
 
     [Fact]
@@ -198,7 +198,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetSingleMatch()
     {
-        static bool Predicate(int x) => (x & 1) == 0;
+        static bool IsEven(int x) => (x & 1) == 0;
 
         var empty = Array.Empty<int>();
         var singleWithMatch = new[] { 4 };
@@ -207,12 +207,12 @@ public class OptionCollectionTests
         var manyNoMatch = new[] { 3, 5 };
         var manyWithManyMatches = new[] { 2, 3, 4, 5, 6 };
 
-        Assert.Equal(None<int>(), empty.SingleOrNone(Predicate));
-        Assert.Equal(Some(4), singleWithMatch.SingleOrNone(Predicate));
-        Assert.Equal(None<int>(), singleNoMatch.SingleOrNone(Predicate));
-        Assert.Equal(Some(4), manyWithMatch.SingleOrNone(Predicate));
-        Assert.Equal(None<int>(), manyNoMatch.SingleOrNone(Predicate));
-        Assert.Equal(None<int>(), manyWithManyMatches.SingleOrNone(Predicate));
+        Assert.Equal(None<int>(), empty.SingleOrNone(IsEven));
+        Assert.Equal(Some(4), singleWithMatch.SingleOrNone(IsEven));
+        Assert.Equal(None<int>(), singleNoMatch.SingleOrNone(IsEven));
+        Assert.Equal(Some(4), manyWithMatch.SingleOrNone(IsEven));
+        Assert.Equal(None<int>(), manyNoMatch.SingleOrNone(IsEven));
+        Assert.Equal(None<int>(), manyWithManyMatches.SingleOrNone(IsEven));
     }
 
     [Fact]
@@ -243,6 +243,20 @@ public class OptionCollectionTests
         Assert.Equal(Some(5), notEmpty.ElementAtOrNone(5));
         Assert.Equal(Some(5), notEmptyReadOnly.ElementAtOrNone(5));
         Assert.Equal(Some(5), notEmptyEnumerable.ElementAtOrNone(5));
+    }
+
+    [Fact]
+    public void CanSelectWhere()
+    {
+        var strings = new[] { "1", "two", "NaN", "four", "5", "six", "7", "eight", "9", "10" };
+
+#if NET7_0_OR_GREATER
+        var ints = strings.SelectWhere(Option.Parse<int>);
+#else
+        var ints = strings.SelectWhere(Option.Bind<string, int>(int.TryParse));
+#endif
+
+        Assert.Equal(new[] { 1, 5, 7, 9, 10 }, ints);
     }
 
     [Fact]

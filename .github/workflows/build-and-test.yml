@@ -3,13 +3,13 @@ name: CI
 on:
   push:
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths:
-    - '**.cs'
-    - '**.csproj'
+      - "**.cs"
+      - "**.csproj"
 
 env:
-  DOTNET_VERSION: '7.0.200' # The .NET SDK version to use
+  DOTNET_VERSION: "7.0.203" # The .NET SDK version to use
 
 jobs:
   build-and-test:
@@ -23,21 +23,21 @@ jobs:
         working-directory: src
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Install dependencies
-      run: dotnet restore
-      
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
-    
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover 
+      - name: Install dependencies
+        run: dotnet restore
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
-      if: ${{ matrix.os == 'ubuntu-latest' && github.event_name != 'pull_request' }}
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        if: ${{ matrix.os == 'ubuntu-latest' && github.event_name != 'pull_request' }}

@@ -347,6 +347,33 @@ public static class OptionCollectionExtensions
     }
 
     /// <summary>
+    /// Applies a function to each element of a sequence and returns a sequence of the values inside any <c>Some</c> results.
+    /// Can be used to transform and filter in a single operation, similar to applying <c>Select/Where/Select</c>,
+    /// but with better performance.
+    /// </summary>
+    /// <typeparam name="T1">The type contained in the incoming sequence.</typeparam>
+    /// <typeparam name="T2">The type contained in the resulting sequence.</typeparam>
+    /// <param name="self">The incoming sequence.</param>
+    /// <param name="selector">A function that takes a value from the in coming sequence, and returns an <see cref="Option{T}"/> that will have any value included in the resulting sequence.</param>
+    /// <returns>A sequence containing the values for which the <paramref name="selector"/> function returns <c>Some</c>.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="self"/> or <paramref name="selector"/> is null.</exception>
+    public static IEnumerable<T2> SelectWhere<T1, T2>(this IEnumerable<T1> self, Func<T1, Option<T2>> selector)
+        where T1 : notnull
+        where T2 : notnull
+    {
+        ThrowIfNull(self);
+        ThrowIfNull(selector);
+
+        foreach (var item in self)
+        {
+            if (selector(item).IsSome(out var value))
+            {
+                yield return value;
+            }
+        }
+    }
+
+    /// <summary>
     /// Returns an <see cref="Option{T}"/> that contains the object at the top of the <c>Stack</c> if one is present.
     /// The object is not removed from the <c>Stack</c>.
     /// </summary>

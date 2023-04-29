@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
@@ -236,6 +237,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     /// Returns an enumerator for the option.
     /// </summary>
     /// <returns>The enumerator.</returns>
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
     public IEnumerator<T> GetEnumerator()
     {
         if (_isOk)
