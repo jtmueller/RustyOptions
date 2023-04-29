@@ -12,7 +12,7 @@
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="RustyOptions.Option">
 
 
+
   <h1 id="RustyOptions_Option" data-uid="RustyOptions.Option" class="text-break">Class Option
 </h1>
   <div class="markdown level0 summary"><p>This class contains static methods for creation an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
@@ -77,7 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Option</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
@@ -106,7 +107,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     <pre><code class="lang-csharp hljs">public static Func&lt;TKey, Option&lt;TValue&gt;&gt; Bind&lt;TKey, TValue&gt;(TryGetValue&lt;TKey, TValue&gt; tryGetValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -124,7 +125,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -133,14 +134,14 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TKey, <a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;TValue&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TKey, <a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;TValue&gt;&gt;</td>
         <td><p>A function that will call the <code data-dev-comment-type="paramref" class="paramref">tryGetValue</code> function and wrap the results as an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -178,7 +179,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -196,7 +197,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -212,7 +213,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -244,7 +245,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     where T : struct</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -254,7 +255,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;T&gt;</td>
+        <td><span class="xref">Nullable</span>&lt;T&gt;</td>
         <td><span class="parametername">value</span></td>
         <td><p>The value to wrap in a <code>Some</code> option.</p>
 </td>
@@ -262,7 +263,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -278,7 +279,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -309,7 +310,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; None&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -324,7 +325,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -355,7 +356,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; Some&lt;T&gt;(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -373,7 +374,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -389,7 +390,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -421,7 +422,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; Try&lt;T&gt;(TryGet&lt;T&gt; tryGet)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -439,7 +440,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -455,7 +456,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -470,6 +471,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 
@@ -508,7 +510,7 @@ and wraps the result as an <a class="xref" href="RustyOptions.Option-1.html">Opt
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

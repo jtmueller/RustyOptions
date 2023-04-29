@@ -12,7 +12,7 @@
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="RustyOptions.Result`2">
 
 
+
   <h1 id="RustyOptions_Result_2" data-uid="RustyOptions.Result`2" class="text-break">Struct Result&lt;T, TErr&gt;
 </h1>
   <div class="markdown level0 summary"><p><a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> is used to return the result of an operation that might fail, without
@@ -79,8 +80,8 @@ or else <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_I
   <div class="markdown level0 conceptual"></div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IEquatable&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</div>
-    <div><span class="xref">IComparable&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</div>
+    <div><span class="xref">IComparable</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, TErr&gt;&gt;</div>
     <div><span class="xref">IFormattable</span></div>
     <div><span class="xref">ISpanFormattable</span></div>
   </div>
@@ -91,7 +92,7 @@ or else <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_I
     <pre><code class="lang-csharp hljs">public readonly struct Result&lt;T, TErr&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -130,7 +131,7 @@ or else <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_I
     <pre><code class="lang-csharp hljs">public Result(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -164,7 +165,7 @@ or else <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_I
     <pre><code class="lang-csharp hljs">public Result(TErr error)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -201,7 +202,7 @@ depending on whether the result is <code>Err</code> or <code>Ok</code>.</p>
     <pre><code class="lang-csharp hljs">public readonly IEnumerable&lt;T&gt; AsEnumerable()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -210,7 +211,7 @@ depending on whether the result is <code>Err</code> or <code>Ok</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable&lt;&gt;</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td><p>An enumerable containing the result's value, or an empty enumerable. Error values are omitted.</p>
 </td>
       </tr>
@@ -234,7 +235,7 @@ items depending on whether the result is <code>Err</code> or <code>Ok</code>.</p
     <pre><code class="lang-csharp hljs">public readonly ReadOnlySpan&lt;T&gt; AsSpan()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -243,7 +244,7 @@ items depending on whether the result is <code>Err</code> or <code>Ok</code>.</p
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ReadOnlySpan&lt;&gt;</span>&lt;T&gt;</td>
+        <td><span class="xref">ReadOnlySpan</span>&lt;T&gt;</td>
         <td><p>A span containing the result's value, or an empty span. Error values are omitted.</p>
 </td>
       </tr>
@@ -272,7 +273,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public readonly int CompareTo(Result&lt;T, TErr&gt; other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -289,7 +290,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -298,7 +299,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="xref">Int32</span></td>
         <td><p><code>-1</code> if this instance precendes <code data-dev-comment-type="paramref" class="paramref">other</code>, <code>0</code> if they are equal, and <code>1</code> if this instance follows <code data-dev-comment-type="paramref" class="paramref">other</code>.</p>
 </td>
       </tr>
@@ -321,7 +322,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public readonly bool Equals(Result&lt;T, TErr&gt; other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -339,7 +340,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -348,7 +349,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the current object is equal to the <code data-dev-comment-type="paramref" class="paramref">other</code> parameter;
 otherwise, <code>false</code>.</p>
 </td>
@@ -372,7 +373,7 @@ otherwise, <code>false</code>.</p>
     <pre><code class="lang-csharp hljs">public override readonly bool Equals(object? obj)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -382,7 +383,7 @@ otherwise, <code>false</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="xref">Nullable</span>&lt;<span class="xref">Object</span>&gt;</td>
         <td><span class="parametername">obj</span></td>
         <td><p>An object to compare with this object.</p>
 </td>
@@ -390,7 +391,7 @@ otherwise, <code>false</code>.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -399,7 +400,7 @@ otherwise, <code>false</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the current object is equal to the <code data-dev-comment-type="paramref" class="paramref">obj</code> parameter;
 otherwise, <code>false</code>.</p>
 </td>
@@ -434,7 +435,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public readonly T Expect(string message)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -444,14 +445,14 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><span class="parametername">message</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -483,7 +484,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public readonly TErr ExpectErr(string message)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -493,7 +494,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><span class="parametername">message</span></td>
         <td><p>The message for the thrown exception, if any.</p>
 </td>
@@ -501,7 +502,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -533,7 +534,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public override readonly int GetHashCode()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -542,7 +543,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="xref">Int32</span></td>
         <td><p>The hash code of the object returned by the <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_IsOk__0__">IsOk(out T)</a> method, or <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_IsErr__1__">IsErr(out TErr)</a>,
 whichever method returns <code>true</code>.</p>
 </td>
@@ -566,7 +567,7 @@ whichever method returns <code>true</code>.</p>
     <pre><code class="lang-csharp hljs">public readonly bool IsErr(out TErr error)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -584,7 +585,7 @@ whichever method returns <code>true</code>.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -593,7 +594,7 @@ whichever method returns <code>true</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -615,7 +616,7 @@ whichever method returns <code>true</code>.</p>
     <pre><code class="lang-csharp hljs">public readonly bool IsOk(out T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -633,7 +634,7 @@ whichever method returns <code>true</code>.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -642,7 +643,7 @@ whichever method returns <code>true</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -665,7 +666,7 @@ with the <code>Err</code> value, as appropriate.</p>
     <pre><code class="lang-csharp hljs">public readonly void Match(Action&lt;T&gt; onOk, Action&lt;TErr&gt; onErr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -675,13 +676,13 @@ with the <code>Err</code> value, as appropriate.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Action&lt;&gt;</span>&lt;T&gt;</td>
+        <td><span class="xref">Action</span>&lt;T&gt;</td>
         <td><span class="parametername">onOk</span></td>
         <td><p>The function to pass the value to, if the result is <code>Ok</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Action&lt;&gt;</span>&lt;TErr&gt;</td>
+        <td><span class="xref">Action</span>&lt;TErr&gt;</td>
         <td><span class="parametername">onErr</span></td>
         <td><p>The function to pass the error value to, if the result is <code>Err</code>.</p>
 </td>
@@ -707,7 +708,7 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     <pre><code class="lang-csharp hljs">public readonly T2 Match&lt;T2&gt;(Func&lt;T, T2&gt; onOk, Func&lt;TErr, T2&gt; onErr)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -717,13 +718,13 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T, T2&gt;</td>
         <td><span class="parametername">onOk</span></td>
         <td><p>The function to pass the value to, if the result is <code>Ok</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
         <td><span class="parametername">onErr</span></td>
         <td><p>The function to pass the error value to, if the result is <code>Err</code>.</p>
 </td>
@@ -731,7 +732,7 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -747,7 +748,7 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -779,7 +780,7 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     <pre><code class="lang-csharp hljs">public override readonly string ToString()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -788,7 +789,7 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><p>The text representation of the value of the current <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> object.</p>
 </td>
       </tr>
@@ -811,7 +812,7 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     <pre><code class="lang-csharp hljs">public readonly string ToString(string? format, IFormatProvider? formatProvider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -821,14 +822,14 @@ of the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="xref">Nullable</span>&lt;<span class="xref">String</span>&gt;</td>
         <td><span class="parametername">format</span></td>
         <td><p>The format to use, or a null reference to use the default format defined for
 the type of the contained value.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
+        <td><span class="xref">Nullable</span>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
         <td><span class="parametername">formatProvider</span></td>
         <td><p>The provider to use to format the value, or a null reference to obtain the
 format information from the current locale setting of the operating system.</p>
@@ -837,7 +838,7 @@ format information from the current locale setting of the operating system.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -846,7 +847,7 @@ format information from the current locale setting of the operating system.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><p>The value of the current instance in the specified format.</p>
 </td>
       </tr>
@@ -869,7 +870,7 @@ format information from the current locale setting of the operating system.</p>
     <pre><code class="lang-csharp hljs">public readonly bool TryFormat(Span&lt;char&gt; destination, out int charsWritten, ReadOnlySpan&lt;char&gt; format, IFormatProvider? provider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -879,25 +880,25 @@ format information from the current locale setting of the operating system.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Span&lt;&gt;</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="xref">Span</span>&lt;<span class="xref">Char</span>&gt;</td>
         <td><span class="parametername">destination</span></td>
         <td><p>The span in which to write this instance's value formatted as a span of characters.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="xref">Int32</span></td>
         <td><span class="parametername">charsWritten</span></td>
         <td><p>When this method returns, contains the number of characters that were written in destination.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">ReadOnlySpan&lt;&gt;</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="xref">ReadOnlySpan</span>&lt;<span class="xref">Char</span>&gt;</td>
         <td><span class="parametername">format</span></td>
         <td><p>A span containing the characters that represent a standard or custom format string that defines the acceptable format for destination.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
+        <td><span class="xref">Nullable</span>&lt;<span class="xref">IFormatProvider</span>&gt;</td>
         <td><span class="parametername">provider</span></td>
         <td><p>An optional object that supplies culture-specific formatting information for destination.</p>
 </td>
@@ -905,7 +906,7 @@ format information from the current locale setting of the operating system.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -914,7 +915,7 @@ format information from the current locale setting of the operating system.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the formatting was successful; otherwise, <code>false</code>.</p>
 </td>
       </tr>
@@ -948,7 +949,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public readonly T Unwrap()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -980,7 +981,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public readonly TErr UnwrapErr()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1012,7 +1013,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public readonly T UnwrapOrElse(Func&lt;TErr, T&gt; elseFunction)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1022,7 +1023,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, T&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, T&gt;</td>
         <td><span class="parametername">elseFunction</span></td>
         <td><p>The function that computes the returned value from the <code>Err</code> value.</p>
 </td>
@@ -1030,7 +1031,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1064,7 +1065,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     <pre><code class="lang-csharp hljs">public static bool operator ==(Result&lt;T, TErr&gt; left, Result&lt;T, TErr&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1088,7 +1089,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1097,7 +1098,7 @@ or call <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_Re
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the two values are equal.</p>
 </td>
       </tr>
@@ -1124,7 +1125,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public static bool operator&gt;(Result&lt;T, TErr&gt; left, Result&lt;T, TErr&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1148,7 +1149,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1157,7 +1158,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is greater than the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
 </td>
       </tr>
@@ -1184,7 +1185,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Result&lt;T, TErr&gt; left, Result&lt;T, TErr&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1208,7 +1209,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1217,7 +1218,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is greater than or equal to the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
 </td>
       </tr>
@@ -1240,7 +1241,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public static bool operator !=(Result&lt;T, TErr&gt; left, Result&lt;T, TErr&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1264,7 +1265,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1273,7 +1274,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the two values are not equal.</p>
 </td>
       </tr>
@@ -1300,7 +1301,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public static bool operator &lt;(Result&lt;T, TErr&gt; left, Result&lt;T, TErr&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1324,7 +1325,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1333,7 +1334,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is less than the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
 </td>
       </tr>
@@ -1360,7 +1361,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Result&lt;T, TErr&gt; left, Result&lt;T, TErr&gt; right)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1384,7 +1385,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1393,7 +1394,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="xref">Boolean</span></td>
         <td><p><code>true</code> if the <code data-dev-comment-type="paramref" class="paramref">left</code> parameter is less than or equal to the <code data-dev-comment-type="paramref" class="paramref">right</code> parameter.</p>
 </td>
       </tr>
@@ -1473,6 +1474,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
   <div>
       <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_UnwrapOr__2_RustyOptions_Result___0___1____0_">ResultExtensions.UnwrapOr&lt;T, TErr&gt;(Result&lt;T, TErr&gt;, T)</a>
   </div>
+
 </article>
           </div>
 
@@ -1511,7 +1513,7 @@ Ok compares as less than any Err, while two Ok or two Err compare as their conta
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

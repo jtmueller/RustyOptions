@@ -12,7 +12,7 @@
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="RustyOptions.Async.ResultAsyncExtensions">
 
 
+
   <h1 id="RustyOptions_Async_ResultAsyncExtensions" data-uid="RustyOptions.Async.ResultAsyncExtensions" class="text-break">Class ResultAsyncExtensions
 </h1>
   <div class="markdown level0 summary"><p>Extension methods for async operations involving <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>.</p>
@@ -77,7 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">ResultAsyncExtensions</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.Async.html">RustyOptions.Async</a></h6>
@@ -105,7 +106,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -121,7 +122,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -129,7 +130,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -138,14 +139,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -187,7 +188,7 @@
     <pre><code class="lang-csharp hljs">public static ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -203,7 +204,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -211,7 +212,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -220,14 +221,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -269,7 +270,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -279,13 +280,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -293,7 +294,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -302,14 +303,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -351,7 +352,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -361,13 +362,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -375,7 +376,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -384,14 +385,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -433,7 +434,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -443,13 +444,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -457,7 +458,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -466,14 +467,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -515,7 +516,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -525,13 +526,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -539,7 +540,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -548,14 +549,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -597,7 +598,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -607,13 +608,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -621,7 +622,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -630,14 +631,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -679,7 +680,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; AndThenAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;Result&lt;T2, TErr&gt;&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -689,13 +690,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -703,7 +704,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -712,14 +713,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -761,7 +762,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -777,7 +778,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -785,7 +786,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -794,14 +795,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -843,7 +844,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -859,7 +860,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -867,7 +868,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -876,14 +877,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -925,7 +926,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -935,13 +936,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -949,7 +950,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -958,14 +959,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1007,7 +1008,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1017,13 +1018,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1031,7 +1032,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1040,14 +1041,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1089,7 +1090,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1099,13 +1100,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1113,7 +1114,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1122,14 +1123,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1171,7 +1172,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1181,13 +1182,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1195,7 +1196,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1204,14 +1205,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1253,7 +1254,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1263,13 +1264,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1277,7 +1278,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1286,14 +1287,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1335,7 +1336,7 @@
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T2, TErr&gt;&gt; MapAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1345,13 +1346,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1359,7 +1360,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1368,14 +1369,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1419,7 +1420,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;TErr, Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1435,13 +1436,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1449,7 +1450,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1458,14 +1459,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1509,7 +1510,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;TErr, ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1525,13 +1526,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1539,7 +1540,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1548,14 +1549,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1599,7 +1600,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1609,19 +1610,19 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1629,7 +1630,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1638,14 +1639,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1689,7 +1690,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;TErr, Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1699,19 +1700,19 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1719,7 +1720,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1728,14 +1729,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1779,7 +1780,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this Task&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;TErr, ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1789,19 +1790,19 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1809,7 +1810,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1818,14 +1819,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1869,7 +1870,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1879,19 +1880,19 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1899,7 +1900,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1908,14 +1909,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -1959,7 +1960,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, Task&lt;T2&gt;&gt; mapper, Func&lt;TErr, Task&lt;T2&gt;&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1969,19 +1970,19 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, <span class="xref">Task&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">Task</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -1989,7 +1990,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -1998,14 +1999,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2049,7 +2050,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;T2&gt; MapOrElseAsync&lt;T1, T2, TErr&gt;(this ValueTask&lt;Result&lt;T1, TErr&gt;&gt; self, Func&lt;T1, ValueTask&lt;T2&gt;&gt; mapper, Func&lt;TErr, ValueTask&lt;T2&gt;&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2059,19 +2060,19 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result to map.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, <span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, <span class="xref">ValueTask</span>&lt;T2&gt;&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -2079,7 +2080,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2088,14 +2089,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;T2&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;T2&gt;</td>
         <td><p>The mapped value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2137,7 +2138,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2153,7 +2154,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2161,7 +2162,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2170,14 +2171,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2219,7 +2220,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2235,7 +2236,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2243,7 +2244,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2252,14 +2253,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2301,7 +2302,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Task&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2311,13 +2312,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2325,7 +2326,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2334,14 +2335,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2383,7 +2384,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Task&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2393,13 +2394,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2407,7 +2408,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2416,14 +2417,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2465,7 +2466,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this Task&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2475,13 +2476,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2489,7 +2490,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2498,14 +2499,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2547,7 +2548,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this ValueTask&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2557,13 +2558,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2571,7 +2572,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2580,14 +2581,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2629,7 +2630,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this ValueTask&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, Task&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2639,13 +2640,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <span class="xref">Task&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">Task</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2653,7 +2654,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2662,14 +2663,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2711,7 +2712,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Result&lt;T, T2Err&gt;&gt; OrElseAsync&lt;T, T1Err, T2Err&gt;(this ValueTask&lt;Result&lt;T, T1Err&gt;&gt; self, Func&lt;T1Err, ValueTask&lt;Result&lt;T, T2Err&gt;&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2721,13 +2722,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The result.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -2735,7 +2736,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -2744,14 +2745,14 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask&lt;&gt;</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -2776,6 +2777,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 
@@ -2814,7 +2816,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

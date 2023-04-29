@@ -12,7 +12,7 @@
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="RustyOptions.OptionJsonExtensions">
 
 
+
   <h1 id="RustyOptions_OptionJsonExtensions" data-uid="RustyOptions.OptionJsonExtensions" class="text-break">Class OptionJsonExtensions
 </h1>
   <div class="markdown level0 summary"><p>Extension methods for using <code>System.Text.Json</code> types with <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
@@ -77,7 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">OptionJsonExtensions</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
@@ -105,7 +106,7 @@
     <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; GetOption&lt;T&gt;(this JsonValue self)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -122,7 +123,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -138,7 +139,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -169,7 +170,7 @@
     <pre><code class="lang-csharp hljs">public static Option&lt;JsonElement&gt; GetPropOption(this JsonElement self, ReadOnlySpan&lt;byte&gt; propertyName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -185,7 +186,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">ReadOnlySpan&lt;&gt;</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td><span class="xref">ReadOnlySpan</span>&lt;<span class="xref">Byte</span>&gt;</td>
         <td><span class="parametername">propertyName</span></td>
         <td><p>The name of the property to retrieve.</p>
 </td>
@@ -193,7 +194,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -225,7 +226,7 @@
     <pre><code class="lang-csharp hljs">public static Option&lt;JsonElement&gt; GetPropOption(this JsonElement self, ReadOnlySpan&lt;char&gt; propertyName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -241,7 +242,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">ReadOnlySpan&lt;&gt;</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;</td>
+        <td><span class="xref">ReadOnlySpan</span>&lt;<span class="xref">Char</span>&gt;</td>
         <td><span class="parametername">propertyName</span></td>
         <td><p>The name of the property to retrieve.</p>
 </td>
@@ -249,7 +250,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -281,7 +282,7 @@
     <pre><code class="lang-csharp hljs">public static Option&lt;JsonElement&gt; GetPropOption(this JsonElement self, string propertyName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -297,7 +298,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><span class="parametername">propertyName</span></td>
         <td><p>The name of the property to retrieve.</p>
 </td>
@@ -305,7 +306,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -337,7 +338,7 @@
     <pre><code class="lang-csharp hljs">public static Option&lt;JsonNode&gt; GetPropOption(this JsonObject self, string propertyName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -353,7 +354,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><span class="parametername">propertyName</span></td>
         <td><p>The name of the property to retrieve.</p>
 </td>
@@ -361,7 +362,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -393,7 +394,7 @@
     <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; GetPropValue&lt;T&gt;(this JsonObject self, string propertyName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -409,7 +410,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><span class="parametername">propertyName</span></td>
         <td><p>The name of the property to retrieve.</p>
 </td>
@@ -417,7 +418,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -433,7 +434,7 @@
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -448,6 +449,7 @@
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 
@@ -486,7 +488,7 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

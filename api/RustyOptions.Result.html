@@ -12,7 +12,7 @@
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="RustyOptions.Result">
 
 
+
   <h1 id="RustyOptions_Result" data-uid="RustyOptions.Result" class="text-break">Class Result
 </h1>
   <div class="markdown level0 summary"><p>This class contains static methods for creating a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a>.</p>
@@ -77,7 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Result</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
@@ -106,7 +107,7 @@ containing the given exception.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, Exception&gt; Err&lt;T&gt;(Exception ex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -124,7 +125,7 @@ containing the given exception.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -140,7 +141,7 @@ containing the given exception.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -173,7 +174,7 @@ containing the given error message.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, string&gt; Err&lt;T&gt;(string errMsg)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -183,7 +184,7 @@ containing the given error message.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">String</span></td>
         <td><span class="parametername">errMsg</span></td>
         <td><p>The error message to store in the result.</p>
 </td>
@@ -191,7 +192,7 @@ containing the given error message.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -200,14 +201,14 @@ containing the given error message.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <span class="xref">String</span>&gt;</td>
         <td><p>A result object containing the given error message.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -240,7 +241,7 @@ containing the given error value.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Err&lt;T, TErr&gt;(TErr error)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -258,7 +259,7 @@ containing the given error value.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -274,7 +275,7 @@ containing the given error value.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -313,7 +314,7 @@ with <code>string</code> as the error type.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, string&gt; Ok&lt;T&gt;(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -331,7 +332,7 @@ with <code>string</code> as the error type.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -340,14 +341,14 @@ with <code>string</code> as the error type.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, <span class="xref">String</span>&gt;</td>
         <td><p>A result object containing the given value.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -380,7 +381,7 @@ the given value.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Ok&lt;T, TErr&gt;(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -398,7 +399,7 @@ the given value.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -414,7 +415,7 @@ the given value.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -453,7 +454,7 @@ with <see cref="!:Exception"></see> as the error type.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, Exception&gt; OkExn&lt;T&gt;(T value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -471,7 +472,7 @@ with <see cref="!:Exception"></see> as the error type.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -487,7 +488,7 @@ with <see cref="!:Exception"></see> as the error type.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -520,7 +521,7 @@ Any exceptions will be caught and returned in an <code>Err</code> result.</p>
     <pre><code class="lang-csharp hljs">public static Result&lt;T, Exception&gt; Try&lt;T&gt;(Func&lt;T&gt; func)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -530,7 +531,7 @@ Any exceptions will be caught and returned in an <code>Err</code> result.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func&lt;&gt;</span>&lt;T&gt;</td>
+        <td><span class="xref">Func</span>&lt;T&gt;</td>
         <td><span class="parametername">func</span></td>
         <td><p>The function to attempt calling.</p>
 </td>
@@ -538,7 +539,7 @@ Any exceptions will be caught and returned in an <code>Err</code> result.</p>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -554,7 +555,7 @@ Any exceptions will be caught and returned in an <code>Err</code> result.</p>
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -569,6 +570,7 @@ Any exceptions will be caught and returned in an <code>Err</code> result.</p>
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 
@@ -607,7 +609,7 @@ Any exceptions will be caught and returned in an <code>Err</code> result.</p>
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

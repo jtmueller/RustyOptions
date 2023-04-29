@@ -12,7 +12,7 @@
  ">
     
       <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
       <link rel="stylesheet" href="../styles/main.css">
       <meta property="docfx:navrel" content="../toc.html">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="RustyOptions.ResultExtensions">
 
 
+
   <h1 id="RustyOptions_ResultExtensions" data-uid="RustyOptions.ResultExtensions" class="text-break">Class ResultExtensions
 </h1>
   <div class="markdown level0 summary"><p>Extension methods for the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> type.</p>
@@ -77,7 +78,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">ResultExtensions</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
@@ -110,7 +111,7 @@ it is recommended to use <a class="xref" href="RustyOptions.ResultExtensions.htm
     <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; And&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Result&lt;T2, TErr&gt; other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -134,7 +135,7 @@ it is recommended to use <a class="xref" href="RustyOptions.ResultExtensions.htm
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -151,7 +152,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -193,7 +194,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; AndThen&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -209,7 +210,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
         <td><span class="parametername">thenFunc</span></td>
         <td><p>The function to call with the <code>Ok</code> value, if any.</p>
 </td>
@@ -217,7 +218,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -233,7 +234,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -275,7 +276,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Flatten&lt;T, TErr&gt;(this Result&lt;Result&lt;T, TErr&gt;, TErr&gt; self)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -293,7 +294,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -309,7 +310,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -346,7 +347,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; Map&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -362,7 +363,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -370,7 +371,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -386,7 +387,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -428,7 +429,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; MapErr&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, T2Err&gt; errMapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -444,7 +445,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, T2Err&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, T2Err&gt;</td>
         <td><span class="parametername">errMapper</span></td>
         <td><p>The function that converts a contained <code data-dev-comment-type="typeparamref" class="typeparamref">T1Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2Err</code>.</p>
 </td>
@@ -452,7 +453,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -468,7 +469,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -515,7 +516,7 @@ if you are passing the result of a function call, it is recommended to use
     <pre><code class="lang-csharp hljs">public static T2 MapOr&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper, T2 defaultValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -531,7 +532,7 @@ if you are passing the result of a function call, it is recommended to use
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -545,7 +546,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -561,7 +562,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -605,7 +606,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <pre><code class="lang-csharp hljs">public static T2 MapOrElse&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -621,13 +622,13 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
         <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;TErr, T2&gt;</td>
+        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
         <td><span class="parametername">defaultFactory</span></td>
         <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
 </td>
@@ -635,7 +636,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -651,7 +652,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -698,7 +699,7 @@ if you are passing the result of a function call, it is recommended to use
     <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; Or&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Result&lt;T, T2Err&gt; other)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -722,7 +723,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -738,7 +739,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -780,7 +781,7 @@ if you are passing the result of a function call, it is recommended to use
     <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; OrElse&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -796,7 +797,7 @@ if you are passing the result of a function call, it is recommended to use
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func&lt;, &gt;</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="xref">Func</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
         <td><span class="parametername">elseFunc</span></td>
         <td><p>The function to call with the <code>Err</code> value, if any.</p>
 </td>
@@ -804,7 +805,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -820,7 +821,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -867,7 +868,7 @@ if you are passing the result of a function call, it is recommended to use
     <pre><code class="lang-csharp hljs">public static T UnwrapOr&lt;T, TErr&gt;(this Result&lt;T, TErr&gt; self, T defaultValue)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -891,7 +892,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -907,7 +908,7 @@ if you are passing the result of a function call, it is recommended to use
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -927,6 +928,7 @@ if you are passing the result of a function call, it is recommended to use
       </tr>
     </tbody>
   </table>
+
 </article>
           </div>
 
@@ -965,7 +967,7 @@ if you are passing the result of a function call, it is recommended to use
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
