@@ -356,6 +356,7 @@ public static class OptionCollectionExtensions
     /// <param name="self">The incoming sequence.</param>
     /// <param name="selector">A function that takes a value from the in coming sequence, and returns an <see cref="Option{T}"/> that will have any value included in the resulting sequence.</param>
     /// <returns>A sequence containing the values for which the <paramref name="selector"/> function returns <c>Some</c>.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown if <paramref name="self"/> or <paramref name="selector"/> is null.</exception>
     public static IEnumerable<T2> SelectWhere<T1, T2>(this IEnumerable<T1> self, Func<T1, Option<T2>> selector)
         where T1 : notnull
         where T2 : notnull
