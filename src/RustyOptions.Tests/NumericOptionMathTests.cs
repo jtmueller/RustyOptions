@@ -2,7 +2,6 @@
 
 using System.Globalization;
 using System.Numerics;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 using static RustyOptions.NumericOption;
 
 namespace RustyOptions.Tests;

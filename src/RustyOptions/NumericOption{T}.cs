@@ -1,5 +1,6 @@
 ﻿#if NET7_0_OR_GREATER
 
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
@@ -164,6 +165,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     /// Returns an enumerator for the option.
     /// </summary>
     /// <returns>The enumerator.</returns>
+    [EditorBrowsable(EditorBrowsableState.Advanced)]
     public IEnumerator<T> GetEnumerator()
     {
         if (_isSome)
