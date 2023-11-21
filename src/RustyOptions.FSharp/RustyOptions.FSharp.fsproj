@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net7.0;net6.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>RustyOptions.FSharp</AssemblyName>
-    <Version>0.9.0</Version>
-    <ReleaseVersion>0.9.0</ReleaseVersion>
+    <Version>0.10.0</Version>
+    <ReleaseVersion>0.10.0</ReleaseVersion>
     <PackageId>RustyOptions.FSharp</PackageId>
     <Authors>Joel Mueller</Authors>
     <Company></Company>
@@ -34,5 +34,9 @@
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
     <PackageReference Update="FSharp.Core" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Update="FSharp.Core" Version="8.0.0" />
   </ItemGroup>
 </Project>
