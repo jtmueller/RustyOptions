@@ -296,7 +296,7 @@ public sealed class ResultTests
 
         var items = new[] { d, e1, b, e3, e2, a, c, e4 };
         Array.Sort(items);
-        Assert.Equal(new[] { a, b, c, d, e1, e2, e3, e4 }, items);
+        Assert.Equal([a, b, c, d, e1, e2, e3, e4], items);
     }
 
     private sealed class NotSpanFormattable : IFormattable

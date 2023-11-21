@@ -80,7 +80,7 @@ public class OptionCollectionTests
 
         var values = options.Values().ToArray();
 
-        Assert.Equal(new[] { 2, 4, 6, 8, 10 }, values);
+        Assert.Equal([2, 4, 6, 8, 10], values);
     }
 
     [Fact]

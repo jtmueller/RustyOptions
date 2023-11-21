@@ -428,7 +428,7 @@ public sealed class OptionTests
 
         var items = new[] { d, b, n, c, a };
         Array.Sort(items);
-        Assert.Equal(new[] { a, b, c, d, n }, items);
+        Assert.Equal([a, b, c, d, n], items);
     }
 
     private sealed class NotSpanFormattable : IFormattable

@@ -28,10 +28,10 @@ internal sealed class OptionJsonConverter : JsonConverterFactory
         Type valueType = typeToConvert.GetGenericArguments()[0];
 
         var converter = Activator.CreateInstance(
-            typeof(OptionJsonConverterInner<>).MakeGenericType(new[] { valueType }),
+            typeof(OptionJsonConverterInner<>).MakeGenericType([valueType]),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
-            args: new object[] { options },
+            args: [options],
             culture: null
         ) as JsonConverter;
 

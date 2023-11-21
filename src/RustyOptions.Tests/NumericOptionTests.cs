@@ -411,7 +411,7 @@ public sealed class NumericOptionTests
 
         var items = new[] { d, b, n, c, a };
         Array.Sort(items);
-        Assert.Equal(new[] { a, b, c, d, n }, items);
+        Assert.Equal([a, b, c, d, n], items);
     }
 
     [Fact]
@@ -422,7 +422,7 @@ public sealed class NumericOptionTests
 
         var values = options.Values().ToArray();
 
-        Assert.Equal(new[] { 2, 4, 6, 8, 10 }, values);
+        Assert.Equal([2, 4, 6, 8, 10], values);
     }
 
     [Fact]
