@@ -145,7 +145,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     {
         return _isSome
             ? MemoryMarshal.CreateReadOnlySpan(ref Unsafe.AsRef(in _value), 1)
-            : ReadOnlySpan<T>.Empty;
+            : [];
     }
 
     /// <summary>

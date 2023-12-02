@@ -78,7 +78,7 @@ public class OptionCollectionTests
         var options = Enumerable.Range(1, 10)
             .Select(x => (x & 1) == 0 ? Some(x) : None<int>());
 
-        var values = options.Values().ToArray();
+        ReadOnlySpan<int> values = options.Values().ToArray();
 
         Assert.Equal([2, 4, 6, 8, 10], values);
     }
@@ -108,9 +108,9 @@ public class OptionCollectionTests
     {
         static bool IsEven(int x) => (x & 1) == 0;
 
-        var empty = Array.Empty<int>();
-        var notEmpty = new[] { 3, 5, 6, 7, 8, 9 };
-        var noMatches = new[] { 1, 3, 5, 7 };
+        int[] empty = [];
+        int[] notEmpty = [3, 5, 6, 7, 8, 9];
+        int[] noMatches = [1, 3, 5, 7];
 
         Assert.Equal(None<int>(), empty.FirstOrNone(IsEven));
         Assert.Equal(Some(6), notEmpty.FirstOrNone(IsEven));
@@ -200,12 +200,12 @@ public class OptionCollectionTests
     {
         static bool IsEven(int x) => (x & 1) == 0;
 
-        var empty = Array.Empty<int>();
-        var singleWithMatch = new[] { 4 };
-        var singleNoMatch = new[] { 3 };
-        var manyWithMatch = new[] { 3, 4, 5 };
-        var manyNoMatch = new[] { 3, 5 };
-        var manyWithManyMatches = new[] { 2, 3, 4, 5, 6 };
+        int[] empty = [];
+        int[] singleWithMatch = [4];
+        int[] singleNoMatch = [3];
+        int[] manyWithMatch = [3, 4, 5];
+        int[] manyNoMatch = [3, 5];
+        int[] manyWithManyMatches = [2, 3, 4, 5, 6];
 
         Assert.Equal(None<int>(), empty.SingleOrNone(IsEven));
         Assert.Equal(Some(4), singleWithMatch.SingleOrNone(IsEven));

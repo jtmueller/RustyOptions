@@ -271,25 +271,56 @@ public sealed class OptionTests
         Span<char> buffer = stackalloc char[255];
 
         Assert.True(someInt.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Some(4200)"));
+        Assert.Equal("Some(4200)", buffer[..written]);
 
         Assert.True(noneInt.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("None"));
+        Assert.Equal("None", buffer[..written]);
 
         Assert.True(someInt.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
+        Assert.Equal("Some(4,200.00)", buffer[..written]);
 
         var notSpanFormattable = Some(new NotSpanFormattable { Value = 4200 });
         Assert.True(notSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
+        Assert.Equal("Some(4,200.00)", buffer[..written]);
 
         var notFormattable = Some(new NotFormattable { Value = 4200 });
         Assert.True(notFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Some(4200)"));
+        Assert.Equal("Some(4200)", buffer[..written]);
 
         Assert.False(someInt.TryFormat(Span<char>.Empty, out written, "", null));
         Assert.False(notFormattable.TryFormat(Span<char>.Empty, out written, "", null));
     }
+
+#if NET8_0_OR_GREATER
+    [Fact]
+    public void CanFormatToUtf8Span()
+    {
+        var someInt = Some(4200);
+        var noneInt = None<int>();
+
+        Span<byte> buffer = stackalloc byte[255];
+
+        Assert.True(someInt.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4200)"u8, buffer[..written]);
+
+        Assert.True(noneInt.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
+        Assert.Equal("None"u8, buffer[..written]);
+
+        Assert.True(someInt.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4,200.00)"u8, buffer[..written]);
+
+        var notSpanFormattable = Some(new NotSpanFormattable { Value = 4200 });
+        Assert.True(notSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4,200.00)"u8, buffer[..written]);
+
+        var notFormattable = Some(new NotFormattable { Value = 4200 });
+        Assert.True(notFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4200)"u8, buffer[..written]);
+
+        Assert.False(someInt.TryFormat(Span<byte>.Empty, out written, "", null));
+        Assert.False(notFormattable.TryFormat(Span<byte>.Empty, out written, "", null));
+    }
+#endif
 
     [Fact]
     public void CanFlatten()
@@ -426,9 +457,9 @@ public sealed class OptionTests
         Assert.False(n > n);
 #pragma warning restore CS1718 // Comparison made to same variable
 
-        var items = new[] { d, b, n, c, a };
+        Option<int>[] items = [d, b, n, c, a];
         Array.Sort(items);
-        Assert.Equal([a, b, c, d, n], items);
+        Assert.Equal(new[] { a, b, c, d, n }, items);
     }
 
     private sealed class NotSpanFormattable : IFormattable
@@ -455,7 +486,9 @@ public sealed class OptionTests
     [InlineData("foo", true, null)]
     [InlineData("9", false, ConsoleColor.Blue)]
     [InlineData("797", false, (ConsoleColor)797)]
+#pragma warning disable xUnit1012 // Null should only be used for nullable parameters
     [InlineData(null, true, null)]
+#pragma warning restore xUnit1012 // Null should only be used for nullable parameters
     public void CanParseEnums(string name, bool ignoreCase, ConsoleColor? expected)
     {
         Assert.Equal(Option.Create(expected), Option.ParseEnum<ConsoleColor>(name, ignoreCase));

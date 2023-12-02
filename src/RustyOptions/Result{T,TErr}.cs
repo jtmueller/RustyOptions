@@ -217,7 +217,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     {
         return _isOk
             ? MemoryMarshal.CreateReadOnlySpan(ref Unsafe.AsRef(in _value), 1)
-            : ReadOnlySpan<T>.Empty;
+            : [];
     }
 
     /// <summary>

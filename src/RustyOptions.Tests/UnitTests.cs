@@ -33,14 +33,14 @@ public sealed class UnitTests
         Assert.Equal("()", u1.ToString(null, null));
 
         Span<char> buffer = stackalloc char[10];
-        var success = u1.TryFormat(buffer, out int written, ReadOnlySpan<char>.Empty, null);
+        var success = u1.TryFormat(buffer, out int written, [], null);
 
         Assert.True(success);
         Assert.Equal(2, written);
         Assert.True(buffer[..written].SequenceEqual("()"));
 
-        buffer = Span<char>.Empty;
-        success = u1.TryFormat(buffer, out written, ReadOnlySpan<char>.Empty, null);
+        buffer = [];
+        success = u1.TryFormat(buffer, out written, [], null);
 
         Assert.False(success);
         Assert.Equal(0, written);

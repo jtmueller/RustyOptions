@@ -288,8 +288,8 @@ public sealed class NumericOptionTests
         Assert.True(someInt.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
         Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
 
-        Assert.False(someInt.TryFormat(Span<char>.Empty, out written, "", null));
-        Assert.False(noneInt.TryFormat(Span<char>.Empty, out written, "", null));
+        Assert.False(someInt.TryFormat([], out written, "", null));
+        Assert.False(noneInt.TryFormat([], out written, "", null));
     }
 
     [Fact]
@@ -411,7 +411,7 @@ public sealed class NumericOptionTests
 
         var items = new[] { d, b, n, c, a };
         Array.Sort(items);
-        Assert.Equal([a, b, c, d, n], items);
+        Assert.Equal(new[] { a, b, c, d, n }, items);
     }
 
     [Fact]
@@ -420,7 +420,7 @@ public sealed class NumericOptionTests
         var options = Enumerable.Range(1, 10)
             .Select(x => x % 2 == 0 ? Some(x) : None<int>());
 
-        var values = options.Values().ToArray();
+        ReadOnlySpan<int> values = options.Values().ToArray();
 
         Assert.Equal([2, 4, 6, 8, 10], values);
     }
