@@ -168,7 +168,7 @@ For performance and convenience:
  - Supports nullable type annotations.
  - Supports serialization and deserialization with `System.Text.Json`.
  - `IEquatable<T>` and `IComparable<T>` allow `Option` and `Result` types to be easily compared and sorted.
- - `IFormattable` and `ISpanFormattable` allow `Option` and `Result` to efficiently format their content.
+ - `IFormattable`, `ISpanFormattable`, and `IUtf8SpanFormattable` allow `Option` and `Result` to efficiently format their content.
  - `Option` and `Result` can be efficiently converted to `ReadOnlySpan<T>` or `IEnumerable<T>` for easier interop with existing code.
  - Convenient extension methods for working with dictionaries (`GetValueOrNone`), collections (`FirstOrNone`), enums (`Option.ParseEnum`) and more.
  - Supports explicit conversion to and from the F# Option, ValueOption, and Result types for easy interop.
