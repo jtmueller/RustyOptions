@@ -31,10 +31,10 @@ internal sealed class NumericOptionJsonConverter : JsonConverterFactory
         Type valueType = typeToConvert.GetGenericArguments()[0];
 
         var converter = Activator.CreateInstance(
-            typeof(NumericOptionJsonConverterInner<>).MakeGenericType(new[] { valueType }),
+            typeof(NumericOptionJsonConverterInner<>).MakeGenericType([valueType]),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
-            args: new object[] { options },
+            args: [options],
             culture: null
         ) as JsonConverter;
 

@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 using static System.ArgumentNullException;
+#if NET8_0_OR_GREATER
+using System.Text.Unicode;
+#endif
 
 namespace RustyOptions;
 
@@ -17,6 +20,9 @@ namespace RustyOptions;
 [Serializable]
 [JsonConverter(typeof(ResultJsonConverter))]
 public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IFormattable, ISpanFormattable
+#if NET8_0_OR_GREATER
+    , IUtf8SpanFormattable
+#endif
     where T : notnull
 {
     /// <summary>
@@ -217,7 +223,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
     {
         return _isOk
             ? MemoryMarshal.CreateReadOnlySpan(ref Unsafe.AsRef(in _value), 1)
-            : ReadOnlySpan<T>.Empty;
+            : [];
     }
 
     /// <summary>
@@ -342,7 +348,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                     formatVal.TryFormat(destination[3..], out int valWritten, format, provider))
                 {
                     destination = destination[(3 + valWritten)..];
-                    if (destination.Length >= 1)
+                    if (!destination.IsEmpty)
                     {
                         destination[0] = ')';
                         charsWritten = valWritten + 4;
@@ -362,7 +368,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                     formatErr.TryFormat(destination[4..], out int errWritten, format, provider))
                 {
                     destination = destination[(4 + errWritten)..];
-                    if (destination.Length >= 1)
+                    if (!destination.IsEmpty)
                     {
                         destination[0] = ')';
                         charsWritten = errWritten + 5;
@@ -386,6 +392,64 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         charsWritten = 0;
         return false;
     }
+
+#if NET8_0_OR_GREATER
+    /// <inheritdoc/>
+    public bool TryFormat(Span<byte> utf8Destination, out int bytesWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+    {
+         if (_isOk)
+        {
+            if (_value is IUtf8SpanFormattable formatVal)
+            {
+                if ("Ok("u8.TryCopyTo(utf8Destination) &&
+                    formatVal.TryFormat(utf8Destination[3..], out int valWritten, format, provider))
+                {
+                    utf8Destination = utf8Destination[(3 + valWritten)..];
+                    if (!utf8Destination.IsEmpty)
+                    {
+                        utf8Destination[0] = (byte)')';
+                        bytesWritten = valWritten + 4;
+                        return true;
+                    }
+                }
+
+                bytesWritten = 0;
+                return false;
+            }
+        }
+        else
+        {
+            if (_err is IUtf8SpanFormattable formatErr)
+            {
+                if ("Err("u8.TryCopyTo(utf8Destination) &&
+                    formatErr.TryFormat(utf8Destination[4..], out int errWritten, format, provider))
+                {
+                    utf8Destination = utf8Destination[(4 + errWritten)..];
+                    if (!utf8Destination.IsEmpty)
+                    {
+                        utf8Destination[0] = (byte)')';
+                        bytesWritten = errWritten + 5;
+                        return true;
+                    }
+                }
+
+                bytesWritten = 0;
+                return false;
+            }
+        }
+
+        string output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
+
+        if (utf8Destination.Length >= output.Length)
+        {
+            Utf8.FromUtf16(output, utf8Destination, out _, out bytesWritten);
+            return true;
+        }
+
+        bytesWritten = 0;
+        return false;
+    }
+#endif
 
     /// <summary>
     /// Compares the current instance with another object of the same type and returns an integer

@@ -30,10 +30,10 @@ internal sealed class ResultJsonConverter : JsonConverterFactory
         Type errType = genericArgs[1];
 
         var converter = Activator.CreateInstance(
-            typeof(ResultJsonConverterInner<,>).MakeGenericType(new[] { valueType, errType }),
+            typeof(ResultJsonConverterInner<,>).MakeGenericType([valueType, errType]),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
-            args: new object[] { options },
+            args: [options],
             culture: null
         ) as JsonConverter;
 
@@ -109,6 +109,3 @@ internal sealed class ResultJsonConverter : JsonConverterFactory
         }
     }
 }
-
-
-

@@ -280,17 +280,40 @@ public sealed class NumericOptionTests
         Span<char> buffer = stackalloc char[255];
 
         Assert.True(someInt.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Some(4200)"));
+        Assert.Equal("Some(4200)", buffer[..written]);
 
         Assert.True(noneInt.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("None"));
+        Assert.Equal("None", buffer[..written]);
 
         Assert.True(someInt.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Some(4,200.00)"));
+        Assert.Equal("Some(4,200.00)", buffer[..written]);
 
         Assert.False(someInt.TryFormat(Span<char>.Empty, out written, "", null));
         Assert.False(noneInt.TryFormat(Span<char>.Empty, out written, "", null));
     }
+
+#if NET8_0_OR_GREATER
+    [Fact]
+    public void CanFormatToUtf8Span()
+    {
+        var someInt = Some(4200);
+        var noneInt = None<int>();
+
+        Span<byte> buffer = stackalloc byte[255];
+
+        Assert.True(someInt.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4200)"u8, buffer[..written]);
+
+        Assert.True(noneInt.TryFormat(buffer, out written, "", CultureInfo.InvariantCulture));
+        Assert.Equal("None"u8, buffer[..written]);
+
+        Assert.True(someInt.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Some(4,200.00)"u8, buffer[..written]);
+
+        Assert.False(someInt.TryFormat(Span<byte>.Empty, out written, "", null));
+        Assert.False(noneInt.TryFormat(Span<byte>.Empty, out written, "", null));
+    }
+#endif
 
     [Fact]
     public void CanFlatten()
@@ -420,9 +443,9 @@ public sealed class NumericOptionTests
         var options = Enumerable.Range(1, 10)
             .Select(x => x % 2 == 0 ? Some(x) : None<int>());
 
-        var values = options.Values().ToArray();
+        ReadOnlySpan<int> values = options.Values().ToArray();
 
-        Assert.Equal(new[] { 2, 4, 6, 8, 10 }, values);
+        Assert.Equal([2, 4, 6, 8, 10], values);
     }
 
     [Fact]

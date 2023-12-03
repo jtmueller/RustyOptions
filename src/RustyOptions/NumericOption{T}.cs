@@ -7,6 +7,10 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
+#if NET8_0_OR_GREATER
+using System.Text.Unicode;
+#endif
+
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
@@ -20,6 +24,9 @@ namespace RustyOptions;
 [JsonConverter(typeof(NumericOptionJsonConverter))]
 public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, IComparable<NumericOption<T>>, INumber<NumericOption<T>>,
                                           IFormattable, ISpanFormattable
+#if NET8_0_OR_GREATER
+    , IUtf8SpanFormattable
+#endif
     where T : struct, INumber<T>
 {
     /// <summary>
@@ -145,7 +152,7 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
     {
         return _isSome
             ? MemoryMarshal.CreateReadOnlySpan(ref Unsafe.AsRef(in _value), 1)
-            : ReadOnlySpan<T>.Empty;
+            : [];
     }
 
     /// <summary>
@@ -291,6 +298,53 @@ public readonly struct NumericOption<T> : IEquatable<NumericOption<T>>, ICompara
         charsWritten = 0;
         return false;
     }
+
+#if NET8_0_OR_GREATER
+    /// <inheritdoc/>
+    public bool TryFormat(Span<byte> utf8Destination, out int bytesWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+    {
+        if (_isSome)
+        {
+            if (_value is IUtf8SpanFormattable spanFormattable)
+            {
+                if ("Some("u8.TryCopyTo(utf8Destination) && spanFormattable.TryFormat(utf8Destination[5..], out int innerWritten, format, provider))
+                {
+                    utf8Destination = utf8Destination[(innerWritten + 5)..];
+                    if (!utf8Destination.IsEmpty)
+                    {
+                        utf8Destination[0] = (byte)')';
+                        bytesWritten = innerWritten + 6;
+                        return true;
+                    }
+                }
+
+                bytesWritten = 0;
+                return false;
+            }
+            else
+            {
+                var output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
+
+                if (output is not null && utf8Destination.Length >= output.Length)
+                {
+                    Utf8.FromUtf16(output, utf8Destination, out _, out bytesWritten);
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            if ("None"u8.TryCopyTo(utf8Destination))
+            {
+                bytesWritten = 4;
+                return true;
+            }
+        }
+
+        bytesWritten = 0;
+        return false;
+    }
+#endif
 
     /// <summary>
     /// Compares the current instance with another object of the same type and returns an integer
