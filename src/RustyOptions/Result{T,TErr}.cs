@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel;
-using System.Text.Unicode;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 using static System.ArgumentNullException;
+#if NET8_0_OR_GREATER
+using System.Text.Unicode;
+#endif
 
 namespace RustyOptions;
 
@@ -346,7 +348,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                     formatVal.TryFormat(destination[3..], out int valWritten, format, provider))
                 {
                     destination = destination[(3 + valWritten)..];
-                    if (destination.Length >= 1)
+                    if (!destination.IsEmpty)
                     {
                         destination[0] = ')';
                         charsWritten = valWritten + 4;
@@ -366,7 +368,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                     formatErr.TryFormat(destination[4..], out int errWritten, format, provider))
                 {
                     destination = destination[(4 + errWritten)..];
-                    if (destination.Length >= 1)
+                    if (!destination.IsEmpty)
                     {
                         destination[0] = ')';
                         charsWritten = errWritten + 5;
@@ -403,7 +405,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                     formatVal.TryFormat(utf8Destination[3..], out int valWritten, format, provider))
                 {
                     utf8Destination = utf8Destination[(3 + valWritten)..];
-                    if (utf8Destination.Length >= 1)
+                    if (!utf8Destination.IsEmpty)
                     {
                         utf8Destination[0] = (byte)')';
                         bytesWritten = valWritten + 4;
@@ -423,7 +425,7 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
                     formatErr.TryFormat(utf8Destination[4..], out int errWritten, format, provider))
                 {
                     utf8Destination = utf8Destination[(4 + errWritten)..];
-                    if (utf8Destination.Length >= 1)
+                    if (!utf8Destination.IsEmpty)
                     {
                         utf8Destination[0] = (byte)')';
                         bytesWritten = errWritten + 5;

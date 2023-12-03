@@ -6,8 +6,11 @@ using System.Globalization;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text.Unicode;
 using System.Text.Json.Serialization;
+#if NET8_0_OR_GREATER
+using System.Text.Unicode;
+#endif
+
 using static System.ArgumentNullException;
 
 namespace RustyOptions;
