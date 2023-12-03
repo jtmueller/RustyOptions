@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Text.Unicode;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -17,6 +18,9 @@ namespace RustyOptions;
 [Serializable]
 [JsonConverter(typeof(ResultJsonConverter))]
 public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparable<Result<T, TErr>>, IFormattable, ISpanFormattable
+#if NET8_0_OR_GREATER
+    , IUtf8SpanFormattable
+#endif
     where T : notnull
 {
     /// <summary>
@@ -386,6 +390,64 @@ public readonly struct Result<T, TErr> : IEquatable<Result<T, TErr>>, IComparabl
         charsWritten = 0;
         return false;
     }
+
+#if NET8_0_OR_GREATER
+    /// <inheritdoc/>
+    public bool TryFormat(Span<byte> utf8Destination, out int bytesWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
+    {
+         if (_isOk)
+        {
+            if (_value is IUtf8SpanFormattable formatVal)
+            {
+                if ("Ok("u8.TryCopyTo(utf8Destination) &&
+                    formatVal.TryFormat(utf8Destination[3..], out int valWritten, format, provider))
+                {
+                    utf8Destination = utf8Destination[(3 + valWritten)..];
+                    if (utf8Destination.Length >= 1)
+                    {
+                        utf8Destination[0] = (byte)')';
+                        bytesWritten = valWritten + 4;
+                        return true;
+                    }
+                }
+
+                bytesWritten = 0;
+                return false;
+            }
+        }
+        else
+        {
+            if (_err is IUtf8SpanFormattable formatErr)
+            {
+                if ("Err("u8.TryCopyTo(utf8Destination) &&
+                    formatErr.TryFormat(utf8Destination[4..], out int errWritten, format, provider))
+                {
+                    utf8Destination = utf8Destination[(4 + errWritten)..];
+                    if (utf8Destination.Length >= 1)
+                    {
+                        utf8Destination[0] = (byte)')';
+                        bytesWritten = errWritten + 5;
+                        return true;
+                    }
+                }
+
+                bytesWritten = 0;
+                return false;
+            }
+        }
+
+        string output = this.ToString(format.IsEmpty ? null : format.ToString(), provider);
+
+        if (utf8Destination.Length >= output.Length)
+        {
+            Utf8.FromUtf16(output, utf8Destination, out _, out bytesWritten);
+            return true;
+        }
+
+        bytesWritten = 0;
+        return false;
+    }
+#endif
 
     /// <summary>
     /// Compares the current instance with another object of the same type and returns an integer

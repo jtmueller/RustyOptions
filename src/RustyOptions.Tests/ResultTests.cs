@@ -242,26 +242,62 @@ public sealed class ResultTests
         Span<char> buffer = stackalloc char[255];
 
         Assert.True(ok.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Ok(4200)"));
+        Assert.Equal("Ok(4200)", buffer[..written]);
 
         Assert.True(err.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Err(-9,600.00)"));
+        Assert.Equal("Err(-9,600.00)", buffer[..written]);
 
         Assert.True(ok.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Ok(4,200.00)"));
+        Assert.Equal("Ok(4,200.00)", buffer[..written]);
 
         Assert.True(okNotSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Ok(4,200.00)"));
+        Assert.Equal("Ok(4,200.00)", buffer[..written]);
 
         Assert.True(okNotFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Ok(4200)"));
+        Assert.Equal("Ok(4200)", buffer[..written]);
 
         Assert.True(errNotSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Err(-1.00)"));
+        Assert.Equal("Err(-1.00)", buffer[..written]);
 
         Assert.True(errNotFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
-        Assert.True(buffer[..written].SequenceEqual("Err(-1)"));
+        Assert.Equal("Err(-1)", buffer[..written]);
     }
+
+#if NET8_0_OR_GREATER
+    [Fact]
+    public void CanFormatToUtf8Span()
+    {
+var ok = Ok(4200);
+        var err = Err<int, int>(-9600);
+        var okNotSpanFormattable = Ok(new NotSpanFormattable { Value = 4200 });
+        var okNotFormattable = Ok(new NotFormattable { Value = 4200 });
+        var errNotSpanFormattable = Err<int, NotSpanFormattable>(new NotSpanFormattable { Value = -1 });
+        var errNotFormattable = Err<int, NotFormattable>(new NotFormattable { Value = -1 });
+
+        Span<byte> buffer = stackalloc byte[255];
+
+        Assert.True(ok.TryFormat(buffer, out int written, "", CultureInfo.InvariantCulture));
+        Assert.Equal("Ok(4200)"u8, buffer[..written]);
+
+        Assert.True(err.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Err(-9,600.00)"u8, buffer[..written]);
+
+        Assert.True(ok.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Ok(4,200.00)"u8, buffer[..written]);
+
+        Assert.True(okNotSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Ok(4,200.00)"u8, buffer[..written]);
+
+        Assert.True(okNotFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Ok(4200)"u8, buffer[..written]);
+
+        Assert.True(errNotSpanFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Err(-1.00)"u8, buffer[..written]);
+
+        Assert.True(errNotFormattable.TryFormat(buffer, out written, "n2", CultureInfo.InvariantCulture));
+        Assert.Equal("Err(-1)"u8, buffer[..written]);
+    }
+#endif
 
     [Fact]
     public void CanCompare()
