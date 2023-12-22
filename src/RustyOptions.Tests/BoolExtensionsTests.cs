@@ -1,3 +1,5 @@
+using RustyOptions.Async;
+
 namespace RustyOptions.Tests;
 
 #pragma warning disable CA1707 // Identifiers should not contain underscores
@@ -58,6 +60,40 @@ public class BoolExtensionsTests
 
         // Assert
         Assert.True(result.IsNone);
+    }
+
+    [Fact]
+    public async Task ThenAsync_Task_ReturnsDefaultWhenFalse()
+    {
+        bool condition = false;
+        var result = await condition.ThenAsync(() => Task.FromResult("Test"));
+        Assert.True(result.IsNone);
+    }
+
+    [Fact]
+    public async Task ThenAsync_Task_ReturnsResultWhenTrue()
+    {
+        bool condition = true;
+        var result = await condition.ThenAsync(() => Task.FromResult("Test"));
+        Assert.True(result.IsSome(out var resultVal));
+        Assert.Equal("Test", resultVal);
+    }
+
+    [Fact]
+    public async Task ThenAsync_ValueTask_ReturnsDefaultWhenFalse()
+    {
+        bool condition = false;
+        var result = await condition.ThenAsync(() => new ValueTask<string>("Test"));
+        Assert.True(result.IsNone);
+    }
+
+    [Fact]
+    public async Task ThenAsync_ValueTask_ReturnsResultWhenTrue()
+    {
+        bool condition = true;
+        var result = await condition.ThenAsync(() => new ValueTask<int>(42));
+        Assert.True(result.IsSome(out var resultVal));
+        Assert.Equal(42, resultVal);
     }
 }
 
