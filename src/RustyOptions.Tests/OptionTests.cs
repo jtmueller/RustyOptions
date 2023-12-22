@@ -403,7 +403,7 @@ public sealed class OptionTests
         Assert.Equal(None<int>(), someOtherStr.AndThen(ParseInt));
 
         static Option<int> ParseInt(string s)
-            => int.TryParse(s, out int parsed) ? Some(parsed) : None<int>();
+            => int.TryParse(s, out int parsed).ThenSome(parsed);
     }
 
     [Fact]

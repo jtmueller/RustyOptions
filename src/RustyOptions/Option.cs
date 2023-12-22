@@ -152,8 +152,7 @@ public static class Option
     public static Option<T> ParseEnum<T>(string value, bool ignoreCase = false)
         where T : struct, Enum
     {
-        return Enum.TryParse<T>(value, ignoreCase, out var parsed)
-            ? new(parsed) : default;
+        return Enum.TryParse<T>(value, ignoreCase, out var parsed).ThenSome(parsed);
     }
 
     /// <summary>
@@ -168,8 +167,7 @@ public static class Option
     public static Option<T> ParseEnum<T>(ReadOnlySpan<char> value, bool ignoreCase = false)
         where T : struct, Enum
     {
-        return Enum.TryParse<T>(value, ignoreCase, out var parsed)
-            ? new(parsed) : default;
+        return Enum.TryParse<T>(value, ignoreCase, out var parsed).ThenSome(parsed);
     }
 }
 
@@ -190,4 +188,3 @@ public delegate bool TryGet<T>([MaybeNullWhen(false)] out T? value);
 /// <param name="value">The value retrieved, if any.</param>
 /// <returns><c>true</c> if the value was retrieved, otherwise <c>false</c>.</returns>
 public delegate bool TryGetValue<TKey, TValue>(TKey key, [MaybeNullWhen(false)] out TValue? value);
-
