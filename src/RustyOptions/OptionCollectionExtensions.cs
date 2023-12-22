@@ -626,7 +626,8 @@ public static class OptionCollectionExtensions
         where T : notnull
     {
         ThrowIfNull(self);
-        return self.TryTake(out var item) ? Option.Some(item) : default;
+        return self.TryTake(out var item)
+            ? Option.Some(item) : default;
     }
 
     /// <summary>
@@ -640,7 +641,8 @@ public static class OptionCollectionExtensions
         where T : notnull
     {
         ThrowIfNull(self);
-        return self.TryPeek(out var item) ? Option.Some(item) : default;
+        return self.TryPeek(out var item)
+            ? Option.Some(item) : default;
     }
 
     /// <summary>
@@ -654,7 +656,8 @@ public static class OptionCollectionExtensions
         where T : notnull
     {
         ThrowIfNull(self);
-        return self.TryPeek(out var item) ? Option.Some(item) : default;
+        return self.TryPeek(out var item)
+            ? Option.Some(item) : default;
     }
 
     /// <summary>
@@ -684,7 +687,8 @@ public static class OptionCollectionExtensions
         where T : notnull
     {
         ThrowIfNull(self);
-        return self.TryPeek(out var item) ? Option.Some(item) : default;
+        return self.TryPeek(out var item)
+            ? Option.Some(item) : default;
     }
 
     /// <summary>
