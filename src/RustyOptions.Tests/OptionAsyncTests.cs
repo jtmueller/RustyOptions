@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Diagnostics.CodeAnalysis;
 using RustyOptions.Async;
 using static RustyOptions.Option;
 
@@ -68,6 +69,7 @@ public sealed class OptionAsyncTests
 
     [Theory]
     [MemberData(nameof(GetMapAsyncValues))]
+    [SuppressMessage("Usage", "xUnit1031:Do not use blocking task operations in test method", Justification = "Will not block")]
     public async Task CanMapAsync(object source, object mapper, Option<long> expected)
     {
         switch ((source, mapper))
@@ -80,21 +82,27 @@ public sealed class OptionAsyncTests
                 break;
             case (ValueTask<Option<int>> src, Func<int, long> mpr):
                 Assert.Equal(expected, await src.MapAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).MapAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<int, long> mpr):
                 Assert.Equal(expected, await src.MapAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).MapAsync(mpr));
                 break;
             case (ValueTask<Option<int>> src, Func<int, ValueTask<long>> mpr):
                 Assert.Equal(expected, await src.MapAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).MapAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<int, ValueTask<long>> mpr):
                 Assert.Equal(expected, await src.MapAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).MapAsync(mpr));
                 break;
             case (ValueTask<Option<int>> src, Func<int, Task<long>> mpr):
                 Assert.Equal(expected, await src.MapAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).MapAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<int, Task<long>> mpr):
                 Assert.Equal(expected, await src.MapAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).MapAsync(mpr));
                 break;
 
             default:
@@ -139,6 +147,7 @@ public sealed class OptionAsyncTests
 
     [Theory]
     [MemberData(nameof(GetMapOrElseAsyncValues))]
+    [SuppressMessage("Usage", "xUnit1031:Do not use blocking task operations in test method", Justification = "Will not block")]
     public async Task CanMapOrElseAsync(object source, object mapper, object defaultFactory, long expected)
     {
         switch ((source, mapper, defaultFactory))
@@ -151,21 +160,27 @@ public sealed class OptionAsyncTests
                 break;
             case (ValueTask<Option<int>> src, Func<int, long> mpr, Func<long> dff):
                 Assert.Equal(expected, await src.MapOrElseAsync(mpr, dff));
+                Assert.Equal(expected, await GetValueTask(src.Result).MapOrElseAsync(mpr, dff));
                 break;
             case (Task<Option<int>> src, Func<int, long> mpr, Func<long> dff):
                 Assert.Equal(expected, await src.MapOrElseAsync(mpr, dff));
+                Assert.Equal(expected, await GetTask(src.Result).MapOrElseAsync(mpr, dff));
                 break;
             case (ValueTask<Option<int>> src, Func<int, ValueTask<long>> mpr, Func<ValueTask<long>> dff):
                 Assert.Equal(expected, await src.MapOrElseAsync(mpr, dff));
+                Assert.Equal(expected, await GetValueTask(src.Result).MapOrElseAsync(mpr, dff));
                 break;
             case (Task<Option<int>> src, Func<int, ValueTask<long>> mpr, Func<ValueTask<long>> dff):
                 Assert.Equal(expected, await src.MapOrElseAsync(mpr, dff));
+                Assert.Equal(expected, await GetTask(src.Result).MapOrElseAsync(mpr, dff));
                 break;
             case (ValueTask<Option<int>> src, Func<int, Task<long>> mpr, Func<Task<long>> dff):
                 Assert.Equal(expected, await src.MapOrElseAsync(mpr, dff));
+                Assert.Equal(expected, await GetValueTask(src.Result).MapOrElseAsync(mpr, dff));
                 break;
             case (Task<Option<int>> src, Func<int, Task<long>> mpr, Func<Task<long>> dff):
                 Assert.Equal(expected, await src.MapOrElseAsync(mpr, dff));
+                Assert.Equal(expected, await GetTask(src.Result).MapOrElseAsync(mpr, dff));
                 break;
 
             default:
@@ -215,6 +230,7 @@ public sealed class OptionAsyncTests
 
     [Theory]
     [MemberData(nameof(GetAndThenAsyncValues))]
+    [SuppressMessage("Usage", "xUnit1031:Do not use blocking task operations in test method", Justification = "Will not block")]
     public async Task CanAndThenAsync(object source, object mapper, Option<long> expected)
     {
         switch ((source, mapper))
@@ -227,21 +243,27 @@ public sealed class OptionAsyncTests
                 break;
             case (ValueTask<Option<int>> src, Func<int, Option<long>> mpr):
                 Assert.Equal(expected, await src.AndThenAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).AndThenAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<int, Option<long>> mpr):
                 Assert.Equal(expected, await src.AndThenAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).AndThenAsync(mpr));
                 break;
             case (ValueTask<Option<int>> src, Func<int, ValueTask<Option<long>>> mpr):
                 Assert.Equal(expected, await src.AndThenAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).AndThenAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<int, ValueTask<Option<long>>> mpr):
                 Assert.Equal(expected, await src.AndThenAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).AndThenAsync(mpr));
                 break;
             case (ValueTask<Option<int>> src, Func<int, Task<Option<long>>> mpr):
                 Assert.Equal(expected, await src.AndThenAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).AndThenAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<int, Task<Option<long>>> mpr):
                 Assert.Equal(expected, await src.AndThenAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).AndThenAsync(mpr));
                 break;
 
             default:
@@ -286,6 +308,7 @@ public sealed class OptionAsyncTests
 
     [Theory]
     [MemberData(nameof(GetOrElseAsyncValues))]
+    [SuppressMessage("Usage", "xUnit1031:Do not use blocking task operations in test method", Justification = "Will not block")]
     public async Task CanOrElseAsync(object source, object mapper, Option<int> expected)
     {
         switch ((source, mapper))
@@ -298,21 +321,27 @@ public sealed class OptionAsyncTests
                 break;
             case (ValueTask<Option<int>> src, Func<Option<int>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).OrElseAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<Option<int>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).OrElseAsync(mpr));
                 break;
             case (ValueTask<Option<int>> src, Func<ValueTask<Option<int>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).OrElseAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<ValueTask<Option<int>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).OrElseAsync(mpr));
                 break;
             case (ValueTask<Option<int>> src, Func<Task<Option<int>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
+                Assert.Equal(expected, await GetValueTask(src.Result).OrElseAsync(mpr));
                 break;
             case (Task<Option<int>> src, Func<Task<Option<int>>> mpr):
                 Assert.Equal(expected, await src.OrElseAsync(mpr));
+                Assert.Equal(expected, await GetTask(src.Result).OrElseAsync(mpr));
                 break;
 
             default:
@@ -381,5 +410,17 @@ public sealed class OptionAsyncTests
             await Task.Yield();
             yield return predicate(i) ? Some(i) : None<int>();
         }
+    }
+
+    private static async Task<T> GetTask<T>(T value)
+    {
+        await Task.Delay(1);
+        return value;
+    }
+
+    private static async ValueTask<T> GetValueTask<T>(T value)
+    {
+        await Task.Delay(1);
+        return value;
     }
 }
