@@ -382,4 +382,16 @@ public sealed class OptionAsyncTests
             yield return predicate(i) ? Some(i) : None<int>();
         }
     }
+
+    private static async Task<T> GetTask<T>(T value)
+    {
+        await Task.Yield();
+        return value;
+    }
+
+    private static async ValueTask<T> GetValueTask<T>(T value)
+    {
+        await Task.Yield();
+        return value;
+    }
 }

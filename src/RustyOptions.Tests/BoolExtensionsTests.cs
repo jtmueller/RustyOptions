@@ -107,6 +107,16 @@ public class BoolExtensionsTests
     }
 
     [Fact]
+    public async Task ThenSomeAsync_Task_NotCompleted_WhenTrue_ShouldReturnOptionWithValue()
+    {
+        bool condition = true;
+        var result = await condition.ThenSomeAsync(GetTask("Hello"));
+
+        Assert.True(result.IsSome(out var value));
+        Assert.Equal("Hello", value);
+    }
+
+    [Fact]
     public async Task ThenSomeAsync_Task_WhenFalse_ShouldReturnDefaultOption()
     {
         bool condition = false;
@@ -126,12 +136,34 @@ public class BoolExtensionsTests
     }
 
     [Fact]
+    public async Task ThenSomeAsync_ValueTask_NotCompleted_WhenTrue_ShouldReturnOptionWithValue()
+    {
+        bool condition = true;
+        var result = await condition.ThenSomeAsync(GetValueTask("Hello"));
+
+        Assert.True(result.IsSome(out var value));
+        Assert.Equal("Hello", value);
+    }
+
+    [Fact]
     public async Task ThenSomeAsync_ValueTask_WhenFalse_ShouldReturnDefaultOption()
     {
         bool condition = false;
         var result = await condition.ThenSomeAsync(new ValueTask<string>("Hello"));
 
         Assert.False(result.IsSome(out var _));
+    }
+
+    private static async Task<T> GetTask<T>(T value)
+    {
+        await Task.Yield();
+        return value;
+    }
+
+    private static async ValueTask<T> GetValueTask<T>(T value)
+    {
+        await Task.Yield();
+        return value;
     }
 }
 
