@@ -78,37 +78,143 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><span class="xref">ResultExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
   <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
   <h5 id="RustyOptions_ResultExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class ResultExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class ResultExtensions</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_And__3_RustyOptions_Result___0___2__RustyOptions_Result___1___2__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.And%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CRustyOptions.Result%7B%60%601%2C%60%602%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__System_Func___0_RustyOptions_Result___1___2___.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.AndThen%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CSystem.Func%7B%60%600%2CRustyOptions.Result%7B%60%601%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L141">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L152">View Source</a>
+  </span>
+  <a id="RustyOptions_ResultExtensions_AndThen_" data-uid="RustyOptions.ResultExtensions.AndThen*"></a>
+  <h4 id="RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__System_Func___0_RustyOptions_Result___1___2___" data-uid="RustyOptions.ResultExtensions.AndThen``3(RustyOptions.Result{``0,``2},System.Func{``0,RustyOptions.Result{``1,``2}})">AndThen&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Result&lt;T2, TErr&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Calls <code class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; AndThen&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc) where T1 : notnull where T2 : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
+        <td><span class="parametername">thenFunc</span></td>
+        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;</td>
+        <td><p>The result of calling <code class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code class="paramref">self</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type of <code class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type returned by <code class="paramref">thenFunc</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_And__3_RustyOptions_Result___0___2__RustyOptions_Result___1___2__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.And%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CRustyOptions.Result%7B%60%601%2C%60%602%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L135">View Source</a>
   </span>
   <a id="RustyOptions_ResultExtensions_And_" data-uid="RustyOptions.ResultExtensions.And*"></a>
   <h4 id="RustyOptions_ResultExtensions_And__3_RustyOptions_Result___0___2__RustyOptions_Result___1___2__" data-uid="RustyOptions.ResultExtensions.And``3(RustyOptions.Result{``0,``2},RustyOptions.Result{``1,``2})">And&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Result&lt;T2, TErr&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns <code data-dev-comment-type="paramref" class="paramref">other</code> if <code data-dev-comment-type="paramref" class="paramref">self</code> is <code>Ok</code>, otherwise
-returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+  <div class="markdown level1 summary"><p>Returns <code class="paramref">other</code> if <code class="paramref">self</code> is <code>Ok</code>, otherwise
+returns the <code>Err</code> value of <code class="paramref">self</code>.</p>
 <p>
 Arguments passed to and are eagerly evaluated; if you are passing the result of a function call,
-it is recommended to use <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__Func___0_RustyOptions_Result___1___2___">AndThen&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Result&lt;T2, TErr&gt;&gt;)</a>, which is lazily evaluated.
+it is recommended to use <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__System_Func___0_RustyOptions_Result___1___2___">AndThen&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Result&lt;T2, TErr&gt;&gt;)</a>, which is lazily evaluated.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; And&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Result&lt;T2, TErr&gt; other)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; And&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Result&lt;T2, TErr&gt; other) where T1 : notnull where T2 : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -145,8 +251,8 @@ it is recommended to use <a class="xref" href="RustyOptions.ResultExtensions.htm
     <tbody>
       <tr>
         <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;</td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">other</code> if <code data-dev-comment-type="paramref" class="paramref">self</code> is <code>Ok</code>, otherwise
-returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+        <td><p><code class="paramref">other</code> if <code class="paramref">self</code> is <code>Ok</code>, otherwise
+returns the <code>Err</code> value of <code class="paramref">self</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -162,12 +268,12 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
     <tbody>
       <tr>
         <td><span class="parametername">T1</span></td>
-        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+        <td><p>The <code>Ok</code> type of <code class="paramref">self</code>.</p>
 </td>
       </tr>
       <tr>
         <td><span class="parametername">T2</span></td>
-        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">other</code>.</p>
+        <td><p>The <code>Ok</code> type of <code class="paramref">other</code>.</p>
 </td>
       </tr>
       <tr>
@@ -179,92 +285,10 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__Func___0_RustyOptions_Result___1___2___.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.AndThen%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2CRustyOptions.Result%7B%60%601%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_Flatten__2_RustyOptions_Result_RustyOptions_Result___0___1____1__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.Flatten%60%602(RustyOptions.Result%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L159">View Source</a>
-  </span>
-  <a id="RustyOptions_ResultExtensions_AndThen_" data-uid="RustyOptions.ResultExtensions.AndThen*"></a>
-  <h4 id="RustyOptions_ResultExtensions_AndThen__3_RustyOptions_Result___0___2__Func___0_RustyOptions_Result___1___2___" data-uid="RustyOptions.ResultExtensions.AndThen``3(RustyOptions.Result{``0,``2},Func{``0,RustyOptions.Result{``1,``2}})">AndThen&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, Result&lt;T2, TErr&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Calls <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise returns the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; AndThen&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, Result&lt;T2, TErr&gt;&gt; thenFunc)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The result.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T1, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;&gt;</td>
-        <td><span class="parametername">thenFunc</span></td>
-        <td><p>The function to call with the <code>Ok</code> value, if any.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;</td>
-        <td><p>The result of calling <code data-dev-comment-type="paramref" class="paramref">thenFunc</code> if the result is <code>Ok</code>, otherwise the <code>Err</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T1</span></td>
-        <td><p>The <code>Ok</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">T2</span></td>
-        <td><p>The <code>Ok</code> type returned by <code data-dev-comment-type="paramref" class="paramref">thenFunc</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TErr</span></td>
-        <td><p>The <code>Err</code> type.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_Flatten__2_RustyOptions_Result_RustyOptions_Result___0___1____1__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.Flatten%60%602(RustyOptions.Result%7BRustyOptions.Result%7B%60%600%2C%60%601%7D%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L219">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L207">View Source</a>
   </span>
   <a id="RustyOptions_ResultExtensions_Flatten_" data-uid="RustyOptions.ResultExtensions.Flatten*"></a>
   <h4 id="RustyOptions_ResultExtensions_Flatten__2_RustyOptions_Result_RustyOptions_Result___0___1____1__" data-uid="RustyOptions.ResultExtensions.Flatten``2(RustyOptions.Result{RustyOptions.Result{``0,``1},``1})">Flatten&lt;T, TErr&gt;(Result&lt;Result&lt;T, TErr&gt;, TErr&gt;)</h4>
@@ -273,7 +297,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Flatten&lt;T, TErr&gt;(this Result&lt;Result&lt;T, TErr&gt;, TErr&gt; self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, TErr&gt; Flatten&lt;T, TErr&gt;(this Result&lt;Result&lt;T, TErr&gt;, TErr&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -332,101 +356,19 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_Map__3_RustyOptions_Result___0___2__Func___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.Map%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_MapErr__3_RustyOptions_Result___0___1__System_Func___1___2__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.MapErr%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CSystem.Func%7B%60%601%2C%60%602%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L21">View Source</a>
-  </span>
-  <a id="RustyOptions_ResultExtensions_Map_" data-uid="RustyOptions.ResultExtensions.Map*"></a>
-  <h4 id="RustyOptions_ResultExtensions_Map__3_RustyOptions_Result___0___2__Func___0___1__" data-uid="RustyOptions.ResultExtensions.Map``3(RustyOptions.Result{``0,``2},Func{``0,``1})">Map&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;)</h4>
-  <div class="markdown level1 summary"><p>Maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; Map&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The result to map.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
-        <td><span class="parametername">mapper</span></td>
-        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;</td>
-        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T1</span></td>
-        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">T2</span></td>
-        <td><p>The <code>Ok</code> type contained by the return value.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TErr</span></td>
-        <td><p>The <code>Err</code> type.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_MapErr__3_RustyOptions_Result___0___1__Func___1___2__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.MapErr%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CFunc%7B%60%601%2C%60%602%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L43">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L42">View Source</a>
   </span>
   <a id="RustyOptions_ResultExtensions_MapErr_" data-uid="RustyOptions.ResultExtensions.MapErr*"></a>
-  <h4 id="RustyOptions_ResultExtensions_MapErr__3_RustyOptions_Result___0___1__Func___1___2__" data-uid="RustyOptions.ResultExtensions.MapErr``3(RustyOptions.Result{``0,``1},Func{``1,``2})">MapErr&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, T2Err&gt;)</h4>
+  <h4 id="RustyOptions_ResultExtensions_MapErr__3_RustyOptions_Result___0___1__System_Func___1___2__" data-uid="RustyOptions.ResultExtensions.MapErr``3(RustyOptions.Result{``0,``1},System.Func{``1,``2})">MapErr&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, T2Err&gt;)</h4>
   <div class="markdown level1 summary"><p>Maps a result by applying a function to a contained <code>Err</code> value, leaving an <code>Ok</code> value untouched.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; MapErr&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, T2Err&gt; errMapper)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; MapErr&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, T2Err&gt; errMapper) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -445,9 +387,9 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T1Err, T2Err&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1Err, T2Err&gt;</td>
         <td><span class="parametername">errMapper</span></td>
-        <td><p>The function that converts a contained <code data-dev-comment-type="typeparamref" class="typeparamref">T1Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2Err</code>.</p>
+        <td><p>The function that converts a contained <code class="typeparamref">T1Err</code> value to <code class="typeparamref">T2Err</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -484,7 +426,7 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
       </tr>
       <tr>
         <td><span class="parametername">T1Err</span></td>
-        <td><p>The <code>Err</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+        <td><p>The <code>Err</code> type contained by <code class="paramref">self</code>.</p>
 </td>
       </tr>
       <tr>
@@ -494,26 +436,39 @@ returns the <code>Err</code> value of <code data-dev-comment-type="paramref" cla
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">errMapper</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__Func___0___1____1_.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.MapOr%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2C%60%601%7D%2C%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__System_Func___0___1__System_Func___2___1__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.MapOrElse%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2CSystem.Func%7B%60%602%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L71">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L90">View Source</a>
   </span>
-  <a id="RustyOptions_ResultExtensions_MapOr_" data-uid="RustyOptions.ResultExtensions.MapOr*"></a>
-  <h4 id="RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__Func___0___1____1_" data-uid="RustyOptions.ResultExtensions.MapOr``3(RustyOptions.Result{``0,``2},Func{``0,``1},``1)">MapOr&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, T2)</h4>
-  <div class="markdown level1 summary"><p>Returns the provided default (if <code>Err</code>), or applies a function to the contained value (if <code>Ok</code>).</p>
-<p>
-Arguments passed to <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__Func___0___1____1_">MapOr&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, T2)</a> are eagerly evaluated;
-if you are passing the result of a function call, it is recommended to use
-<a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__Func___0___1__Func___2___1__">MapOrElse&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, Func&lt;TErr, T2&gt;)</a>, which is lazily evaluated.
-</p>
+  <a id="RustyOptions_ResultExtensions_MapOrElse_" data-uid="RustyOptions.ResultExtensions.MapOrElse*"></a>
+  <h4 id="RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__System_Func___0___1__System_Func___2___1__" data-uid="RustyOptions.ResultExtensions.MapOrElse``3(RustyOptions.Result{``0,``2},System.Func{``0,``1},System.Func{``2,``1})">MapOrElse&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, Func&lt;TErr, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Maps a <code>Result</code> by applying fallback function <code class="paramref">defaultFactory</code> to a
+contained <code>Err</code> value, or function <code class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
+<p>This function can be used to unpack a successful result while handling an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T2 MapOr&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper, T2 defaultValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T2 MapOrElse&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory) where T1 : notnull where T2 : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -532,9 +487,118 @@ if you are passing the result of a function call, it is recommended to use
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
-        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TErr, T2&gt;</td>
+        <td><span class="parametername">defaultFactory</span></td>
+        <td><p>The function that converts a contained <code>Err</code> value to <code class="typeparamref">T2</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T2</span></td>
+        <td><p>The mapped value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The <code>Ok</code> type contained by <code class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The <code>Ok</code> type contained by the return value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TErr</span></td>
+        <td><p>The <code>Err</code> type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">mapper</code> or <code class="paramref">defaultFactory</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__System_Func___0___1____1_.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.MapOr%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CSystem.Func%7B%60%600%2C%60%601%7D%2C%60%601)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L68">View Source</a>
+  </span>
+  <a id="RustyOptions_ResultExtensions_MapOr_" data-uid="RustyOptions.ResultExtensions.MapOr*"></a>
+  <h4 id="RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__System_Func___0___1____1_" data-uid="RustyOptions.ResultExtensions.MapOr``3(RustyOptions.Result{``0,``2},System.Func{``0,``1},``1)">MapOr&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, T2)</h4>
+  <div class="markdown level1 summary"><p>Returns the provided default (if <code>Err</code>), or applies a function to the contained value (if <code>Ok</code>).</p>
+<p>
+Arguments passed to <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOr__3_RustyOptions_Result___0___2__System_Func___0___1____1_">MapOr&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, T2)</a> are eagerly evaluated;
+if you are passing the result of a function call, it is recommended to use
+<a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__System_Func___0___1__System_Func___2___1__">MapOrElse&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, Func&lt;TErr, T2&gt;)</a>, which is lazily evaluated.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T2 MapOr&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper, T2 defaultValue) where T1 : notnull where T2 : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T1, TErr&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result to map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, T2&gt;</td>
+        <td><span class="parametername">mapper</span></td>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code class="typeparamref">T2</code>.</p>
 </td>
       </tr>
       <tr>
@@ -572,7 +636,7 @@ if you are passing the result of a function call, it is recommended to use
     <tbody>
       <tr>
         <td><span class="parametername">T1</span></td>
-        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+        <td><p>The <code>Ok</code> type contained by <code class="paramref">self</code>.</p>
 </td>
       </tr>
       <tr>
@@ -587,23 +651,37 @@ if you are passing the result of a function call, it is recommended to use
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">mapper</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__Func___0___1__Func___2___1__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.MapOrElse%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CFunc%7B%60%600%2C%60%601%7D%2CFunc%7B%60%602%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_Map__3_RustyOptions_Result___0___2__System_Func___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.Map%60%603(RustyOptions.Result%7B%60%600%2C%60%602%7D%2CSystem.Func%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L94">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L21">View Source</a>
   </span>
-  <a id="RustyOptions_ResultExtensions_MapOrElse_" data-uid="RustyOptions.ResultExtensions.MapOrElse*"></a>
-  <h4 id="RustyOptions_ResultExtensions_MapOrElse__3_RustyOptions_Result___0___2__Func___0___1__Func___2___1__" data-uid="RustyOptions.ResultExtensions.MapOrElse``3(RustyOptions.Result{``0,``2},Func{``0,``1},Func{``2,``1})">MapOrElse&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;, Func&lt;TErr, T2&gt;)</h4>
-  <div class="markdown level1 summary"><p>Maps a <code>Result</code> by applying fallback function <code data-dev-comment-type="paramref" class="paramref">defaultFactory</code> to a
-contained <code>Err</code> value, or function <code data-dev-comment-type="paramref" class="paramref">mapper</code> to a contained <code>Ok</code> value.</p>
-<p>This function can be used to unpack a successful result while handling an error.</p>
+  <a id="RustyOptions_ResultExtensions_Map_" data-uid="RustyOptions.ResultExtensions.Map*"></a>
+  <h4 id="RustyOptions_ResultExtensions_Map__3_RustyOptions_Result___0___2__System_Func___0___1__" data-uid="RustyOptions.ResultExtensions.Map``3(RustyOptions.Result{``0,``2},System.Func{``0,``1})">Map&lt;T1, T2, TErr&gt;(Result&lt;T1, TErr&gt;, Func&lt;T1, T2&gt;)</h4>
+  <div class="markdown level1 summary"><p>Maps a result by applying a function to a contained <code>Ok</code> value, leaving an <code>Err</code> value untouched.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T2 MapOrElse&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper, Func&lt;TErr, T2&gt; defaultFactory)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Result&lt;T2, TErr&gt; Map&lt;T1, T2, TErr&gt;(this Result&lt;T1, TErr&gt; self, Func&lt;T1, T2&gt; mapper) where T1 : notnull where T2 : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -622,15 +700,9 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T1, T2&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, T2&gt;</td>
         <td><span class="parametername">mapper</span></td>
-        <td><p>The function that converts a contained <code>Ok</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Func</span>&lt;TErr, T2&gt;</td>
-        <td><span class="parametername">defaultFactory</span></td>
-        <td><p>The function that converts a contained <code>Err</code> value to <code data-dev-comment-type="typeparamref" class="typeparamref">T2</code>.</p>
+        <td><p>The function that converts a contained <code>Ok</code> value to <code class="typeparamref">T2</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -645,8 +717,8 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">T2</span></td>
-        <td><p>The mapped value.</p>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T2, TErr&gt;</td>
+        <td><p>A result containing the mapped value, or <code>Err</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -662,7 +734,7 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
     <tbody>
       <tr>
         <td><span class="parametername">T1</span></td>
-        <td><p>The <code>Ok</code> type contained by <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+        <td><p>The <code>Ok</code> type contained by <code class="paramref">self</code>.</p>
 </td>
       </tr>
       <tr>
@@ -677,26 +749,124 @@ contained <code>Err</code> value, or function <code data-dev-comment-type="param
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">mapper</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_Or__3_RustyOptions_Result___0___1__RustyOptions_Result___0___2__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.Or%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CRustyOptions.Result%7B%60%600%2C%60%602%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__System_Func___1_RustyOptions_Result___0___2___.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.OrElse%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CSystem.Func%7B%60%601%2CRustyOptions.Result%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L184">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L191">View Source</a>
+  </span>
+  <a id="RustyOptions_ResultExtensions_OrElse_" data-uid="RustyOptions.ResultExtensions.OrElse*"></a>
+  <h4 id="RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__System_Func___1_RustyOptions_Result___0___2___" data-uid="RustyOptions.ResultExtensions.OrElse``3(RustyOptions.Result{``0,``1},System.Func{``1,RustyOptions.Result{``0,``2}})">OrElse&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Calls <code class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code class="paramref">self</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; OrElse&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
+        <td><span class="parametername">elseFunc</span></td>
+        <td><p>The function to call with the <code>Err</code> value, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;</td>
+        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <code>Ok</code> type of the result.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T1Err</span></td>
+        <td><p>The <code>Err</code> type of <code class="paramref">self</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2Err</span></td>
+        <td><p>The <code>Err</code> type returned by <code class="paramref">elseFunc</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_Or__3_RustyOptions_Result___0___1__RustyOptions_Result___0___2__.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.Or%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CRustyOptions.Result%7B%60%600%2C%60%602%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L176">View Source</a>
   </span>
   <a id="RustyOptions_ResultExtensions_Or_" data-uid="RustyOptions.ResultExtensions.Or*"></a>
   <h4 id="RustyOptions_ResultExtensions_Or__3_RustyOptions_Result___0___1__RustyOptions_Result___0___2__" data-uid="RustyOptions.ResultExtensions.Or``3(RustyOptions.Result{``0,``1},RustyOptions.Result{``0,``2})">Or&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Result&lt;T, T2Err&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns <code data-dev-comment-type="paramref" class="paramref">other</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+  <div class="markdown level1 summary"><p>Returns <code class="paramref">other</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code class="paramref">self</code>.</p>
 <p>
 Arguments passed to <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_Or__3_RustyOptions_Result___0___1__RustyOptions_Result___0___2__">Or&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Result&lt;T, T2Err&gt;)</a> are eagerly evaluated;
 if you are passing the result of a function call, it is recommended to use
-<a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__Func___1_RustyOptions_Result___0___2___">OrElse&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt;)</a>, which is lazily evaluated.
+<a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__System_Func___1_RustyOptions_Result___0___2___">OrElse&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt;)</a>, which is lazily evaluated.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; Or&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Result&lt;T, T2Err&gt; other)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; Or&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Result&lt;T, T2Err&gt; other) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -733,7 +903,7 @@ if you are passing the result of a function call, it is recommended to use
     <tbody>
       <tr>
         <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;</td>
-        <td><p>The <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>, or returns <code data-dev-comment-type="paramref" class="paramref">other</code>.</p>
+        <td><p>The <code>Ok</code> value of <code class="paramref">self</code>, or returns <code class="paramref">other</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -754,104 +924,22 @@ if you are passing the result of a function call, it is recommended to use
       </tr>
       <tr>
         <td><span class="parametername">T1Err</span></td>
-        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
+        <td><p>The <code>Err</code> type of <code class="paramref">self</code>.</p>
 </td>
       </tr>
       <tr>
         <td><span class="parametername">T2Err</span></td>
-        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">other</code>.</p>
+        <td><p>The <code>Err</code> type of <code class="paramref">other</code>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__Func___1_RustyOptions_Result___0___2___.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.OrElse%60%603(RustyOptions.Result%7B%60%600%2C%60%601%7D%2CFunc%7B%60%601%2CRustyOptions.Result%7B%60%600%2C%60%602%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_UnwrapOr__2_RustyOptions_Result___0___1____0_.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.UnwrapOr%60%602(RustyOptions.Result%7B%60%600%2C%60%601%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L201">View Source</a>
-  </span>
-  <a id="RustyOptions_ResultExtensions_OrElse_" data-uid="RustyOptions.ResultExtensions.OrElse*"></a>
-  <h4 id="RustyOptions_ResultExtensions_OrElse__3_RustyOptions_Result___0___1__Func___1_RustyOptions_Result___0___2___" data-uid="RustyOptions.ResultExtensions.OrElse``3(RustyOptions.Result{``0,``1},Func{``1,RustyOptions.Result{``0,``2}})">OrElse&lt;T, T1Err, T2Err&gt;(Result&lt;T, T1Err&gt;, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Calls <code data-dev-comment-type="paramref" class="paramref">elseFunc</code> if the result is <code>Err</code>, otherwise returns the <code>Ok</code> value of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Result&lt;T, T2Err&gt; OrElse&lt;T, T1Err, T2Err&gt;(this Result&lt;T, T1Err&gt; self, Func&lt;T1Err, Result&lt;T, T2Err&gt;&gt; elseFunc)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T1Err&gt;</td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The result.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T1Err, <a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;&gt;</td>
-        <td><span class="parametername">elseFunc</span></td>
-        <td><p>The function to call with the <code>Err</code> value, if any.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Result-2.html">Result</a>&lt;T, T2Err&gt;</td>
-        <td><p>The <code>Ok</code> value of the result, or the result of passing the <code>Err</code> value to <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The <code>Ok</code> type of the result.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">T1Err</span></td>
-        <td><p>The <code>Err</code> type of <code data-dev-comment-type="paramref" class="paramref">self</code>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">T2Err</span></td>
-        <td><p>The <code>Err</code> type returned by <code data-dev-comment-type="paramref" class="paramref">elseFunc</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions_UnwrapOr__2_RustyOptions_Result___0___1____0_.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions.UnwrapOr%60%602(RustyOptions.Result%7B%60%600%2C%60%601%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L116">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L111">View Source</a>
   </span>
   <a id="RustyOptions_ResultExtensions_UnwrapOr_" data-uid="RustyOptions.ResultExtensions.UnwrapOr*"></a>
   <h4 id="RustyOptions_ResultExtensions_UnwrapOr__2_RustyOptions_Result___0___1____0_" data-uid="RustyOptions.ResultExtensions.UnwrapOr``2(RustyOptions.Result{``0,``1},``0)">UnwrapOr&lt;T, TErr&gt;(Result&lt;T, TErr&gt;, T)</h4>
@@ -859,13 +947,13 @@ if you are passing the result of a function call, it is recommended to use
 <p>
 Arguments passed to <a class="xref" href="RustyOptions.ResultExtensions.html#RustyOptions_ResultExtensions_UnwrapOr__2_RustyOptions_Result___0___1____0_">UnwrapOr&lt;T, TErr&gt;(Result&lt;T, TErr&gt;, T)</a> are eagerly evaluated;
 if you are passing the result of a function call, it is recommended to use
-<a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_UnwrapOrElse_Func__1__0__">UnwrapOrElse(Func&lt;TErr, T&gt;)</a>, which is lazily evaluated.
+<a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_UnwrapOrElse_System_Func__1__0__">UnwrapOrElse(Func&lt;TErr, T&gt;)</a>, which is lazily evaluated.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T UnwrapOr&lt;T, TErr&gt;(this Result&lt;T, TErr&gt; self, T defaultValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T UnwrapOr&lt;T, TErr&gt;(this Result&lt;T, TErr&gt; self, T defaultValue) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -937,7 +1025,7 @@ if you are passing the result of a function call, it is recommended to use
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_ResultExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.ResultExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
                     <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/ResultExtensions.cs/#L9" class="contribution-link">View Source</a>
@@ -945,7 +1033,7 @@ if you are passing the result of a function call, it is recommended to use
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

@@ -1,8 +1,17 @@
 {
-  "homepages": [],
   "source_base_path": "/Users/jtm/dev/RustyOptions/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RustyOptions.Async.BoolAsyncExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RustyOptions.Async.BoolAsyncExtensions.html"
+        }
+      },
+      "version": ""
+    },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/RustyOptions.Async.OptionAsyncExtensions.yml",
@@ -29,6 +38,46 @@
       "output": {
         ".html": {
           "relative_path": "api/RustyOptions.Async.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RustyOptions.BoolExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RustyOptions.BoolExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RustyOptions.NumericOption-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RustyOptions.NumericOption-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RustyOptions.NumericOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RustyOptions.NumericOption.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RustyOptions.NumericOptionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RustyOptions.NumericOptionExtensions.html"
         }
       },
       "version": ""
@@ -155,6 +204,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/RustyOptions.Unit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RustyOptions.Unit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/RustyOptions.yml",
       "output": {
         ".html": {
@@ -179,6 +238,9 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -279,6 +341,9 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
       "version": ""
@@ -299,12 +364,14 @@
       "output": {
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"

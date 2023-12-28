@@ -74,8 +74,18 @@
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+    <h3 id="classes">
+Classes
 </h3>
+      <h4><a class="xref" href="RustyOptions.BoolExtensions.html">BoolExtensions</a></h4>
+      <section><p>Provides extension methods for boolean values.</p>
+</section>
+      <h4><a class="xref" href="RustyOptions.NumericOption.html">NumericOption</a></h4>
+      <section><p>This class contains static methods for creation an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</section>
+      <h4><a class="xref" href="RustyOptions.NumericOptionExtensions.html">NumericOptionExtensions</a></h4>
+      <section><p>Extension methods for the <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> type.</p>
+</section>
       <h4><a class="xref" href="RustyOptions.Option.html">Option</a></h4>
       <section><p>This class contains static methods for creation an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
 </section>
@@ -100,8 +110,12 @@
       <h4><a class="xref" href="RustyOptions.ResultExtensions.html">ResultExtensions</a></h4>
       <section><p>Extension methods for the <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> type.</p>
 </section>
-    <h3 id="structs">Structs
+    <h3 id="structs">
+Structs
 </h3>
+      <h4><a class="xref" href="RustyOptions.NumericOption-1.html">NumericOption&lt;T&gt;</a></h4>
+      <section><p><a class="xref" href="RustyOptions.NumericOption-1.html">NumericOption&lt;T&gt;</a> represents an optional number: every <a class="xref" href="RustyOptions.NumericOption-1.html">NumericOption&lt;T&gt;</a> is either <code>Some</code> and contains a number, or <code>None</code>, and does not.</p>
+</section>
       <h4><a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a></h4>
       <section><p><a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> represents an optional value: every <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> is either <code>Some</code> and contains a value, or <code>None</code>, and does not.</p>
 </section>
@@ -110,13 +124,18 @@
 throwing an exception. Either <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_IsOk__0__">IsOk(out T)</a> will return <code>true</code> and the contained result value,
 or else <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_IsErr__1__">IsErr(out TErr)</a> will return <code>true</code> and the contained error value.</p>
 </section>
-    <h3 id="delegates">Delegates
-</h3>
-      <h4><a class="xref" href="RustyOptions.TryGet-1.html">TryGet&lt;T&gt;</a></h4>
-      <section><p>Delegate that represents a fallible attempt to get a value of a given type.</p>
+      <h4><a class="xref" href="RustyOptions.Unit.html">Unit</a></h4>
+      <section><p>A unit type is a type that allows only one value and holds no information. It can be used
+as a placeholder in a <a class="xref" href="RustyOptions.Result-2.html">Result&lt;T, TErr&gt;</a> that returns no data.</p>
 </section>
+    <h3 id="delegates">
+Delegates
+</h3>
       <h4><a class="xref" href="RustyOptions.TryGetValue-2.html">TryGetValue&lt;TKey, TValue&gt;</a></h4>
       <section><p>Delegate that represents a fallible attempt to get a value associated with a given key.</p>
+</section>
+      <h4><a class="xref" href="RustyOptions.TryGet-1.html">TryGet&lt;T&gt;</a></h4>
+      <section><p>Delegate that represents a fallible attempt to get a value of a given type.</p>
 </section>
 
 
@@ -130,7 +149,7 @@ or else <a class="xref" href="RustyOptions.Result-2.html#RustyOptions_Result_2_I
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

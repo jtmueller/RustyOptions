@@ -78,32 +78,57 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><span class="xref">OptionCollectionExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RustyOptions.html">RustyOptions</a></h6>
   <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
   <h5 id="RustyOptions_OptionCollectionExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class OptionCollectionExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class OptionCollectionExtensions</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_ElementAtOrNone__1_IEnumerable___0__System_Int32_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.ElementAtOrNone%60%601(IEnumerable%7B%60%600%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_DequeueOrNone__1_System_Collections_Concurrent_ConcurrentQueue___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.DequeueOrNone%60%601(System.Collections.Concurrent.ConcurrentQueue%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L383">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L670">View Source</a>
   </span>
-  <a id="RustyOptions_OptionCollectionExtensions_ElementAtOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.ElementAtOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_ElementAtOrNone__1_IEnumerable___0__System_Int32_" data-uid="RustyOptions.OptionCollectionExtensions.ElementAtOrNone``1(IEnumerable{``0},System.Int32)">ElementAtOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Int32)</h4>
-  <div class="markdown level1 summary"><p>Returns an element at a specified position in a sequence if such exists.</p>
+  <a id="RustyOptions_OptionCollectionExtensions_DequeueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_DequeueOrNone__1_System_Collections_Concurrent_ConcurrentQueue___0__" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone``1(System.Collections.Concurrent.ConcurrentQueue{``0})">DequeueOrNone&lt;T&gt;(ConcurrentQueue&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>PriorityQueue</code> if one is present.
+The object is removed from the <code>PriorityQueue</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; ElementAtOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, int index)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; DequeueOrNone&lt;T&gt;(this ConcurrentQueue&lt;T&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -116,13 +141,291 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentqueue-1">ConcurrentQueue</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the queue has any values, and <code>None</code> if the queue is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_DequeueOrNone__1_System_Collections_Generic_Queue___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.DequeueOrNone%60%601(System.Collections.Generic.Queue%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L471">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_DequeueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_DequeueOrNone__1_System_Collections_Generic_Queue___0__" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone``1(System.Collections.Generic.Queue{``0})">DequeueOrNone&lt;T&gt;(Queue&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>Queue</code> if one is present.
+The object is removed from the <code>Queue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; DequeueOrNone&lt;T&gt;(this Queue&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1">Queue</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the queue has any values, and <code>None</code> if the queue is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_DequeueOrNone__1_System_Collections_Immutable_ImmutableQueue___0__RustyOptions_Option___0___.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.DequeueOrNone%60%601(System.Collections.Immutable.ImmutableQueue%7B%60%600%7D%2CRustyOptions.Option%7B%60%600%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L537">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_DequeueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_DequeueOrNone__1_System_Collections_Immutable_ImmutableQueue___0__RustyOptions_Option___0___" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone``1(System.Collections.Immutable.ImmutableQueue{``0},RustyOptions.Option{``0}@)">DequeueOrNone&lt;T&gt;(ImmutableQueue&lt;T&gt;, out Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>ImmutableQueue</code> if one is present.
+The object is removed from the <code>ImmutableQueue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableQueue&lt;T&gt; DequeueOrNone&lt;T&gt;(this ImmutableQueue&lt;T&gt; self, out Option&lt;T&gt; result) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablequeue-1">ImmutableQueue</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">result</span></td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> containing the value removed from the stack, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablequeue-1">ImmutableQueue</a>&lt;T&gt;</td>
+        <td><p>A modified verison of the <code>ImmutableStack</code> without the removed value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_DequeueOrNone__2_System_Collections_Generic_PriorityQueue___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.DequeueOrNone%60%602(System.Collections.Generic.PriorityQueue%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L505">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_DequeueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_DequeueOrNone__2_System_Collections_Generic_PriorityQueue___0___1__" data-uid="RustyOptions.OptionCollectionExtensions.DequeueOrNone``2(System.Collections.Generic.PriorityQueue{``0,``1})">DequeueOrNone&lt;T, TPriority&gt;(PriorityQueue&lt;T, TPriority&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>PriorityQueue</code> if one is present.
+The object is removed from the <code>PriorityQueue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;(T Element, TPriority Priority)&gt; DequeueOrNone&lt;T, TPriority&gt;(this PriorityQueue&lt;T, TPriority&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.priorityqueue-2">PriorityQueue</a>&lt;T, TPriority&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;(T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1-.element">Element</a>, TPriority <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1-.priority">Priority</a>)&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the queue has any values, and <code>None</code> if the queue is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TPriority</span></td>
+        <td><p>The type of the priority value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_ElementAtOrNone__1_System_Collections_Generic_IEnumerable___0__System_Int32_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.ElementAtOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L312">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_ElementAtOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.ElementAtOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_ElementAtOrNone__1_System_Collections_Generic_IEnumerable___0__System_Int32_" data-uid="RustyOptions.OptionCollectionExtensions.ElementAtOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">ElementAtOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, int)</h4>
+  <div class="markdown level1 summary"><p>Returns an element at a specified position in a sequence if such exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; ElementAtOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, int index) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The sequence to return the element from.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Int32</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
         <td><p>The index in the sequence.</p>
 </td>
@@ -160,93 +463,37 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_FirstOrNone__1_IEnumerable___0__Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.FirstOrNone%60%601(IEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L151">View Source</a>
-  </span>
-  <a id="RustyOptions_OptionCollectionExtensions_FirstOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_FirstOrNone__1_IEnumerable___0__Func___0_System_Boolean__" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})">FirstOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns the first element of a sequence, satisfying a specified predicate,
-if such exists.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; FirstOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
+        <th>Condition</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The sequence to return the first element from.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> is null.</p>
 </td>
-      </tr>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Boolean</span>&gt;</td>
-        <td><span class="parametername">predicate</span></td>
-        <td><p>The predicate to filter by.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
-        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the first matching element, if present.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_FirstOrNone__1_IEnumerable___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.FirstOrNone%60%601(IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_FirstOrNone__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.FirstOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L97">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L73">View Source</a>
   </span>
   <a id="RustyOptions_OptionCollectionExtensions_FirstOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_FirstOrNone__1_IEnumerable___0__" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone``1(IEnumerable{``0})">FirstOrNone&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
+  <h4 id="RustyOptions_OptionCollectionExtensions_FirstOrNone__1_System_Collections_Generic_IEnumerable___0__" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone``1(System.Collections.Generic.IEnumerable{``0})">FirstOrNone&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the first element of a sequence if such exists.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; FirstOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; FirstOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -259,7 +506,7 @@ if such exists.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The sequence to return the first element from.</p>
 </td>
@@ -297,93 +544,38 @@ if such exists.</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync__1_IAsyncEnumerable___0__CancellationToken_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync%60%601(IAsyncEnumerable%7B%60%600%7D%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L129">View Source</a>
-  </span>
-  <a id="RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync__1_IAsyncEnumerable___0__CancellationToken_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync``1(IAsyncEnumerable{``0},CancellationToken)">FirstOrNoneAsync&lt;T&gt;(IAsyncEnumerable&lt;T&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Returns the first element of an asynchronous sequence if such exists.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; FirstOrNoneAsync&lt;T&gt;(this IAsyncEnumerable&lt;T&gt; self, CancellationToken ct = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
+        <th>Condition</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IAsyncEnumerable</span>&lt;T&gt;</td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The sequence to return the first element from.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> is null.</p>
 </td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">ct</span></td>
-        <td><p>A CancellationToken that will interrupt async iteration.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
-        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the first element if present.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync__1_IAsyncEnumerable___0__Func___0_System_Boolean__CancellationToken_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync%60%601(IAsyncEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_FirstOrNone__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.FirstOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L177">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L106">View Source</a>
   </span>
-  <a id="RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_FirstOrNoneAsync__1_IAsyncEnumerable___0__Func___0_System_Boolean__CancellationToken_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNoneAsync``1(IAsyncEnumerable{``0},Func{``0,System.Boolean},CancellationToken)">FirstOrNoneAsync&lt;T&gt;(IAsyncEnumerable&lt;T&gt;, Func&lt;T, Boolean&gt;, CancellationToken)</h4>
+  <a id="RustyOptions_OptionCollectionExtensions_FirstOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_FirstOrNone__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__" data-uid="RustyOptions.OptionCollectionExtensions.FirstOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">FirstOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the first element of a sequence, satisfying a specified predicate,
 if such exists.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;Option&lt;T&gt;&gt; FirstOrNoneAsync&lt;T&gt;(this IAsyncEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate, CancellationToken ct = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; FirstOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -396,21 +588,15 @@ if such exists.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IAsyncEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The sequence to return the first element from.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Boolean</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to filter by.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">ct</span></td>
-        <td><p>A CancellationToken that will interrupt async iteration.</p>
 </td>
       </tr>
     </tbody>
@@ -425,7 +611,7 @@ if such exists.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
         <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the first matching element, if present.</p>
 </td>
       </tr>
@@ -446,21 +632,37 @@ if such exists.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> or <code class="paramref">predicate</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_GetValueOrNone__2_IEnumerable_KeyValuePair___0___1_____0_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.GetValueOrNone%60%602(IEnumerable%7BKeyValuePair%7B%60%600%2C%60%601%7D%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Generic_HashSet___0____0_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.GetValueOrNone%60%601(System.Collections.Generic.HashSet%7B%60%600%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L67">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L561">View Source</a>
   </span>
   <a id="RustyOptions_OptionCollectionExtensions_GetValueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_GetValueOrNone__2_IEnumerable_KeyValuePair___0___1_____0_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone``2(IEnumerable{KeyValuePair{``0,``1}},``0)">GetValueOrNone&lt;TKey, TValue&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;, TKey)</h4>
-  <div class="markdown level1 summary"><p>Gets the value associated with the given <code data-dev-comment-type="paramref" class="paramref">key</code> from the dictionary as an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+  <h4 id="RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Generic_HashSet___0____0_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone``1(System.Collections.Generic.HashSet{``0},``0)">GetValueOrNone&lt;T&gt;(HashSet&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Searches the set for a given value and returns the equal value it finds, if any.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;TValue&gt; GetValueOrNone&lt;TKey, TValue&gt;(this IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; self, TKey key)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; GetValueOrNone&lt;T&gt;(this HashSet&lt;T&gt; self, T equalValue) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -473,7 +675,295 @@ if such exists.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">KeyValuePair</span>&lt;TKey, TValue&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1">HashSet</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The HashSet.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">equalValue</span></td>
+        <td><p>The value to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p><code>Some</code> containing the value the search found, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Generic_SortedSet___0____0_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.GetValueOrNone%60%601(System.Collections.Generic.SortedSet%7B%60%600%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L577">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_GetValueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Generic_SortedSet___0____0_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone``1(System.Collections.Generic.SortedSet{``0},``0)">GetValueOrNone&lt;T&gt;(SortedSet&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Searches the set for a given value and returns the equal value it finds, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; GetValueOrNone&lt;T&gt;(this SortedSet&lt;T&gt; self, T equalValue) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sortedset-1">SortedSet</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The SortedSet.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">equalValue</span></td>
+        <td><p>The value to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p><code>Some</code> containing the value the search found, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Immutable_ImmutableHashSet___0____0_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.GetValueOrNone%60%601(System.Collections.Immutable.ImmutableHashSet%7B%60%600%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L593">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_GetValueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Immutable_ImmutableHashSet___0____0_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone``1(System.Collections.Immutable.ImmutableHashSet{``0},``0)">GetValueOrNone&lt;T&gt;(ImmutableHashSet&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Searches the set for a given value and returns the equal value it finds, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; GetValueOrNone&lt;T&gt;(this ImmutableHashSet&lt;T&gt; self, T equalValue) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablehashset-1">ImmutableHashSet</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The HashSet.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">equalValue</span></td>
+        <td><p>The value to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p><code>Some</code> containing the value the search found, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Immutable_ImmutableSortedSet___0____0_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.GetValueOrNone%60%601(System.Collections.Immutable.ImmutableSortedSet%7B%60%600%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L609">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_GetValueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_GetValueOrNone__1_System_Collections_Immutable_ImmutableSortedSet___0____0_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone``1(System.Collections.Immutable.ImmutableSortedSet{``0},``0)">GetValueOrNone&lt;T&gt;(ImmutableSortedSet&lt;T&gt;, T)</h4>
+  <div class="markdown level1 summary"><p>Searches the set for a given value and returns the equal value it finds, if any.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; GetValueOrNone&lt;T&gt;(this ImmutableSortedSet&lt;T&gt; self, T equalValue) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablesortedset-1">ImmutableSortedSet</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The SortedSet.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">equalValue</span></td>
+        <td><p>The value to search for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p><code>Some</code> containing the value the search found, or <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_GetValueOrNone__2_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair___0___1_____0_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.GetValueOrNone%60%602(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.KeyValuePair%7B%60%600%2C%60%601%7D%7D%2C%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L43">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_GetValueOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_GetValueOrNone__2_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair___0___1_____0_" data-uid="RustyOptions.OptionCollectionExtensions.GetValueOrNone``2(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}},``0)">GetValueOrNone&lt;TKey, TValue&gt;(IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;, TKey)</h4>
+  <div class="markdown level1 summary"><p>Gets the value associated with the given <code class="paramref">key</code> from the dictionary as an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;TValue&gt; GetValueOrNone&lt;TKey, TValue&gt;(this IEnumerable&lt;KeyValuePair&lt;TKey, TValue&gt;&gt; self, TKey key) where TKey : notnull where TValue : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;TKey, TValue&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The dictionary.</p>
 </td>
@@ -523,22 +1013,119 @@ if such exists.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_LastOrNone__1_IEnumerable___0__Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.LastOrNone%60%601(IEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_LastOrNone__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.LastOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L240">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L129">View Source</a>
   </span>
   <a id="RustyOptions_OptionCollectionExtensions_LastOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_LastOrNone__1_IEnumerable___0__Func___0_System_Boolean__" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})">LastOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
+  <h4 id="RustyOptions_OptionCollectionExtensions_LastOrNone__1_System_Collections_Generic_IEnumerable___0__" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone``1(System.Collections.Generic.IEnumerable{``0})">LastOrNone&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns the last element of a sequence if such exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; LastOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The sequence to return the last element from.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the last element if present.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_LastOrNone__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.LastOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L169">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_LastOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_LastOrNone__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">LastOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the last element of a sequence, satisfying a specified predicate,
 if such exists.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; LastOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; LastOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -551,13 +1138,13 @@ if such exists.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The sequence to return the last element from.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Boolean</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">predicate</span></td>
         <td><p>The predicate to filter by.</p>
 </td>
@@ -595,21 +1182,37 @@ if such exists.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> or <code class="paramref">predicate</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_LastOrNone__1_IEnumerable___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.LastOrNone%60%601(IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Concurrent_ConcurrentBag___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Concurrent.ConcurrentBag%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L200">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L639">View Source</a>
   </span>
-  <a id="RustyOptions_OptionCollectionExtensions_LastOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_LastOrNone__1_IEnumerable___0__" data-uid="RustyOptions.OptionCollectionExtensions.LastOrNone``1(IEnumerable{``0})">LastOrNone&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns the last element of a sequence if such exists.</p>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Concurrent_ConcurrentBag___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Concurrent.ConcurrentBag{``0})">PeekOrNone&lt;T&gt;(ConcurrentBag&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to return an object from the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentbag-1">ConcurrentBag&lt;T&gt;</a> without removing it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; LastOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this ConcurrentBag&lt;T&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -622,9 +1225,9 @@ if such exists.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentbag-1">ConcurrentBag</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
-        <td><p>The sequence to return the last element from.</p>
+        <td><p>The collection.</p>
 </td>
       </tr>
     </tbody>
@@ -640,7 +1243,7 @@ if such exists.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
-        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the last element if present.</p>
+        <td><p>Returns a <code>Some</code> containing the value if there is a value, otherwise <code>None</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -656,26 +1259,26 @@ if such exists.</p>
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The item type.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_SingleOrNone__1_IEnumerable___0__Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.SingleOrNone%60%601(IEnumerable%7B%60%600%7D%2CFunc%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Concurrent_ConcurrentQueue___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Concurrent.ConcurrentQueue%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L347">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L654">View Source</a>
   </span>
-  <a id="RustyOptions_OptionCollectionExtensions_SingleOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_SingleOrNone__1_IEnumerable___0__Func___0_System_Boolean__" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone``1(IEnumerable{``0},Func{``0,System.Boolean})">SingleOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns a single element from a sequence, satisfying a specified predicate,
-if it exists and is the only element in the sequence.</p>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Concurrent_ConcurrentQueue___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Concurrent.ConcurrentQueue{``0})">PeekOrNone&lt;T&gt;(ConcurrentQueue&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to return an object from the beginning of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentqueue-1">ConcurrentQueue&lt;T&gt;</a> without removing it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; SingleOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this ConcurrentQueue&lt;T&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -688,15 +1291,9 @@ if it exists and is the only element in the sequence.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentqueue-1">ConcurrentQueue</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
-        <td><p>The sequence to return the element from.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Func</span>&lt;T, <span class="xref">Boolean</span>&gt;</td>
-        <td><span class="parametername">predicate</span></td>
-        <td><p>The predicate to filter by.</p>
+        <td><p>The collection.</p>
 </td>
       </tr>
     </tbody>
@@ -712,7 +1309,7 @@ if it exists and is the only element in the sequence.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
-        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the element if present.</p>
+        <td><p>Returns a <code>Some</code> containing the value if there is a value, otherwise <code>None</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -728,26 +1325,735 @@ if it exists and is the only element in the sequence.</p>
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The item type.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_SingleOrNone__1_IEnumerable___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.SingleOrNone%60%601(IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Concurrent_ConcurrentStack___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Concurrent.ConcurrentStack%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L304">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L685">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Concurrent_ConcurrentStack___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Concurrent.ConcurrentStack{``0})">PeekOrNone&lt;T&gt;(ConcurrentStack&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to return an object from the top of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentstack-1">ConcurrentStack&lt;T&gt;</a> without removing it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this ConcurrentStack&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentstack-1">ConcurrentStack</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>Returns a <code>Some</code> containing the value if there is a value, otherwise <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The item type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Generic_Queue___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Generic.Queue%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L455">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Generic_Queue___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Generic.Queue{``0})">PeekOrNone&lt;T&gt;(Queue&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>Queue</code> if one is present.
+The object is not removed from the <code>Queue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this Queue&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1">Queue</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the queue has any values, and <code>None</code> if the queue is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Generic_Stack___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Generic.Stack%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L383">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Generic_Stack___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Generic.Stack{``0})">PeekOrNone&lt;T&gt;(Stack&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the top of the <code>Stack</code> if one is present.
+The object is not removed from the <code>Stack</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this Stack&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1">Stack</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The stack.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the stack has any values, and <code>None</code> if the stack is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the stack and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Immutable_ImmutableQueue___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Immutable.ImmutableQueue%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L521">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Immutable_ImmutableQueue___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Immutable.ImmutableQueue{``0})">PeekOrNone&lt;T&gt;(ImmutableQueue&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>ImmutableQueue</code> if one is present.
+The object is not removed from the <code>ImmutableQueue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this ImmutableQueue&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablequeue-1">ImmutableQueue</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the queue has any values, and <code>None</code> if the queue is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Immutable_ImmutableStack___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%601(System.Collections.Immutable.ImmutableStack%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L415">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__1_System_Collections_Immutable_ImmutableStack___0__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``1(System.Collections.Immutable.ImmutableStack{``0})">PeekOrNone&lt;T&gt;(ImmutableStack&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the top of the <code>ImmutableStack</code> if one is present.
+The object is not removed from the <code>ImmutableStack</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PeekOrNone&lt;T&gt;(this ImmutableStack&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablestack-1">ImmutableStack</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The stack.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the stack has any values, and <code>None</code> if the stack is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the stack and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PeekOrNone__2_System_Collections_Generic_PriorityQueue___0___1__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PeekOrNone%60%602(System.Collections.Generic.PriorityQueue%7B%60%600%2C%60%601%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L488">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PeekOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PeekOrNone__2_System_Collections_Generic_PriorityQueue___0___1__" data-uid="RustyOptions.OptionCollectionExtensions.PeekOrNone``2(System.Collections.Generic.PriorityQueue{``0,``1})">PeekOrNone&lt;T, TPriority&gt;(PriorityQueue&lt;T, TPriority&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the beginning of the <code>PriorityQueue</code> if one is present.
+The object is not removed from the <code>PriorityQueue</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;(T Element, TPriority Priority)&gt; PeekOrNone&lt;T, TPriority&gt;(this PriorityQueue&lt;T, TPriority&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.priorityqueue-2">PriorityQueue</a>&lt;T, TPriority&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The queue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;(T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1-.element">Element</a>, TPriority <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple---0,--1-.priority">Priority</a>)&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the queue has any values, and <code>None</code> if the queue is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the queue and the returned option.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TPriority</span></td>
+        <td><p>The type of the priority value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PopOrNone__1_System_Collections_Concurrent_ConcurrentStack___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PopOrNone%60%601(System.Collections.Concurrent.ConcurrentStack%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L701">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PopOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PopOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PopOrNone__1_System_Collections_Concurrent_ConcurrentStack___0__" data-uid="RustyOptions.OptionCollectionExtensions.PopOrNone``1(System.Collections.Concurrent.ConcurrentStack{``0})">PopOrNone&lt;T&gt;(ConcurrentStack&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the top of the <code>Stack</code> if one is present.
+The object is removed from the <code>Stack</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PopOrNone&lt;T&gt;(this ConcurrentStack&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentstack-1">ConcurrentStack</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The stack.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the stack has any values, and <code>None</code> if the stack is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the stack and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PopOrNone__1_System_Collections_Generic_Stack___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PopOrNone%60%601(System.Collections.Generic.Stack%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L399">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PopOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PopOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PopOrNone__1_System_Collections_Generic_Stack___0__" data-uid="RustyOptions.OptionCollectionExtensions.PopOrNone``1(System.Collections.Generic.Stack{``0})">PopOrNone&lt;T&gt;(Stack&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the top of the <code>Stack</code> if one is present.
+The object is removed from the <code>Stack</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; PopOrNone&lt;T&gt;(this Stack&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.stack-1">Stack</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The stack.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that is <code>Some</code> if the stack has any values, and <code>None</code> if the stack is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the stack and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_PopOrNone__1_System_Collections_Immutable_ImmutableStack___0__RustyOptions_Option___0___.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.PopOrNone%60%601(System.Collections.Immutable.ImmutableStack%7B%60%600%7D%2CRustyOptions.Option%7B%60%600%7D%40)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L431">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_PopOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.PopOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_PopOrNone__1_System_Collections_Immutable_ImmutableStack___0__RustyOptions_Option___0___" data-uid="RustyOptions.OptionCollectionExtensions.PopOrNone``1(System.Collections.Immutable.ImmutableStack{``0},RustyOptions.Option{``0}@)">PopOrNone&lt;T&gt;(ImmutableStack&lt;T&gt;, out Option&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets <code class="paramref">result</code> to an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that contains the object at the top of the <code>ImmutableStack</code> if one is present.
+A modified version of the stack without that value is returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ImmutableStack&lt;T&gt; PopOrNone&lt;T&gt;(this ImmutableStack&lt;T&gt; self, out Option&lt;T&gt; result) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablestack-1">ImmutableStack</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The stack.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><span class="parametername">result</span></td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> containing the value removed from the stack, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.immutable.immutablestack-1">ImmutableStack</a>&lt;T&gt;</td>
+        <td><p>A modified verison of the <code>ImmutableStack</code> without the removed value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type contained by the stack and the returned option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_SelectWhere__2_System_Collections_Generic_IEnumerable___0__System_Func___0_RustyOptions_Option___1___.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.SelectWhere%60%602(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2CRustyOptions.Option%7B%60%601%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L360">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_SelectWhere_" data-uid="RustyOptions.OptionCollectionExtensions.SelectWhere*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_SelectWhere__2_System_Collections_Generic_IEnumerable___0__System_Func___0_RustyOptions_Option___1___" data-uid="RustyOptions.OptionCollectionExtensions.SelectWhere``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,RustyOptions.Option{``1}})">SelectWhere&lt;T1, T2&gt;(IEnumerable&lt;T1&gt;, Func&lt;T1, Option&lt;T2&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Applies a function to each element of a sequence and returns a sequence of the values inside any <code>Some</code> results.
+Can be used to transform and filter in a single operation, similar to applying <code>Select/Where/Select</code>,
+but with better performance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T2&gt; SelectWhere&lt;T1, T2&gt;(this IEnumerable&lt;T1&gt; self, Func&lt;T1, Option&lt;T2&gt;&gt; selector) where T1 : notnull where T2 : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T1&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The incoming sequence.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T1, <a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T2&gt;&gt;</td>
+        <td><span class="parametername">selector</span></td>
+        <td><p>A function that takes a value from the in coming sequence, and returns an <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> that will have any value included in the resulting sequence.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T2&gt;</td>
+        <td><p>A sequence containing the values for which the <code class="paramref">selector</code> function returns <code>Some</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T1</span></td>
+        <td><p>The type contained in the incoming sequence.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">T2</span></td>
+        <td><p>The type contained in the resulting sequence.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">self</code> or <code class="paramref">selector</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_SingleOrNone__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.SingleOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L233">View Source</a>
   </span>
   <a id="RustyOptions_OptionCollectionExtensions_SingleOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_SingleOrNone__1_IEnumerable___0__" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone``1(IEnumerable{``0})">SingleOrNone&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
+  <h4 id="RustyOptions_OptionCollectionExtensions_SingleOrNone__1_System_Collections_Generic_IEnumerable___0__" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone``1(System.Collections.Generic.IEnumerable{``0})">SingleOrNone&lt;T&gt;(IEnumerable&lt;T&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns a single element from a sequence, if it exists
 and is the only element in the sequence.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; SingleOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; SingleOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -760,7 +2066,7 @@ and is the only element in the sequence.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The sequence to return the element from.</p>
 </td>
@@ -798,22 +2104,192 @@ and is the only element in the sequence.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_Values__1_IEnumerable_RustyOptions_Option___0___.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.Values%60%601(IEnumerable%7BRustyOptions.Option%7B%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_SingleOrNone__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.SingleOrNone%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L22">View Source</a>
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L276">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_SingleOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_SingleOrNone__1_System_Collections_Generic_IEnumerable___0__System_Func___0_System_Boolean__" data-uid="RustyOptions.OptionCollectionExtensions.SingleOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">SingleOrNone&lt;T&gt;(IEnumerable&lt;T&gt;, Func&lt;T, bool&gt;)</h4>
+  <div class="markdown level1 summary"><p>Returns a single element from a sequence, satisfying a specified predicate,
+if it exists and is the only element in the sequence.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; SingleOrNone&lt;T&gt;(this IEnumerable&lt;T&gt; self, Func&lt;T, bool&gt; predicate) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The sequence to return the element from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;T, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td><p>The predicate to filter by.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>An <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> instance containing the element if present.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> or <code class="paramref">predicate</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_TakeOrNone__1_System_Collections_Concurrent_IProducerConsumerCollection___0__.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.TakeOrNone%60%601(System.Collections.Concurrent.IProducerConsumerCollection%7B%60%600%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L624">View Source</a>
+  </span>
+  <a id="RustyOptions_OptionCollectionExtensions_TakeOrNone_" data-uid="RustyOptions.OptionCollectionExtensions.TakeOrNone*"></a>
+  <h4 id="RustyOptions_OptionCollectionExtensions_TakeOrNone__1_System_Collections_Concurrent_IProducerConsumerCollection___0__" data-uid="RustyOptions.OptionCollectionExtensions.TakeOrNone``1(System.Collections.Concurrent.IProducerConsumerCollection{``0})">TakeOrNone&lt;T&gt;(IProducerConsumerCollection&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Attempts to remove and return an object from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Option&lt;T&gt; TakeOrNone&lt;T&gt;(this IProducerConsumerCollection&lt;T&gt; self) where T : notnull</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.concurrent.iproducerconsumercollection-1">IProducerConsumerCollection</a>&lt;T&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;</td>
+        <td><p>Returns a <code>Some</code> containing the value if there is a value, otherwise <code>None</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The item type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_Values__1_System_Collections_Generic_IEnumerable_RustyOptions_Option___0___.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.Values%60%601(System.Collections.Generic.IEnumerable%7BRustyOptions.Option%7B%60%600%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L20">View Source</a>
   </span>
   <a id="RustyOptions_OptionCollectionExtensions_Values_" data-uid="RustyOptions.OptionCollectionExtensions.Values*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_Values__1_IEnumerable_RustyOptions_Option___0___" data-uid="RustyOptions.OptionCollectionExtensions.Values``1(IEnumerable{RustyOptions.Option{``0}})">Values&lt;T&gt;(IEnumerable&lt;Option&lt;T&gt;&gt;)</h4>
+  <h4 id="RustyOptions_OptionCollectionExtensions_Values__1_System_Collections_Generic_IEnumerable_RustyOptions_Option___0___" data-uid="RustyOptions.OptionCollectionExtensions.Values``1(System.Collections.Generic.IEnumerable{RustyOptions.Option{``0}})">Values&lt;T&gt;(IEnumerable&lt;Option&lt;T&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Flattens a sequence of <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> into a sequence containing all inner values.
 Empty elements are discarded.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Values&lt;T&gt;(this IEnumerable&lt;Option&lt;T&gt;&gt; self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; Values&lt;T&gt;(this IEnumerable&lt;Option&lt;T&gt;&gt; self) where T : notnull</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -826,7 +2302,7 @@ Empty elements are discarded.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
         <td><span class="parametername">self</span></td>
         <td><p>The sequence of options.</p>
 </td>
@@ -843,7 +2319,7 @@ Empty elements are discarded.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
         <td><p>A flattened sequence of values.</p>
 </td>
       </tr>
@@ -864,75 +2340,19 @@ Empty elements are discarded.</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions_ValuesAsync__1_IAsyncEnumerable_RustyOptions_Option___0___CancellationToken_.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions.ValuesAsync%60%601(IAsyncEnumerable%7BRustyOptions.Option%7B%60%600%7D%7D%2CCancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L44">View Source</a>
-  </span>
-  <a id="RustyOptions_OptionCollectionExtensions_ValuesAsync_" data-uid="RustyOptions.OptionCollectionExtensions.ValuesAsync*"></a>
-  <h4 id="RustyOptions_OptionCollectionExtensions_ValuesAsync__1_IAsyncEnumerable_RustyOptions_Option___0___CancellationToken_" data-uid="RustyOptions.OptionCollectionExtensions.ValuesAsync``1(IAsyncEnumerable{RustyOptions.Option{``0}},CancellationToken)">ValuesAsync&lt;T&gt;(IAsyncEnumerable&lt;Option&lt;T&gt;&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Flattens an asynchronous sequence of <a class="xref" href="RustyOptions.Option-1.html">Option&lt;T&gt;</a> into a sequence containing all inner values.
-Empty elements are discarded.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static async IAsyncEnumerable&lt;T&gt; ValuesAsync&lt;T&gt;(this IAsyncEnumerable&lt;Option&lt;T&gt;&gt; self, CancellationToken ct = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
+        <th>Condition</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IAsyncEnumerable</span>&lt;<a class="xref" href="RustyOptions.Option-1.html">Option</a>&lt;T&gt;&gt;</td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The sequence of options.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown when <code class="paramref">self</code> is null.</p>
 </td>
-      </tr>
-      <tr>
-        <td><span class="xref">CancellationToken</span></td>
-        <td><span class="parametername">ct</span></td>
-        <td><p>A CancellationToken that will interrupt async iteration.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IAsyncEnumerable</span>&lt;T&gt;</td>
-        <td><p>A flattened sequence of values.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -945,15 +2365,15 @@ Empty elements are discarded.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_OptionCollectionExtensions.md&amp;value=---%0Auid%3A%20RustyOptions.OptionCollectionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/OptionCollectionExtensions.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

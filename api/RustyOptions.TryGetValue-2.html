@@ -80,7 +80,7 @@
   <h6><strong>Assembly</strong>: RustyOptions.dll</h6>
   <h5 id="RustyOptions_TryGetValue_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate bool TryGetValue&lt;TKey, TValue&gt;(TKey key, out TValue value);</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate bool TryGetValue&lt;TKey, TValue&gt;(TKey key, out TValue? value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -116,7 +116,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Boolean</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><p><code>true</code> if the value was retrieved, otherwise <code>false</code>.</p>
 </td>
       </tr>
@@ -145,7 +145,10 @@
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AsOption__1___0_">OptionExtensions.AsOption&lt;T&gt;(T)</a>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_AsOption__1___0_">OptionExtensions.AsOption&lt;T&gt;(T?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_None__1___0_">OptionExtensions.None&lt;T&gt;(T)</a>
   </div>
   <div>
       <a class="xref" href="RustyOptions.OptionExtensions.html#RustyOptions_OptionExtensions_Some__1___0_">OptionExtensions.Some&lt;T&gt;(T)</a>
@@ -159,15 +162,15 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_TryGetValue_2.md&amp;value=---%0Auid%3A%20RustyOptions.TryGetValue%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/new/main/apiSpec/new?filename=RustyOptions_TryGetValue_2.md&amp;value=---%0Auid%3A%20RustyOptions.TryGetValue%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L160" class="contribution-link">View Source</a>
+                    <a href="https://github.com/jtmueller/RustyOptions/blob/main/src/RustyOptions/Option.cs/#L190" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
