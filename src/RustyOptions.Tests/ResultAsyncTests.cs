@@ -406,13 +406,13 @@ public class ResultAsyncTests
 
     private static async Task<T> GetTask<T>(T value)
     {
-        await Task.Yield();
+        await Task.Delay(1);
         return value;
     }
 
     private static async ValueTask<T> GetValueTask<T>(T value)
     {
-        await Task.Yield();
+        await Task.Delay(1);
         return value;
     }
 }
