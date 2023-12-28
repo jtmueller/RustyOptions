@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Diagnostics.CodeAnalysis;
 using RustyOptions.Async;
 using static RustyOptions.Option;
 
@@ -103,6 +104,7 @@ public sealed class OptionAsyncTests
         }
     }
 
+    [SuppressMessage("Usage", "CA2012:Use ValueTasks correctly", Justification = "Testing ValueTask<T>")]
     public static IEnumerable<object[]> GetMapAsyncValues()
     {
         var expected = Some(84L);
@@ -121,11 +123,17 @@ public sealed class OptionAsyncTests
         yield return new object[] { source, taskMapper, expected };
         yield return new object[] { source, valTaskMapper, expected };
         yield return new object[] { taskSrc, mapper, expected };
+        yield return new object[] { GetTask(source), mapper, expected };
         yield return new object[] { valTaskSrc, mapper, expected };
+        yield return new object[] { GetValueTask(source), mapper, expected };
         yield return new object[] { taskSrc, taskMapper, expected };
+        yield return new object[] { GetTask(source), taskMapper, expected };
         yield return new object[] { valTaskSrc, taskMapper, expected };
+        yield return new object[] { GetValueTask(source), taskMapper, expected };
         yield return new object[] { taskSrc, valTaskMapper, expected };
+        yield return new object[] { GetTask(source), valTaskMapper, expected };
         yield return new object[] { valTaskSrc, valTaskMapper, expected };
+        yield return new object[] { GetValueTask(source), valTaskMapper, expected };
 
         yield return new object[] { sourceNone, taskMapper, expectedNone };
         yield return new object[] { sourceNone, valTaskMapper, expectedNone };
@@ -174,6 +182,7 @@ public sealed class OptionAsyncTests
         }
     }
 
+    [SuppressMessage("Usage", "CA2012:Use ValueTasks correctly", Justification = "Testing ValueTask<T>")]
     public static IEnumerable<object[]> GetMapOrElseAsyncValues()
     {
         var defaultFactory = () => -1L;
@@ -197,11 +206,17 @@ public sealed class OptionAsyncTests
         yield return new object[] { source, taskMapper, taskDefault, expected };
         yield return new object[] { source, valTaskMapper, valueTaskDefault, expected };
         yield return new object[] { taskSrc, mapper, defaultFactory, expected };
+        yield return new object[] { GetTask(source), mapper, defaultFactory, expected };
         yield return new object[] { valTaskSrc, mapper, defaultFactory, expected };
+        yield return new object[] { GetValueTask(source), mapper, defaultFactory, expected };
         yield return new object[] { taskSrc, taskMapper, taskDefault, expected };
+        yield return new object[] { GetTask(source), taskMapper, taskDefault, expected };
         yield return new object[] { valTaskSrc, taskMapper, taskDefault, expected };
+        yield return new object[] { GetValueTask(source), taskMapper, taskDefault, expected };
         yield return new object[] { taskSrc, valTaskMapper, valueTaskDefault, expected };
+        yield return new object[] { GetTask(source), valTaskMapper, valueTaskDefault, expected };
         yield return new object[] { valTaskSrc, valTaskMapper, valueTaskDefault, expected };
+        yield return new object[] { GetValueTask(source), valTaskMapper, valueTaskDefault, expected };
 
         yield return new object[] { sourceNone, taskMapper, taskDefault, expectedNone };
         yield return new object[] { sourceNone, valTaskMapper, valueTaskDefault, expectedNone };

@@ -122,7 +122,7 @@ public class BoolExtensionsTests
         bool condition = false;
         var result = await condition.ThenSomeAsync(Task.FromResult("Hello"));
 
-        Assert.False(result.IsSome(out var _));
+        Assert.True(result.IsNone);
     }
 
     [Fact]
@@ -151,7 +151,7 @@ public class BoolExtensionsTests
         bool condition = false;
         var result = await condition.ThenSomeAsync(new ValueTask<string>("Hello"));
 
-        Assert.False(result.IsSome(out var _));
+        Assert.True(result.IsNone);
     }
 
     private static async Task<T> GetTask<T>(T value)
