@@ -95,6 +95,44 @@ public class BoolExtensionsTests
         Assert.True(result.IsSome(out var resultVal));
         Assert.Equal(42, resultVal);
     }
+
+    [Fact]
+    public async Task ThenSomeAsync_Task_WhenTrue_ShouldReturnOptionWithValue()
+    {
+        bool condition = true;
+        var result = await condition.ThenSomeAsync(Task.FromResult("Hello"));
+
+        Assert.True(result.IsSome(out var value));
+        Assert.Equal("Hello", value);
+    }
+
+    [Fact]
+    public async Task ThenSomeAsync_Task_WhenFalse_ShouldReturnDefaultOption()
+    {
+        bool condition = false;
+        var result = await condition.ThenSomeAsync(Task.FromResult("Hello"));
+
+        Assert.False(result.IsSome(out var _));
+    }
+
+    [Fact]
+    public async Task ThenSomeAsync_ValueTask_WhenTrue_ShouldReturnOptionWithValue()
+    {
+        bool condition = true;
+        var result = await condition.ThenSomeAsync(new ValueTask<string>("Hello"));
+
+        Assert.True(result.IsSome(out var value));
+        Assert.Equal("Hello", value);
+    }
+
+    [Fact]
+    public async Task ThenSomeAsync_ValueTask_WhenFalse_ShouldReturnDefaultOption()
+    {
+        bool condition = false;
+        var result = await condition.ThenSomeAsync(new ValueTask<string>("Hello"));
+
+        Assert.False(result.IsSome(out var _));
+    }
 }
 
 #pragma warning restore CA1707 // Identifiers should not contain underscores

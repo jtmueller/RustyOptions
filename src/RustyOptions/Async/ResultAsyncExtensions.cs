@@ -74,7 +74,7 @@ public static class ResultAsyncExtensions
     {
         ThrowIfNull(mapper);
 
-        var res = await self.ConfigureAwait(false);
+        var res = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         if (res.IsOk(out var value))
         {
             var mapped = mapper(value);
@@ -101,7 +101,7 @@ public static class ResultAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(mapper);
 
-        var res = await self.ConfigureAwait(false);
+        var res = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         if (res.IsOk(out var value))
         {
             var mapped = mapper(value);
@@ -127,7 +127,7 @@ public static class ResultAsyncExtensions
     {
         ThrowIfNull(mapper);
 
-        var res = await self.ConfigureAwait(false);
+        var res = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         if (res.IsOk(out var value))
         {
             var mapped = await mapper(value).ConfigureAwait(false);
@@ -153,7 +153,7 @@ public static class ResultAsyncExtensions
     {
         ThrowIfNull(mapper);
 
-        var res = await self.ConfigureAwait(false);
+        var res = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         if (res.IsOk(out var value))
         {
             var mapped = await mapper(value).ConfigureAwait(false);
@@ -180,7 +180,7 @@ public static class ResultAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(mapper);
 
-        var res = await self.ConfigureAwait(false);
+        var res = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         if (res.IsOk(out var value))
         {
             var mapped = await mapper(value).ConfigureAwait(false);
@@ -207,7 +207,7 @@ public static class ResultAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(mapper);
 
-        var res = await self.ConfigureAwait(false);
+        var res = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         if (res.IsOk(out var value))
         {
             var mapped = await mapper(value).ConfigureAwait(false);
@@ -235,7 +235,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return result.Match(mapper, defaultFactory);
     }
 
@@ -257,7 +257,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return result.Match(mapper, defaultFactory);
     }
 
@@ -321,7 +321,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await result.Match(mapper, defaultFactory).ConfigureAwait(false);
     }
 
@@ -343,7 +343,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await result.Match(mapper, defaultFactory).ConfigureAwait(false);
     }
 
@@ -365,7 +365,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await result.Match(mapper, defaultFactory).ConfigureAwait(false);
     }
 
@@ -387,7 +387,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await result.Match(mapper, defaultFactory).ConfigureAwait(false);
     }
 
@@ -446,7 +446,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return result.Match(
             onOk: thenFunc,
             onErr: Result.Err<T2, TErr>
@@ -466,7 +466,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return result.Match(
             onOk: thenFunc,
             onErr: Result.Err<T2, TErr>
@@ -486,7 +486,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsOk(out var value))
         {
@@ -509,7 +509,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsOk(out var value))
         {
@@ -532,7 +532,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsOk(out var value))
         {
@@ -555,7 +555,7 @@ public static class ResultAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsOk(out var value))
         {
@@ -617,7 +617,7 @@ public static class ResultAsyncExtensions
     public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err?, Result<T, T2Err>> elseFunc)
         where T : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return result.Match(
             onOk: Result.Ok<T, T2Err>,
             onErr: elseFunc
@@ -636,7 +636,7 @@ public static class ResultAsyncExtensions
     public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err?, Result<T, T2Err>> elseFunc)
         where T : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return result.Match(
             onOk: Result.Ok<T, T2Err>,
             onErr: elseFunc
@@ -655,7 +655,7 @@ public static class ResultAsyncExtensions
     public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err?, ValueTask<Result<T, T2Err>>> elseFunc)
         where T : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsErr(out var err))
         {
@@ -677,7 +677,7 @@ public static class ResultAsyncExtensions
     public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this ValueTask<Result<T, T1Err>> self, Func<T1Err?, Task<Result<T, T2Err>>> elseFunc)
         where T : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsErr(out var err))
         {
@@ -699,7 +699,7 @@ public static class ResultAsyncExtensions
     public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err?, ValueTask<Result<T, T2Err>>> elseFunc)
         where T : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsErr(out var err))
         {
@@ -721,7 +721,7 @@ public static class ResultAsyncExtensions
     public static async ValueTask<Result<T, T2Err>> OrElseAsync<T, T1Err, T2Err>(this Task<Result<T, T1Err>> self, Func<T1Err?, Task<Result<T, T2Err>>> elseFunc)
         where T : notnull
     {
-        var result = await self.ConfigureAwait(false);
+        var result = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
 
         if (result.IsErr(out var err))
         {

@@ -71,7 +71,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(mapper);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? Some(mapper(value))
             : default;
@@ -94,7 +94,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(mapper);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? Some(mapper(value))
             : default;
@@ -116,7 +116,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(mapper);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? Some(await mapper(value).ConfigureAwait(false))
             : default;
@@ -139,7 +139,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(mapper);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? Some(await mapper(value).ConfigureAwait(false))
             : default;
@@ -161,7 +161,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(mapper);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? Some(await mapper(value).ConfigureAwait(false))
             : default;
@@ -184,7 +184,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(mapper);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? Some(await mapper(value).ConfigureAwait(false))
             : default;
@@ -239,7 +239,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.Match(mapper, defaultFactory);
     }
 
@@ -259,7 +259,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(self);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.Match(mapper, defaultFactory);
     }
 
@@ -277,7 +277,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
 
@@ -297,7 +297,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(self);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
 
@@ -315,7 +315,7 @@ public static class OptionAsyncExtensions
         where T1 : notnull
         where T2 : notnull
     {
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
 
@@ -335,7 +335,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(self);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return await opt.Match(mapper, defaultFactory);
     }
 
@@ -388,7 +388,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(thenFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value) ? thenFn(value) : default;
     }
 
@@ -407,7 +407,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(thenFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value) ? thenFn(value) : default;
     }
 
@@ -425,7 +425,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(thenFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value) ?
             await thenFn(value).ConfigureAwait(false) : default;
     }
@@ -444,7 +444,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(thenFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? await thenFn(value).ConfigureAwait(false) : default;
     }
@@ -464,7 +464,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(thenFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value) ?
             await thenFn(value).ConfigureAwait(false) : default;
     }
@@ -484,7 +484,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(thenFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsSome(out var value)
             ? await thenFn(value).ConfigureAwait(false) : default;
     }
@@ -532,7 +532,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(elseFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsNone ? elseFn() : opt;
     }
 
@@ -549,7 +549,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(elseFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsNone ? elseFn() : opt;
     }
 
@@ -565,7 +565,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(elseFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsNone
             ? await elseFn().ConfigureAwait(false)
             : opt;
@@ -584,7 +584,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(elseFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsNone
             ? await elseFn().ConfigureAwait(false)
             : opt;
@@ -602,7 +602,7 @@ public static class OptionAsyncExtensions
     {
         ThrowIfNull(elseFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsNone
             ? await elseFn().ConfigureAwait(false)
             : opt;
@@ -621,7 +621,7 @@ public static class OptionAsyncExtensions
         ThrowIfNull(self);
         ThrowIfNull(elseFn);
 
-        var opt = await self.ConfigureAwait(false);
+        var opt = self.IsCompleted ? self.Result : await self.ConfigureAwait(false);
         return opt.IsNone
             ? await elseFn().ConfigureAwait(false)
             : opt;
