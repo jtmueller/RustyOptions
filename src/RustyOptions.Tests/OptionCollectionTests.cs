@@ -248,7 +248,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanSelectWhere()
     {
-        var strings = new[] { "1", "two", "NaN", "four", "5", "six", "7", "eight", "9", "10" };
+        string[] strings = ["1", "two", "NaN", "four", "5", "six", "7", "eight", "9", "10"];
 
 #if NET7_0_OR_GREATER
         var ints = strings.SelectWhere(Option.Parse<int>);
@@ -256,13 +256,13 @@ public class OptionCollectionTests
         var ints = strings.SelectWhere(Option.Bind<string, int>(int.TryParse));
 #endif
 
-        Assert.Equal(new[] { 1, 5, 7, 9, 10 }, ints);
+        Assert.Equal([1, 5, 7, 9, 10], ints);
     }
 
     [Fact]
     public void CanPeekStack()
     {
-        var stack = new Stack<int>(new[] { 1, 2, 3, 4, 5 });
+        var stack = new Stack<int>([1, 2, 3, 4, 5]);
         var emptyStack = new Stack<int>();
 
         Assert.Equal(Some(5), stack.PeekOrNone());
@@ -272,7 +272,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanPopStack()
     {
-        var stack = new Stack<int>(new[] { 1, 2, 3, 4, 5 });
+        var stack = new Stack<int>([1, 2, 3, 4, 5]);
         var emptyStack = new Stack<int>();
 
         Assert.Equal(Some(5), stack.PopOrNone());
@@ -283,7 +283,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanPeekImmutableStack()
     {
-        var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
+        var stack = ImmutableStack.Create([1, 2, 3, 4, 5]);
         var emptyStack = ImmutableStack<int>.Empty;
 
         Assert.Equal(Some(5), stack.PeekOrNone());
@@ -293,7 +293,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanPopImmutableStack()
     {
-        var stack = ImmutableStack.Create(new[] { 1, 2, 3, 4, 5 });
+        var stack = ImmutableStack.Create([1, 2, 3, 4, 5]);
         var emptyStack = ImmutableStack<int>.Empty;
 
         stack = stack.PopOrNone(out var value);
@@ -306,7 +306,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanPeekQueue()
     {
-        var queue = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+        var queue = new Queue<int>([1, 2, 3, 4, 5]);
         var emptyQueue = new Queue<int>();
 
         Assert.Equal(Some(1), queue.PeekOrNone());
@@ -316,7 +316,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanDequeueQueue()
     {
-        var queue = new Queue<int>(new[] { 1, 2, 3, 4, 5 });
+        var queue = new Queue<int>([1, 2, 3, 4, 5]);
         var emptyQueue = new Queue<int>();
 
         Assert.Equal(Some(1), queue.DequeueOrNone());
@@ -327,7 +327,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanPeekPriorityQueue()
     {
-        var queue = new PriorityQueue<int, int>(new[] { (1, 3), (2, 2), (3, 1), (4, 1), (5, 0) });
+        var queue = new PriorityQueue<int, int>([(1, 3), (2, 2), (3, 1), (4, 1), (5, 0)]);
         var emptyQueue = new PriorityQueue<int, int>();
 
         Assert.Equal(Some((5, 0)), queue.PeekOrNone());
@@ -337,7 +337,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanDequeuePriorityQueue()
     {
-        var queue = new PriorityQueue<int, int>(new[] { (1, 3), (2, 2), (3, 1), (4, 1), (5, 0) });
+        var queue = new PriorityQueue<int, int>([(1, 3), (2, 2), (3, 1), (4, 1), (5, 0)]);
         var emptyQueue = new PriorityQueue<int, int>();
 
         Assert.Equal(Some((5, 0)), queue.DequeueOrNone());
@@ -348,7 +348,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanPeekImmutableQueue()
     {
-        var queue = ImmutableQueue.Create(new[] { 1, 2, 3, 4, 5 });
+        var queue = ImmutableQueue.Create([1, 2, 3, 4, 5]);
         var emptyQueue = ImmutableQueue<int>.Empty;
 
         Assert.Equal(Some(1), queue.PeekOrNone());
@@ -358,7 +358,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanDequeueImmutableQueue()
     {
-        var queue = ImmutableQueue.Create(new[] { 1, 2, 3, 4, 5 });
+        var queue = ImmutableQueue.Create([1, 2, 3, 4, 5]);
         var emptyQueue = ImmutableQueue<int>.Empty;
 
         queue = queue.DequeueOrNone(out var value);
@@ -371,7 +371,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetValueFromHashSet()
     {
-        var words = new[] { "zero", "one", "two", "three" };
+        string[] words = ["zero", "one", "two", "three"];
         var set = new HashSet<string>(words);
 
         var found = set.GetValueOrNone("two");
@@ -385,7 +385,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetValueFromSortedSet()
     {
-        var words = new[] { "zero", "one", "two", "three" };
+        string[] words = ["zero", "one", "two", "three"];
         var set = new SortedSet<string>(words);
 
         var found = set.GetValueOrNone("two");
@@ -399,7 +399,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetValueFromImmutableHashSet()
     {
-        var words = new[] { "zero", "one", "two", "three" };
+        string[] words = ["zero", "one", "two", "three"];
         var set = ImmutableHashSet.Create(words);
 
         var found = set.GetValueOrNone("two");
@@ -413,7 +413,7 @@ public class OptionCollectionTests
     [Fact]
     public void CanGetValueFromImmutableSortedSet()
     {
-        var words = new[] { "zero", "one", "two", "three" };
+        string[] words = ["zero", "one", "two", "three"];
         var set = ImmutableSortedSet.Create(words);
 
         var found = set.GetValueOrNone("two");
@@ -505,42 +505,34 @@ public class OptionCollectionTests
     /// Most collections that implement IReadOnlyList<T> also implement
     /// IList<T>. We need this for code coverage.
     /// </summary>
-    private sealed class ReadOnlyList<T> : IReadOnlyList<T>
+    private sealed class ReadOnlyList<T>(IList<T> inner) : IReadOnlyList<T>
     {
-        private readonly IList<T> _inner;
+        public T this[int index] => inner[index];
 
-        public ReadOnlyList(IList<T> inner) => _inner = inner;
+        public int Count => inner.Count;
 
-        public T this[int index] => _inner[index];
+        public IEnumerator<T> GetEnumerator() => inner.GetEnumerator();
 
-        public int Count => _inner.Count;
-
-        public IEnumerator<T> GetEnumerator() => _inner.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => _inner.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => inner.GetEnumerator();
     }
 
     /// <summary>
     /// Most dictionaries that implement IReadOnlyDictionary also implement IDictionary.
     /// This only implements IReadOnlyDictionary, for code coverage.
     /// </summary>
-    private sealed class ReadOnlyDictionary<TKey, TValue> : IReadOnlyDictionary<TKey, TValue>
+    private sealed class ReadOnlyDictionary<TKey, TValue>(IDictionary<TKey, TValue> dict) : IReadOnlyDictionary<TKey, TValue>
     {
-        private readonly IDictionary<TKey, TValue> _dict;
+        public TValue this[TKey key] => dict[key];
 
-        public ReadOnlyDictionary(IDictionary<TKey, TValue> dict) => _dict = dict;
+        public IEnumerable<TKey> Keys => dict.Keys;
+        public IEnumerable<TValue> Values => dict.Values;
+        public int Count => dict.Count;
 
-        public TValue this[TKey key] => _dict[key];
+        public bool ContainsKey(TKey key) => dict.ContainsKey(key);
 
-        public IEnumerable<TKey> Keys => _dict.Keys;
-        public IEnumerable<TValue> Values => _dict.Values;
-        public int Count => _dict.Count;
+        public bool TryGetValue(TKey key, [MaybeNullWhen(false)] out TValue value) => dict.TryGetValue(key, out value);
 
-        public bool ContainsKey(TKey key) => _dict.ContainsKey(key);
-
-        public bool TryGetValue(TKey key, [MaybeNullWhen(false)] out TValue value) => _dict.TryGetValue(key, out value);
-
-        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => _dict.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => _dict.GetEnumerator();
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => dict.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => dict.GetEnumerator();
     }
 }

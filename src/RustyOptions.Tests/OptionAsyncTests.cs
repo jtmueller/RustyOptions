@@ -111,7 +111,7 @@ public sealed class OptionAsyncTests
         }
     }
 
-    public static IEnumerable<object[]> GetMapAsyncValues()
+    public static TheoryData<object, object, Option<long>> GetMapAsyncValues()
     {
         var expected = Some(84L);
         var expectedNone = None<long>();
@@ -126,23 +126,26 @@ public sealed class OptionAsyncTests
         var taskMapper = (int x) => Task.FromResult((long)(x * 2));
         var valTaskMapper = (int x) => ValueTask.FromResult((long)(x * 2));
 
-        yield return new object[] { source, taskMapper, expected };
-        yield return new object[] { source, valTaskMapper, expected };
-        yield return new object[] { taskSrc, mapper, expected };
-        yield return new object[] { valTaskSrc, mapper, expected };
-        yield return new object[] { taskSrc, taskMapper, expected };
-        yield return new object[] { valTaskSrc, taskMapper, expected };
-        yield return new object[] { taskSrc, valTaskMapper, expected };
-        yield return new object[] { valTaskSrc, valTaskMapper, expected };
+        return new()
+        {
+            { source, taskMapper, expected },
+            { source, valTaskMapper, expected },
+            { taskSrc, mapper, expected },
+            { valTaskSrc, mapper, expected },
+            { taskSrc, taskMapper, expected },
+            { valTaskSrc, taskMapper, expected },
+            { taskSrc, valTaskMapper, expected },
+            { valTaskSrc, valTaskMapper, expected },
 
-        yield return new object[] { sourceNone, taskMapper, expectedNone };
-        yield return new object[] { sourceNone, valTaskMapper, expectedNone };
-        yield return new object[] { taskSrcNone, mapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, mapper, expectedNone };
-        yield return new object[] { taskSrcNone, taskMapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, taskMapper, expectedNone };
-        yield return new object[] { taskSrcNone, valTaskMapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, valTaskMapper, expectedNone };
+            { sourceNone, taskMapper, expectedNone },
+            { sourceNone, valTaskMapper, expectedNone },
+            { taskSrcNone, mapper, expectedNone },
+            { valTaskSrcNone, mapper, expectedNone },
+            { taskSrcNone, taskMapper, expectedNone },
+            { valTaskSrcNone, taskMapper, expectedNone },
+            { taskSrcNone, valTaskMapper, expectedNone },
+            { valTaskSrcNone, valTaskMapper, expectedNone },
+        };
     }
 
     [Theory]
@@ -189,7 +192,7 @@ public sealed class OptionAsyncTests
         }
     }
 
-    public static IEnumerable<object[]> GetMapOrElseAsyncValues()
+    public static TheoryData<object, object, object, long> GetMapOrElseAsyncValues()
     {
         var defaultFactory = () => -1L;
         var taskDefault = () => Task.FromResult(-1L);
@@ -209,23 +212,26 @@ public sealed class OptionAsyncTests
         var taskMapper = (int x) => Task.FromResult((long)(x * 2));
         var valTaskMapper = (int x) => ValueTask.FromResult((long)(x * 2));
 
-        yield return new object[] { source, taskMapper, taskDefault, expected };
-        yield return new object[] { source, valTaskMapper, valueTaskDefault, expected };
-        yield return new object[] { taskSrc, mapper, defaultFactory, expected };
-        yield return new object[] { valTaskSrc, mapper, defaultFactory, expected };
-        yield return new object[] { taskSrc, taskMapper, taskDefault, expected };
-        yield return new object[] { valTaskSrc, taskMapper, taskDefault, expected };
-        yield return new object[] { taskSrc, valTaskMapper, valueTaskDefault, expected };
-        yield return new object[] { valTaskSrc, valTaskMapper, valueTaskDefault, expected };
+        return new()
+        {
+            { source, taskMapper, taskDefault, expected },
+            { source, valTaskMapper, valueTaskDefault, expected },
+            { taskSrc, mapper, defaultFactory, expected },
+            { valTaskSrc, mapper, defaultFactory, expected },
+            { taskSrc, taskMapper, taskDefault, expected },
+            { valTaskSrc, taskMapper, taskDefault, expected },
+            { taskSrc, valTaskMapper, valueTaskDefault, expected },
+            { valTaskSrc, valTaskMapper, valueTaskDefault, expected },
 
-        yield return new object[] { sourceNone, taskMapper, taskDefault, expectedNone };
-        yield return new object[] { sourceNone, valTaskMapper, valueTaskDefault, expectedNone };
-        yield return new object[] { taskSrcNone, mapper, defaultFactory, expectedNone };
-        yield return new object[] { valTaskSrcNone, mapper, defaultFactory, expectedNone };
-        yield return new object[] { taskSrcNone, taskMapper, taskDefault, expectedNone };
-        yield return new object[] { valTaskSrcNone, taskMapper, taskDefault, expectedNone };
-        yield return new object[] { taskSrcNone, valTaskMapper, valueTaskDefault, expectedNone };
-        yield return new object[] { valTaskSrcNone, valTaskMapper, valueTaskDefault, expectedNone };
+            { sourceNone, taskMapper, taskDefault, expectedNone },
+            { sourceNone, valTaskMapper, valueTaskDefault, expectedNone },
+            { taskSrcNone, mapper, defaultFactory, expectedNone },
+            { valTaskSrcNone, mapper, defaultFactory, expectedNone },
+            { taskSrcNone, taskMapper, taskDefault, expectedNone },
+            { valTaskSrcNone, taskMapper, taskDefault, expectedNone },
+            { taskSrcNone, valTaskMapper, valueTaskDefault, expectedNone },
+            { valTaskSrcNone, valTaskMapper, valueTaskDefault, expectedNone },
+        };
     }
 
     [Theory]
@@ -272,7 +278,7 @@ public sealed class OptionAsyncTests
         }
     }
 
-    public static IEnumerable<object[]> GetAndThenAsyncValues()
+    public static TheoryData<object, object, Option<long>> GetAndThenAsyncValues()
     {
         var expected = Some(84L);
         var expectedNone = None<long>();
@@ -287,23 +293,26 @@ public sealed class OptionAsyncTests
         var taskMapper = (int x) => Task.FromResult(Some((long)(x * 2)));
         var valTaskMapper = (int x) => ValueTask.FromResult(Some((long)(x * 2)));
 
-        yield return new object[] { source, taskMapper, expected };
-        yield return new object[] { source, valTaskMapper, expected };
-        yield return new object[] { taskSrc, mapper, expected };
-        yield return new object[] { valTaskSrc, mapper, expected };
-        yield return new object[] { taskSrc, taskMapper, expected };
-        yield return new object[] { valTaskSrc, taskMapper, expected };
-        yield return new object[] { taskSrc, valTaskMapper, expected };
-        yield return new object[] { valTaskSrc, valTaskMapper, expected };
+        return new()
+        {
+            { source, taskMapper, expected },
+            { source, valTaskMapper, expected },
+            { taskSrc, mapper, expected },
+            { valTaskSrc, mapper, expected },
+            { taskSrc, taskMapper, expected },
+            { valTaskSrc, taskMapper, expected },
+            { taskSrc, valTaskMapper, expected },
+            { valTaskSrc, valTaskMapper, expected },
 
-        yield return new object[] { sourceNone, taskMapper, expectedNone };
-        yield return new object[] { sourceNone, valTaskMapper, expectedNone };
-        yield return new object[] { taskSrcNone, mapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, mapper, expectedNone };
-        yield return new object[] { taskSrcNone, taskMapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, taskMapper, expectedNone };
-        yield return new object[] { taskSrcNone, valTaskMapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, valTaskMapper, expectedNone };
+            { sourceNone, taskMapper, expectedNone },
+            { sourceNone, valTaskMapper, expectedNone },
+            { taskSrcNone, mapper, expectedNone },
+            { valTaskSrcNone, mapper, expectedNone },
+            { taskSrcNone, taskMapper, expectedNone },
+            { valTaskSrcNone, taskMapper, expectedNone },
+            { taskSrcNone, valTaskMapper, expectedNone },
+            { valTaskSrcNone, valTaskMapper, expectedNone },
+        };
     }
 
     [Theory]
@@ -350,7 +359,7 @@ public sealed class OptionAsyncTests
         }
     }
 
-    public static IEnumerable<object[]> GetOrElseAsyncValues()
+    public static TheoryData<object, object, Option<int>> GetOrElseAsyncValues()
     {
         var expected = Some(42);
         var expectedNone = Some(-1);
@@ -365,23 +374,26 @@ public sealed class OptionAsyncTests
         var taskMapper = () => Task.FromResult(Some(-1));
         var valTaskMapper = () => ValueTask.FromResult(Some(-1));
 
-        yield return new object[] { source, taskMapper, expected };
-        yield return new object[] { source, valTaskMapper, expected };
-        yield return new object[] { taskSrc, mapper, expected };
-        yield return new object[] { valTaskSrc, mapper, expected };
-        yield return new object[] { taskSrc, taskMapper, expected };
-        yield return new object[] { valTaskSrc, taskMapper, expected };
-        yield return new object[] { taskSrc, valTaskMapper, expected };
-        yield return new object[] { valTaskSrc, valTaskMapper, expected };
+        return new()
+        {
+            { source, taskMapper, expected },
+            { source, valTaskMapper, expected },
+            { taskSrc, mapper, expected },
+            { valTaskSrc, mapper, expected },
+            { taskSrc, taskMapper, expected },
+            { valTaskSrc, taskMapper, expected },
+            { taskSrc, valTaskMapper, expected },
+            { valTaskSrc, valTaskMapper, expected },
 
-        yield return new object[] { sourceNone, taskMapper, expectedNone };
-        yield return new object[] { sourceNone, valTaskMapper, expectedNone };
-        yield return new object[] { taskSrcNone, mapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, mapper, expectedNone };
-        yield return new object[] { taskSrcNone, taskMapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, taskMapper, expectedNone };
-        yield return new object[] { taskSrcNone, valTaskMapper, expectedNone };
-        yield return new object[] { valTaskSrcNone, valTaskMapper, expectedNone };
+            { sourceNone, taskMapper, expectedNone },
+            { sourceNone, valTaskMapper, expectedNone },
+            { taskSrcNone, mapper, expectedNone },
+            { valTaskSrcNone, mapper, expectedNone },
+            { taskSrcNone, taskMapper, expectedNone },
+            { valTaskSrcNone, taskMapper, expectedNone },
+            { taskSrcNone, valTaskMapper, expectedNone },
+            { valTaskSrcNone, valTaskMapper, expectedNone },
+        };
     }
 
 
