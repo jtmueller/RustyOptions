@@ -5,6 +5,12 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
+// TODO: Breaking change - JSON representation of Result should be compatible with
+// the following TypeScript discriminated union:
+// type Result<T, TErr> = { ok: true; value: T } | { ok: false; error: TErr };
+// TODO: Bump major version when this is implemented.
+// TODO: Update README when this is implemented.
+
 /// <summary>
 /// Supports <see cref="Result{T, TErr}"/> in System.Text.Json serialization.
 /// </summary>
