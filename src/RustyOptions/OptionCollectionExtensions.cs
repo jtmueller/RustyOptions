@@ -646,7 +646,8 @@ public static class OptionCollectionExtensions
     public static Option<T> SingleOrNone<T>(this List<T> self)
         where T : notnull
     {
-        var span = self is null ? [] : CollectionsMarshal.AsSpan(self);
+        if (self is null) return default;
+        var span = CollectionsMarshal.AsSpan(self);
         return span.Length == 1
             ? Option.Some(span[0])
             : default;
@@ -752,7 +753,8 @@ public static class OptionCollectionExtensions
     public static Option<T> SingleOrNone<T>(this List<T> self, Func<T, bool> predicate)
         where T : notnull
     {
-        var span = self is null ? [] : CollectionsMarshal.AsSpan(self);
+        if (self is null) return default;
+        var span = CollectionsMarshal.AsSpan(self);
         return SingleOrNone((ReadOnlySpan<T>)span, predicate);
     }
 
@@ -880,7 +882,8 @@ public static class OptionCollectionExtensions
     public static Option<T> ElementAtOrNone<T>(this List<T> self, int index)
         where T : notnull
     {
-        var span = self is null ? [] : CollectionsMarshal.AsSpan(self);
+        if (self is null) return default;
+        var span = CollectionsMarshal.AsSpan(self);
         return ElementAtOrNone((ReadOnlySpan<T>)span, index);
     }
 
