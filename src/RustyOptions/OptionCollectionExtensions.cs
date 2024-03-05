@@ -6,8 +6,8 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: Collection-specific overloads for IEnumerable methods (SingleOrNone, ElementAtOrNone remain)
 // TODO: Performance tests to validate optimizations in this branch.
+// TODO: test coverage
 // TODO: Update README with performance notes.
 
 /// <summary>
@@ -584,20 +584,13 @@ public static class OptionCollectionExtensions
     public static Option<T> SingleOrNone<T>(this IEnumerable<T> self)
         where T : notnull
     {
-        ThrowIfNull(self);
-
         if (self is T[] array)
         {
-            return array.Length == 1
-                ? Option.Some(array[0])
-                : default;
+            return SingleOrNone(array);
         }
         else if (self is List<T> list)
         {
-            var span = CollectionsMarshal.AsSpan(list);
-            return span.Length == 1
-                ? Option.Some(span[0])
-                : default;
+            return SingleOrNone(list);
         }
         else if (self is IList<T> ilist)
         {
@@ -613,6 +606,8 @@ public static class OptionCollectionExtensions
         }
         else
         {
+            ThrowIfNull(self);
+
             using var enumerator = self.GetEnumerator();
             if (!enumerator.MoveNext())
             {
@@ -630,6 +625,61 @@ public static class OptionCollectionExtensions
     }
 
     /// <summary>
+    /// Returns a single element from a sequence, if it exists 
+    /// and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> SingleOrNone<T>(this T[] self)
+        where T : notnull
+    {
+        return SingleOrNone((ReadOnlySpan<T>)self);
+    }
+
+    /// <summary>
+    /// Returns a single element from a sequence, if it exists 
+    /// and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    public static Option<T> SingleOrNone<T>(this List<T> self)
+        where T : notnull
+    {
+        var span = self is null ? [] : CollectionsMarshal.AsSpan(self);
+        return span.Length == 1
+            ? Option.Some(span[0])
+            : default;
+    }
+
+    /// <summary>
+    /// Returns a single element from a sequence, if it exists 
+    /// and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> SingleOrNone<T>(this Span<T> self)
+        where T : notnull
+    {
+        return SingleOrNone((ReadOnlySpan<T>)self);
+    }
+
+    /// <summary>
+    /// Returns a single element from a sequence, if it exists 
+    /// and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    public static Option<T> SingleOrNone<T>(this ReadOnlySpan<T> self)
+        where T : notnull
+    {
+        return self.Length == 1
+            ? Option.Some(self[0])
+            : default;
+    }
+
+    /// <summary>
     /// Returns a single element from a sequence, satisfying a specified predicate, 
     /// if it exists and is the only element in the sequence.
     /// </summary>
@@ -640,11 +690,21 @@ public static class OptionCollectionExtensions
     public static Option<T> SingleOrNone<T>(this IEnumerable<T> self, Func<T, bool> predicate)
         where T : notnull
     {
-        ThrowIfNull(self);
-        ThrowIfNull(predicate);
-
-        using (var enumerator = self.GetEnumerator())
+        if (self is T[] array)
         {
+            return SingleOrNone(array, predicate);
+        }
+        else if (self is List<T> list)
+        {
+            return SingleOrNone(list, predicate);
+        }
+        else
+        {
+
+            ThrowIfNull(self);
+            ThrowIfNull(predicate);
+
+            using var enumerator = self.GetEnumerator();
             while (enumerator.MoveNext())
             {
                 var result = enumerator.Current;
@@ -667,6 +727,84 @@ public static class OptionCollectionExtensions
     }
 
     /// <summary>
+    /// Returns a single element from a sequence, satisfying a specified predicate, 
+    /// if it exists and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="predicate">The predicate to filter by.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="predicate"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> SingleOrNone<T>(this T[] self, Func<T, bool> predicate)
+        where T : notnull
+    {
+        return SingleOrNone((ReadOnlySpan<T>)self, predicate);
+    }
+
+    /// <summary>
+    /// Returns a single element from a sequence, satisfying a specified predicate, 
+    /// if it exists and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="predicate">The predicate to filter by.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="predicate"/> is null.</exception>
+    public static Option<T> SingleOrNone<T>(this List<T> self, Func<T, bool> predicate)
+        where T : notnull
+    {
+        var span = self is null ? [] : CollectionsMarshal.AsSpan(self);
+        return SingleOrNone((ReadOnlySpan<T>)span, predicate);
+    }
+
+    /// <summary>
+    /// Returns a single element from a sequence, satisfying a specified predicate, 
+    /// if it exists and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="predicate">The predicate to filter by.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="predicate"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> SingleOrNone<T>(this Span<T> self, Func<T, bool> predicate)
+        where T : notnull
+    {
+        return SingleOrNone((ReadOnlySpan<T>)self, predicate);
+    }
+
+    /// <summary>
+    /// Returns a single element from a sequence, satisfying a specified predicate, 
+    /// if it exists and is the only element in the sequence.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="predicate">The predicate to filter by.</param>
+    /// <returns>An <see cref="Option{T}"/> instance containing the element if present.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="predicate"/> is null.</exception>
+    public static Option<T> SingleOrNone<T>(this ReadOnlySpan<T> self, Func<T, bool> predicate)
+        where T : notnull
+    {
+        ThrowIfNull(predicate);
+
+        for (int i = 0; i < self.Length; i++)
+        {
+            var result = self[i];
+            if (predicate(result))
+            {
+                for (int j = i + 1; j < self.Length; j++)
+                {
+                    if (predicate(self[j]))
+                    {
+                        return default;
+                    }
+                }
+
+                return Option.Some(result);
+            }
+        }
+
+        return default;
+    }
+
+    /// <summary>
     /// Returns an element at a specified position in a sequence if such exists.
     /// </summary>
     /// <param name="self">The sequence to return the element from.</param>
@@ -676,37 +814,32 @@ public static class OptionCollectionExtensions
     public static Option<T> ElementAtOrNone<T>(this IEnumerable<T> self, int index)
         where T : notnull
     {
-        ThrowIfNull(self);
-
         if (index >= 0)
         {
             if (self is T[] array)
             {
-                return index < array.Length
-                    ? Option.Some(array[index])
-                    : default;
+                return ElementAtOrNone(array, index);
             }
             else if (self is List<T> list)
             {
-                var span = CollectionsMarshal.AsSpan(list);
-                return index < span.Length
-                    ? Option.Some(span[index])
-                    : default;
+                return ElementAtOrNone(list, index);
             }
             else if (self is IList<T> ilist)
             {
-                return index < ilist.Count
+                return (uint)index < (uint)ilist.Count
                     ? Option.Some(ilist[index])
                     : default;
             }
             else if (self is IReadOnlyList<T> readOnlyList)
             {
-                return index < readOnlyList.Count
+                return (uint)index < (uint)readOnlyList.Count
                     ? Option.Some(readOnlyList[index])
                     : default;
             }
             else
             {
+                ThrowIfNull(self);
+
                 using var enumerator = self.GetEnumerator();
                 while (enumerator.MoveNext())
                 {
@@ -721,6 +854,62 @@ public static class OptionCollectionExtensions
         }
 
         return default;
+    }
+
+    /// <summary>
+    /// Returns an element at a specified position in a sequence if such exists.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="index">The index in the sequence.</param>
+    /// <returns>An Option&lt;T&gt; instance containing the element if found.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> ElementAtOrNone<T>(this T[] self, int index)
+        where T : notnull
+    {
+        return ElementAtOrNone((ReadOnlySpan<T>)self, index);
+    }
+
+    /// <summary>
+    /// Returns an element at a specified position in a sequence if such exists.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="index">The index in the sequence.</param>
+    /// <returns>An Option&lt;T&gt; instance containing the element if found.</returns>
+    /// <exception cref="System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
+    public static Option<T> ElementAtOrNone<T>(this List<T> self, int index)
+        where T : notnull
+    {
+        var span = self is null ? [] : CollectionsMarshal.AsSpan(self);
+        return ElementAtOrNone((ReadOnlySpan<T>)span, index);
+    }
+
+    /// <summary>
+    /// Returns an element at a specified position in a sequence if such exists.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="index">The index in the sequence.</param>
+    /// <returns>An Option&lt;T&gt; instance containing the element if found.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> ElementAtOrNone<T>(this Span<T> self, int index)
+        where T : notnull
+    {
+        return ElementAtOrNone((ReadOnlySpan<T>)self, index);
+    }
+
+    /// <summary>
+    /// Returns an element at a specified position in a sequence if such exists.
+    /// </summary>
+    /// <param name="self">The sequence to return the element from.</param>
+    /// <param name="index">The index in the sequence.</param>
+    /// <returns>An Option&lt;T&gt; instance containing the element if found.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Option<T> ElementAtOrNone<T>(this ReadOnlySpan<T> self, int index)
+        where T : notnull
+    {
+        return (uint)index < (uint)self.Length
+            ? Option.Some(self[index])
+            : default;
     }
 
     /// <summary>
