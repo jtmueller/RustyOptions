@@ -8,6 +8,11 @@ public class JsonSerializationTests
     private const string DtoString = "2019-09-07T15:50:00-04:00";
     private static readonly DateTimeOffset DtoParsed = DateTimeOffset.Parse("2019-09-07T15:50:00-04:00", CultureInfo.InvariantCulture);
     private static readonly JsonSerializerOptions JsonOpts = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+    private static readonly JsonSerializerOptions JsonOptsWithCompat = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        Converters = { new ResultJsonConverterCompat() }
+    };
 
     [Fact]
     public void CanParseOptionsAllSome()
@@ -170,6 +175,26 @@ public class JsonSerializationTests
     }
 
     [Fact]
+    public void CanParseResultOkCompat()
+    {
+        var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultOkCompat, JsonOptsWithCompat);
+
+        Assert.NotNull(parsed);
+        Assert.Equal(42, parsed.Foo);
+        Assert.Equal(Result.Ok(75), parsed.CurrentCount);
+    }
+
+    [Fact]
+    public void CanParseResultErrCompat()
+    {
+        var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultErrCompat, JsonOptsWithCompat);
+
+        Assert.NotNull(parsed);
+        Assert.Equal(42, parsed.Foo);
+        Assert.Equal(Result.Err<int>("not found!"), parsed.CurrentCount);
+    }
+
+    [Fact]
     public void CanParseResultMissing()
     {
         var parsed = JsonSerializer.Deserialize<ClassWithResult>(ResultMissing, JsonOpts);
@@ -262,6 +287,34 @@ public class JsonSerializationTests
         Assert.Equal(err, desErr);
     }
 
+    [Fact]
+    public void CanSerializeUnitResultCompat()
+    {
+        var ok = Result.Ok(Unit.Default);
+        var err = Result.Err<Unit>("oops");
+
+        var serOk = JsonSerializer.Serialize(ok, JsonOptsWithCompat);
+        var serErr = JsonSerializer.Serialize(err, JsonOptsWithCompat);
+
+        Assert.Equal("""{"ok":null}""", serOk);
+        Assert.Equal("""{"err":"oops"}""", serErr);
+    }
+
+    [Fact]
+    public void CanDeserializeUnitResultCompat()
+    {
+        var ok = Result.Ok(Unit.Default);
+        var err = Result.Err<Unit>("oops");
+
+        var desOk = JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":null}""", JsonOptsWithCompat);
+        var desErr = JsonSerializer.Deserialize<Result<Unit, string>>("""{"err":"oops"}""", JsonOptsWithCompat);
+
+        _ = Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":1}""", JsonOptsWithCompat));
+
+        Assert.Equal(ok, desOk);
+        Assert.Equal(err, desErr);
+    }
+
     private const string OptionsAllSome = $$"""
         {"foo":42,"bar":17,"name":"Frank","lastUpdated":"{{DtoString}}"}
         """;
@@ -294,6 +347,13 @@ public class JsonSerializationTests
         {"foo":42,"currentCount":{"ok":false,"error":"not found!"}}
         """;
 
+    private const string ResultOkCompat = """
+        {"foo":42,"currentCount":{"ok":75}}
+        """;
+
+    private const string ResultErrCompat = """
+        {"foo":42,"currentCount":{"err":"not found!"}}
+        """;
     private const string ResultMissing = """
         { "foo": 42 }
         """;

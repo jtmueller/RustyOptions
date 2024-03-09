@@ -6,11 +6,11 @@ using static System.ArgumentNullException;
 namespace RustyOptions;
 
 /// <summary>
-/// Supports <see cref="Result{T, TErr}"/> in System.Text.Json serialization. 
-/// Produces JSON compatible with TypeScript type:
+/// This is a backwards-compatibility class for serialization of <see cref="Result{T, TErr}"/> in System.Text.Json. 
+/// Produces/consumes JSON compatible with TypeScript type:
 /// <code>type Result&lt;T, TErr&gt;{ ok: T } | { err: TErr }</code>
 /// </summary>
-internal sealed class ResultJsonConverterCompat : JsonConverterFactory
+public sealed class ResultJsonConverterCompat : JsonConverterFactory
 {
     /// <inheritdoc/>
     public override bool CanConvert(Type typeToConvert)

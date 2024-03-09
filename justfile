@@ -13,8 +13,8 @@ pack:
   dotnet pack -c Release src/
 
 # Run tests in .NET 8.0
-test:
-  dotnet test -f net8.0 src/
+test *FLAGS:
+  dotnet test -f net8.0 {{FLAGS}} src/
 
 # Clean build artifacts
 clean:

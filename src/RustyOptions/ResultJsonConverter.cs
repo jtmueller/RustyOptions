@@ -5,11 +5,6 @@ using static System.ArgumentNullException;
 
 namespace RustyOptions;
 
-// TODO: Breaking change - JSON representation of Result should be compatible with
-// the following TypeScript discriminated union:
-// type Result<T, TErr> = { ok: true; value: T } | { ok: false; error: TErr };
-// TODO: keep current converter under different name for backwards compatibility.
-// TODO: Bump major version when this is implemented.
 // TODO: Update README when this is implemented, including docs for backwards compat mode.
 
 /// <summary>
