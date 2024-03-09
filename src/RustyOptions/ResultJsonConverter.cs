@@ -8,11 +8,16 @@ namespace RustyOptions;
 // TODO: Breaking change - JSON representation of Result should be compatible with
 // the following TypeScript discriminated union:
 // type Result<T, TErr> = { ok: true; value: T } | { ok: false; error: TErr };
+// TODO: keep current converter under different name for backwards compatibility.
 // TODO: Bump major version when this is implemented.
-// TODO: Update README when this is implemented.
+// TODO: Update README when this is implemented, including docs for backwards compat mode.
 
 /// <summary>
 /// Supports <see cref="Result{T, TErr}"/> in System.Text.Json serialization.
+/// Produces JSON compatible with TypeScript discriminated union:
+/// <code>
+/// type Result&lt;T, TErr&gt; = { ok: true; value: T } | { ok: false; error: TErr };
+/// </code>
 /// </summary>
 internal sealed class ResultJsonConverter : JsonConverterFactory
 {
@@ -79,15 +84,62 @@ internal sealed class ResultJsonConverter : JsonConverterFactory
 
             if (reader.ValueSpan.SequenceEqual("ok"u8) && reader.Read())
             {
-                output = Result.Ok<T, TErr>(_valueConverter.Read(ref reader, _valueType, options)!);
+                if (reader.TokenType == JsonTokenType.True)
+                {
+                    if (reader.Read() && reader.TokenType == JsonTokenType.PropertyName && reader.ValueSpan.SequenceEqual("value"u8) && reader.Read())
+                    {
+                        output = Result.Ok<T, TErr>(_valueConverter.Read(ref reader, _valueType, options)!);
+                    }
+                    else
+                    {
+                        throw new JsonException($"Unable to read 'value' property when ok is true: '{reader.GetString()}'");
+                    }
+                }
+                else if (reader.TokenType == JsonTokenType.False)
+                {
+                    if (reader.Read() && reader.TokenType == JsonTokenType.PropertyName && reader.ValueSpan.SequenceEqual("error"u8) && reader.Read())
+                    {
+                        output = Result.Err<T, TErr>(_errConverter.Read(ref reader, _errType, options)!);
+                    }
+                    else
+                    {
+                        throw new JsonException($"Unable to read 'error' property when ok is false: '{reader.GetString()}'");
+                    }
+                }
+                else
+                {
+                    throw new JsonException($"Unable to read 'ok' property: '{reader.GetString()}'");
+                }
             }
-            else if (reader.ValueSpan.SequenceEqual("err"u8) && reader.Read())
+            else if (reader.ValueSpan.SequenceEqual("value"u8) && reader.Read())
             {
-                output = Result.Err<T, TErr>(_errConverter.Read(ref reader, _errType, options)!);
+                var value = _valueConverter.Read(ref reader, _valueType, options);
+
+                if (reader.Read() && reader.TokenType == JsonTokenType.PropertyName && reader.ValueSpan.SequenceEqual("ok"u8) && reader.Read() && reader.TokenType == JsonTokenType.True)
+                {
+                    output = Result.Ok<T, TErr>(value!);
+                }
+                else
+                {
+                    throw new JsonException($"Unable to find 'ok' property with a true value when value is present: '{reader.GetString()}'");
+                }
+            }
+            else if (reader.ValueSpan.SequenceEqual("error"u8) && reader.Read())
+            {
+                var err = _errConverter.Read(ref reader, _errType, options);
+
+                if (reader.Read() && reader.TokenType == JsonTokenType.PropertyName && reader.ValueSpan.SequenceEqual("ok"u8) && reader.Read() && reader.TokenType == JsonTokenType.False)
+                {
+                    output = Result.Err<T, TErr>(err!);
+                }
+                else
+                {
+                    throw new JsonException($"Unable to find 'ok' property with a false value when error is present: '{reader.GetString()}'");
+                }
             }
             else
             {
-                throw new NotSupportedException($"Unable to read property: '{reader.GetString()}'");
+                throw new JsonException($"Unable to read property: '{reader.GetString()}'");
             }
 
             if (!reader.Read() || reader.TokenType != JsonTokenType.EndObject)
@@ -103,11 +155,15 @@ internal sealed class ResultJsonConverter : JsonConverterFactory
             if (value.IsOk(out var val))
             {
                 writer.WritePropertyName("ok"u8);
+                writer.WriteBooleanValue(true);
+                writer.WritePropertyName("value"u8);
                 _valueConverter.Write(writer, val, options);
             }
             else
             {
-                writer.WritePropertyName("err"u8);
+                writer.WritePropertyName("ok"u8);
+                writer.WriteBooleanValue(false);
+                writer.WritePropertyName("error"u8);
                 _errConverter.Write(writer, value.UnwrapErr(), options);
             }
 

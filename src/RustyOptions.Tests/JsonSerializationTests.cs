@@ -50,7 +50,7 @@ public class JsonSerializationTests
     {
         var sut = new ClassWithOptions
         {
-            Foo =  42,
+            Foo = 42,
             Bar = Option.Some(17),
             Name = Option.Some("Frank"),
             LastUpdated = Option.Some(DtoParsed)
@@ -243,8 +243,8 @@ public class JsonSerializationTests
         var serOk = JsonSerializer.Serialize(ok);
         var serErr = JsonSerializer.Serialize(err);
 
-        Assert.Equal("""{"ok":null}""", serOk);
-        Assert.Equal("""{"err":"oops"}""", serErr);
+        Assert.Equal("""{"ok":true,"value":null}""", serOk);
+        Assert.Equal("""{"ok":false,"error":"oops"}""", serErr);
     }
 
     [Fact]
@@ -253,10 +253,10 @@ public class JsonSerializationTests
         var ok = Result.Ok(Unit.Default);
         var err = Result.Err<Unit>("oops");
 
-        var desOk = JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":null}""");
-        var desErr = JsonSerializer.Deserialize<Result<Unit, string>>("""{"err":"oops"}""");
+        var desOk = JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":true,"value":null}""");
+        var desErr = JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":false,"error":"oops"}""");
 
-        _ = Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":1}"""));
+        _ = Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<Result<Unit, string>>("""{"ok":true,"value":1}"""));
 
         Assert.Equal(ok, desOk);
         Assert.Equal(err, desErr);
@@ -287,11 +287,11 @@ public class JsonSerializationTests
         """;
 
     private const string ResultOk = """
-        {"foo":42,"currentCount":{"ok":75}}
+        {"foo":42,"currentCount":{"ok":true,"value":75}}
         """;
 
     private const string ResultErr = """
-        {"foo":42,"currentCount":{"err":"not found!"}}
+        {"foo":42,"currentCount":{"ok":false,"error":"not found!"}}
         """;
 
     private const string ResultMissing = """
