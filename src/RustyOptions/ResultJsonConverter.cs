@@ -32,11 +32,8 @@ internal sealed class ResultJsonConverter : JsonConverterFactory
         ThrowIfNull(options);
 
         var genericArgs = typeToConvert.GetGenericArguments();
-        Type valueType = genericArgs[0];
-        Type errType = genericArgs[1];
-
         var converter = Activator.CreateInstance(
-            typeof(ResultJsonConverterInner<,>).MakeGenericType([valueType, errType]),
+            typeof(ResultJsonConverterInner<,>).MakeGenericType(genericArgs),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
             args: [options],
@@ -54,7 +51,7 @@ internal sealed class ResultJsonConverter : JsonConverterFactory
         private readonly Type _valueType;
         private readonly Type _errType;
 
-        public ResultJsonConverterInner(JsonSerializerOptions options)
+        public ResultJsonConverterInner(JsonSerializerOptions options) : base()
         {
             // Cache the types.
             _valueType = typeof(T);

@@ -28,11 +28,8 @@ public sealed class ResultJsonConverterCompat : JsonConverterFactory
         ThrowIfNull(options);
 
         var genericArgs = typeToConvert.GetGenericArguments();
-        Type valueType = genericArgs[0];
-        Type errType = genericArgs[1];
-
         var converter = Activator.CreateInstance(
-            typeof(ResultJsonConverterCompatInner<,>).MakeGenericType([valueType, errType]),
+            typeof(ResultJsonConverterCompatInner<,>).MakeGenericType(genericArgs),
             BindingFlags.Instance | BindingFlags.Public,
             binder: null,
             args: [options],
